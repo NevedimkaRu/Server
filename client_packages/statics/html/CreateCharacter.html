@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link href="../css/CreateCharacter.css" rel="stylesheet">
+</head>
+<body>
+	<div class="form">
+		<div class="row">
+			<div class="col-md-4" id="leftside">
+				<div class="razdel">
+					Персонаж
+				</div>
+				<div class="razdel">
+					Внешний вид
+				</div>
+				<div class="razdel">
+					Волосы и цвет
+				</div>
+				<div class="razdel">
+					Черты лица
+				</div>
+				<div class="razdel" id="exit">
+					Закрыть
+				</div>
+				
+			</div>
+			<div class="col-md-8" id="rightside">
+			<div class="slider">
+				Голова
+				<input type="range" class="ranger" id="firstHeadShape" min="0" max="20" value="0" step="1" oninput="updateFaceFeature()">
+			</div>
+			<div class="slider">
+				Глаза
+				<input type="range" class="ranger" id="secondHeadShape" min="0" max="20" value="0" step="1" oninput="updateFaceFeature()">
+			</div>
+			<div class="slider">
+				Нос
+				<input type="range" class="ranger" id="firstSkinTone" min="0" max="20" value="0" step="1" oninput="updateFaceFeature()">
+			</div>
+			<div class="slider">
+				Член
+				<input type="range" class="ranger" id="secondSkinTone" min="0" max="20" value="0" step="1" oninput="updateFaceFeature()">
+			</div>
+			<div class="slider">
+				Плечи
+				<input type="range" class="ranger" id="headMix" min="0" max="1" value="0" step="0.01" oninput="updateFaceFeature1()">
+			</div>
+			<div class="slider">
+				Руки
+				<input type="range" class="ranger" id="skinMix" min="0" max="1" value="0" step="0.01" oninput="updateFaceFeature1()">
+			</div>
+			<div class="slider">
+				Ноги
+				<input type="range" class="ranger" id="hairModel" min="0" max="20" value="0" step="1" oninput="updateFaceFeature()">
+			</div>
+			<div class="slider">
+				Пресс
+				<input type="range" class="ranger" id="firstHairColor" min="0" max="20" value="0" step="1" oninput="updateFaceFeature()">
+			</div>
+			<div class="slider">
+				Стопы
+				<input type="range" class="ranger" id="secondHairColor" min="0" max="20" value="0" step="1" oninput="updateFaceFeature()">
+			</div>
+			</div>
+		</div>
+	</div>
+</body>
+	
+<script src="../lib/jquery-3.1.1.min.js"></script>
+<script src="../js/CreateCharacter.js"></script>
+	
+</html>
+

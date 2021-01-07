@@ -1,0 +1,53 @@
+body{
+	background:none;
+	
+}
+
+.form{
+	background-color:rgba(110, 110, 110,0.8);
+	position:absolute;
+	width:500px;
+	height:300px;
+	border:1px solid black;
+	border-radius:10px;
+	padding:10px;
+	left:35%;
+	top:35%;
+	/*box-shadow: 0 0 10px rgba(256,0,0,0.5);*/
+
+}
+.formreg{
+	
+	display:none;
+}
+
+.row{
+	margin:10px 0 10px 0;
+}
+
+#inp{
+	flex-grow:1;
+}
+
+.innp{
+	padding:10px;
+	border-top:none;
+	border-left:none;
+	border-right:none;
+	border-bottom:1px solid rgba(256,0,0,0.5);
+}
+
+.btn{
+	padding:10px;
+	border:1px solid rgba(256,0,0,0.1);
+	border-radius:10px;
+	width:100px;
+}
+
+input button{
+	
+	padding:10px;
+	border:1px solid rgba(256,0,0,0.1);
+	border-radius:10px;
+	width:100px;	
+}

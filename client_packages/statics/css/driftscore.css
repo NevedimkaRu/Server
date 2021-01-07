@@ -1,0 +1,18 @@
+@font-face {
+  font-family: gtav;
+  src: url(../fonts/CHALETCOMPRIME-COLOGNESIXTYSC.woff);
+}
+
+#score{
+	position:absolute;
+	font-size:50px;
+	font-family: gtav;
+	top: 10%;
+	left: 50%;
+	margin-right: -50%;
+	
+}
+
+.driftcolor{
+	color:red;
+}

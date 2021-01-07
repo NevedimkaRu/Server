@@ -1,0 +1,199 @@
+Initializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 06.01.2021 22:16:53
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Drift resource..
+Drift: loading scripts.. found 1 script(s)
+Drift: instantiating Test..
+Drift: instantiating Drift.vehicle.Drift..
+Drift: instantiating Drift.vehicle.Vehicles..
+Drift: instantiating Drift.model.SkinModel..
+Drift: instantiating Drift.globals.EntityData..
+Drift: instantiating Drift.globals.Globals..
+Drift: instantiating Drift.character.Auth..
+Drift: instantiating Drift.character.Character..
+Drift: instantiating Drift.character.Customization..
+Drift: loading server events.. found 1 server event(s)
+Drift: loading server events.. found 1 server event(s)
+Drift: loaded 2 server events(s)
+Drift: loading commands.. found 10 command(s)
+Drift: loading commands.. found 1 command(s)
+Drift: loaded 11 commands(s)
+Drift: loading remote events.. found 1 remote event(s)
+Drift: loading remote events.. found 2 remote event(s)
+Drift: loading remote events.. found 2 remote event(s)
+Drift: loaded 5 remote event(s)
+-> Resource Drift started!
+Started! Waiting for connections..
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
+   at new Microsoft.Extensions.Configuration.ConfigurationRoot(IList<IConfigurationProvider> providers)
+   at IConfigurationRoot Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+   at void Drift.database.ContextFactory.LoadConnectionString() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 65
+   at DefaultDbContext Drift.database.ContextFactory.CreateDbContext(string[] args) in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 40
+   at DefaultDbContext Drift.database.ContextFactory.get_Instance() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 55
+   at void Drift.character.Auth.RequestPlayerRegisterToServerEvent(Player player, string username, string password) in E:/Games/Rage/server-files/dotnet/resources/Drift/character/Auth.cs:line 62
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
+   at new Microsoft.Extensions.Configuration.ConfigurationRoot(IList<IConfigurationProvider> providers)
+   at IConfigurationRoot Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+   at void Drift.database.ContextFactory.LoadConnectionString() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 65
+   at DefaultDbContext Drift.database.ContextFactory.CreateDbContext(string[] args) in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 40
+   at DefaultDbContext Drift.database.ContextFactory.get_Instance() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 55
+   at void Drift.character.Auth.RequestPlayerRegisterToServerEvent(Player player, string username, string password) in E:/Games/Rage/server-files/dotnet/resources/Drift/character/Auth.cs:line 62
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
+   at new Microsoft.Extensions.Configuration.ConfigurationRoot(IList<IConfigurationProvider> providers)
+   at IConfigurationRoot Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+   at void Drift.database.ContextFactory.LoadConnectionString() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 65
+   at DefaultDbContext Drift.database.ContextFactory.CreateDbContext(string[] args) in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 40
+   at DefaultDbContext Drift.database.ContextFactory.get_Instance() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 55
+   at void Drift.character.Auth.RequestPlayerRegisterToServerEvent(Player player, string username, string password) in E:/Games/Rage/server-files/dotnet/resources/Drift/character/Auth.cs:line 62
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
+   at new Microsoft.Extensions.Configuration.ConfigurationRoot(IList<IConfigurationProvider> providers)
+   at IConfigurationRoot Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+   at void Drift.database.ContextFactory.LoadConnectionString() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 65
+   at DefaultDbContext Drift.database.ContextFactory.CreateDbContext(string[] args) in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 40
+   at DefaultDbContext Drift.database.ContextFactory.get_Instance() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 55
+   at void Drift.character.Auth.RequestPlayerRegisterToServerEvent(Player player, string username, string password) in E:/Games/Rage/server-files/dotnet/resources/Drift/character/Auth.cs:line 62
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
+   at new Microsoft.Extensions.Configuration.ConfigurationRoot(IList<IConfigurationProvider> providers)
+   at IConfigurationRoot Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+   at void Drift.database.ContextFactory.LoadConnectionString() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 65
+   at DefaultDbContext Drift.database.ContextFactory.CreateDbContext(string[] args) in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 40
+   at DefaultDbContext Drift.database.ContextFactory.get_Instance() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 55
+   at void Drift.character.Auth.RequestPlayerLoginToServerEvent(Player player, string username, string password) in E:/Games/Rage/server-files/dotnet/resources/Drift/character/Auth.cs:line 30
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
+   at new Microsoft.Extensions.Configuration.ConfigurationRoot(IList<IConfigurationProvider> providers)
+   at IConfigurationRoot Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+   at void Drift.database.ContextFactory.LoadConnectionString() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 65
+   at DefaultDbContext Drift.database.ContextFactory.CreateDbContext(string[] args) in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 40
+   at DefaultDbContext Drift.database.ContextFactory.get_Instance() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 55
+   at void Drift.character.Auth.RequestPlayerLoginToServerEvent(Player player, string username, string password) in E:/Games/Rage/server-files/dotnet/resources/Drift/character/Auth.cs:line 30
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
+   at new Microsoft.Extensions.Configuration.ConfigurationRoot(IList<IConfigurationProvider> providers)
+   at IConfigurationRoot Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+   at void Drift.database.ContextFactory.LoadConnectionString() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 65
+   at DefaultDbContext Drift.database.ContextFactory.CreateDbContext(string[] args) in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 40
+   at DefaultDbContext Drift.database.ContextFactory.get_Instance() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 55
+   at void Drift.character.Auth.RequestPlayerLoginToServerEvent(Player player, string username, string password) in E:/Games/Rage/server-files/dotnet/resources/Drift/character/Auth.cs:line 30
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
+   at new Microsoft.Extensions.Configuration.ConfigurationRoot(IList<IConfigurationProvider> providers)
+   at IConfigurationRoot Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+   at void Drift.database.ContextFactory.LoadConnectionString() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 65
+   at DefaultDbContext Drift.database.ContextFactory.CreateDbContext(string[] args) in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 40
+   at DefaultDbContext Drift.database.ContextFactory.get_Instance() in E:/Games/Rage/server-files/dotnet/resour-> SERVER STARTED AT 06.01.2021 22:40:55
+Initializing Bootstrapper.dll (1.1.0.0)..
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Drift resource..
+Drift: loading scripts.. found 1 script(s)
+Drift: instantiating Test..
+Drift: instantiating Drift.vehicle.Drift..
+Drift: instantiating Drift.vehicle.Vehicles..
+Drift: instantiating Drift.model.SkinModel..
+Drift: instantiating Drift.globals.EntityData..
+Drift: instantiating Drift.globals.Globals..
+Drift: instantiating Drift.character.Auth..
+Drift: instantiating Drift.character.Character..
+Drift: instantiating Drift.character.Customization..
+Drift: loading server events.. found 1 server event(s)
+Drift: loading server events.. found 1 server event(s)
+Drift: loaded 2 server events(s)
+Drift: loading commands.. found 9 command(s)
+Drift: loading commands.. found 1 command(s)
+Drift: loaded 10 commands(s)
+Drift: loading remote events.. found 1 remote event(s)
+Drift: loading remote events.. found 2 remote event(s)
+Drift: loading remote events.. found 2 remote event(s)
+Drift: loaded 5 remote event(s)
+-> Resource Drift started!
+Started! Waiting for connections..
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileNotFoundException: The configuration file 'database\appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\database\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
+   at new Microsoft.Extensions.Configuration.ConfigurationRoot(IList<IConfigurationProvider> providers)
+   at IConfigurationRoot Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+   at void Drift.database.ContextFactory.LoadConnectionString() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 65
+   at DefaultDbContext Drift.database.ContextFactory.CreateDbContext(string[] args) in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 40
+   at DefaultDbContext Drift.database.ContextFactory.get_Instance() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 55
+   at void Drift.character.Auth.RequestPlayerLoginToServerEvent(Player player, string username, string password) in E:/Games/Rage/server-files/dotnet/resources/Drift/character/Auth.cs:line 30
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileNotFoundException: The configuration file 'database\appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\database\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
+   at new Microsoft.Extensions.Configuration.ConfigurationRoot(IList<IConfigurationProvider> providers)
+   at IConfigurationRoot Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+   at void Drift.database.ContextFactory.LoadConnectionString() in E:/Games/Rage/server-files/dotnet/resources/Drift/datab

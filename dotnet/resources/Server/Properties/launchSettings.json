@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Server": {
+      "commandName": "Executable",
+      "executablePath": "E:\\RageMp\\Drift\\ragemp-server.exe",
+      "workingDirectory": "E:\\RageMp\\Drift"
+    }
+  }
+}

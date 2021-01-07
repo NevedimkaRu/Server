@@ -1,0 +1,512 @@
+
+==================[06.01.2021 22:18:19]==================
+System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+=========================================================
+
+==================[06.01.2021 22:18:19]==================
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
+   at new Microsoft.Extensions.Configuration.ConfigurationRoot(IList<IConfigurationProvider> providers)
+   at IConfigurationRoot Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+   at void Drift.database.ContextFactory.LoadConnectionString() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 65
+   at DefaultDbContext Drift.database.ContextFactory.CreateDbContext(string[] args) in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 40
+   at DefaultDbContext Drift.database.ContextFactory.get_Instance() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 55
+   at void Drift.character.Auth.RequestPlayerRegisterToServerEvent(Player player, string username, string password) in E:/Games/Rage/server-files/dotnet/resources/Drift/character/Auth.cs:line 62
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+=========================================================
+
+==================[06.01.2021 22:18:21]==================
+System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+=========================================================
+
+==================[06.01.2021 22:18:21]==================
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
+   at new Microsoft.Extensions.Configuration.ConfigurationRoot(IList<IConfigurationProvider> providers)
+   at IConfigurationRoot Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+   at void Drift.database.ContextFactory.LoadConnectionString() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 65
+   at DefaultDbContext Drift.database.ContextFactory.CreateDbContext(string[] args) in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 40
+   at DefaultDbContext Drift.database.ContextFactory.get_Instance() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 55
+   at void Drift.character.Auth.RequestPlayerRegisterToServerEvent(Player player, string username, string password) in E:/Games/Rage/server-files/dotnet/resources/Drift/character/Auth.cs:line 62
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+=========================================================
+
+==================[06.01.2021 22:18:25]==================
+System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+=========================================================
+
+==================[06.01.2021 22:18:25]==================
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
+   at new Microsoft.Extensions.Configuration.ConfigurationRoot(IList<IConfigurationProvider> providers)
+   at IConfigurationRoot Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+   at void Drift.database.ContextFactory.LoadConnectionString() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 65
+   at DefaultDbContext Drift.database.ContextFactory.CreateDbContext(string[] args) in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 40
+   at DefaultDbContext Drift.database.ContextFactory.get_Instance() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 55
+   at void Drift.character.Auth.RequestPlayerRegisterToServerEvent(Player player, string username, string password) in E:/Games/Rage/server-files/dotnet/resources/Drift/character/Auth.cs:line 62
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+=========================================================
+
+==================[06.01.2021 22:18:26]==================
+System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+=========================================================
+
+==================[06.01.2021 22:18:26]==================
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
+   at new Microsoft.Extensions.Configuration.ConfigurationRoot(IList<IConfigurationProvider> providers)
+   at IConfigurationRoot Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+   at void Drift.database.ContextFactory.LoadConnectionString() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 65
+   at DefaultDbContext Drift.database.ContextFactory.CreateDbContext(string[] args) in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 40
+   at DefaultDbContext Drift.database.ContextFactory.get_Instance() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 55
+   at void Drift.character.Auth.RequestPlayerRegisterToServerEvent(Player player, string username, string password) in E:/Games/Rage/server-files/dotnet/resources/Drift/character/Auth.cs:line 62
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+=========================================================
+
+==================[06.01.2021 22:18:31]==================
+System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+=========================================================
+
+==================[06.01.2021 22:18:31]==================
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
+   at new Microsoft.Extensions.Configuration.ConfigurationRoot(IList<IConfigurationProvider> providers)
+   at IConfigurationRoot Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+   at void Drift.database.ContextFactory.LoadConnectionString() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 65
+   at DefaultDbContext Drift.database.ContextFactory.CreateDbContext(string[] args) in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 40
+   at DefaultDbContext Drift.database.ContextFactory.get_Instance() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 55
+   at void Drift.character.Auth.RequestPlayerLoginToServerEvent(Player player, string username, string password) in E:/Games/Rage/server-files/dotnet/resources/Drift/character/Auth.cs:line 30
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+=========================================================
+
+==================[06.01.2021 22:18:32]==================
+System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+=========================================================
+
+==================[06.01.2021 22:18:32]==================
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
+   at new Microsoft.Extensions.Configuration.ConfigurationRoot(IList<IConfigurationProvider> providers)
+   at IConfigurationRoot Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+   at void Drift.database.ContextFactory.LoadConnectionString() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 65
+   at DefaultDbContext Drift.database.ContextFactory.CreateDbContext(string[] args) in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 40
+   at DefaultDbContext Drift.database.ContextFactory.get_Instance() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 55
+   at void Drift.character.Auth.RequestPlayerLoginToServerEvent(Player player, string username, string password) in E:/Games/Rage/server-files/dotnet/resources/Drift/character/Auth.cs:line 30
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+=========================================================
+
+==================[06.01.2021 22:18:32]==================
+System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+=========================================================
+
+==================[06.01.2021 22:18:32]==================
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(Exception e)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
+   at new Microsoft.Extensions.Configuration.ConfigurationRoot(IList<IConfigurationProvider> providers)
+   at IConfigurationRoot Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+   at void Drift.database.ContextFactory.LoadConnectionString() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 65
+   at DefaultDbContext Drift.database.ContextFactory.CreateDbContext(string[] args) in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 40
+   at DefaultDbContext Drift.database.ContextFactory.get_Instance() in E:/Games/Rage/server-files/dotnet/resources/Drift/database/DbContext.cs:line 55
+   at void Drift.character.Auth.RequestPlayerLoginToServerEvent(Player player, string username, string password) in E:/Games/Rage/server-files/dotnet/resources/Drift/character/Auth.cs:line 30
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+=========================================================
+
+==================[06.01.2021 22:18:45]==================
+System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'E:\Games\Rage\server-files\dotnet\runtime\appsettings.json
+==================[06.01.2021 22:41:41]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.resources.dll'. Не удается найти указанный файл.
+File name: 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[06.01.2021 22:41:41]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.resources.dll'. Не удается найти указанный файл.
+File name: 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[06.01.2021 22:41:43]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.resources.dll'. Не удается найти указанный файл.
+File name: 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[06.01.2021 22:41:43]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.resources.dll'. Не удается найти указанный файл.
+File name: 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[06.01.2021 22:41:53]==================
+System.InvalidOperationException: Sequence contains no elements
+   at void System.Linq.ThrowHelper.ThrowNoElementsException()
+=========================================================
+
+==================[06.01.2021 22:41:53]==================
+System.InvalidOperationException: Sequence contains no elements
+   at void System.Linq.ThrowHelper.ThrowNoElementsException()
+   at TSource System.Linq.Enumerable.First<TSource>(IEnumerable<TSource> source)
+   at IEnumerator<T> Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider+ResultEnumerable<T>.GetEnumerator()
+   at IEnumerable<TOut> Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities<TOut, TIn>(IEnumerable<TOut> results, QueryContext queryContext, IList<EntityTrackingInfo> entityTrackingInfos, IList<Func<TIn, object>> entityAccessors)+MoveNext()
+   at bool Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider+ExceptionInterceptor<T>+EnumeratorExceptionInterceptor.MoveNext()
+=========================================================
+
+==================[06.01.2021 22:41:53]==================
+System.InvalidOperationException: Sequence contains no elements
+   at void System.Linq.ThrowHelper.ThrowNoElementsException()
+   at TSource System.Linq.Enumerable.First<TSource>(IEnumerable<TS
+==================[07.01.2021 1:38:34]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.resources.dll'. Не удается найти указанный файл.
+File name: 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[07.01.2021 1:38:34]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.resources.dll'. Не удается найти указанный файл.
+File name: 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[07.01.2021 1:38:35]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.resources.dll'. Не удается найти указанный файл.
+File name: 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[07.01.2021 1:38:35]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.resources.dll'. Не удается найти указанный файл.
+File name: 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[07.01.2021 1:38:38]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. [::1]:3306
+   at void System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+=========================================================
+
+==================[07.01.2021 1:38:40]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. 127.0.0.1:3306
+   at void System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+=========================================================
+
+==================[07.01.2021 1:38:40]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ServerSession.cs:line 326
+=========================================================
+
+==================[07.01.2021 1:38:40]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ServerSession.cs:line 326
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[07.01.2021 1:38:40]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ServerSession.cs:line 326
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ConnectionPool.cs:line 112
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[07.01.2021 1:38:40]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ServerSession.cs:line 326
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ConnectionPool.cs:line 112
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ConnectionPool.cs:line 141
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[07.01.2021 1:38:40]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ServerSession.cs:line 326
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ConnectionPool.cs:line 112
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ConnectionPool.cs:line 141
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/MySql.Data.MySqlClient/MySqlConnection.cs:line 507
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[07.01.2021 1:38:40]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ServerSession.cs:line 326
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ConnectionPool.cs:line 112
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ConnectionPool.cs:line 141
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/MySql.Data.MySqlClient/MySqlConnection.cs:line 507
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task MySql.Data.MySqlClient.MySqlConnection.OpenAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/MySql.Data.MySqlClient/MySqlConnection.cs:line 232
+=========================================================
+
+==================[07.01.2021 1:38:40]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ServerSession.cs:line 326
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ConnectionPool.cs:line 112
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ConnectionPool.cs:line 141
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/MySql.Data.MySqlClient/MySqlConnection.cs:line 507
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task MySql.Data.MySqlClient.MySqlConnection.OpenAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/MySql.Data.MySqlClient/MySqlConnection.cs:line 232
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[07.01.2021 1:38:40]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ServerSession.cs:line 326
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ConnectionPool.cs:line 112
+   at async ValueTask<ServerSessi
+==================[07.01.2021 1:40:39]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.resources.dll'. Не удается найти указанный файл.
+File name: 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[07.01.2021 1:40:39]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.resources.dll'. Не удается найти указанный файл.
+File name: 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[07.01.2021 1:40:40]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.resources.dll'. Не удается найти указанный файл.
+File name: 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[07.01.2021 1:40:40]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.resources.dll'. Не удается найти указанный файл.
+File name: 'E:\Games\Rage\server-files\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[07.01.2021 1:40:42]==================
+System.InvalidOperationException: Sequence contains no elements
+   at void System.Linq.ThrowHelper.ThrowNoElementsException()
+=========================================================
+
+==================[07.01.2021 1:40:42]==================
+System.InvalidOperationException: Sequence contains no elements
+   at void System.Linq.ThrowHelper.ThrowNoElementsException()
+   at TSource System.Linq.Enumerable.First<TSource>(IEnumerable<TSource> source)
+   at IEnumerator<T> Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider+ResultEnumerable<T>.GetEnumerator()
+   at IEnumerable<TOut> Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities<TOut, TIn>(IEnumerable<TOut> results, QueryContext queryContext, IList<EntityTrackingInfo> entityTrackingInfos, IList<Func<TIn, object>> entityAccessors)+MoveNext()
+   at bool Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider+ExceptionInterceptor<T>+EnumeratorExceptionInterceptor.MoveNext()
+=========================================================
+
+==================[07.01.2021 1:40:42]==================
+System.InvalidOperationException: Sequence contains no elements
+   at void System.Linq.ThrowHelper.ThrowNoElementsException()
+   at TSource System.Linq.Enumerable.First<TSource>(IEnumerable<TSource> 
+==================[07.01.2021 2:01:32]==================
+System.IO.FileLoadException: Could not load file or assembly 'System.Text.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'.
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+=========================================================
+
+==================[07.01.2021 2:01:32]==================
+System.IO.FileLoadException: Could not load file or assembly 'System.Text.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'. Could not find or load a specific file. (0x80131621)
+File name: 'System.Text.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'
+ ---> System.IO.FileLoadException: Could not load file or assembly 'System.Text.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'.
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+   at Assembly System.Runtime.Loader.AssemblyLoadContext.LoadFromAssemblyPath(string assemblyPath)
+   at Assembly System.Reflection.Assembly.LoadFrom(string assemblyFile)
+   at Assembly System.Reflection.Assembly.LoadFromResolveHandler(object sender, ResolveEventArgs args)
+   at RuntimeAssembly System.Runtime.Loader.AssemblyLoadContext.InvokeResolveEvent(ResolveEventHandler eventHandler, RuntimeAssembly assembly, string name)
+   at RuntimeAssembly System.Runtime.Loader.AssemblyLoadContext.OnAssemblyResolve(RuntimeAssembly assembly, string assemblyFullName)
+   at void Microsoft.Extensions.Configuration.Json.JsonConfigurationProvider.Load(Stream stream)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+
+
+=========================================================
+
+==================[07.01.2021 2:01:32]==================
+System.IO.FileLoadException: Could not load file or assembly 'System.Text.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'. Could not find or load a specific file. (0x80131621)
+File name: 'System.Text.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'
+ ---> System.IO.FileLoadException: Could not load file or assembly 'System.Text.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'.
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+   at Assembly System.Runtime.Loader.AssemblyLoadContext.LoadFromAssemblyPath(string assemblyPath)
+   at Assembly System.Reflection.Assembly.LoadFrom(string assemblyFile)
+   at Assembly System.Reflection.Assembly.LoadFromResolveHandler(object sender, ResolveEventArgs args)
+   at RuntimeAssembly System.Runtime.Loader.AssemblyLoadContext.InvokeResolveEvent(ResolveEventHandler eventHandler, RuntimeAssembly assembly, string name)
+   at RuntimeAssembly System.Runtime.Loader.AssemblyLoadContext.OnAssemblyResolve(RuntimeAssembly assembly, string assemblyFullName)
+   at void Microsoft.Extensions.Configuration.Json.JsonConfigurationProvider.Load(Stream stream)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+
+
+=========================================================
+
+==================[07.01.2021 2:01:32]==================
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.IO.FileLoadException: Could not load file or assembly 'System.Text.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'. Could not find or load a specific file. (0x80131621)
+File name: 'System.Text.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'
+ ---> System.IO.FileLoadException: Could not load file or assembly 'System.Text.Json, Version=5.0.0.0, Culture=n
+==================[07.01.2021 16:10:06]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\RageMp\DriftServer\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.resources.dll'. Не удается найти указанный файл.
+File name: 'E:\RageMp\DriftServer\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[07.01.2021 16:10:06]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\RageMp\DriftServer\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.resources.dll'. Не удается найти указанный файл.
+File name: 'E:\RageMp\DriftServer\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[07.01.2021 16:10:06]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\RageMp\DriftServer\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.resources.dll'. Не удается найти указанный файл.
+File name: 'E:\RageMp\DriftServer\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[07.01.2021 16:10:06]==================
+System.IO.FileNotFoundException: Could not load file or assembly 'E:\RageMp\DriftServer\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.resources.dll'. Не удается найти указанный файл.
+File name: 'E:\RageMp\DriftServer\dotnet\resources\Drift\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.resources.dll'
+   at void System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyLoadContext, string ilPath, string niPath, ObjectHandleOnStack retAssembly)
+
+
+=========================================================
+
+==================[07.01.2021 16:10:08]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. [::1]:3306
+   at void System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+=========================================================
+
+==================[07.01.2021 16:10:10]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. 127.0.0.1:3306
+   at void System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+=========================================================
+
+==================[07.01.2021 16:10:11]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ServerSession.cs:line 326
+=========================================================
+
+==================[07.01.2021 16:10:11]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ServerSession.cs:line 326
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[07.01.2021 16:10:11]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ServerSession.cs:line 326
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ConnectionPool.cs:line 112
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[07.01.2021 16:10:11]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ServerSession.cs:line 326
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ConnectionPool.cs:line 112
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ConnectionPool.cs:line 141
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[07.01.2021 16:10:11]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ServerSession.cs:line 326
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ConnectionPool.cs:line 112
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ConnectionPool.cs:line 141
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/MySql.Data.MySqlClient/MySqlConnection.cs:line 507
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[07.01.2021 16:10:11]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ServerSession.cs:line 326
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ConnectionPool.cs:line 112
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ConnectionPool.cs:line 141
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/MySql.Data.MySqlClient/MySqlConnection.cs:line 507
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task MySql.Data.MySqlClient.MySqlConnection.OpenAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/MySql.Data.MySqlClient/MySqlConnection.cs:line 232
+=========================================================
+
+==================[07.01.2021 16:10:11]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ServerSession.cs:line 326
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ConnectionPool.cs:line 112
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ConnectionPool.cs:line 141
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/MySql.Data.MySqlClient/MySqlConnection.cs:line 507
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task MySql.Data.MySqlClient.MySqlConnection.OpenAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/MySql.Data.MySqlClient/MySqlConnection.cs:line 232
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[07.01.2021 16:10:11]==================
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ServerSession.cs:line 326
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:/projects/mysqlconnector/src/MySqlConnector/Core/ConnectionPool.cs:line 112
+   at async ValueTask<ServerSession> MySqlConnector.Core.Co

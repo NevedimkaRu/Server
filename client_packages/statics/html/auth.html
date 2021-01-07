@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link href="../css/auth.css" rel="stylesheet">
+</head>
+<body>
+<div class="form">
+<div class="formlogin">
+	<h2>Авторизация</h2>
+	<div class="row">
+		<div class="col"> 
+			Логин
+		</div>
+		<div class="col"> 
+			<input class="login" type="text" placeholder="Введите логин" size="25">
+		</div>
+		</div>
+	<div class="row">
+		<div class="col"> 
+			Пароль
+		</div>
+		<div class="col" id="inp"> 
+			<input class="pass" type="password" placeholder="Введите пароль" size="25">
+		</div>
+	</div>
+	<div class="error message">
+	
+	</div>
+	<input type="button" class="btn" id="loginbtn" value="OK">
+	<input type="button" class="btn" id="gotoregbtn" value="Нет аккаунта?">
+</div>
+<div class="formreg">
+	<h2>Регистрация</h2>
+		<div class="row">
+		<div class="col"> 
+			Логин
+		</div>
+		<div class="col"> 
+			<input class="loginreg" type="text" placeholder="Введите логин" size="25">
+		</div>
+		</div>
+	<div class="row">
+		<div class="col"> 
+			Пароль
+		</div>
+		<div class="col" id="inp"> 
+			<input class="passreg" type="password" placeholder="Введите пароль" size="25">
+		</div>
+	</div>
+	<div class="error message">
+	
+	</div>
+	<input type="button" class="btn" id="regbtn" value="OK">
+	<input type="button" class="btn" id="gotologinbtn" value="Назад">
+</div>
+</div>
+</body>
+	
+<script src="../lib/jquery-3.1.1.min.js"></script>
+<script src="../js/auth.js"></script>
+	
+</html>
+
