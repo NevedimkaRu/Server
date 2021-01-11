@@ -196,4 +196,67 @@ System.Reflection.TargetInvocationException: Exception has been thrown by the ta
    at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
    at new Microsoft.Extensions.Configuration.ConfigurationRoot(IList<IConfigurationProvider> providers)
    at IConfigurationRoot Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
-   at void Drift.database.ContextFactory.LoadConnectionString() in E:/Games/Rage/server-files/dotnet/resources/Drift/datab
+   at void Drift.database.ContextFactory.LoadConnectionString() in E:/Games/Rage/server-files/dotnet/resources/Drift/databInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 09.01.2021 20:54:25
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+[MySql Query] INSERT INTO `accounts`(`Username`, `Password`) VALUES('Nagibator2',458)
+[MySql Query] UPDATE `accounts` SET `Password`= @pass WHERE `Username`= @name
+[MySql QueryR] SELECT Password FROM accounts WHERE Username='Nagibator2'
+1488528
+1488528
+1488528
+1488528
+1488528
+1488528
+1488528
+1488528
+1488528
+1488528
+1488528
+1488528
+1488528
+1488528
+1488528
+1488528
+1488528
+1488528
+1488528
+1488528
+1488528
+1488528
+1488528
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.account.API..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loaded 1 server events(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loaded 4 commands(s)
+Всё ок
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql Query Error] MySqlConnector.MySqlException (0x80004005): Unknown column 'Mario' in 'field list'
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'Mario' in 'field list'
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList`1 commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at MySqlConnector.MySqlCommand.ExecuteNonQueryAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 264
+   at MySqlConnector.MySqlCommand.ExecuteNonQuery() in /_/src/MySqlConnector/MySqlCommand.cs:line 100
+   at Server.MySql.Query(MySqlCommand command) in E:\RageMp\Drift\dotnet\resources\Server\MySql.cs:line 85
+[MySql Query Error] MySqlConnector.MySqlException (0x80004005): Unknown column 'Jojo' in 'field list'
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'Jojo' in 'field list'
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList`1 commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at MySqlConnector.MySqlCommand.ExecuteNonQueryAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 264
+   at MySqlConnector.MySqlCommand.ExecuteNonQuery() in /_/src/MySqlConnector/MySqlCommand.cs:line 100
+   at Server.MySql.Query(MySqlCommand command) in E:\RageMp\Drift\dotnet\resourc

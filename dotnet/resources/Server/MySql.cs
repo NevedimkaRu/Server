@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Data;
-using System.Data.Common;
 using System.Collections.Generic;
 using System.Text;
 using MySqlConnector;
 using GTANetworkAPI;
-
-
+using System.Threading.Tasks;
 
 namespace Server
 {
@@ -48,7 +46,7 @@ namespace Server
         public static void Test()
         {
             /*ЗАПРОСЫ*/
-            Query("INSERT INTO `accounts`(`Username`, `Password`) VALUES('Nagibator2',458)");//Простой запрос
+            /*Query("INSERT INTO `accounts`(`Username`, `Password`) VALUES('Nagibator2',458)");//Простой запрос
 
             //Запрос с использование MySqlCommand
             string name = "Nagibator2";
@@ -66,11 +64,12 @@ namespace Server
             foreach(DataRow row in result.Rows)
             {
                 //int pass = Convert.ToInt32(row["Password"]);//int
-                string pass = row["Password"].ToString();//string
-                NAPI.Util.ConsoleOutput(pass);
-            }
-
+                string password = row["Password"].ToString();//string
+                NAPI.Util.ConsoleOutput(password);
+            }*/
+            //TestExecute();
             
+
         }
 
         public static void Query(MySqlCommand command)
@@ -102,7 +101,7 @@ namespace Server
             }
         }
 
-        public static async void QueryAsync(MySqlCommand command)
+        public static async Task QueryAsync(MySqlCommand command)
         {
             try
             {
@@ -119,7 +118,31 @@ namespace Server
             }
             catch (Exception ex)
             {
-                NAPI.Util.ConsoleOutput($"[MySql Query Error] {ex}");
+                NAPI.Util.ConsoleOutput($"[MySql QueryAsync Error] {ex}");
+            }
+        }
+
+        public static async Task QueryAsync(string command)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connStr))
+                {
+                    await connection.OpenAsync();
+
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {
+                        cmd.Connection = connection;
+                        cmd.CommandText = command;
+
+                        await cmd.ExecuteNonQueryAsync();
+                    }
+                }
+                if (Debug) NAPI.Util.ConsoleOutput($"[MySql QueryAsync] {command}");
+            }
+            catch (Exception ex)
+            {
+                NAPI.Util.ConsoleOutput($"[MySql QueryAsync Error] {ex}");
             }
         }
 
@@ -137,7 +160,7 @@ namespace Server
 
                 command.Connection = connect;
 
-                DbDataReader reader = command.ExecuteReader();
+                MySqlDataReader reader = command.ExecuteReader();
                 DataTable result = new DataTable();
                 result.Load(reader);
 
@@ -166,8 +189,13 @@ namespace Server
 
         public static void TestExecute() // Пример получение данных с таблицы 
         {
+            MySqlConnection connect = new MySqlConnection(connStr);
+            connect.Open();
             string sql = "SELECT Username, Password FROM accounts";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlCommand cmd = new MySqlCommand(sql);
+
+            cmd.Connection = connect;
+
             MySqlDataReader rdr = cmd.ExecuteReader();
 
             while (rdr.Read())
