@@ -17,7 +17,6 @@ namespace Server.vehicle
         public void LoadVehicle(Player player, int carid)
         {
             var vehModel = new VehicleModel();
-
             try
             {
                 MySqlCommand cmd = new MySqlCommand
@@ -49,8 +48,8 @@ namespace Server.vehicle
         }
         public void UnLoadVehicle(int carid)
         {
-            Main.Vehicles.Remove(carid);
             Main.Vehicles[carid].Veh.Delete();
+            Main.Vehicles.Remove(carid);
         }
         //Тестовые команды
         [Command("car",GreedyArg = true)]
@@ -60,7 +59,6 @@ namespace Server.vehicle
             if(Main.Vehicles.ContainsKey(carid))
             {
                 UnLoadVehicle(carid);
-                return;
             }
             LoadVehicle(player, carid);
         }

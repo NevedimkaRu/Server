@@ -43,7 +43,7 @@ namespace Server.account
         public void cmd_Stats(Player player)
         {
             player.SendChatMessage(
-                $"Name:{Main.Players[player].Username} " +
+                $"Name:{Main.Players[player].Username} - {player.Id}" +
                 $"\n Password: {Main.Players[player].Password}" +
                 $"\n DriftScore: {Main.Players[player].DriftScore}"
                 );

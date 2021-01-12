@@ -11,6 +11,7 @@ namespace Server
     {
         public static Dictionary<Player, AccountModel> Players = new Dictionary<Player, AccountModel>();
         public static Dictionary<int, VehicleModel> Vehicles = new Dictionary<int, VehicleModel>();
+        public static Dictionary<int, TeleportModel> Teleports = new Dictionary<int, TeleportModel>();
 
         public Main()
         {

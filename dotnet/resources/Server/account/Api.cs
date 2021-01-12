@@ -26,7 +26,7 @@ namespace Server.account
         {
             DataTable result = MySql.QueryRead($"SELECT Password FROM accounts WHERE Username='{name}'");
 
-            if(result is null)
+            if(result == null || result.Rows.Count == 0)
             {
                 player.SendChatMessage("Такой аккаунт не существует.");
                 return;
