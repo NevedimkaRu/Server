@@ -41,7 +41,8 @@ namespace Server
                 }
             }
             conn.Close();
-            Test();
+            //Test();
+            TestExecute();
         }
         public static void Test()
         {
@@ -187,20 +188,40 @@ namespace Server
             cmd.ExecuteNonQuery();
         }
 
+        public static int InsertReq(object[] args)
+        {
+
+            for (int i = 0; i < args.Length; i++ )
+            {
+               
+            }
+            return 1;
+        }
+
+        /*public static DataTable InsertReq(string command)
+        {
+            using (MySqlCommand cmd = new MySqlCommand(command))
+            {
+                return QueryRead(cmd);
+            }
+        }*/
+
         public static void TestExecute() // Пример получение данных с таблицы 
         {
             MySqlConnection connect = new MySqlConnection(connStr);
             connect.Open();
-            string sql = "SELECT Username, Password FROM accounts";
+            string sql = "INSERT INTO `characters`( `Name`, `Money`, `Sex`, `Status`, `Score`) VALUES ('Name','999999','0','0','0'); Select last_insert_id()";
             MySqlCommand cmd = new MySqlCommand(sql);
 
             cmd.Connection = connect;
 
             MySqlDataReader rdr = cmd.ExecuteReader();
+            
+            NAPI.Util.ConsoleOutput(rdr.ToString());
 
             while (rdr.Read())
             {
-                NAPI.Util.ConsoleOutput(rdr[0] + " -- " + rdr[1]);
+                NAPI.Util.ConsoleOutput(rdr[0] + "ХУЙ");
             }
             rdr.Close(); 
         }

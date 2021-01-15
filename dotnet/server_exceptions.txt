@@ -1064,3 +1064,135 @@ MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax
 ==================[12.01.2021 18:03:54]==================
 MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
  ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use ne
+==================[13.01.2021 15:46:58]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. [::1]:3306
+   at void System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+=========================================================
+
+==================[13.01.2021 15:47:00]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. 127.0.0.1:3306
+   at void System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+=========================================================
+
+==================[13.01.2021 15:47:01]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+=========================================================
+
+==================[13.01.2021 15:47:01]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[13.01.2021 15:47:01]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[13.01.2021 15:47:01]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[13.01.2021 15:47:01]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, int startTickCount, IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[13.01.2021 15:47:01]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, int startTickCount, IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task MySqlConnector.MySqlConnection.OpenAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 410
+=========================================================
+
+==================[13.01.2021 15:47:01]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, int startTickCount, IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task MySqlConnector.MySqlConnection.OpenAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 410
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[13.01.2021 15:47:03]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. [::1]:3306
+   at void System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+=========================================================
+
+==================[13.01.2021 15:47:05]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. 127.0.0.1:3306
+   at void System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+=========================================================
+
+==================[13.01.2021 15:47:05]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+=========================================================
+
+==================[13.01.2021 15:47:05]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[13.01.2021 15:47:05]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[13.01.2021 15:47:05]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[13.01.2021 15:47:05]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, int startTickCount, IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[13.01.2021 15:47:05]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, int startTickCount, IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task MySqlConnector.MySqlConnection.OpenAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 410
+=========================================================
+
+==================[13.01.2021 15:47:05]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+  

@@ -22,10 +22,25 @@ namespace cs_packages
         private DriftCounter()
         {
             Events.Add("setVelocity", SetVelocity); 
-            Events.OnPlayerEnterVehicle += OnEnterVehicle;
-            //Events.
-            //Events.OnPlayerLeaveVehicle += OnLeaveVehicle;
+            Events.OnPlayerEnterVehicle += OnPlayerEnterVehicle;
+
+            Events.OnPlayerLeaveVehicle += OnPlayerLeaveVehicle;
             Events.Tick += OnTick;
+        }
+        private void OnPlayerEnterVehicle(Vehicle vehicle, int seatId)
+        {
+            driftHTML = new HtmlWindow("package://statics/html/drift.html");
+            vehHealth = vehicle.GetHealth();
+            driftHTML.Active = false;
+            totalscore = (int)Player.LocalPlayer.GetSharedData("PLAYER_SCORE");
+        }
+        public void OnPlayerLeaveVehicle(Vehicle vehicle, int seatId)
+        {
+            
+            driftHTML.Active = false;
+            multiplier = 1;
+            score = 0;
+            playerDrifting = false;
         }
         public void SetVelocity(object[] args)
         {
@@ -64,13 +79,7 @@ namespace cs_packages
             Browser.ExecuteFunctionEvent(driftHTML, "driftScore", new object[] { score.ToString(), multiplier });
         }
 
-        private void OnEnterVehicle(Vehicle vehicle, int seatId)
-        {
-            driftHTML = new HtmlWindow("package://statics/html/drift.html");
-            vehHealth = vehicle.GetHealth(); 
-            driftHTML.Active = false;
-            totalscore = (int)Player.LocalPlayer.GetSharedData("PLAYER_SCORE");
-        }
+
 
         private void OnTick(List<Events.TickNametagData> nametags)
         {
@@ -172,13 +181,22 @@ namespace cs_packages
             if (reason == 0)
             {
                 Chat.Output("Time Out"); totalscore += score;
+                //RAGE.Game.Ui.SetNotificationTextEntry("Time Out");
+                RAGE.Game.Ui.DrawNotificationAward("Timeout", "Time out", 0, 0, "Time out 1");
+                //RAGE.Game.Ui.DrawNotification(true, false);
                 UpdatePlayerScore(totalscore);
             }
-            else Chat.Output("Crash!");
-            //if(reason == 0) { Browser.ExecuteFunctionEvent(driftHTML, "driftError", new object[] { score.ToString() }); }
-            multiplier = 1;
-            score = 0;
-            playerDrifting = false;
+            else
+            {
+                Chat.Output("Crash!");
+                //RAGE.Game.Ui.SetNotificationTextEntry("Crash");
+                RAGE.Game.Ui.DrawNotificationAward("", "Crash", 0, 109, "");
+                //RAGE.Game.Ui.DrawNotification(true, true);
+            }
+                //if(reason == 0) { Browser.ExecuteFunctionEvent(driftHTML, "driftError", new object[] { score.ToString() }); }
+                multiplier = 1;
+                score = 0;
+                playerDrifting = false;
 
         }
 
