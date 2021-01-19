@@ -23,16 +23,54 @@ namespace cs_packages
         {
             Events.Add("setVelocity", SetVelocity); 
             Events.OnPlayerEnterVehicle += OnPlayerEnterVehicle;
-
             Events.OnPlayerLeaveVehicle += OnPlayerLeaveVehicle;
+            Events.OnPlayerCommand += OnPlayerCommand;
             Events.Tick += OnTick;
+        }
+        private void OnPlayerCommand(string cmd, Events.CancelEventArgs cancel)
+        {
+            string[] args = cmd.Split(new char[] { ' ' } );
+            string commandName = args[0].Trim(new char[] { '/' });
+
+            if (commandName == "anwh")
+            {
+                if (args[1] == null) {
+                    Chat.Output("Using /anwh float");
+                    return;
+                }
+                float anglewheel = float.Parse(args[1]);
+                if(anglewheel < 0 || anglewheel > 2)
+                {
+                    Chat.Output("Не больше 2 и меньше 0");
+                    return;
+                }
+                Player.LocalPlayer.Vehicle.SetHandling("fSteeringLock", anglewheel);
+                                
+            }            
+            if (commandName == "curve")
+            {
+                if (args[1] == null) {
+                    Chat.Output("Using /curve float");
+                    return;
+                }
+                float angle = float.Parse(args[1]);
+                Player.LocalPlayer.Vehicle.SetHandling("fTractionCurveMax", angle);               
+            }
+            if (commandName == "handling")
+            {
+                string handlename = args[1];
+                float angle = float.Parse(args[2]);
+                Player.LocalPlayer.Vehicle.SetHandling(handlename, angle);               
+            }
         }
         private void OnPlayerEnterVehicle(Vehicle vehicle, int seatId)
         {
+            
             driftHTML = new HtmlWindow("package://statics/html/drift.html");
             vehHealth = vehicle.GetHealth();
             driftHTML.Active = false;
             totalscore = (int)Player.LocalPlayer.GetSharedData("PLAYER_SCORE");
+            Chat.Output(vehicle.Handle.ToString());
         }
         public void OnPlayerLeaveVehicle(Vehicle vehicle, int seatId)
         {

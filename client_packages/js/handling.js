@@ -22,7 +22,8 @@
     mp.events.addCommand("curv", function (amount) {
         amount = Number(amount);
         
-        mp.players.vehicle.setHandling("fTractionCurveLateral", amount);
+        mp.players.local.vehicle.setHandling("fTractionCurveLateral", amount);
+        
         mp.gui.chat.push(`${amount}`);
     });
      

@@ -18,7 +18,7 @@ namespace Server
         {
             if (!Debug) return;
             Vector3 player_pos = player.Position;
-            player.SetIntoVehicle(NAPI.Vehicle.CreateVehicle(VehicleHash.Tampa3, player_pos, 2f, new Color(0, 255, 100), new Color(0)),0);
+            player.SetIntoVehicle(NAPI.Vehicle.CreateVehicle(VehicleHash.Elegy2, player_pos, 2f, new Color(0, 255, 100), new Color(0)),0);
         }
         [Command("vehh", GreedyArg = true)]
         public void cmd_CreateVehicleHash(Player player, VehicleHash hash)
@@ -120,5 +120,25 @@ namespace Server
             if (!Debug) return;
             NAPI.World.SetWeather("CLEAR");
         }
+        [Command("mod", GreedyArg =true)]
+        public static void cmd_SetMod(Player player, int modeType, int modeIndex)
+        {
+            if(player.Vehicle != null)
+            {
+                player.Vehicle.SetMod(modeType, modeIndex);
+                player.SendChatMessage($"{modeType} - {modeIndex}");
+            }
+            
+        }
+        [RemoteEvent("vtuning_set")]
+        public void vtuning_set(Player player, object[] args)
+        {
+            int modeType = (int)args[0];
+            int modeIndex = (int)args[1];
+
+            player.Vehicle.SetMod(modeType, modeIndex);
+            player.SendChatMessage($"{modeType} - {modeIndex}");
+        }
+
     }
 }
