@@ -259,4 +259,92 @@ Started! Waiting for connections..
    at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList`1 commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
    at MySqlConnector.MySqlCommand.ExecuteNonQueryAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 264
    at MySqlConnector.MySqlCommand.ExecuteNonQuery() in /_/src/MySqlConnector/MySqlCommand.cs:line 100
-   at Server.MySql.Query(MySqlCommand command) in E:\RageMp\Drift\dotnet\resourc
+   at Server.MySql.Query(MySqlCommand command) in E:\RageMp\Drift\dotnet\resourcInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 16.01.2021 1:30:09
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 4 server events(s)
+Server: loading commands.. found 12 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loaded 17 commands(s)
+Всё ок
+-> Error starting 'Server'
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NotSupportedException: Parameter type Vector3 (DbType: String) not currently supported. Value: 0 0 0
+   at void MySqlConnector.MySqlParameter.AppendSqlString(ByteBufferWriter writer, StatementPreparerOptions options) in /_/src/MySqlConnector/MySqlParameter.cs:line 433
+   at void MySqlConnector.Core.StatementPreparer+ParameterSqlParser.DoAppendParameter(int parameterIndex, int textIndex, int textLength) in /_/src/MySqlConnector/Core/StatementPreparer.cs:line 89
+   at void MySqlConnector.Core.StatementPreparer+ParameterSqlParser.OnNamedParameter(int index, int length) in /_/src/MySqlConnector/Core/StatementPreparer.cs:line 76
+   at void MySqlConnector.Core.SqlParser.Parse(string sql) in /_/src/MySqlConnector/Core/SqlParser.cs:line 199
+   at bool MySqlConnector.Core.StatementPreparer.ParseAndBindParameters(ByteBufferWriter writer) in /_/src/MySqlConnector/Core/StatementPreparer.cs:line 38
+   at bool MySqlConnector.Core.SingleCommandPayloadCreator.WriteCommand(IMySqlCommand command, ByteBufferWriter writer) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 206
+   at bool MySqlConnector.Core.SingleCommandPayloadCreator.WriteQueryPayload(IMySqlCommand command, IDictionary<string, CachedProcedure> cachedProcedures, ByteBufferWriter writer) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 59
+   at bool MySqlConnector.Core.SingleCommandPayloadCreator.WriteQueryCommand(ref CommandListPosition commandListPosition, IDictionary<string, CachedProcedure> cachedProcedures, ByteBufferWriter writer) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 34
+   at async Task<MySqlDataReader> MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList<IMySqlCommand> commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 49
+   at async Task<MySqlDataReader> MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 310
+   at MySqlDataReader MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 105
+   at int Server.model.Model.Insert(string tbname) in C:/Users/azim9/source/repos/Server/dotnet/resources/Server/model/Model.cs:line 51
+   at void Server.teleport.Api.CreateTeleportTest() in C:/Users/azim9/source/repos/Server/dotnet/resources/Server/teleport/Api.cs:line 34
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GTANetworkInternals.ScriptingEngine.InvokeVoidMethod(String method, Object[] args)
+   at GInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 16.01.2021 17:29:09
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 4 server events(s)
+Server: loading commands.. found 12 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loaded 17 commands(s)
+Всё ок
+[MySql QueryR] insert into `TeleportModel` (`Name`,`Discription`) values (@Name,@Discription); select last_insert_id()
+-> Error starting 'Server'
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'drift.teleportmodel' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'drift.teleportmodel' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at async Task<MySqlDataReader> MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList<IMySqlCommand> commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at async Task<MySqlDataReader> MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 310
+   at MySqlDataReader MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 105
+   at DataTable Server.MySql.QueryRead(MySqlCommand command) in C:/Users/azim9/source/repos/Server/dotnet/resources/Server/MySql.cs:line 163
+   at DataTable Server.MySql.QueryRead(string command, Dictionary<string, object> parameters) in C:/Users/azim9/source/repos/Server/dotnet/resources/Server/MySql.cs:line 192
+   at int Server.model.Model.Insert(string tbname) in C:/Users/azim9/source/repos/Server/dotnet/resources/Server/model/Model.cs:line 68
+   at int Server.model.Model.Insert() in C:/Users/azim9/source/repos/Server/dotnet/resources/Server/model/Model.cs:line 85
+   at void Server.teleport.Api.CreateTeleportTest() in C:/Users/azim9/source/repos/Server/dotnet/resources/Server/teleport/Api.cs:line 37
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GTANetworkInternals.ScriptingEngine.InvokeVoidMethod(String method, Object[] args)
+   at GTANetworkInternals.EventParser.Parse(Event _event, Object[] arguments)
+   at GTANetworkInternals.EventCollection.<>c__DisplayClass4_0.<ParseEx>b__1(EventParser x)
+   at System.Collections.Generic.List`1.ForEa

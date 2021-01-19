@@ -1064,3 +1064,499 @@ MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax
 ==================[12.01.2021 18:03:54]==================
 MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
  ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use ne
+==================[16.01.2021 1:30:11]==================
+System.NotSupportedException: Parameter type Vector3 (DbType: String) not currently supported. Value: 0 0 0
+   at void MySqlConnector.MySqlParameter.AppendSqlString(ByteBufferWriter writer, StatementPreparerOptions options) in /_/src/MySqlConnector/MySqlParameter.cs:line 433
+=========================================================
+
+==================[16.01.2021 1:30:11]==================
+System.NotSupportedException: Parameter type Vector3 (DbType: String) not currently supported. Value: 0 0 0
+   at void MySqlConnector.MySqlParameter.AppendSqlString(ByteBufferWriter writer, StatementPreparerOptions options) in /_/src/MySqlConnector/MySqlParameter.cs:line 433
+   at void MySqlConnector.Core.StatementPreparer+ParameterSqlParser.DoAppendParameter(int parameterIndex, int textIndex, int textLength) in /_/src/MySqlConnector/Core/StatementPreparer.cs:line 89
+   at void MySqlConnector.Core.StatementPreparer+ParameterSqlParser.OnNamedParameter(int index, int length) in /_/src/MySqlConnector/Core/StatementPreparer.cs:line 76
+   at void MySqlConnector.Core.SqlParser.Parse(string sql) in /_/src/MySqlConnector/Core/SqlParser.cs:line 199
+   at bool MySqlConnector.Core.StatementPreparer.ParseAndBindParameters(ByteBufferWriter writer) in /_/src/MySqlConnector/Core/StatementPreparer.cs:line 38
+   at bool MySqlConnector.Core.SingleCommandPayloadCreator.WriteCommand(IMySqlCommand command, ByteBufferWriter writer) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 206
+   at bool MySqlConnector.Core.SingleCommandPayloadCreator.WriteQueryPayload(IMySqlCommand command, IDictionary<string, CachedProcedure> cachedProcedures, ByteBufferWriter writer) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 59
+   at bool MySqlConnector.Core.SingleCommandPayloadCreator.WriteQueryCommand(ref CommandListPosition commandListPosition, IDictionary<string, CachedProcedure> cachedProcedures, ByteBufferWriter writer) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 34
+   at async Task<MySqlDataReader> MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList<IMySqlCommand> commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 49
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[16.01.2021 1:30:11]==================
+System.NotSupportedException: Parameter type Vector3 (DbType: String) not currently supported. Value: 0 0 0
+   at void MySqlConnector.MySqlParameter.AppendSqlString(ByteBufferWriter writer, StatementPreparerOptions options) in /_/src/MySqlConnector/MySqlParameter.cs:line 433
+   at void MySqlConnector.Core.StatementPreparer+ParameterSqlParser.DoAppendParameter(int parameterIndex, int textIndex, int textLength) in /_/src/MySqlConnector/Core/StatementPreparer.cs:line 89
+   at void MySqlConnector.Core.StatementPreparer+ParameterSqlParser.OnNamedParameter(int index, int length) in /_/src/MySqlConnector/Core/StatementPreparer.cs:line 76
+   at void MySqlConnector.Core.SqlParser.Parse(string sql) in /_/src/MySqlConnector/Core/SqlParser.cs:line 199
+   at bool MySqlConnector.Core.StatementPreparer.ParseAndBindParameters(ByteBufferWriter writer) in /_/src/MySqlConnector/Core/StatementPreparer.cs:line 38
+   at bool MySqlConnector.Core.SingleCommandPayloadCreator.WriteCommand(IMySqlCommand command, ByteBufferWriter writer) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 206
+   at bool MySqlConnector.Core.SingleCommandPayloadCreator.WriteQueryPayload(IMySqlCommand command, IDictionary<string, CachedProcedure> cachedProcedures, ByteBufferWriter writer) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 59
+   at bool MySqlConnector.Core.SingleCommandPayloadCreator.WriteQueryCommand(ref CommandListPosition commandListPosition, IDictionary<string, CachedProcedur
+==================[16.01.2021 1:32:38]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name''Discription''Position')values ('test'@DiscriptionNULL); select last_inser' at line 1
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[16.01.2021 1:32:38]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name''Discription''Position')values ('test'@DiscriptionNULL); select last_inser' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name''Discription''Position')values ('test'@DiscriptionNULL); select last_inser' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+=========================================================
+
+==================[16.01.2021 1:32:38]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name''Discription''Position')values ('test'@DiscriptionNULL); select last_inser' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name''Discription''Position')values ('test'@DiscriptionNULL); select last_inser' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+=========================================================
+
+==================[16.01.2021 1:32:38]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name''Discription''Position')values ('test'@DiscriptionNULL); select last_inser' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name''Discription''Position')values ('test'@DiscriptionNULL); select last_inser' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at void System.Runtim
+==================[16.01.2021 1:34:23]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name''Discription')values ('test'@Discription); select last_insert_id() from 'T' at line 1
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[16.01.2021 1:34:23]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name''Discription')values ('test'@Discription); select last_insert_id() from 'T' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name''Discription')values ('test'@Discription); select last_insert_id() from 'T' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+=========================================================
+
+==================[16.01.2021 1:34:23]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name''Discription')values ('test'@Discription); select last_insert_id() from 'T' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name''Discription')values ('test'@Discription); select last_insert_id() from 'T' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+=========================================================
+
+==================[16.01.2021 1:34:23]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name''Discription')values ('test'@Discription); select last_insert_id() from 'T' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name''Discription')values ('test'@Discription); select last_insert_id() from 'T' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at void System.Runtim
+==================[16.01.2021 1:44:53]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id() from ' at line 1
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[16.01.2021 1:44:53]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id() from ' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id() from ' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+=========================================================
+
+==================[16.01.2021 1:44:53]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id() from ' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id() from ' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+=========================================================
+
+==================[16.01.2021 1:44:53]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id() from ' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id() from ' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at void System.Runtim
+==================[16.01.2021 1:47:50]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id() from ' at line 1
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[16.01.2021 1:47:50]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id() from ' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id() from ' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+=========================================================
+
+==================[16.01.2021 1:47:50]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id() from ' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id() from ' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+=========================================================
+
+==================[16.01.2021 1:47:50]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id() from ' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id() from ' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at void System.Runtim
+==================[16.01.2021 1:49:23]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[16.01.2021 1:49:23]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+=========================================================
+
+==================[16.01.2021 1:49:23]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+=========================================================
+
+==================[16.01.2021 1:49:23]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.
+==================[16.01.2021 1:50:28]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[16.01.2021 1:50:28]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+=========================================================
+
+==================[16.01.2021 1:50:28]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+=========================================================
+
+==================[16.01.2021 1:50:28]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.
+==================[16.01.2021 1:52:13]==================
+System.NotSupportedException: Specified method is not supported.
+   at object MySqlConnector.MySqlParameterCollection.get_SyncRoot() in /_/src/MySqlConnector/MySqlParameterCollection.cs:line 147
+=========================================================
+
+==================[16.01.2021 1:52:50]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[16.01.2021 1:52:50]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+=========================================================
+
+==================[16.01.2021 1:52:50]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+=========================================================
+
+==================[16.01.2021 1:52:50]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[16.01.2021 1:52:50]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at async Task<MySqlDataReader> MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList<IMySqlCommand> commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[16.01.2021 1:52:50]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at async Task<MySqlDataReader> MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList<IMySqlCommand> commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at async Task<MySqlDataReader> MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 310
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[16.01.2021 1:55:51]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[16.01.2021 1:55:51]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+=========================================================
+
+==================[16.01.2021 1:55:51]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+=========================================================
+
+==================[16.01.2021 1:55:51]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=============================================
+==================[16.01.2021 1:57:27]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[16.01.2021 1:57:27]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+=========================================================
+
+==================[16.01.2021 1:57:27]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+=========================================================
+
+==================[16.01.2021 1:57:27]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.
+==================[16.01.2021 1:58:48]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[16.01.2021 1:58:48]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+=========================================================
+
+==================[16.01.2021 1:58:48]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+=========================================================
+
+==================[16.01.2021 1:58:48]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Name','Discription') values ('test','test23213'); select last_insert_id()' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.
+==================[16.01.2021 17:29:11]==================
+MySqlConnector.MySqlException (0x80004005): Table 'drift.teleportmodel' doesn't exist
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[16.01.2021 17:29:11]==================
+MySqlConnector.MySqlException (0x80004005): Table 'drift.teleportmodel' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'drift.teleportmodel' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+=========================================================
+
+==================[16.01.2021 17:29:11]==================
+MySqlConnector.MySqlException (0x80004005): Table 'drift.teleportmodel' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'drift.teleportmodel' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+=========================================================
+
+==================[16.01.2021 17:29:11]==================
+MySqlConnector.MySqlException (0x80004005): Table 'drift.teleportmodel' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'drift.teleportmodel' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[16.01.2021 17:29:11]==================
+MySqlConnector.MySqlException (0x80004005): Table 'drift.teleportmodel' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'drift.teleportmodel' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at async Task<MySqlDataReader> MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList<IMySqlCommand> commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Cor
+==================[19.01.2021 16:54:44]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. [::1]:3306
+   at void System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+=========================================================
+
+==================[19.01.2021 16:54:46]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. 127.0.0.1:3306
+   at void System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+=========================================================
+
+==================[19.01.2021 16:54:46]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+=========================================================
+
+==================[19.01.2021 16:54:46]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.01.2021 16:54:46]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.01.2021 16:54:46]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.01.2021 16:54:46]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, int startTickCount, IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.01.2021 16:54:46]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, int startTickCount, IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task MySqlConnector.MySqlConnection.OpenAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 410
+=========================================================
+
+==================[19.01.2021 16:54:46]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, int startTickCount, IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task MySqlConnector.MySqlConnection.OpenAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 410
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.01.2021 16:54:48]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. [::1]:3306
+   at void System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+=========================================================
+
+==================[19.01.2021 16:54:50]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. 127.0.0.1:3306
+   at void System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+=========================================================
+
+==================[19.01.2021 16:54:50]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+=========================================================
+
+==================[19.01.2021 16:54:50]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.01.2021 16:54:50]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.01.2021 16:54:50]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.01.2021 16:54:50]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, int startTickCount, IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[19.01.2021 16:54:50]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, int startTickCount, IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task MySqlConnector.MySqlConnection.OpenAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 410
+=========================================================
+
+==================[19.01.2021 16:54:50]==================
+MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+  

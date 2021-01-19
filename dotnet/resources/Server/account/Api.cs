@@ -14,7 +14,7 @@ namespace Server.account
         {
             
 
-            var model = new AccountModel();
+            var model = new Account();
             model.Password = password;
             model.Username = name;
             model.DriftScore = 0;
@@ -46,7 +46,7 @@ namespace Server.account
         {
             DataTable result = MySql.QueryRead($"SELECT * FROM accounts WHERE Username='{name}'");
             
-            var model = new AccountModel();
+            var model = new Account();
             model.Username = name;
             foreach(DataRow row in result.Rows)
             {

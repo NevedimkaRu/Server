@@ -10,7 +10,7 @@ namespace Server
 {
     class MySql : Script
     {
-        private const string connStr = "server=localhost;user=root;database=drift;port=3306;password=;";
+        public const string connStr = "server=localhost;user=root;database=drift;port=3306;password=;";
         readonly static MySqlConnection conn = new MySqlConnection(connStr);
         public static bool Debug = true;
 
@@ -101,6 +101,18 @@ namespace Server
             }
         }
 
+        public static void Query(string command, Dictionary<string, object> parameters)
+        {
+            using (MySqlCommand cmd = new MySqlCommand(command))
+            {
+                foreach (string f in parameters.Keys)
+                {
+                    cmd.Parameters.AddWithValue("@" + f, parameters[f]);
+                }
+                Query(cmd);
+            }
+        }
+
         public static async Task QueryAsync(MySqlCommand command)
         {
             try
@@ -176,6 +188,19 @@ namespace Server
         {
             using (MySqlCommand cmd = new MySqlCommand(command))
             {
+
+                return QueryRead(cmd);
+            }
+        }
+
+        public static DataTable QueryRead(string command, Dictionary<string, object> parameters)
+        {
+            using (MySqlCommand cmd = new MySqlCommand(command))
+            {
+                foreach(string f in parameters.Keys)
+                {
+                    cmd.Parameters.AddWithValue("@" + f, parameters[f]);
+                }
                 return QueryRead(cmd);
             }
         }

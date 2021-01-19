@@ -4,11 +4,9 @@ using System.Text;
 
 namespace Server.model
 {
-    public class AccountModel
+    public class Account : DB_Tables
     {
-
-        //test
-        public int Id { get; set; } = -1;
+        
         public string Username { get; set; } = null;
         public string Password { get; set; } = null;
         public int DriftScore { get; set; } = 0;

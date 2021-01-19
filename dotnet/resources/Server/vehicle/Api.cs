@@ -16,7 +16,7 @@ namespace Server.vehicle
         }
         public void LoadVehicle(Player player, int carid)
         {
-            var vehModel = new VehicleModel();
+            var vehModel = new Vehicles();
             try
             {
                 MySqlCommand cmd = new MySqlCommand
@@ -36,7 +36,7 @@ namespace Server.vehicle
                 vehModel.Id = carid;
                 Vector3 player_pos = player.Position;
                 vehModel.Veh = NAPI.Vehicle.CreateVehicle((VehicleHash)NAPI.Util.GetHashKey(vehModel.ModelHash), player_pos, 2f, new Color(0, 255, 100), new Color(0));
-                Main.Vehicles.Add(vehModel.Id, vehModel);
+                Main.Veh.Add(vehModel.Id, vehModel);
             }
             catch(Exception ex)
             {
@@ -48,15 +48,15 @@ namespace Server.vehicle
         }
         public void UnLoadVehicle(int carid)
         {
-            Main.Vehicles[carid].Veh.Delete();
-            Main.Vehicles.Remove(carid);
+            Main.Veh[carid].Veh.Delete();
+            Main.Veh.Remove(carid);
         }
         //Тестовые команды
         [Command("car",GreedyArg = true)]
         public void cmd_Car(Player player, string caridd)
         {
             int carid = Convert.ToInt32(caridd);
-            if(Main.Vehicles.ContainsKey(carid))
+            if(Main.Veh.ContainsKey(carid))
             {
                 UnLoadVehicle(carid);
             }

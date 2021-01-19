@@ -13,7 +13,7 @@ namespace Server.teleport
         public static void CreateTeleport(Player player, string name, string discription)
         {
             string player_pos = JsonConvert.SerializeObject(player.Position);
-            TeleportModel model = new TeleportModel(name, discription, player.Position);
+            Teleport model = new Teleport(name, discription, player.Position);
 
             MySql.Query($"INSERT INTO `teleports`(`Name`, `Discription`, `Position`) VALUES ('{model.Name}','{model.Discription}','{player_pos}')");
 
@@ -22,6 +22,30 @@ namespace Server.teleport
             LoadTeleports();
 
         }
+
+        [ServerEvent(Event.ResourceStart)]
+        public static void CreateTeleportTest()
+        {
+            Teleport model = new Teleport();
+            model.Name = "test";
+            model.Discription = "test23213";
+
+
+            //MySql.Query($"INSERT INTO `teleports`(`Name`, `Discription`, `Position`) VALUES ('{model.Name}','{model.Discription}','{player_pos}')");
+
+            //player.SendChatMessage($"Вы создали телепорт:[{model.Id}] {model.Name} - {model.Discription} - {model.Position}");
+            model.SetId(6);
+            model.Discription = "test2";
+            model.Name = "Порт ЛС2 тест";
+            model.Update("Name,Discription");
+            model.SetId(6);
+
+            NAPI.Util.ConsoleOutput("================================");
+            NAPI.Util.ConsoleOutput(model.Id.ToString() + " | " + model.Name + " | " + model.Discription);
+            NAPI.Util.ConsoleOutput("================================");
+
+        }
+
         public static void LoadTeleports()
         {
             DataTable dt = MySql.QueryRead("SELECT * FROM `teleports`");
@@ -33,7 +57,7 @@ namespace Server.teleport
             foreach (DataRow row in dt.Rows)
             {
                 int teleportid = Convert.ToInt32(row["Id"]);
-                TeleportModel model = new TeleportModel(teleportid,
+                Teleport model = new Teleport(teleportid,
                     Convert.ToString(row["Name"]),
                     Convert.ToString(row["Discription"]),
                     JsonConvert.DeserializeObject<Vector3>(row["Position"].ToString()));
