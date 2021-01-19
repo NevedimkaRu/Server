@@ -9,9 +9,9 @@ namespace Server
 {
     class Main : Script
     {
-        public static Dictionary<Player, AccountModel> Players = new Dictionary<Player, AccountModel>();
-        public static Dictionary<int, VehicleModel> Vehicles = new Dictionary<int, VehicleModel>();
-        public static Dictionary<int, TeleportModel> Teleports = new Dictionary<int, TeleportModel>();
+        public static Dictionary<Player, Account> Players = new Dictionary<Player, Account>();
+        public static Dictionary<int, Vehicles> Veh = new Dictionary<int, Vehicles>();
+        public static Dictionary<int, Teleport> Teleports = new Dictionary<int, Teleport>();
 
         public Main()
         {
