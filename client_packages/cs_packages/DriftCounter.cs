@@ -65,12 +65,10 @@ namespace cs_packages
         }
         private void OnPlayerEnterVehicle(Vehicle vehicle, int seatId)
         {
-            
             driftHTML = new HtmlWindow("package://statics/html/drift.html");
             vehHealth = vehicle.GetHealth();
             driftHTML.Active = false;
             totalscore = (int)Player.LocalPlayer.GetSharedData("PLAYER_SCORE");
-            Chat.Output(vehicle.Handle.ToString());
         }
         public void OnPlayerLeaveVehicle(Vehicle vehicle, int seatId)
         {
@@ -99,19 +97,6 @@ namespace cs_packages
             player.Vehicle.SetGravity(false);
         }
 
-        /*public void OnPlayerCommand(string cmd, RAGE.Events.CancelEventArgs cancel)
-        {
-            var arg = cmd.Split("/[ ] +/");
-
-
-            if (cmd == "sv")
-            {
-                float svlx = 0 , svly = 0, svlz = 0;
-
-                Vehicle vehicle = Player.LocalPlayer.Vehicle;
-                vehicle.SetVelocity(svlx, svly, svlz);
-            }
-        }*/
         private static void DriftScore()
         {
             Browser.ExecuteFunctionEvent(driftHTML, "driftScore", new object[] { score.ToString(), multiplier });

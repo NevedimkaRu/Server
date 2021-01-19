@@ -85,7 +85,6 @@ namespace Server
             {
                 player.Position = (Main.Teleports[id].Position);
             }
-            
         }
         [Command("tl")]
         public void cmd_TeleportList(Player player)
@@ -128,17 +127,6 @@ namespace Server
                 player.Vehicle.SetMod(modeType, modeIndex);
                 player.SendChatMessage($"{modeType} - {modeIndex}");
             }
-            
         }
-        [RemoteEvent("vtuning_set")]
-        public void vtuning_set(Player player, object[] args)
-        {
-            int modeType = (int)args[0];
-            int modeIndex = (int)args[1];
-
-            player.Vehicle.SetMod(modeType, modeIndex);
-            player.SendChatMessage($"{modeType} - {modeIndex}");
-        }
-
     }
 }

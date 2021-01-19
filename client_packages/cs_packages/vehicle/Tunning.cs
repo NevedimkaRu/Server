@@ -93,7 +93,7 @@ namespace cs_packages.vehicle
                    
                     submenu.OnItemSelect += (sender, item, index) =>
                     {
-                        Events.CallRemote("vtuning_set", sender.MenuData, index);
+                        Events.CallRemote("remote_SetTunning", sender.MenuData, index);
                     };
                     for (int modIndex = 0; modIndex < totalmods; modIndex++)
                     {

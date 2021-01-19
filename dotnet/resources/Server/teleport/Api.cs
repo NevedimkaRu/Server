@@ -23,32 +23,29 @@ namespace Server.teleport
 
         }
 
-        [ServerEvent(Event.ResourceStart)]
+        /*[ServerEvent(Event.ResourceStart)]
         public static void CreateTeleportTest()
         {
             Teleport model = new Teleport();
             model.Name = "test";
             model.Discription = "test23213";
 
-
-            //MySql.Query($"INSERT INTO `teleports`(`Name`, `Discription`, `Position`) VALUES ('{model.Name}','{model.Discription}','{player_pos}')");
-
-            //player.SendChatMessage($"Вы создали телепорт:[{model.Id}] {model.Name} - {model.Discription} - {model.Position}");
-            model.SetId(6);
+            model.SetId(5);
             model.Discription = "test2";
             model.Name = "Порт ЛС2 тест";
             model.Update("Name,Discription");
-            model.SetId(6);
+            model.SetId(5);
 
             NAPI.Util.ConsoleOutput("================================");
             NAPI.Util.ConsoleOutput(model.Id.ToString() + " | " + model.Name + " | " + model.Discription);
             NAPI.Util.ConsoleOutput("================================");
-
-        }
+        }*/
 
         public static void LoadTeleports()
         {
-            DataTable dt = MySql.QueryRead("SELECT * FROM `teleports`");
+            var tp = new Teleport();
+
+            DataTable dt = MySql.QueryRead("SELECT * FROM `teleport`");
             if (dt == null || dt.Rows.Count == 0)
             {
                 return;
@@ -61,7 +58,6 @@ namespace Server.teleport
                     Convert.ToString(row["Name"]),
                     Convert.ToString(row["Discription"]),
                     JsonConvert.DeserializeObject<Vector3>(row["Position"].ToString()));
-
                 
                 if(!Main.Teleports.ContainsKey(teleportid)) Main.Teleports.Add(teleportid, model);
                 NAPI.Util.ConsoleOutput($"{model.Id} - {model.Name} - {model.Discription} - {model.Position}");

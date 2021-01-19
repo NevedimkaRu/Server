@@ -19,49 +19,16 @@ namespace cs_packages.test
         private float fSuspensionReboundDamp = 10;
         private float fSuspensionBiasFront = 2;
         private float fAntiRollBarBiasFront = 2;
+
         public handling()
         {
             Events.OnPlayerCommand += OnPlayerCommand;
         }
-        public void AddMenuTest(UIMenu menu)
-        {
-            float angle = RAGE.Elements.Player.LocalPlayer.Vehicle.GetHandlingFloat("fSteeringLock");
 
-            var foods = new List<dynamic>();
-            float i = 0;
-            while (i == 2)
-            {
-                i += (float)0.1;
-                foods.Add(i);
-            }
-            int a = Player.LocalPlayer.Vehicle.GetNumMods(1);
-            var newitem = new UIMenuListItem("Food", foods, 0);
-            menu.AddItem(newitem);
-
-            /*menu.OnListChange += (sender, item, index) =>
-            {
-                if (item == newitem)
-                {
-                    //dish = item.IndexToItem(index).ToString();
-                    //Notify("Preparing ~b~" + dish + "~w~...");
-                }
-
-            };*/
-        }
         public void OnPlayerCommand(string cmd, RAGE.Events.CancelEventArgs cancel)
         {
             string[] args = cmd.Split(new char[] { ' ' });
             string commandName = args[0].Trim(new char[] { '/' });
-            if(commandName == "mod1")
-            {
-                int modeType = Convert.ToInt32(args[1]);
-                int modeIndex = Convert.ToInt32(args[2]);
-                Player.LocalPlayer.Vehicle.SetMod(modeType, modeIndex, true);
-            }
-            if (commandName == "hand")
-            {
-                ShowHandlingMenu();
-            }
             if (commandName == "drift")
             {
                 Player.LocalPlayer.Vehicle.SetHandling("fMass", (float)3000.000000);
@@ -188,20 +155,6 @@ namespace cs_packages.test
                 Player.LocalPlayer.Vehicle.SetHandling("fRollCentreHeightFront", (float)0.2300000);
                 Player.LocalPlayer.Vehicle.SetHandling("fRollCentreHeightRear", (float)0.180000);
             }
-        }
-        public void ShowHandlingMenu()
-        {
-            _menuPool = new MenuPool();
-            var mainMenu = new UIMenu("Handling", "~b~Handling changer");
-            _menuPool.Add(mainMenu);
-            AddMenuTest(mainMenu);
-            _menuPool.RefreshIndex();
-            Events.Tick += DrawMenu;
-            mainMenu.Visible = true;
-        }
-        public void DrawMenu(List<Events.TickNametagData> nametags)
-        {
-            _menuPool.ProcessMenus();
         }
     }
 }

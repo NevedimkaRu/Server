@@ -12,14 +12,18 @@ namespace Server.account
     {
         public static void CreateAccount(Player player, string name, string password)
         {
-            
 
-            var model = new Account();
-            model.Password = password;
-            model.Username = name;
-            model.DriftScore = 0;
 
-            MySql.Query($"INSERT INTO `accounts` (`Username`, `Password`) VALUES ('{name}','{password}')");
+            var model = new Account
+            {
+                Password = password,
+                Username = name,
+                DriftScore = 0
+            };
+
+            model.Insert();
+
+            //MySql.Query($"INSERT INTO `accounts` (`Username`, `Password`) VALUES ('{name}','{password}')");
             Main.Players.Add(player, model);
         }
         public static void LoginAccount(Player player, string name, string password)
