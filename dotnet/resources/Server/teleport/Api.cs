@@ -15,7 +15,7 @@ namespace Server.teleport
             string player_pos = JsonConvert.SerializeObject(player.Position);
             Teleport model = new Teleport(name, discription, player.Position);
 
-            MySql.Query($"INSERT INTO `teleports`(`Name`, `Discription`, `Position`) VALUES ('{model.Name}','{model.Discription}','{player_pos}')");
+            MySql.Query($"INSERT INTO `teleport`(`Name`, `Discription`, `Position`) VALUES ('{model.Name}','{model.Discription}','{player_pos}')");
 
             player.SendChatMessage($"Вы создали телепорт:[{model.Id}] {model.Name} - {model.Discription} - {model.Position}");
 

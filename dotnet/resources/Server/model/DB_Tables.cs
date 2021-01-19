@@ -33,28 +33,6 @@ namespace Server.model
                 }
             }
         }
-        public void SetId()
-        {
-            //todo необходимо согласование, класс должен иметь такое же название что и теблица БД
-            string tbname = this.GetType().Name;
-            string sql = $"select * from `{tbname}`";
-            DataTable dt = MySql.QueryRead(sql);
-
-            foreach (var obj in this.GetType().GetProperties())
-            {
-                if (dt.Columns.IndexOf(obj.Name) != 1)
-                {
-                    if (obj.PropertyType.Name == "Vector3")
-                    {
-                        obj.SetValue(this, JsonConvert.DeserializeObject<Vector3>(dt.Rows[0][obj.Name].ToString()));
-                    }
-                    else
-                    {
-                        obj.SetValue(this, dt.Rows[0][obj.Name]);
-                    }
-                }
-            }
-        }
         public int Insert()
         {
             string tbname = this.GetType().Name;

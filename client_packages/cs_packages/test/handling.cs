@@ -9,7 +9,6 @@ namespace cs_packages.test
 {
     class handling : Events.Script
     {
-        private MenuPool _menuPool;
         private float fInitialDriveMaxFlatVel = (float)3.6;
         private float fBrakeBiasFront = 2;
         private float fSteeringLock = (float)0.017453292;
@@ -25,7 +24,7 @@ namespace cs_packages.test
             Events.OnPlayerCommand += OnPlayerCommand;
         }
 
-        public void OnPlayerCommand(string cmd, RAGE.Events.CancelEventArgs cancel)
+        public void OnPlayerCommand(string cmd, Events.CancelEventArgs cancel)
         {
             string[] args = cmd.Split(new char[] { ' ' });
             string commandName = args[0].Trim(new char[] { '/' });
@@ -33,7 +32,6 @@ namespace cs_packages.test
             {
                 Player.LocalPlayer.Vehicle.SetHandling("fMass", (float)3000.000000);
                 Player.LocalPlayer.Vehicle.SetHandling("fInitialDragCoeff", (float)6.220000);
-                Player.LocalPlayer.Vehicle.SetHandling("fPercentSubmerged", (float)85.000000);
 
                 Player.LocalPlayer.Vehicle.SetHandling("vecCentreOfMassOffset", new Vector3((float)0.0, (float)0.0, (float)0.0));
                 Player.LocalPlayer.Vehicle.SetHandling("vecInertiaMultiplier", new Vector3((float)1.200000, (float)1.200000, (float)1.600000));
@@ -77,7 +75,6 @@ namespace cs_packages.test
             {
                 Player.LocalPlayer.Vehicle.SetHandling("fMass", (float)1500.000000);
                 Player.LocalPlayer.Vehicle.SetHandling("fInitialDragCoeff", (float)15.5);
-                Player.LocalPlayer.Vehicle.SetHandling("fPercentSubmerged", (float)85.000000);
 
                 Player.LocalPlayer.Vehicle.SetHandling("vecCentreOfMassOffset", new Vector3((float)0.0, (float)0.0, (float)0.0));
                 Player.LocalPlayer.Vehicle.SetHandling("vecInertiaMultiplier", new Vector3((float)1.0, (float)1.0, (float)1.0));
@@ -115,7 +112,6 @@ namespace cs_packages.test
             {
                 Player.LocalPlayer.Vehicle.SetHandling("fMass", (float)1700.000000);
                 Player.LocalPlayer.Vehicle.SetHandling("fInitialDragCoeff", (float)8.0);
-                Player.LocalPlayer.Vehicle.SetHandling("fPercentSubmerged", (float)85.000000);
 
                 Player.LocalPlayer.Vehicle.SetHandling("vecCentreOfMassOffset", new Vector3((float)0.0, (float)-0.1, (float)0.0));
                 Player.LocalPlayer.Vehicle.SetHandling("vecInertiaMultiplier", new Vector3((float)1.2, (float)1.6, (float)1.9));

@@ -28,7 +28,7 @@ namespace Server.account
         }
         public static void LoginAccount(Player player, string name, string password)
         {
-            DataTable result = MySql.QueryRead($"SELECT Password FROM accounts WHERE Username='{name}'");
+            DataTable result = MySql.QueryRead($"SELECT Password FROM account WHERE Username='{name}'");
 
             if(result == null || result.Rows.Count == 0)
             {
@@ -48,7 +48,7 @@ namespace Server.account
         }
         public static void LoadAccount(Player player, string name)
         {
-            DataTable result = MySql.QueryRead($"SELECT * FROM accounts WHERE Username='{name}'");
+            DataTable result = MySql.QueryRead($"SELECT * FROM account WHERE Username='{name}'");
             
             var model = new Account();
             model.Username = name;
