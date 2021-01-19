@@ -30,7 +30,6 @@ namespace cs_packages.test
             string commandName = args[0].Trim(new char[] { '/' });
             if (commandName == "drift")
             {
-                Player.LocalPlayer.Vehicle.SetHandling("fMass", (float)3000.000000);
                 Player.LocalPlayer.Vehicle.SetHandling("fInitialDragCoeff", (float)6.220000);
 
                 Player.LocalPlayer.Vehicle.SetHandling("vecCentreOfMassOffset", new Vector3((float)0.0, (float)0.0, (float)0.0));
@@ -42,7 +41,8 @@ namespace cs_packages.test
                 Player.LocalPlayer.Vehicle.SetHandling("fDriveInertia", (float)1.300000);
                 Player.LocalPlayer.Vehicle.SetHandling("fClutchChangeRateScaleUpShift", (float)1.600000);
                 Player.LocalPlayer.Vehicle.SetHandling("fClutchChangeRateScaleDownShift", (float)1.600000);
-                Player.LocalPlayer.Vehicle.SetHandling("fInitialDriveMaxFlatVel", (float)160.000000 / fInitialDriveMaxFlatVel);
+                //Player.LocalPlayer.Vehicle.SetHandling("fInitialDriveMaxFlatVel", (float)160.000000 / fInitialDriveMaxFlatVel);
+
                 Player.LocalPlayer.Vehicle.SetHandling("fBrakeForce", (float)1.500000);
                 Player.LocalPlayer.Vehicle.SetHandling("fBrakeBiasFront", (float)0.550000 * fBrakeBiasFront);
                 Player.LocalPlayer.Vehicle.SetHandling("fHandBrakeForce", (float)1.200000);
@@ -73,7 +73,6 @@ namespace cs_packages.test
             }
             if(commandName == "drift1")
             {
-                Player.LocalPlayer.Vehicle.SetHandling("fMass", (float)1500.000000);
                 Player.LocalPlayer.Vehicle.SetHandling("fInitialDragCoeff", (float)15.5);
 
                 Player.LocalPlayer.Vehicle.SetHandling("vecCentreOfMassOffset", new Vector3((float)0.0, (float)0.0, (float)0.0));
@@ -110,7 +109,6 @@ namespace cs_packages.test
             }
             if(commandName == "drift2")
             {
-                Player.LocalPlayer.Vehicle.SetHandling("fMass", (float)1700.000000);
                 Player.LocalPlayer.Vehicle.SetHandling("fInitialDragCoeff", (float)8.0);
 
                 Player.LocalPlayer.Vehicle.SetHandling("vecCentreOfMassOffset", new Vector3((float)0.0, (float)-0.1, (float)0.0));

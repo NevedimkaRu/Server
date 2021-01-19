@@ -9,9 +9,11 @@ namespace cs_packages.vehicle
 {
     class Tunning : Events.Script
     {
+        private bool menuactive = false;
         public Tunning()
         {
             Input.Bind(0x73, true, ShowTunningMenu);//f4
+            Events.Tick += DrawMenu;
         }
 
         List<string> slotNames = new List<string>() 
@@ -74,7 +76,9 @@ namespace cs_packages.vehicle
 
         public void ShowTunningMenu()
         {
-            if(Player.LocalPlayer.Vehicle == null)
+            if (menuactive) return;
+            menuactive = true;
+            if (Player.LocalPlayer.Vehicle == null)
             {
                 Api.Notify("Вы должны находиться в транспорте");
                 return;
@@ -106,12 +110,24 @@ namespace cs_packages.vehicle
                 }
             }
             menuPool.RefreshIndex();
-            Events.Tick += DrawMenu;
+            
             mainMenu.Visible = true;
+
+            mainMenu.OnMenuClose += (sender) =>
+            {
+                menuactive = false;
+                Chat.Output("ЗАКРЫТО!");
+            };
         }
-        public void DrawMenu(List<Events.TickNametagData> nametags)
+        /*В очередной раз разработчики RAGEMP показали свою гениальность. Почему нету метода для удаления эвентов? Мне бы не пришлось ставить проверку на то открыто меню
+         или нет. Из-за этого хуйня будет каждый тик проверять активацию меню, хотя она нахуй не нужна если меню закрыто*/
+        private void DrawMenu(List<Events.TickNametagData> nametags)
         {
-            menuPool.ProcessMenus();
+            if(menuactive)
+            {
+                menuPool.ProcessMenus();
+            }
+            
         }
     }
 }
