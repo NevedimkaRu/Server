@@ -15,7 +15,7 @@ namespace Server.model
         public void SetId(int id)
         {
             //todo необходимо согласование, класс должен иметь такое же название что и теблица БД
-            string tbname = "teleports";
+            string tbname = this.GetType().Name;
             string sql = $"select * from `{tbname}` where `id` = {id}";
             DataTable dt = MySql.QueryRead(sql);
 
@@ -74,8 +74,7 @@ namespace Server.model
 
         public void Update(string fields)
         {
-            //todo убрать после того как модели будут переименованны в соответсвии с названиями таблиц
-            string tbname = "teleports";
+            string tbname = this.GetType().Name;
 
             Dictionary<string, object> props = new Dictionary<string, object>();
 
