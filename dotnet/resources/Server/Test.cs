@@ -119,12 +119,12 @@ namespace Server
             if (!Debug) return;
             NAPI.World.SetWeather("CLEAR");
         }
-        [Command("mod", GreedyArg =true)]
-        public static void cmd_SetMod(Player player, int modeType, int modeIndex)
+        [Command("mod", GreedyArg = true)]
+        public static void cmd_SetMod(Player player, string modeType, string modeIndex)
         {
             if(player.Vehicle != null)
             {
-                player.Vehicle.SetMod(modeType, modeIndex);
+                player.Vehicle.SetMod(Convert.ToInt32(modeType), Convert.ToInt32(modeIndex));
                 player.SendChatMessage($"{modeType} - {modeIndex}");
             }
         }

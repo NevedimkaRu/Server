@@ -347,4 +347,62 @@ System.Reflection.TargetInvocationException: Exception has been thrown by the ta
    at GTANetworkInternals.ScriptingEngine.InvokeVoidMethod(String method, Object[] args)
    at GTANetworkInternals.EventParser.Parse(Event _event, Object[] arguments)
    at GTANetworkInternals.EventCollection.<>c__DisplayClass4_0.<ParseEx>b__1(EventParser x)
-   at System.Collections.Generic.List`1.ForEa
+   at System.Collections.Generic.List`1.ForEaInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 20.01.2021 19:06:50
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+MySqlConnector.MySqlDataReader
+113ХУЙ
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 3 server events(s)
+Server: loading commands.. found 13 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loaded 18 commands(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 1 remote event(s)
+Всё ок
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+Teleports load
+-> Resource Server started!
+Started! Waiting for connections..
+UNHANDLED EXCEPTION IN COMMAND mod FOR RESOURCE Server
+System.ArgumentException: Object of type 'System.String' cannot be converted to type 'System.Int32'.
+   at object RuntimeType.TryChangeType(object value, Binder binder, CultureInfo culture, bool needsSpecialCast)
+   at object RuntimeType.CheckValue(object value, Binder binder, CultureInfo culture, BindingFlags invokeAttr)
+   at object[] System.Reflection.MethodBase.CheckArguments(object[] parameters, Binder binder, BindingFlags invokeAttr, CultureInfo culture, Signature sig)
+   at object[] System.Reflection.RuntimeMethodInfo.InvokeArgumentsCheck(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at bool GTANetworkInternals.CommandParser.Parse(Player sender, string cmdRaw, string ourcmd, string[] args)
+UNHANDLED EXCEPTION IN COMMAND mod FOR RESOURCE Server
+System.ArgumentException: Object of type 'System.String' cannot be converted to type 'System.Int32'.
+   at object RuntimeType.TryChangeType(object value, Binder binder, CultureInfo culture, bool needsSpecialCast)
+   at object RuntimeType.CheckValue(object value, Binder binder, CultureInfo culture, BindingFlags invokeAttr)
+   at object[] System.Reflection.MethodBase.CheckArguments(object[] parameters, Binder binder, BindingFlags invokeAttr, CultureInfo culture, Signature sig)
+   at object[] System.Reflection.RuntimeMethodInfo.InvokeArgumentsCheck(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at bool GTANetworkInternals.CommandParser.Parse(Player sender, string cmdRaw, string ourcmd, string[] args)
+UNHANDLED EXCEPTION IN COMMAND mod FOR RESOURCE Server
+System.ArgumentException: Object of type 'System.String' cannot be converted to type 'System.Int32'.
+   at object RuntimeType.TryChangeType(object value, Binder binder, CultureInfo culture, bool needsSpecialCast)
+   at object RuntimeType.CheckValue(object value, Binder binder, CultureInfo culture, BindingFlags invokeAttr)
+   at object[] System.Reflection.MethodBase.CheckArguments(object[] parameters, Binder binder, BindingFlags invokeAttr, CultureInfo culture, Signature sig)
+   at object[] S

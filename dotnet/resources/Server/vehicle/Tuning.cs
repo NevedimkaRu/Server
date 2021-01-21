@@ -23,7 +23,6 @@ namespace Server.vehicle
 
             foreach (DataRow row in result.Rows)
             {
-                tuning.Id = Convert.ToInt32(row["Id"]);
                 tuning.Spoiler = Convert.ToInt32(row["Spoiler"]);
                 tuning.FrontBumper = Convert.ToInt32(row["FrontBumper"]);
                 tuning.RearBumper = Convert.ToInt32(row["RearBumper"]);
@@ -35,12 +34,11 @@ namespace Server.vehicle
 
         }
 
-        public static void ApplyTuning(Vehicle vehicle, int carid)
+        public static void ApplyTuning(Vehicle vehicle, int vehicleID)
         {
-            vehicle.SetMod(0, Main.VehicleTunings[carid].Spoiler);
-            vehicle.SetMod(1, Main.VehicleTunings[carid].FrontBumper);
-            vehicle.SetMod(2, Main.VehicleTunings[carid].RearBumper);
-
+            vehicle.SetMod(0, Main.VehicleTunings[vehicleID].Spoiler);
+            vehicle.SetMod(1, Main.VehicleTunings[vehicleID].FrontBumper);
+            vehicle.SetMod(2, Main.VehicleTunings[vehicleID].RearBumper);
         }
 
         [RemoteEvent("remote_SetTunning")]

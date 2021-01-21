@@ -149,6 +149,49 @@ namespace cs_packages.test
                 Player.LocalPlayer.Vehicle.SetHandling("fRollCentreHeightFront", (float)0.2300000);
                 Player.LocalPlayer.Vehicle.SetHandling("fRollCentreHeightRear", (float)0.180000);
             }
+            if (commandName == "drift3")
+            {
+                Player.LocalPlayer.Vehicle.SetHandling("fInitialDragCoeff", (float)15.50000);
+
+                Player.LocalPlayer.Vehicle.SetHandling("vecCentreOfMassOffset", new Vector3((float)0.0, (float)0.0, (float)0.0));
+                Player.LocalPlayer.Vehicle.SetHandling("vecInertiaMultiplier", new Vector3((float)1.200000, (float)1.200000, (float)1.600000));
+
+                Player.LocalPlayer.Vehicle.SetHandling("fDriveBiasFront", (float)0.0000);
+                Player.LocalPlayer.Vehicle.SetHandling("nInitialDriveGears", 6);
+                Player.LocalPlayer.Vehicle.SetHandling("fInitialDriveForce", (float)1.900);
+                Player.LocalPlayer.Vehicle.SetHandling("fDriveInertia", (float)1.000);
+                Player.LocalPlayer.Vehicle.SetHandling("fClutchChangeRateScaleUpShift", (float)1.600000);
+                Player.LocalPlayer.Vehicle.SetHandling("fClutchChangeRateScaleDownShift", (float)1.600000);
+                Player.LocalPlayer.Vehicle.SetHandling("fInitialDriveMaxFlatVel", (float)160.000000 / fInitialDriveMaxFlatVel);
+
+                Player.LocalPlayer.Vehicle.SetHandling("fBrakeForce", (float)4.8500000);
+                Player.LocalPlayer.Vehicle.SetHandling("fBrakeBiasFront", (float)0.670000 * fBrakeBiasFront);
+                Player.LocalPlayer.Vehicle.SetHandling("fHandBrakeForce", (float)3.500000);
+                Player.LocalPlayer.Vehicle.SetHandling("fSteeringLock", (float)52.000000 * fSteeringLock);
+
+                Player.LocalPlayer.Vehicle.SetHandling("fTractionCurveMax", (float)0.9500);
+                Player.LocalPlayer.Vehicle.SetHandling("fTractionCurveMin", (float)1.300);
+                Player.LocalPlayer.Vehicle.SetHandling("fTractionCurveLateral", (float)24.5000 * fTractionCurveLateral);
+                Player.LocalPlayer.Vehicle.SetHandling("fTractionSpringDeltaMax", (float)0.150000);
+
+                Player.LocalPlayer.Vehicle.SetHandling("fLowSpeedTractionLossMult", (float)1.000000);
+                Player.LocalPlayer.Vehicle.SetHandling("fCamberStiffnesss", (float)0.000000);
+                Player.LocalPlayer.Vehicle.SetHandling("fTractionBiasFront", (float)0.450000 * fTractionBiasFront);
+                Player.LocalPlayer.Vehicle.SetHandling("fTractionLossMult", (float)1.000000);
+                Player.LocalPlayer.Vehicle.SetHandling("fSuspensionForce", (float)2.500000);
+                Player.LocalPlayer.Vehicle.SetHandling("fSuspensionCompDamp", (float)2.600000 / fSuspensionCompDamp);
+                Player.LocalPlayer.Vehicle.SetHandling("fSuspensionReboundDamp", (float)3.00000 / fSuspensionReboundDamp);
+                Player.LocalPlayer.Vehicle.SetHandling("fSuspensionUpperLimit", (float)0.100000);
+                Player.LocalPlayer.Vehicle.SetHandling("fSuspensionLowerLimit", (float)-0.10000);
+                Player.LocalPlayer.Vehicle.SetHandling("fSuspensionRaise", (float)-0.00000);
+                Player.LocalPlayer.Vehicle.SetHandling("fSuspensionBiasFront", (float)0.500000 * fSuspensionBiasFront);
+
+                /*Player.LocalPlayer.Vehicle.SetHandling("fAntiRollBarForce", (float)0.500000);
+                Player.LocalPlayer.Vehicle.SetHandling("fAntiRollBarBiasFront", (float)0.470000 * fAntiRollBarBiasFront);
+                Player.LocalPlayer.Vehicle.SetHandling("fRollCentreHeightFront", (float)0.200000);
+                Player.LocalPlayer.Vehicle.SetHandling("fRollCentreHeightRear", (float)0.250000);*/
+
+            }
         }
     }
 }

@@ -3,7 +3,8 @@
 	"name" : "RAGE:MP Drift Server", 
 	"gamemode" : "freeroam", 
 	"stream-distance" : 500.0,
-	"announce" : true,
+	"announce" : false,
 	"csharp" : "true",
-	"port": 22005
+	"port": 22005,
+	"resources-compression-level" : 0
 }

@@ -13,7 +13,6 @@ namespace cs_packages.vehicle
         public Tunning()
         {
             Input.Bind(0x73, true, ShowTunningMenu);//f4
-            Events.Tick += DrawMenu;
         }
 
         List<string> slotNames = new List<string>() 
@@ -110,13 +109,14 @@ namespace cs_packages.vehicle
                 }
             }
             menuPool.RefreshIndex();
-            
+            Events.Tick += DrawMenu;
             mainMenu.Visible = true;
 
             mainMenu.OnMenuClose += (sender) =>
             {
                 menuactive = false;
-                Chat.Output("ЗАКРЫТО!");
+                Chat.Output("ЗАКРЫТО!"); 
+                Events.Tick -= DrawMenu;
             };
         }
         /*В очередной раз разработчики RAGEMP показали свою гениальность. Почему нету метода для удаления эвентов? Мне бы не пришлось ставить проверку на то открыто меню

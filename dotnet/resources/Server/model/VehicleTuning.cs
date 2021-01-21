@@ -45,6 +45,10 @@ namespace Server.model
         public int WindowTint { get; set; }//55
         
 
-
+        enum VehicleId
+        {
+            CarId = 0,
+            Spoiler = 10,
+        }
     }
 }
