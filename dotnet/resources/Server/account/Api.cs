@@ -54,6 +54,7 @@ namespace Server.account
             model.Username = name;
             foreach(DataRow row in result.Rows)
             {
+                model.Id = Convert.ToInt32(row["Id"]);
                 model.DriftScore = Convert.ToInt32(row["DriftScore"]);
             }
             Main.Players.Add(player, model);

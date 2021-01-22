@@ -14,6 +14,7 @@ namespace Server.model
 
         public void SetId(int id)
         {
+            
             //todo необходимо согласование, класс должен иметь такое же название что и теблица БД
             string tbname = this.GetType().Name;
             string sql = $"select * from `{tbname}` where `id` = {id}";
@@ -21,7 +22,8 @@ namespace Server.model
 
             foreach (var obj in this.GetType().GetProperties())
             {
-                if (dt.Columns.IndexOf(obj.Name) != 1)
+                //if (!IsDbTable(obj.Name)) continue;
+                if (dt.Columns.Contains(obj.Name))
                 {
                     if (obj.PropertyType.Name == "Vector3") 
                     {
@@ -47,7 +49,7 @@ namespace Server.model
             {
                 string fldName = obj.Name;
                 object value = obj.GetValue(this, null);
-                if (fldName !=  "Id" && value != null) {
+                if (fldName !=  "Id" && value != null && IsDbTable(fldName)) {
                     props.Add(fldName, value);
                 }
             }
@@ -108,7 +110,7 @@ namespace Server.model
             {
                 string fldName = obj.Name;
                 object value = obj.GetValue(this, null);
-                if (fldName != "Id" && value != null)
+                if (fldName != "Id" && value != null && IsDbTable(fldName))
                 {
                     props.Add(fldName, value);
                 }
@@ -130,6 +132,14 @@ namespace Server.model
             $" where id = {this.Id}";
             MySql.Query(sql, props);
 
+        }
+        private bool IsDbTable(string fldName)
+        {
+            if (fldName.IndexOf("_") == 0)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
