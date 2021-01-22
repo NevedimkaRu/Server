@@ -16,43 +16,43 @@ namespace Server.vehicle
         }
         public void LoadVehicle(Player player, int carid)
         {
-            var vehModel = new Vehicles();
+            Vehicles vehModel = new Vehicles();
             try
             {
-                MySqlCommand cmd = new MySqlCommand
-                {
-                    CommandText = "SELECT * FROM `vehicles` WHERE `Owner` = @ow AND `Id` = @id "
-                };
-                cmd.Parameters.AddWithValue("@ow", Main.Players[player].Username);
-                cmd.Parameters.AddWithValue("@id", carid);
+                vehModel.SetId(carid);
 
-                DataTable result = MySql.QueryRead(cmd);
-                
-                foreach (DataRow row in result.Rows)
+                if(vehModel.OwnerId != Main.Players[player].Id)
                 {
-                    vehModel.ModelHash = Convert.ToString(row["ModelHash"]);
+                    player.SendChatMessage("Это не ваша машина");
+                    return;
                 }
-                vehModel.Owner = Main.Players[player].Username;
-                vehModel.Id = carid;
+
                 Vector3 player_pos = player.Position;
-                vehModel.Veh = NAPI.Vehicle.CreateVehicle((VehicleHash)NAPI.Util.GetHashKey(vehModel.ModelHash), player_pos, 2f, new Color(0, 255, 100), new Color(0));
+                vehModel._Veh = NAPI.Vehicle.CreateVehicle((VehicleHash)NAPI.Util.GetHashKey(vehModel.ModelHash), player_pos, 2f, new Color(0, 255, 100), new Color(0));
+
+                player.SetIntoVehicle(vehModel._Veh, 0);
 
                 Tuning.LoadTunning(carid);
-                Tuning.ApplyTuning(vehModel.Veh, carid);
+                Tuning.ApplyTuning(vehModel._Veh, carid);
                 
                 Main.Veh.Add(vehModel.Id, vehModel);
+
+                object[] obj = new object[3];
+                obj[0] = vehModel._Veh.Id;
+                obj[1] = vehModel._Veh.Handle.Value;
+                obj[2] = vehModel.Handling;
+
+                player.TriggerEvent("add_SetHandling", obj);
+
             }
             catch(Exception ex)
             {
                 NAPI.Util.ConsoleOutput($"[Load Vehicle] Ошибка при загрузке данных: {ex}");
             }
-            
-
-            
         }
         public void UnLoadVehicle(int carid)
         {
-            Main.Veh[carid].Veh.Delete();
+            Main.Veh[carid]._Veh.Delete();
             Main.Veh.Remove(carid);
         }
         //Тестовые команды
