@@ -74,6 +74,32 @@ namespace Server.model
             return this.Id;
         }
 
+        public void Update()
+        {
+            string tbname = this.GetType().Name;
+
+            Dictionary<string, object> props = new Dictionary<string, object>();
+
+            string valuesParamStr = "";
+            foreach (var obj in this.GetType().GetProperties())
+            {
+                string fldName = obj.Name;
+                object value = obj.GetValue(this, null);
+                if (fldName != "Id" && value != null)
+                {
+                    valuesParamStr += "`" + fldName + "` = @" + fldName + ",";
+                    props.Add(fldName, value);
+                }
+            }
+            valuesParamStr = valuesParamStr.Remove(valuesParamStr.Length - 1, 1);
+
+            string sql = $"update `{tbname}` " +
+            $"set {valuesParamStr}" +
+            $" where id = {this.Id}";
+            MySql.Query(sql, props);
+
+        }
+
         public void Update(string fields)
         {
             string tbname = this.GetType().Name;
