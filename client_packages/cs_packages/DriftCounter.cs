@@ -65,6 +65,14 @@ namespace cs_packages
         }
         private void OnPlayerEnterVehicle(Vehicle vehicle, int seatId)
         {
+            /*int handlingId = Convert.ToInt32(vehicle.GetSharedData("sh_Handling"));
+            Chat.Output("Enter Vehicle");
+            if(handlingId != 0)
+            {
+                test.handling.SetHandling(vehicle, handlingId);
+            }*/
+            //Chat.Output($"client: carid - {vehicle.Id} remoteid - {vehicle.RemoteId}");
+            
             driftHTML = new HtmlWindow("package://statics/html/drift.html");
             vehHealth = vehicle.GetHealth();
             driftHTML.Active = false;
@@ -72,7 +80,7 @@ namespace cs_packages
         }
         public void OnPlayerLeaveVehicle(Vehicle vehicle, int seatId)
         {
-            
+            Chat.Output("Leave Vehicle");
             driftHTML.Active = false;
             multiplier = 1;
             score = 0;

@@ -42,7 +42,7 @@ namespace Server
             }
             conn.Close();
             //Test();
-            TestExecute();
+            //TestExecute();
         }
         public static void Test()
         {
@@ -231,7 +231,7 @@ namespace Server
             }
         }*/
 
-        public static void TestExecute() // Пример получение данных с таблицы 
+        /*public static void TestExecute() // Пример получение данных с таблицы 
         {
             MySqlConnection connect = new MySqlConnection(connStr);
             connect.Open();
@@ -249,7 +249,7 @@ namespace Server
                 NAPI.Util.ConsoleOutput(rdr[0] + "ХУЙ");
             }
             rdr.Close(); 
-        }
+        }*/
     }
 }
             

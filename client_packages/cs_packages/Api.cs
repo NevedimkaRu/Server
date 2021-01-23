@@ -7,6 +7,7 @@ namespace cs_packages
 {
     public class Api
     {
+        public static bool Debug = true;
         public static void Notify(string text)//Показывает уведомление над миникартой
         {
             Ui.SetNotificationTextEntry("STRING");
