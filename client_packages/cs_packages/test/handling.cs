@@ -28,7 +28,7 @@ namespace cs_packages.test
         private void SetHandlingFromServer(object[] args)
         {
             Vehicle veh = (Vehicle)args[0];
-
+            
             int id = Convert.ToInt32(args[1]);
 
             if (id == 0) return;

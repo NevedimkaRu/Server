@@ -20,6 +20,9 @@ namespace Server.vehicle
         }
         public void DestroyCar(Player player, int carid)
         {
+            Main.Veh[carid]._Veh.ResetSharedData("vehicleId");//Не знаю, надо ли удалять дату, учитывая то, что дальше машина удаляется
+            Main.Veh[carid]._Veh.ResetSharedData("sh_Handling");
+
             Main.Veh[carid]._Veh.Delete();
             Main.Veh.Remove(carid);
             Main.VehicleTunings.Remove(carid);
@@ -27,9 +30,38 @@ namespace Server.vehicle
         }
         public void LoadVehicle(Player player, int carid)
         {
-            if(Main.Veh.ContainsKey(carid)) return;
+            if (Main.Veh.ContainsKey(carid))//Проверка на то, создана ли машина
+            {
+                if (Main.Veh[carid].OwnerId == Main.Players[player].Id && player.Vehicle == null)
+                {
+                    Main.Veh[carid]._Veh.Delete();//Удаляем машину
+
+                    Main.Veh[carid]._Veh.ResetSharedData("vehicleId");
+                    Main.Veh[carid]._Veh.ResetSharedData("sh_Handling");
+
+                    Main.Veh[carid]._Veh = NAPI.Vehicle.CreateVehicle((VehicleHash)NAPI.Util.GetHashKey(Main.Veh[carid].ModelHash), player.Position, 2f, new Color(0, 255, 100), new Color(0));//и заного создаём
+                    Main.Veh[carid]._Veh.SetSharedData("sh_Handling", Main.Veh[carid].Handling);
+
+                    NAPI.Task.Run(() =>
+                    {
+                        player.TriggerEvent("add_SetHandling", Main.Veh[carid]._Veh.Handle, Main.Veh[carid].Handling);//todo Сделать синхронизацию между всеми игроками
+                    });
+                    Main.Veh[carid]._Veh.SetSharedData("vehicleId", Main.Veh[carid].Id);
+                    Tuning.ApplyTuning(Main.Veh[carid]._Veh, carid);
+                    player.SetIntoVehicle(Main.Veh[carid]._Veh, 0);
+                }
+                return;//
+            }
 
             Vehicles vehModel = new Vehicles();
+            vehModel.SetId(carid);
+
+            if (vehModel.OwnerId != Main.Players[player].Id)
+            {
+                player.SendChatMessage("Это не ваша машина");
+                return;
+            }
+
             foreach (var veh in Main.Veh)
             {
                 if(veh.Value.OwnerId == Main.Players[player].Id)
@@ -39,52 +71,28 @@ namespace Server.vehicle
                 }
             }
 
-            try
+            Vector3 player_pos = player.Position;
+            vehModel._Veh = NAPI.Vehicle.CreateVehicle((VehicleHash)NAPI.Util.GetHashKey(vehModel.ModelHash), player_pos, 2f, new Color(0, 255, 100), new Color(0));
+            Main.Veh.Add(vehModel.Id, vehModel);
+
+            player.SetIntoVehicle(Main.Veh[carid]._Veh, 0);
+
+            Tuning.LoadTunning(carid);
+
+            Main.Veh[carid]._Veh.SetSharedData("sh_Handling", Main.Veh[carid].Handling);
+            Main.Veh[carid]._Veh.SetSharedData("vehicleId", carid);
+            NAPI.Task.Run(() =>
             {
-                vehModel.SetId(carid);
+                player.TriggerEvent("add_SetHandling", Main.Veh[carid]._Veh.Handle, Main.Veh[carid].Handling);//todo Сделать синхронизацию между всеми игроками
+            });
 
-                if(vehModel.OwnerId != Main.Players[player].Id)
-                {
-                    player.SendChatMessage("Это не ваша машина");
-                    return;
-                }
-
-                Vector3 player_pos = player.Position;
-                vehModel._Veh = NAPI.Vehicle.CreateVehicle((VehicleHash)NAPI.Util.GetHashKey(vehModel.ModelHash), player_pos, 2f, new Color(0, 255, 100), new Color(0));
-                Main.Veh.Add(vehModel.Id, vehModel);
-
-                player.SetIntoVehicle(Main.Veh[carid]._Veh, 0);
-
-                Tuning.LoadTunning(carid);
-
-                vehModel._Veh.SetSharedData("sh_Handling", vehModel.Handling);
-                NAPI.Task.Run(() =>
-                {
-                    player.TriggerEvent("add_SetHandling", Main.Veh[carid]._Veh.Handle, Main.Veh[carid].Handling);//todo Сделать синхронизацию между всеми игроками
-                });
-
-
-                Tuning.ApplyTuning(vehModel._Veh, carid);
-            }
-            catch(Exception ex)
-            {
-                NAPI.Util.ConsoleOutput($"[Load Vehicle] Ошибка при загрузке данных: {ex}");
-            }
-        }
-        public void UnLoadVehicle(int carid)
-        {
-            Main.Veh[carid]._Veh.Delete();
-            Main.Veh.Remove(carid);
+            Tuning.ApplyTuning(Main.Veh[carid]._Veh, carid);
         }
         //Тестовые команды
         [Command("car",GreedyArg = true)]
         public void cmd_Car(Player player, string caridd)
         {
             int carid = Convert.ToInt32(caridd);
-            if(Main.Veh.ContainsKey(carid))
-            {
-                UnLoadVehicle(carid);
-            }
             LoadVehicle(player, carid);
         }
 
