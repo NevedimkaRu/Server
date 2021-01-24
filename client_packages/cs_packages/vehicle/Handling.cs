@@ -7,7 +7,7 @@ using RAGE.NUI;
 
 namespace cs_packages.test
 {
-    public class handling : Events.Script
+    public class Handling : Events.Script
     {
         private static float fInitialDriveMaxFlatVel = (float)3.6;
         private static float fBrakeBiasFront = 2;
@@ -19,7 +19,7 @@ namespace cs_packages.test
         private static float fSuspensionBiasFront = 2;
         private static float fAntiRollBarBiasFront = 2;
 
-        private handling()
+        private Handling()
         {
             Events.OnPlayerCommand += OnPlayerCommand;
             Events.Add("add_SetHandling", SetHandlingFromServer);
@@ -28,7 +28,6 @@ namespace cs_packages.test
         private void SetHandlingFromServer(object[] args)
         {
             Vehicle veh = (Vehicle)args[0];
-            
             int id = Convert.ToInt32(args[1]);
 
             if (id == 0) return;

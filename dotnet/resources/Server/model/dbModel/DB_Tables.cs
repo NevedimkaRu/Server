@@ -14,8 +14,6 @@ namespace Server.model
 
         public void SetId(int id)
         {
-            
-            //todo необходимо согласование, класс должен иметь такое же название что и теблица БД
             string tbname = this.GetType().Name;
             string sql = $"select * from `{tbname}` where `id` = {id}";
             DataTable dt = MySql.QueryRead(sql);

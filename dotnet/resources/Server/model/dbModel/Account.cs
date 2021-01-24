@@ -9,8 +9,9 @@ namespace Server.model
         
         public string Username { get; set; } = null;
         public string Password { get; set; } = null;
-        public int DriftScore { get; set; } = 0;
 
-        public Charater _Character { get; set; }
+        //temp
+        public bool IsLogged { get; set; } = false;
+
     }
 }

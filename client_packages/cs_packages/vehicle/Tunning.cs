@@ -93,7 +93,7 @@ namespace cs_packages.vehicle
                 if (totalmods > 0 && slotNames[i].Length > 0)
                 {
                     var submenu = menuPool.AddSubMenu(mainMenu, slotNames[i].ToString());
-                   
+                    
                     submenu.OnItemSelect += (sender, item, index) =>
                     {
                         Events.CallRemote("remote_SetTunning", sender.MenuData, index);

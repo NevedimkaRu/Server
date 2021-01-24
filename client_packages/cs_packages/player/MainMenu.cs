@@ -34,6 +34,5 @@ namespace cs_packages.player
             for (int i = 0; i < 20; i++)
                 submenu.AddItem(new UIMenuItem("Телепорт", "Описание"));
         }
-
     }
 }

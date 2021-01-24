@@ -21,48 +21,11 @@ namespace cs_packages
 
         private DriftCounter()
         {
-            Events.Add("setVelocity", SetVelocity); 
             Events.OnPlayerEnterVehicle += OnPlayerEnterVehicle;
             Events.OnPlayerLeaveVehicle += OnPlayerLeaveVehicle;
-            Events.OnPlayerCommand += OnPlayerCommand;
             Events.Tick += OnTick;
         }
-        private void OnPlayerCommand(string cmd, Events.CancelEventArgs cancel)
-        {
-            string[] args = cmd.Split(new char[] { ' ' } );
-            string commandName = args[0].Trim(new char[] { '/' });
-
-            if (commandName == "anwh")
-            {
-                if (args[1] == null) {
-                    Chat.Output("Using /anwh float");
-                    return;
-                }
-                float anglewheel = float.Parse(args[1]);
-                if(anglewheel < 0 || anglewheel > 2)
-                {
-                    Chat.Output("Не больше 2 и меньше 0");
-                    return;
-                }
-                Player.LocalPlayer.Vehicle.SetHandling("fSteeringLock", anglewheel);
-                                
-            }            
-            if (commandName == "curve")
-            {
-                if (args[1] == null) {
-                    Chat.Output("Using /curve float");
-                    return;
-                }
-                float angle = float.Parse(args[1]);
-                Player.LocalPlayer.Vehicle.SetHandling("fTractionCurveMax", angle);               
-            }
-            if (commandName == "handling")
-            {
-                string handlename = args[1];
-                float angle = float.Parse(args[2]);
-                Player.LocalPlayer.Vehicle.SetHandling(handlename, angle);               
-            }
-        }
+        
         private void OnPlayerEnterVehicle(Vehicle vehicle, int seatId)
         {
             /*int handlingId = Convert.ToInt32(vehicle.GetSharedData("sh_Handling"));
@@ -78,25 +41,12 @@ namespace cs_packages
             driftHTML.Active = false;
             totalscore = (int)Player.LocalPlayer.GetSharedData("PLAYER_SCORE");
         }
-        public void OnPlayerLeaveVehicle(Vehicle vehicle, int seatId)
+        public void OnPlayerLeaveVehicle(Vehicle vehicle, int seatId)//todo проверка на авторизацию
         {
-            Chat.Output("Leave Vehicle");
             driftHTML.Active = false;
             multiplier = 1;
             score = 0;
             playerDrifting = false;
-        }
-        public void SetVelocity(object[] args)
-        {
-            Player player = Player.LocalPlayer;
-            int x;
-            x = Convert.ToInt32(args[0]);
-            int y;
-            y = Convert.ToInt32(args[1]);
-            int z;
-            z = Convert.ToInt32(args[2]);
-
-            player.Vehicle.SetVelocity((float)x, (float)y, (float)z);
         }
         public void SetV1elocity(object[] args)
         {
@@ -112,7 +62,7 @@ namespace cs_packages
 
 
 
-        private void OnTick(List<Events.TickNametagData> nametags)
+        private void OnTick(List<Events.TickNametagData> nametags)//todo проверка на авторизацию
         {
             //if (Globals.playerLogged && Player.LocalPlayer.Vehicle != null)
             //{
@@ -129,7 +79,7 @@ namespace cs_packages
             if (Player.LocalPlayer.Vehicle == null) { return; }
             Vehicle vehicle = Player.LocalPlayer.Vehicle;
 
-            Vector3 currentPosition = vehicle.Position;
+            //Vector3 currentPosition = vehicle.Position;
 
             RAGE.Game.UIText.Draw(GetVehicleSpeed(vehicle).ToString(), new Point(1175, 650), 0.75f, Color.White, RAGE.Game.Font.ChaletComprimeCologne, false);
 
@@ -138,7 +88,6 @@ namespace cs_packages
 
         private static void OnDrift(Vehicle vehicle)
         {
-            Events.CallRemote("GetVehicleRotation", vehicle);
             float angle = Angle(vehicle);
             float velocity = Velocity(vehicle);
             int timeLost = 3;
@@ -206,29 +155,22 @@ namespace cs_packages
 
             RAGE.Game.UIText.Draw(totalscore.ToString(), new Point(1175, 560), 0.5f, Color.White, RAGE.Game.Font.ChaletComprimeCologne, false); // Вывоб общего числа очков
         }
-
+        
         private static void StopDrift(int reason)
         {
             if (reason == 0)
             {
-                Chat.Output("Time Out"); totalscore += score;
-                //RAGE.Game.Ui.SetNotificationTextEntry("Time Out");
-                RAGE.Game.Ui.DrawNotificationAward("Timeout", "Time out", 0, 0, "Time out 1");
-                //RAGE.Game.Ui.DrawNotification(true, false);
+                totalscore += score;
+                Api.Notify("~g~Time Out");
                 UpdatePlayerScore(totalscore);
             }
             else
             {
-                Chat.Output("Crash!");
-                //RAGE.Game.Ui.SetNotificationTextEntry("Crash");
-                RAGE.Game.Ui.DrawNotificationAward("", "Crash", 0, 109, "");
-                //RAGE.Game.Ui.DrawNotification(true, true);
+                Api.Notify("~r~Crash!");
             }
-                //if(reason == 0) { Browser.ExecuteFunctionEvent(driftHTML, "driftError", new object[] { score.ToString() }); }
                 multiplier = 1;
                 score = 0;
                 playerDrifting = false;
-
         }
 
         private static void UpdatePlayerScore(int _score)
