@@ -11,5 +11,6 @@ namespace Server.model
         public string Password { get; set; } = null;
         public int DriftScore { get; set; } = 0;
 
+        public Charater _Character { get; set; }
     }
 }

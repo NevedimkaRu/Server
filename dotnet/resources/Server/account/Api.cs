@@ -25,6 +25,7 @@ namespace Server.account
 
             //MySql.Query($"INSERT INTO `accounts` (`Username`, `Password`) VALUES ('{name}','{password}')");
             Main.Players.Add(player, model);
+
         }
         public static void LoginAccount(Player player, string name, string password)
         {
