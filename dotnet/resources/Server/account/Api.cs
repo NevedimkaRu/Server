@@ -8,6 +8,7 @@ using Server.model;
 
 namespace Server.account
 {
+    //todo Сохранение аккаунтов
     public class Api
     {
         public static void CreateAccount(Player player, string name, string password)
@@ -18,7 +19,6 @@ namespace Server.account
             {
                 Password = password,
                 Username = name,
-                DriftScore = 0
             };
 
             model.Insert();
@@ -56,11 +56,10 @@ namespace Server.account
             foreach(DataRow row in result.Rows)
             {
                 model.Id = Convert.ToInt32(row["Id"]);
-                model.DriftScore = Convert.ToInt32(row["DriftScore"]);
             }
             Main.Players.Add(player, model);
         }
-        public async Task<bool> SaveAccount(Player player)
+        /*public async Task<bool> SaveAccount(Player player) 
         {
             try
             {
@@ -80,6 +79,6 @@ namespace Server.account
                 NAPI.Util.ConsoleOutput($"[SaveAccount Exept] {ex.ToString()}");
                 return false;
             }
-        }
+        }*/
     }
 }

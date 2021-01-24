@@ -10,12 +10,12 @@ namespace Server.account
     class Auth : Script
     {
 
-        [ServerEvent(Event.PlayerDisconnected)]
+        /*[ServerEvent(Event.PlayerDisconnected)]
         public void OnPlayerDisconnected(Player player)
         {
             var account_api = new Api();
             account_api.SaveAccount(player).Wait();
-        }
+        }*/
         [Command("login", GreedyArg = true)]
         public void cmd_Login(Player player, string name, string password)
         {
@@ -44,8 +44,7 @@ namespace Server.account
         {
             player.SendChatMessage(
                 $"Name:{Main.Players[player].Username} - {player.Id}" +
-                $"\n Password: {Main.Players[player].Password}" +
-                $"\n DriftScore: {Main.Players[player].DriftScore}"
+                $"\n Password: {Main.Players[player].Password}" 
                 );
         }
     }
