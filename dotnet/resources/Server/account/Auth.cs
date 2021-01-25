@@ -39,13 +39,34 @@ namespace Server.account
             Api.CreateAccount(player, name, password);
         }
 
+        [Command("createcharacter", GreedyArg = true)]
+        public void cmd_CreateCharacter(Player player, string name)
+        {
+            if (name.Length <= 4) 
+            {
+                player.SendChatMessage("Имя персонажа должно состять минимум из 4 символов");
+                return;
+            }
+            character.Api.CreateCharacter(player, name);
+        }
+        
         [Command("stats")]
         public void cmd_Stats(Player player)
         {
             player.SendChatMessage(
-                $"Name:{Main.Players[player].Username} - {player.Id}" +
-                $"\n Password: {Main.Players[player].Password}" 
+                $"UserName:{Main.Players1[player].Account.Username} - {player.Id}" +
+                $"\n Password: {Main.Players1[player].Account.Password}"  +
+                $"\n Name: {Main.Players1[player].Character.Name}"  +
+                $"\n DriftScore: {Main.Players1[player].Character.DriftScore}"  +
+                $"\n Money: {Main.Players1[player].Character.Money}"  +
+                $"\n Level: {Main.Players1[player].Character.Level}"
                 );
+        }
+
+        [ServerEvent(Event.PlayerConnected)]
+        public void OnPlayerConected(Player player)
+        {
+            player.SetSharedData("IsSpawn", false);
         }
     }
 }

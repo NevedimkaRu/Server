@@ -15,50 +15,41 @@ namespace Server.account
         {
 
 
-            var model = new Account
-            {
-                Password = password,
-                Username = name,
-            };
+            PlayerModel model = new PlayerModel();
 
-            model.Insert();
+            model.Account.Username = name;
+            model.Account.Password = password;
 
-            //MySql.Query($"INSERT INTO `accounts` (`Username`, `Password`) VALUES ('{name}','{password}')");
-            Main.Players.Add(player, model);
+
+            model.Account.Insert();
+
+            LoginAccount(player, name, password);
 
         }
         public static void LoginAccount(Player player, string name, string password)
         {
-            DataTable result = MySql.QueryRead($"SELECT Password FROM account WHERE Username='{name}'");
-
-            if(result == null || result.Rows.Count == 0)
+            Account account = new Account();
+            
+            if(!account.GetByUserName(name))
             {
                 player.SendChatMessage("Такой аккаунт не существует.");
                 return;
             }
-            DataRow row = result.Rows[0];
-            string pass = Convert.ToString(row[0]);
-            if (pass != password)
+
+            if (account.Password != password)
             {
                 player.SendChatMessage("Неправильный логин/пароль");
                 return;
             }
             player.SendChatMessage($"Вы успешно авторизировались как {name}");
-
-            LoadAccount(player, name);
-        }
-        public static void LoadAccount(Player player, string name)
-        {
-            DataTable result = MySql.QueryRead($"SELECT * FROM account WHERE Username='{name}'");
+            PlayerModel playerModel = new PlayerModel();
+            playerModel.Account = account;
+            Main.Players1.Add(player, playerModel);
+            character.Api.LoadCharacter(player, account.Id);
             
-            var model = new Account();
-            model.Username = name;
-            foreach(DataRow row in result.Rows)
-            {
-                model.Id = Convert.ToInt32(row["Id"]);
-            }
-            Main.Players.Add(player, model);
+
         }
+
         /*public async Task<bool> SaveAccount(Player player) 
         {
             try

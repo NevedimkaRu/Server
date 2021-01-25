@@ -32,7 +32,7 @@ namespace Server.vehicle
         {
             if (Main.Veh.ContainsKey(carid))//Проверка на то, создана ли машина
             {
-                if (Main.Veh[carid].OwnerId == Main.Players[player].Id && player.Vehicle == null)
+                if (Main.Veh[carid].OwnerId == Main.Players1[player].Account.Id && player.Vehicle == null)
                 {
                     Main.Veh[carid]._Veh.Delete();//Удаляем машину
 
@@ -56,7 +56,7 @@ namespace Server.vehicle
             Vehicles vehModel = new Vehicles();
             vehModel.SetId(carid);
 
-            if (vehModel.OwnerId != Main.Players[player].Id)
+            if (vehModel.OwnerId != Main.Players1[player].Account.Id)
             {
                 player.SendChatMessage("Это не ваша машина");
                 return;
@@ -64,7 +64,7 @@ namespace Server.vehicle
 
             foreach (var veh in Main.Veh)
             {
-                if(veh.Value.OwnerId == Main.Players[player].Id)
+                if(veh.Value.OwnerId == Main.Players1[player].Account.Id)
                 {
                     DestroyCar(player, veh.Key);
                     break;

@@ -43,10 +43,19 @@ namespace cs_packages
         }
         public void OnPlayerLeaveVehicle(Vehicle vehicle, int seatId)//todo проверка на авторизацию
         {
-            driftHTML.Active = false;
-            multiplier = 1;
-            score = 0;
-            playerDrifting = false;
+            Chat.Output(Player.LocalPlayer.GetSharedData("IsSpawn").ToString());
+            if ((bool)Player.LocalPlayer.GetSharedData("IsSpawn"))
+            {
+                Chat.Output("Пришёл Наху");
+                driftHTML.Active = false;
+                multiplier = 1;
+                score = 0;
+                playerDrifting = false;
+            }
+            else
+            {
+                Chat.Output("Пошёл Наху");
+            }
         }
         public void SetV1elocity(object[] args)
         {

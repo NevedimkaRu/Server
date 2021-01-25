@@ -10,6 +10,7 @@ namespace Server.teleport
 {
     public class Api : Script
     {
+        //todo Обнулять дрифт каунтер при телепорте
         public static void CreateTeleport(Player player, string name, string discription)
         {
             string player_pos = JsonConvert.SerializeObject(player.Position);
