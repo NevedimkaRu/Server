@@ -15,6 +15,8 @@ namespace Server.model
 
        
 
+       
+
         public Character()
         { 
         }

@@ -23,6 +23,13 @@ namespace cs_packages.test
         {
             Events.OnPlayerCommand += OnPlayerCommand;
             Events.Add("add_SetHandling", SetHandlingFromServer);
+            Events.Add("ShowRoute", ShowRoute);
+        }
+
+        public void ShowRoute(object[] args)
+        {
+            Blip blip = new Blip(38, new Vector3(-342.85498f, 944.4129f, 232.06987f));
+            blip.SetRoute(true);
         }
 
         private void SetHandlingFromServer(object[] args)

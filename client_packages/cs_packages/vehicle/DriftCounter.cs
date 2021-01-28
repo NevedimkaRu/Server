@@ -24,14 +24,18 @@ namespace cs_packages
         {
             Events.OnPlayerEnterVehicle += OnPlayerEnterVehicle;
             Events.OnPlayerLeaveVehicle += OnPlayerLeaveVehicle;
-            //Events.Tick += OnTick;
+            Events.Add("trigger_ResetDriftScore", ResetPlayerDriftScoreFromServer);
+            Events.Add("trigger_GetPlayerScore", GetPlayerScore);
         }
         
+        public void GetPlayerScore(object[] args)
+        {
+            Events.CallRemote("remote_GetPlayerScore", score);
+        }
+
         private void OnPlayerEnterVehicle(Vehicle vehicle, int seatId)
         {
-            /*int handlingId = Convert.ToInt32(vehicle.GetSharedData("sh_Handling"));
-            Chat.Output("Enter Vehicle");
-            if(handlingId != 0)
+            if ((bool)Player.LocalPlayer.GetSharedData("IsSpawn"))
             {
                 test.handling.SetHandling(vehicle, handlingId);
             }*/
@@ -172,9 +176,14 @@ namespace cs_packages
                 Api.Notify("~r~Crash!");
                 Browser.ExecuteFunctionEvent(driftHTML, "drifterror", new object[] {});
             }
-                multiplier = 1;
-                score = 0;
-                playerDrifting = false;
+            ResetPlayerDriftScore();
+        }
+
+        public static void ResetPlayerDriftScore()
+        {
+            multiplier = 1;
+            score = 0;
+            playerDrifting = false;
         }
 
         private static void UpdatePlayerScore(int _score)
@@ -209,6 +218,12 @@ namespace cs_packages
             float cosX = (sin * vehicle.GetVelocity().X + cos * vehicle.GetVelocity().Y) / modV;
             if (cosX > 0.966 || cosX < 0) return 0;
             return (float)(Math.Acos(cosX) * (180.0 / Math.PI) * 0.5);
+        }
+        public static void ResetPlayerDriftScoreFromServer(object[] args)
+        {
+            multiplier = 1;
+            score = 0;
+            playerDrifting = false;
         }
     }
 }
