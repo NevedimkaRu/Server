@@ -95,7 +95,7 @@ namespace Server.game
             if(Main.Players1[player].Track != null)
             {
                 if(colShape == Main.Players1[player].Track._ColShapes[Main.Players1[player].Track._ColShapes.Count - 1] 
-                    && Main.Players1[player].CurrentTrackIndex == Main.Players1[player].Track._ColShapes.Count - 1)
+                    && Main.Players1[player].CurrentTrackIndex == Main.Players1[player].Track._ColShapes.Count - 2)
                 {
                     player.TriggerEvent("trigger_SetTrackRoute", Main.Players1[player].Track.Positions[Main.Players1[player].Track._ColShapes.Count - 1], 999);
 
