@@ -37,19 +37,16 @@ namespace cs_packages
         {
             if ((bool)Player.LocalPlayer.GetSharedData("IsSpawn"))
             {
-                test.handling.SetHandling(vehicle, handlingId);
-            }*/
-            //Chat.Output($"client: carid - {vehicle.Id} remoteid - {vehicle.RemoteId}");
-
-            //Дрифт счётчик
-            vehicle.SetRadioEnabled(false);
-            driftHTML = new HtmlWindow("package://statics/html/drift.html");
-            vehHealth = vehicle.GetHealth();
-            driftHTML.Active = false;
-            //Спидометр
-            speedometerHTML = new HtmlWindow("package://statics/html/speedometer.html");
-            speedometerHTML.Active = true;
-            Events.Tick += UpdateSpeedometer;
+                //Дрифт счётчик
+                vehicle.SetRadioEnabled(false);
+                driftHTML = new HtmlWindow("package://statics/html/drift.html");
+                vehHealth = vehicle.GetHealth();
+                driftHTML.Active = false;
+                //Спидометр
+                speedometerHTML = new HtmlWindow("package://statics/html/speedometer.html");
+                speedometerHTML.Active = true;
+                Events.Tick += UpdateSpeedometer;
+            }
 
 
         }
