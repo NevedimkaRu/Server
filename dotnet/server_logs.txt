@@ -405,4 +405,306 @@ System.ArgumentException: Object of type 'System.String' cannot be converted to 
    at object RuntimeType.TryChangeType(object value, Binder binder, CultureInfo culture, bool needsSpecialCast)
    at object RuntimeType.CheckValue(object value, Binder binder, CultureInfo culture, BindingFlags invokeAttr)
    at object[] System.Reflection.MethodBase.CheckArguments(object[] parameters, Binder binder, BindingFlags invokeAttr, CultureInfo culture, Signature sig)
-   at object[] S
+   at object[] S-> SERVER STARTED AT 26.01.2021 22:13:25
+Initializing Bootstrapper.dll (1.1.0.0)..
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[MySql]Unable to connect to any of the specified MySQL hosts
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 3 server events(s)
+Server: loading commands.. found 13 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 19 commands(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 1 remote event(s)
+Всё ок
+[MySql QueryR] SELECT * FROM `teleport`
+-> Error starting 'Server'
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, int startTickCount, IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task MySqlConnector.MySqlConnection.OpenAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 410
+   at void MySqlConnector.MySqlConnection.Open() in /_/src/MySqlConnector/MySqlConnection.cs:line 376
+   at DataTable Server.MySql.QueryRead(MySqlCommand command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 172
+   at DataTable Server.MySql.QueryRead(string command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 193
+   at void Server.teleport.Api.LoadTeleports() in E:/RageMp/Drift/dotnet/resources/Server/teleport/Api.cs:line 49
+   at void Server.teleport.Api.onResourceStart() in E:/RageMp/Drift/dotnet/resources/Server/teleport/Api.cs:line 72
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GTANetworkInternals.ScriptingEngine.InvokeVoidMethod(String method, Object[] args)
+   at GTANetworkInternals.EventParser.Parse(Event _event, Object[] arguments)
+   at GTANetworkInternals.EventCollection.<>c__DisplayClass4_0.<ParseEx>b__1(EventParser x)
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at GTANetworkInternals.EventCollection.ParseEx(Event _event, ScriptingEngine engine, Object[] arguments)
+   at GTANetworkInternals.EventHandler.ParseEx(Event _event, ScriptingEngine engine, Object[] arguments)
+   at GTANetworkInternals.GameServer.<>c.<StartResource>b__67_0(ScriptingEngine r)
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at GTANetworkInternals.GameServer.StartResource(String resourceName, String parent)
+
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Rico'
+UNHANDLED EXCEPTION IN COMMAND login FOR RESOURCE Server
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, int startTickCount, IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task MySqlConnector.MySqlConnection.OpenAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 410
+   at void MySqlConnector.MySqlConnection.Open() in /_/src/MySqlConnector/MySqlConnection.cs:line 376
+   at DataTable Server.MySql.QueryRead(MySqlCommand command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 172
+   at DataTable Server.MySql.QueryRead(string command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 193
+   at bool Server.model.Account.GetByUserName(string userName) in E:/RageMp/Drift/dotnet/resources/Server/model/dbModel/Account.cs:line 16
+   at void Server.account.Api.LoginAccount(Player player, string name, string password) in E:/RageMp/Drift/dotnet/resources/Server/account/Api.cs:line 33
+   at void Server.account.Auth.cmd_Login(Player player, string name, string password) in E:/RageMp/Drift/dotnet/resources/Server/account/Auth.cs:line 28
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at bool GTANetworkInternals.CommandParser.Parse(Player sender, string cmdRaw, string ourcmd, string[] args)
+[MySql QueryR] select * from account where username = 'Rico'
+UNHANDLED EXCEPTION IN COMMAND login FOR RESOURCE Server
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnectoInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 27.01.2021 22:19:15
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 3 server events(s)
+Server: loading commands.. found 13 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 19 commands(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 1 remote event(s)
+Всё ок
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+7 - Lake - 1 - -390,8351 837,9808 224,89944
+Teleports load
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Rico'
+[MySql QueryR] select * from `character` where AccountId = '2'
+[MySql QueryR] select * from `Vehicles` where `id` = 3
+UNHANDLED EXCEPTION IN COMMAND car FOR RESOURCE Server
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at async Task<MySqlDataReader> MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList<IMySqlCommand> commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at async Task<MySqlDataReader> MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 310
+   at MySqlDataReader MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 105
+   at DataTable Server.MySql.QueryRead(MySqlCommand command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 176
+   at DataTable Server.MySql.QueryRead(string command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 193
+   at void Server.model.DB_Tables.SetId(int id) in E:/RageMp/Drift/dotnet/resources/Server/model/dbModel/DB_Tables.cs:line 19
+   at void Server.vehicle.Api.LoadVehicle(Player player, int carid) in E:/RageMp/Drift/dotnet/resources/Server/vehicle/Api.cs:line 57
+   at void Server.vehicle.Api.cmd_Car(Player player, string caridd) in E:/RageMp/Drift/dotnet/resources/Server/vehicle/Api.cs:line 96
+   --- End of Initializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 27.01.2021 22:27:39
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[MySql]Unable to connect to any of the specified MySQL hosts
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 3 server events(s)
+Server: loading commands.. found 13 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 19 commands(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 1 remote event(s)
+Всё ок
+[MySql QueryR] SELECT * FROM `teleport`
+-> Error starting 'Server'
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, int startTickCount, IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task MySqlConnector.MySqlConnection.OpenAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 410
+   at void MySqlConnector.MySqlConnection.Open() in /_/src/MySqlConnector/MySqlConnection.cs:line 376
+   at DataTable Server.MySql.QueryRead(MySqlCommand command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 172
+   at DataTable Server.MySql.QueryRead(string command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 193
+   at void Server.teleport.Api.LoadTeleports() in E:/RageMp/Drift/dotnet/resources/Server/teleport/Api.cs:line 49
+   at void Server.teleport.Api.onResourceStart() in E:/RageMp/Drift/dotnet/resources/Server/teleport/Api.cs:line 72
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GTANetworkInternals.ScriptingEngine.InvokeVoidMethod(String method, Object[] args)
+   at GTANetworkInternals.EventParser.Parse(Event _event, Object[] arguments)
+   at GTANetworkInternals.EventCollection.<>c__DisplayClass4_0.<ParseEx>b__1(EventParser x)
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at GTANetworkIntInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 27.01.2021 22:36:16
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 3 server events(s)
+Server: loading commands.. found 13 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 19 commands(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 1 remote event(s)
+Всё ок
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+Teleports load
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Rico'
+[MySql QueryR] select * from `character` where AccountId = '2'
+[MySql QueryR] select * from `Vehicles` where `id` = 3
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql Query] update `VehicleTuning` set `Spoiler` = @Spoiler where id = 3
+[MySql Query] update `VehicleTuning` set `Spoiler` = @Spoiler where id = 3
+[MySql Query] update `VehicleTuning` set `Spoiler` = @Spoiler where id = 3
+[MySql Query] update `VehicleTuning` set `Spoiler` = @Spoiler where id = 3
+[MySql Query] update `VehicleTuning` set `Spoiler` = @Spoiler where id = 3
+[MySql Query] update `VehicleTuning` set `Spoiler` = @Spoiler where id = 3
+[MySql Query] update `VehicleTuning` set `Spoiler` = @Spoiler where id = 3
+[MySql Query] update `VehicleTuning` set `Spoiler` = @Spoiler where id = 3
+[MySql Query] update `VehicleTuning` set `Spoiler` = @Spoiler where id = 3
+[MySql Query] update `VehicleTuning` set `Spoiler` = @Spoiler where id = 3
+[MySql Query] update `VehicleTuning` set `Spoiler` = @Spoiler where id = 3
+[MySql Query] update `VehicleTuning` set `FrontBumper` = @FrontBumper where id = 3
+[MySql Query] update `VehicleTuning` set `FrontBumper` = @FrontBumper where id = 3
+[MySql Query] update `VehicleTuning` set `FrontBumper` = @FrontBumper where id = 3
+[MySql Query] update `VehicleTuning` set `FrontBumper` = @FrontBumper where id = 3
+[MySql Query] update `VehicleTuning` set `FrontBumper` = @FrontBumper where id = 3
+[MySql Query] update `VehicleTuning` set `FrontBumper` = @FrontBumper where id = 3
+[MySql Query] update `VehicleTuning` set `RearBumper` = @RearBumper where id = 3
+[MySql Query] update `VehicleTuning` set `RearBumper` = @RearBumper where id = 3
+[MySql Query] update `VehicleTuning` set `RearBumper` = @RearBumper where id = 3
+[MySql Query] update `VehicleTuning` set `RearBumper` = @RearBumper where id = 3
+[MySql Query] update `VehicleTuning` set `SideSkirt` = @SideSkirt where id = 3
+[MySql Query] update `VehicleTuning` set `Exhaust` = @Exhaust where id = 3
+[MySql Query] update `VehicleTuning` set `Frame` = @Frame where id = 3
+[MySql Query] update `VehicleTuning` set `Frame` = @Frame where id = 3
+[MySql Query] update `VehicleTuning` set `Frame` = @Frame where id = 3
+[MySql Query] update `VehicleTuning` set `Frame` = @Frame where id = 3
+[MySql Query] update `VehicleTuning` set `Grille` = @Grille where id = 3
+[MySql Query] update `VehicleTuning` set `Grille` = @Grille where id = 3
+[MySql Query] update `VehicleTInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 28.01.2021 19:31:25
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[MySql]Unable to connect to any of the specified MySQL hosts
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 3 server events(s)
+Server: loading commands.. found 13 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 19 commands(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 1 remote event(s)
+Всё ок
+[MySql QueryR] SELECT * FROM `teleport`
+-> Error starting 'Server'
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, int startTickCount, IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task MySqlConnector.MySqlConnection.OpenAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 410
+   at void MySqlConnector.MySqlConnection.Open() in /_/src/MySqlConnector/MySqlConnection.cs:line 376
+   at DataTable Server.MySql.QueryRead(MySqlCommand command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 172
+   at DataTable Server.MySql.QueryRead(string command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 193
+   at void Server.teleport.Api.LoadTeleports() in E:/RageMp/Drift/dotnet/resources/Server/teleport/Api.cs:line 49
+   at void Server.teleport.Api.onResourceStart() in E:/RageMp/Drift/dotnet/resources/Server/teleport/Api.cs:line 72
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GTANetworkInternals.ScriptingEngine.InvokeVoidMethod(String method, Object[] args)
+   at GTANetworkInternals.EventParser.Parse(Event _event, Object[] arguments)
+   at GTANetworkInternals.EventCollection.<>c__DisplayClass4_0.<ParseEx>b__1(EventParser x)
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at GTANetworkInt

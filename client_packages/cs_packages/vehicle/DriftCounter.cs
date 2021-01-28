@@ -18,12 +18,13 @@ namespace cs_packages
         private static int score = 0;
         private static int vehHealth;
         private static HtmlWindow driftHTML;
+        private static HtmlWindow speedometerHTML;
 
         private DriftCounter()
         {
             Events.OnPlayerEnterVehicle += OnPlayerEnterVehicle;
             Events.OnPlayerLeaveVehicle += OnPlayerLeaveVehicle;
-            Events.Tick += OnTick;
+            //Events.Tick += OnTick;
         }
         
         private void OnPlayerEnterVehicle(Vehicle vehicle, int seatId)
@@ -35,28 +36,29 @@ namespace cs_packages
                 test.handling.SetHandling(vehicle, handlingId);
             }*/
             //Chat.Output($"client: carid - {vehicle.Id} remoteid - {vehicle.RemoteId}");
-            
+
+            //Дрифт счётчик
+            vehicle.SetRadioEnabled(false);
             driftHTML = new HtmlWindow("package://statics/html/drift.html");
             vehHealth = vehicle.GetHealth();
             driftHTML.Active = false;
-            totalscore = (int)Player.LocalPlayer.GetSharedData("PLAYER_SCORE");
+            //Спидометр
+            speedometerHTML = new HtmlWindow("package://statics/html/speedometer.html");
+            speedometerHTML.Active = true;
+            Events.Tick += UpdateSpeedometer;
+
+
         }
         public void OnPlayerLeaveVehicle(Vehicle vehicle, int seatId)//todo проверка на авторизацию
         {
-            Chat.Output(Player.LocalPlayer.GetSharedData("IsSpawn").ToString());
             if ((bool)Player.LocalPlayer.GetSharedData("IsSpawn"))
             {
-                Chat.Output("Пришёл Наху");
-                driftHTML.Active = false;
                 multiplier = 1;
                 score = 0;
                 playerDrifting = false;
             }
-            else
-            {
-                Chat.Output("Пошёл Наху");
-            }
         }
+
         public void SetV1elocity(object[] args)
         {
             Player player = Player.LocalPlayer;
@@ -71,27 +73,19 @@ namespace cs_packages
 
 
 
-        private void OnTick(List<Events.TickNametagData> nametags)//todo проверка на авторизацию
-        {
-            //if (Globals.playerLogged && Player.LocalPlayer.Vehicle != null)
-            //{
-                UpdateSpeedometer(); 
-            //}
-            /*if (RAGE.Input.IsDown(0x38) || RAGE.Input.IsDown(0x46) || RAGE.Input.IsDown(0x86))
-            {
-                Chat.Output("EEEEEEE");
-            }*/
-        }
 
-        public static void UpdateSpeedometer()
+        public static void UpdateSpeedometer(List<Events.TickNametagData> nametags)
         {
-            if (Player.LocalPlayer.Vehicle == null) { return; }
+            if (Player.LocalPlayer.Vehicle == null) {
+                Events.Tick -= UpdateSpeedometer;
+                speedometerHTML.Destroy();
+                driftHTML.Destroy();
+                return; 
+            }
             Vehicle vehicle = Player.LocalPlayer.Vehicle;
 
-            //Vector3 currentPosition = vehicle.Position;
 
-            RAGE.Game.UIText.Draw(GetVehicleSpeed(vehicle).ToString(), new Point(1175, 650), 0.75f, Color.White, RAGE.Game.Font.ChaletComprimeCologne, false);
-
+            Browser.ExecuteFunctionEvent(speedometerHTML, "updateSpeedometer", new object[] { GetVehicleSpeed(vehicle), vehicle.Rpm, vehicle.Gear});
             OnDrift(vehicle);
         }
 
@@ -176,6 +170,7 @@ namespace cs_packages
             else
             {
                 Api.Notify("~r~Crash!");
+                Browser.ExecuteFunctionEvent(driftHTML, "drifterror", new object[] {});
             }
                 multiplier = 1;
                 score = 0;

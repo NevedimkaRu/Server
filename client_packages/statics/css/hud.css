@@ -1,0 +1,102 @@
+
+.gauge-title {
+	font-size: 14px;
+	fill: #FFFFFF;
+}
+.gauge-value {
+	font-size: 24px;
+	fill: #FFFFFF;
+}
+.gauge-unity {
+	font-size: 14px;
+	fill: #FFFFFF;
+}
+
+#rpmshow {
+	position: fixed;
+	bottom: 64px;
+	right: 64px;
+	filter: drop-shadow(0px 0px 1px rgba(0,0,0,0.6));
+}
+.speedcircle {
+	width: 80px;
+	height: 80px;
+	position: fixed;
+	bottom: 185px;
+	right: 185px;
+}
+.geardisplay {
+	text-align: center;
+	font-family: 'Oswald-Regular';
+	font-size: 38px;
+	width: 57px;
+	height: 57px;
+	position: fixed;
+	bottom: 193px;
+	right: 193px;
+	color: rgb(63,249,165);
+	border: 3px solid rgb(63,249,165);
+	border-radius: 50%;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.speeddisplay {
+	font-size: 117px;
+	position: fixed;
+	bottom: 50px;
+	right: 80px;
+	font-family: 'Oswald-Light';
+	font-style: italic;
+	font-weight: 100;
+	color: #FFF;
+	text-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+}
+.gray {
+	color: rgba(255,255,255,0.5);
+}
+.int1 {
+	position: fixed;
+	bottom: 50px;
+	right: 200px;
+}
+.int2 {
+	position: fixed;
+	bottom: 50px;
+	right: 140px;
+}
+.int3 {
+	position: fixed;
+	bottom: 50px;
+	right: 80px;
+}
+.unitdisplay {
+	position: fixed;
+	bottom: 198px;
+	right: 75px;
+	color: rgba(255,255,255,0.6);
+	font-family: 'Oswald-Regular';
+	font-style: italic;
+	font-weight: 100;
+	font-size: 22px;
+}
+.abs {
+	position: fixed;
+	bottom: 225px;
+	right: 295px;
+	color: rgba(255,255,255,1);
+	font-family: 'Oswald-Regular';
+	font-style: normal;
+	font-weight: 100;
+	font-size: 18px;
+}
+.handbrake {
+	position: fixed;
+	bottom: 200px;
+	right: 293px;
+	color: rgba(255,255,255,1);
+	font-family: 'Oswald-Regular';
+	font-style: normal;
+	font-weight: 100;
+	font-size: 18px;
+}

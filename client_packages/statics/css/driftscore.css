@@ -1,18 +1,78 @@
 @font-face {
-  font-family: gtav;
-  src: url(../fonts/CHALETCOMPRIME-COLOGNESIXTYSC.woff);
+    font-family: 'FMF';
+    src: url('../fonts/FMF.ttf');
+}
+body{
+	text-align: center;
+}
+#counter{
+	margin: auto;
+	margin-top: 6%;
+	font-size:400%;
+	font-family: FMF;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;	
+	justify-content: center;
+	min-width:1%;
+	justify-content: center;
 }
 
+
 #score{
-	position:absolute;
-	font-size:50px;
-	font-family: gtav;
-	top: 10%;
-	left: 50%;
-	margin-right: -50%;
-	
+	text-align:right;
+	color: #f6f542;
+	flex-basis:50%;
+}
+
+#multiple{
+	text-align:left;
+	color: #f9f5fa;
+	flex-basis:50%;
+}
+
+.hover {
+  animation: shake 0.8s;
+  animation-iteration-count: infinite;
+}
+
+.falling {
+  animation: fall 0.8s;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px); }
+  10% { transform: translate(-1px, 1px); }
+  20% { transform: translate(1px, 1px); }
+  30% { transform: translate(1px, -1px); }
+  40% { transform: translate(1px, 1px); }
+  50% { transform: translate(-1px, -1px); }
+  60% { transform: translate(1px, -1px); }
+  70% { transform: translate(-1px, 1px); }
+  80% { transform: translate(1px, 1px); }
+  90% { transform: translate(-1px, 1px); }
+  100% { transform: translate(1px, -1px); }
+
+}
+
+@keyframes fall {
+  0% { 
+  transform: translate(0px, 0px);
+  opacity: 1;
+  }
+  99% { 
+  transform: translate(-5px, 10px);
+  opacity: 0;
+  }
+  100%{
+	  html:''
+  }
+
 }
 
 .driftcolor{
 	color:red;
+	top: 10%;
+	left: 50%;
+	margin-right: -50%;
 }
