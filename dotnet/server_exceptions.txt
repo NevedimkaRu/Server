@@ -1793,3 +1793,319 @@ System.ArgumentException: Requested value 'superGt' was not found.
 ==================[25.01.2021 19:31:27]==================
 System.ArgumentException: Requested value 'zr350' was not found.
    at bool Enum.TryParseByName(RuntimeType enumType, string originalValueString, ReadOnlySpan<char> value, bool ignoreCase, bool throwOnFailure, out ulong result)
+
+==================[25.01.2021 20:44:23]==================
+MySqlConnector.MySqlException (0x80004005): Table 'drift.character' doesn't exist
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[25.01.2021 20:44:23]==================
+MySqlConnector.MySqlException (0x80004005): Table 'drift.character' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'drift.character' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+=========================================================
+
+==================[25.01.2021 20:44:23]==================
+MySqlConnector.MySqlException (0x80004005): Table 'drift.character' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'drift.character' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+=========================================================
+
+==================[25.01.2021 20:44:23]==================
+MySqlConnector.MySqlException (0x80004005): Table 'drift.character' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'drift.character' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[25.01.2021 20:44:23]==================
+MySqlConnector.MySqlException (0x80004005): Table 'drift.character' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'drift.character' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at async Task<MySqlDataReader> MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList<IMySqlCommand> commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at 
+==================[26.01.2021 20:00:52]==================
+MySqlConnector.MySqlException (0x80004005): Table 'drift.character' doesn't exist
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[26.01.2021 20:00:52]==================
+MySqlConnector.MySqlException (0x80004005): Table 'drift.character' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'drift.character' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+=========================================================
+
+==================[26.01.2021 20:00:52]==================
+MySqlConnector.MySqlException (0x80004005): Table 'drift.character' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'drift.character' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+=========================================================
+
+==================[26.01.2021 20:00:52]==================
+MySqlConnector.MySqlException (0x80004005): Table 'drift.character' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'drift.character' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[26.01.2021 20:00:53]==================
+MySqlConnector.MySqlException (0x80004005): Table 'drift.character' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'drift.character' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at async Task<MySqlDataReader> MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList<IMySqlCommand> commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at 
+==================[27.01.2021 18:44:06]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.traksrecords' doesn't exist
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[27.01.2021 18:44:08]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.traksrecords' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.traksrecords' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+=========================================================
+
+==================[27.01.2021 18:44:08]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.traksrecords' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.traksrecords' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+=========================================================
+
+==================[27.01.2021 18:44:08]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.traksrecords' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.traksrecords' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[27.01.2021 18:44:08]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.traksrecords' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.traksrecords' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at async Task<MySqlDataReader> MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList<IMySqlCommand> commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/
+==================[27.01.2021 18:51:07]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[27.01.2021 18:51:08]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+=========================================================
+
+==================[27.01.2021 18:51:08]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+=========================================================
+
+==================[27.01.2021 18:51:08]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[27.01.2021 18:51:08]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at async Task<MySqlDataReader> MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList<IMySqlCommand> commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[27.01.2021 18:51:08]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at async Task<MySqlDataReader> MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList<IMySqlCommand> commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at async Task<MySqlDataReader> MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 310
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[27.01.2021 18:51:09]==================
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at async Task<MySqlDataReader> MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList<IMySqlCommand> commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at async Task<MySqlDataReader> MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 310
+   at MySqlDataReader MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 105
+   at DataTable Server.MySql.QueryRead(MySqlCommand command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 145
+   at DataTable Server.MySql.QueryRead(string command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 162
+   at void Server.model.DB_Tables.SetId(int id) in E:/RageMp/Drift/dotnet/resources/Server/model/dbModel/DB_Tables.cs:line 19
+   at void Server.vehicle.Api.LoadVehicle(Player player, int carid) in E:/RageMp/Drift/dotnet/resources/Server/vehicle/Api.cs:line 57
+   at void Server.vehicle.Api.cmd_Car(Player player, string caridd) in E:/RageMp/Drift/dotnet/resources/Server/vehicle/Api.cs:line 96
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+=========================================================
+
+==================[27.01.2021 18:51:17]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[27.01.2021 18:51:17]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+=========================================================
+
+==================[27.01.2021 18:51:17]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[27.01.2021 18:51:17]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+=========================================================
+
+==================[27.01.2021 18:51:17]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at async Task<MySqlDataReader> MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList<IMySqlCommand> commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at async Task<MySqlDataReader> MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 310
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[27.01.2021 18:51:17]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at async Task<MySqlDataReader> MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList<IMySqlCommand> commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[27.01.2021 18:51:17]==================
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at async Task<MySqlDataReader> MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList<IMySqlCommand> commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at async Task<MySqlDataReader> MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 310
+   at MySqlDataReader MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 105
+   at DataTable Server.MySql.QueryRead(MySqlCommand command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 145
+   at DataTable Server.MySql.QueryRead(string command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 162
+   at void Server.model.DB_Tables.SetId(int id) in E:/RageMp/Drift/dotnet/resources/Server/model/dbModel/DB_Tables.cs:line 19
+   at void Server.vehicle.Api.LoadVehicle(Player player, int carid) in E:/RageMp/Drift/dotnet/resources/Server/vehicle/Api.cs:line 57
+   at void Server.vehicle.Api.cmd_Car(Player player, string caridd) in E:/RageMp/Drift/dotnet/resources/Server/vehicle/Api.cs:line 96
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+=========================================================
+
+==================[27.01.2021 19:01:19]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[27.01.2021 19:01:19]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+=========================================================
+
+==================[27.01.2021 19:01:19]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+=========================================================
+
+==================[27.01.2021 19:01:19]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[27.01.2021 19:01:19]==================
+MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> My
+==================[27.01.2021 20:38:23]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VALUE ('779') WHERE `TrackId` = '1' AND `CharacterId` = '2'' at line 1
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[27.01.2021 20:38:24]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VALUE ('779') WHERE `TrackId` = '1' AND `CharacterId` = '2'' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VALUE ('779') WHERE `TrackId` = '1' AND `CharacterId` = '2'' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+=========================================================
+
+==================[27.01.2021 20:38:24]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VALUE ('779') WHERE `TrackId` = '1' AND `CharacterId` = '2'' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VALUE ('779') WHERE `TrackId` = '1' AND `CharacterId` = '2'' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+=========================================================
+
+==================[27.01.2021 20:38:24]==================
+MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VALUE ('779') WHERE `TrackId` = '1' AND `CharacterId` = '2'' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VALUE ('779') WHERE `TrackId` = '1' AND `CharacterId` = '2'' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[27.01.2021 20:38:24]======

@@ -23,38 +23,34 @@ namespace cs_packages
         {
             Events.OnPlayerEnterVehicle += OnPlayerEnterVehicle;
             Events.OnPlayerLeaveVehicle += OnPlayerLeaveVehicle;
+            Events.Add("trigger_ResetDriftScore", ResetPlayerDriftScoreFromServer);
+            Events.Add("trigger_GetPlayerScore", GetPlayerScore);
             Events.Tick += OnTick;
         }
         
+        public void GetPlayerScore(object[] args)
+        {
+            Events.CallRemote("remote_GetPlayerScore", score);
+        }
+
         private void OnPlayerEnterVehicle(Vehicle vehicle, int seatId)
         {
-            /*int handlingId = Convert.ToInt32(vehicle.GetSharedData("sh_Handling"));
-            Chat.Output("Enter Vehicle");
-            if(handlingId != 0)
+            if ((bool)Player.LocalPlayer.GetSharedData("IsSpawn"))
             {
-                test.handling.SetHandling(vehicle, handlingId);
-            }*/
-            //Chat.Output($"client: carid - {vehicle.Id} remoteid - {vehicle.RemoteId}");
-            
-            driftHTML = new HtmlWindow("package://statics/html/drift.html");
-            vehHealth = vehicle.GetHealth();
-            driftHTML.Active = false;
-            totalscore = (int)Player.LocalPlayer.GetSharedData("PLAYER_SCORE");
+                driftHTML = new HtmlWindow("package://statics/html/drift.html");
+                vehHealth = vehicle.GetHealth();
+                driftHTML.Active = false;
+                totalscore = (int)Player.LocalPlayer.GetSharedData("PLAYER_SCORE");
+            }
         }
         public void OnPlayerLeaveVehicle(Vehicle vehicle, int seatId)//todo проверка на авторизацию
         {
-            Chat.Output(Player.LocalPlayer.GetSharedData("IsSpawn").ToString());
             if ((bool)Player.LocalPlayer.GetSharedData("IsSpawn"))
             {
-                Chat.Output("Пришёл Наху");
                 driftHTML.Active = false;
                 multiplier = 1;
                 score = 0;
                 playerDrifting = false;
-            }
-            else
-            {
-                Chat.Output("Пошёл Наху");
             }
         }
         public void SetV1elocity(object[] args)
@@ -69,26 +65,18 @@ namespace cs_packages
             Browser.ExecuteFunctionEvent(driftHTML, "driftScore", new object[] { score.ToString(), multiplier });
         }
 
-
-
         private void OnTick(List<Events.TickNametagData> nametags)//todo проверка на авторизацию
         {
-            //if (Globals.playerLogged && Player.LocalPlayer.Vehicle != null)
-            //{
-                UpdateSpeedometer(); 
-            //}
-            /*if (RAGE.Input.IsDown(0x38) || RAGE.Input.IsDown(0x46) || RAGE.Input.IsDown(0x86))
+            if ((bool)Player.LocalPlayer.GetSharedData("IsSpawn"))
             {
-                Chat.Output("EEEEEEE");
-            }*/
+                UpdateSpeedometer();
+            }
         }
 
         public static void UpdateSpeedometer()
         {
             if (Player.LocalPlayer.Vehicle == null) { return; }
             Vehicle vehicle = Player.LocalPlayer.Vehicle;
-
-            //Vector3 currentPosition = vehicle.Position;
 
             RAGE.Game.UIText.Draw(GetVehicleSpeed(vehicle).ToString(), new Point(1175, 650), 0.75f, Color.White, RAGE.Game.Font.ChaletComprimeCologne, false);
 
@@ -177,9 +165,14 @@ namespace cs_packages
             {
                 Api.Notify("~r~Crash!");
             }
-                multiplier = 1;
-                score = 0;
-                playerDrifting = false;
+            ResetPlayerDriftScore();
+        }
+
+        public static void ResetPlayerDriftScore()
+        {
+            multiplier = 1;
+            score = 0;
+            playerDrifting = false;
         }
 
         private static void UpdatePlayerScore(int _score)
@@ -214,6 +207,12 @@ namespace cs_packages
             float cosX = (sin * vehicle.GetVelocity().X + cos * vehicle.GetVelocity().Y) / modV;
             if (cosX > 0.966 || cosX < 0) return 0;
             return (float)(Math.Acos(cosX) * (180.0 / Math.PI) * 0.5);
+        }
+        public static void ResetPlayerDriftScoreFromServer(object[] args)
+        {
+            multiplier = 1;
+            score = 0;
+            playerDrifting = false;
         }
     }
 }

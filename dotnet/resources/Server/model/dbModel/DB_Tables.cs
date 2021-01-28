@@ -15,7 +15,7 @@ namespace Server.model
         public void SetId(int id)
         {
             string tbname = this.GetType().Name;
-            string sql = $"select * from `{tbname}` where `id` = {id}";
+            string sql = $"select * from `{tbname.ToLower()}` where `id` = {id}";
             DataTable dt = MySql.QueryRead(sql);
 
             foreach (var obj in this.GetType().GetProperties())
@@ -26,13 +26,19 @@ namespace Server.model
                     if (obj.PropertyType.Name == "Vector3") 
                     {
                         obj.SetValue(this, JsonConvert.DeserializeObject<Vector3>(dt.Rows[0][obj.Name].ToString()));
-                    } else
+                    } 
+                    else if(obj.PropertyType.Name == "List`1")
+                    {
+                        obj.SetValue(this, utils.Parser.ParseToListVector3(dt.Rows[0][obj.Name].ToString()));
+                    }
+                    else
                     {
                         obj.SetValue(this, dt.Rows[0][obj.Name]);
                     }
                 }
             }
         }
+
         public int Insert()
         {
             string tbname = this.GetType().Name;
@@ -47,8 +53,18 @@ namespace Server.model
             {
                 string fldName = obj.Name;
                 object value = obj.GetValue(this, null);
-                if (fldName !=  "Id" && value != null && IsDbTable(fldName)) {
-                    props.Add(fldName, value);
+                if (fldName !=  "Id" && value != null && IsDbTable(fldName)) 
+                {
+                    if(obj.PropertyType.Name == "List`1")
+                    {
+                        List<Vector3> val = (List<Vector3>)value;
+                        props.Add(fldName, utils.Parser.ParseFromListVector3(val));
+                    }
+                    else
+                    {
+                        props.Add(fldName, value);
+                    }
+                    
                 }
             }
 
@@ -62,7 +78,7 @@ namespace Server.model
             fieldsStr = fieldsStr.Remove(fieldsStr.Length - 1, 1);
             parametersStr = parametersStr.Remove(parametersStr.Length - 1, 1);
 
-            string sql = $"insert into `{tbname}` " +
+            string sql = $"insert into `{tbname.ToLower()}` " +
                 "(" + fieldsStr + ") " +
                 "values (" + parametersStr + "); select last_insert_id()";
 
@@ -86,12 +102,21 @@ namespace Server.model
                 if (fldName != "Id" && value != null)
                 {
                     valuesParamStr += "`" + fldName + "` = @" + fldName + ",";
-                    props.Add(fldName, value);
+                    if (obj.PropertyType.Name == "List`1")
+                    {
+                        List<Vector3> val = (List<Vector3>)value;
+                        props.Add(fldName, utils.Parser.ParseFromListVector3(val));
+                    }
+                    else
+                    {
+                        props.Add(fldName, value);
+                    }
+                    
                 }
             }
             valuesParamStr = valuesParamStr.Remove(valuesParamStr.Length - 1, 1);
 
-            string sql = $"update `{tbname}` " +
+            string sql = $"update `{tbname.ToLower()}` " +
             $"set {valuesParamStr}" +
             $" where id = {this.Id}";
             MySql.Query(sql, props);
@@ -110,7 +135,15 @@ namespace Server.model
                 object value = obj.GetValue(this, null);
                 if (fldName != "Id" && value != null && IsDbTable(fldName))
                 {
+                    if (obj.PropertyType.Name == "List`1")
+                    {
+                        List<Vector3> val = (List<Vector3>)value;
+                        props.Add(fldName, utils.Parser.ParseFromListVector3(val));
+                    }
+                    else
+                    {
                     props.Add(fldName, value);
+                    }
                 }
             }
             string[] flds = fields.Split(",");
@@ -125,7 +158,7 @@ namespace Server.model
 
 
 
-            string sql = $"update `{tbname}` " +
+            string sql = $"update `{tbname.ToLower()}` " +
             $"set {valuesParamStr}" +
             $" where id = {this.Id}";
             MySql.Query(sql, props);

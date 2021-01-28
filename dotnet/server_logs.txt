@@ -405,4 +405,146 @@ System.ArgumentException: Object of type 'System.String' cannot be converted to 
    at object RuntimeType.TryChangeType(object value, Binder binder, CultureInfo culture, bool needsSpecialCast)
    at object RuntimeType.CheckValue(object value, Binder binder, CultureInfo culture, BindingFlags invokeAttr)
    at object[] System.Reflection.MethodBase.CheckArguments(object[] parameters, Binder binder, BindingFlags invokeAttr, CultureInfo culture, Signature sig)
-   at object[] S
+   at object[] SInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 25.01.2021 20:44:05
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 3 server events(s)
+Server: loading commands.. found 13 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 19 commands(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 1 remote event(s)
+Всё ок
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+Teleports load
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Mario'
+[MySql QueryR] select * from `character` where AccountId = '1'
+UNHANDLED EXCEPTION IN COMMAND login FOR RESOURCE Server
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'drift.character' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'drift.character' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at async Task<MySqlDataReader> MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList<IMySqlCommand> commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at async Task<MySqlDataReader> MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 310
+   at MySqlDataReader MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 105
+   at DataTable Server.MySql.QueryRead(MySqlCommand command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 176
+   at DataTable Server.MySql.QueryRead(string command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 193
+   at bool Server.model.Character.getByAccountId(int accountId) in E:/RageMp/Drift/dotnet/resources/Server/model/dbModel/Character.cs:line 32
+   at void Server.character.Api.LoadCharacter(Player player, int accountId) in E:/RageMp/Drift/dotnet/resources/Server/character/Api.cs:line 22
+   at void Server.account.Api.LoginAccount(Player player, string name, string password) in E:/RageMp/Drift/dotnet/resources/Server/account/Api.cs:line 48
+   at void Server.account.Auth.cmd_Login(Player player, string name, sInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 27.01.2021 18:49:59
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 4 server events(s)
+Server: loading commands.. found 13 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 19 commands(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 1 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `traks`
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+7 - Lake - 1 - -390,8351 837,9808 224,89944
+Teleports load
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Mario'
+[MySql QueryR] select * from `character` where AccountId = '1'
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryR] select * from `Vehicles` where `id` = 1
+UNHANDLED EXCEPTION IN COMMAND car FOR RESOURCE Server
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at async Task<MySqlDataReader> MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList<IMySqlCommand> commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at async Task<MySqlDataReader> MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 310
+   at MySqlDataReader MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 105
+   at DataTable Server.MySql.QueryRead(MySqlCommand command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 145
+   at DataTable Server.MySql.QueryRead(string command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 162
+   at void Server.model.DB_Tables.SetId(int id) in E:/RageMp/Drift/dotnet/resources/Server/model/dbModel/DB_Tables.cs:line 19
+   at void Server.vehicle.Api.LoadVehicle(Player player, int carid) in E:/RageMp/Drift/dotnet/resources/Server/vehicle/Api.cs:line 57
+   at void Server.vehicle.Api.cmd_Car(Player player, string caridd) in E:/RageMp/Drift/dotnet/resources/Server/vehicle/Api.cs:line 96
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at bool GTANetworkInternals.CommandParser.Parse(Player sender, string cmdRaw, string ourcmd, string[] args)
+[MySql QueryR] select * from `Vehicles` where `id` = 1
+UNHANDLED EXCEPTION IN COMMAND car FOR RESOURCE Server
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at void MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at async Task<MySqlDataReader> MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary<string, CachedProcedure> cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 437
+   at async Task<MySqlDataReader> MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList<IMySqlCommand> commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at async Task<MySqlDataReader> MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 310
+   at MySqlDataReader MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 105
+   at DataTable Server.MySql.QueryRead(MySqlCommand command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 145
+   at DataTable Server.MySql.QueryRead(string command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 162
+   at void Server.model.DB_Tables.SetId(int id) in E:/RageMp/Drift/dotnet/resources/Server/model/dbModel/DB_Tables.cs:line 19
+   at void Server.vehicle.Api.LoadVehicle(Player player, int carid) in E:/RageMp/Drift/dotnet/resources/Server/vehicle/Api.cs:line 57
+   at void Server.vehicle.Api.cmd_Car(Player player, string caridd) in E:/RageMp/Drift/dotnet/resources/Server/vehicle/Api.cs:line 96
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at bool GTANetworkInternals.CommandParser.Parse(Player sender, string cmdRaw, string ourcmd, string[] args)
+[MySql QueryR] select * from `Vehicles` where `id` = 1
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql QueryR] select * from `Vehicles` where `id` = 2
+UNHANDLED EXCEPTION IN COMMAND car FOR RESOURCE Server
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+ ---> MySqlConnector.MySqlException (0x80004005): Table 'justaAxT.Vehicles' doesn't exist
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at
