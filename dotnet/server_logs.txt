@@ -707,4 +707,260 @@ System.Reflection.TargetInvocationException: Exception has been thrown by the ta
    at GTANetworkInternals.EventParser.Parse(Event _event, Object[] arguments)
    at GTANetworkInternals.EventCollection.<>c__DisplayClass4_0.<ParseEx>b__1(EventParser x)
    at System.Collections.Generic.List`1.ForEach(Action`1 action)
-   at GTANetworkInt
+   at GTANetworkIntInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 29.01.2021 20:29:38
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 5 server events(s)
+Server: loading commands.. found 14 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 20 commands(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 3 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT * FROM `teleport`
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+7 - Lake - 1 - -390,8351 837,9808 224,89944
+Teleports load
+[MySql QueryR] SELECT * FROM `house`
+-> Error starting 'Server'
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> Newtonsoft.Json.JsonReaderException: Invalid JavaScript property identifier character: ,. Path 'x', line 1, position 15.
+   at bool Newtonsoft.Json.JsonTextReader.ReadUnquotedPropertyReportIfDone(char currentChar, int initialPosition)
+   at void Newtonsoft.Json.JsonTextReader.ParseUnquotedProperty()
+   at bool Newtonsoft.Json.JsonTextReader.ParseProperty()
+   at object Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, string id)
+   at object Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, object existingValue)
+   at object Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, object existingValue)
+   at object Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, bool checkAdditionalContent)
+   at object Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at object Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at object Newtonsoft.Json.JsonConvert.DeserializeObject(string value, Type type, JsonSerializerSettings settings)
+   at T Newtonsoft.Json.JsonConvert.DeserializeObject<T>(string value, JsonSerializerSettings settings)
+   at T Newtonsoft.Json.JsonConvert.DeserializeObject<T>(string value)
+   at void Server.house.Api.OnResourceStart() in E:/RageMp/Drift/dotnet/resources/Server/house/Api.cs:line 37
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object objInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 30.01.2021 18:25:58
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 6 server events(s)
+Server: loading commands.. found 14 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 22 commands(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 6 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+7 - Lake - 1 - -390,8351 837,9808 224,89944
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Mario'
+[MySql QueryR] select * from `character` where AccountId = '1'
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql Query Error] System.NotSupportedException: Parameter type Vector3 (DbType: String) not currently supported. Value: -429,46597 1109,4248 327,68198
+   at MySqlConnector.MySqlParameter.AppendSqlString(ByteBufferWriter writer, StatementPreparerOptions options) in /_/src/MySqlConnector/MySqlParameter.cs:line 433
+   at MySqlConnector.Core.StatementPreparer.ParameterSqlParser.DoAppendParameter(Int32 parameterIndex, Int32 textIndex, Int32 textLength) in /_/src/MySqlConnector/Core/StatementPreparer.cs:line 89
+   at MySqlConnector.Core.StatementPreparer.ParameterSqlParser.OnNamedParameter(Int32 index, Int32 length) in /_/src/MySqlConnector/Core/StatementPreparer.cs:line 76
+   at MySqlConnector.Core.SqlParser.Parse(String sql) in /_/src/MySqlConnector/Core/SqlParser.cs:line 199
+   at MySqlConnector.Core.StatementPreparer.ParseAndBindParameters(ByteBufferWriter writer) in /_/src/MySqlConnector/Core/StatementPreparer.cs:line 38
+   at MySqlConnector.Core.SingleCommandPayloadCreator.WriteCommand(IMySqlCommand command, ByteBufferWriter writer) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 206
+   at MySqlConnector.Core.SingleCommandPayloadCreator.WriteQueryPayload(IMySqlCommand command, IDictionary`2 cachedProcedures, ByteBufferWriter writer) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 59
+   at MySqlConnector.Core.SingleCommandPayloadCreator.WriteQueryCommand(CommandListPosition& commandListPosition, IDictionary`2 cachedProcedures, ByteBufferWriter writer) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 34
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList`1 commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 02.02.2021 19:37:41
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.utils.CustomEvents..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 6 server events(s)
+Server: loading commands.. found 15 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 23 commands(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 9 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+7 - Lake - 1 - -390,8351 837,9808 224,89944
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `garage`
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Mario'
+[MySql QueryR] select * from `character` where AccountId = '1'
+[MySql QueryR] SELECT * FROM `tracksrecords`
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void Server.utils.CustomEvents.Remote_OnPlayerPressAltKey(Player player) in E:/RageMp/Drift/dotnet/resources/Server/utils/CustomEvents.cs:line 16
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void Server.utils.CustomEvents.Remote_OnPlayerPressAltKey(Player player) in E:/RageMp/Drift/dotnet/resources/Server/utils/CustomEvents.cs:line 16
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 02.02.2021 22:59:07
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 6 server events(s)
+Server: loading commands.. found 15 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 24 commands(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 9 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+7 - Lake - 1 - -390,8351 837,9808 224,89944
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `garage`
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Mario'
+[MySql QueryR] select * from `character` where AccountId = '1'
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryR] SELECT * FROM `vehicles` WHERE `OwnerId` = '2'
+UNHANDLED EXCEPTION IN COMMAND cs FOR RESOURCE Server
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.Collections.Generic.KeyNotFoundException: The given key '0' was not present in the dictionary.
+   at TValue System.Collections.Generic.Dictionary<TKey, TValue>.get_Item(TKey key)
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at bool GTANetworkInternals.CommandParser.Parse(Player sender, string cmdRaw, string ourcmd, string[] args)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.Collections.Generic.KeyNotFoundException: The given key '-1' was not present in the dictionary.
+   at TValue System.Collections.Generic.Dictionary<TKey, TValue>.get_Item(TKey key)
+   at void Server.garage.Api.OnPlayerPressAltKey(Player player) in E:/RageMp/Drift/dotnet/resources/Server/garage/Api.cs:line 50
+   at void Server.Main.Remote_OnPlayerPressAltKey(Player player) in E:/RageMp/Drift/dotnet/resources/Server/Main.cs:line 49
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHa

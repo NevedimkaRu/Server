@@ -13,8 +13,12 @@ namespace Server.model
         public List<TracksRecords> TracksRecords = new List<TracksRecords>();
 
         public bool IsSpawn { get; set; } = false;
+
         public Traks Track { get; set; }
         public int CurrentTrackIndex { get; set; } = -1;
+
+        public int HouseId { get; set; } = -1;//Ид дома в который зашел
+        public int GarageId { get; set; } = -1;
 
 
     }

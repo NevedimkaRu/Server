@@ -19,7 +19,7 @@ namespace Server
         {
             if (!Debug) return;
             Vector3 player_pos = player.Position;
-            player.SetIntoVehicle(NAPI.Vehicle.CreateVehicle(VehicleHash.Elegy2, player_pos, 2f, new Color(0, 255, 100), new Color(0)),0);
+            player.SetIntoVehicle(NAPI.Vehicle.CreateVehicle(VehicleHash.Elegy2, player_pos, 2f, new Color(0, 255, 100), new Color(0),"МУР",255,false,true,player.Dimension),0);
         }
         [Command("vehh", GreedyArg = true)]
         public void cmd_CreateVehicleHash(Player player, VehicleHash hash)
@@ -71,6 +71,11 @@ namespace Server
                     stream.Close();
                 }
             }
+        }
+        [Command("rot")]
+        public void cmd_Rot(Player player)
+        {
+            player.SendChatMessage(player.Vehicle.Rotation.ToString());
         }
         [Command("createtp",GreedyArg = true)]
         public void cmd_CreateTeleport(Player player, string name, string discription)
@@ -128,6 +133,12 @@ namespace Server
                 player.Vehicle.SetMod(Convert.ToInt32(modeType), Convert.ToInt32(modeIndex));
                 player.SendChatMessage($"{modeType} - {modeIndex}");
             }
+        }
+
+        [Command("ipl", GreedyArg = true)]
+        public static void cmd_RequestIpl(Player player, string ipl)
+        {
+            NAPI.World.RequestIpl(ipl);
         }
     }
 }
