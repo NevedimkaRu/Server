@@ -74,26 +74,23 @@ namespace cs_packages.player
             {
                 if (item == PolList)
                 {
-                    Chat.Output("Услышан");
                     if ((string)item.IndexToItem(index) == "М")
                     {
-                        gender = true;
+                        onEditorList(new object[] { "gender", true });
                     }
-                    else {
-                        gender = false;
+                    else 
+                    {
+                        onEditorList(new object[] { "gender", false });
                     }
-                    OnChangeCharacterGender();
                 }
             };
-
             UIMenuListItem batyaList = new UIMenuListItem("Отец", fathers, 0);
             genethic.AddItem(batyaList);
             genethic.OnListChange += (sender, item, index) =>
             {
                 if (item == batyaList)
                 {
-                    father = (int)item.IndexToItem(index);
-                    UpdateCharacterParents();
+                    onEditorList(new object[] { "father", item.IndexToItem(index) });
                 }
             };
 
@@ -103,8 +100,7 @@ namespace cs_packages.player
             {
                 if (item == matyaList)
                 {
-                    mother = (int)item.IndexToItem(index);
-                    UpdateCharacterParents();
+                    onEditorList(new object[] { "mother", item.IndexToItem(index) });
                 }
             };
 
@@ -114,8 +110,7 @@ namespace cs_packages.player
             {
                 if (item == simList)
                 {
-                    similarity = (float)item.IndexToItem(index);
-                    UpdateCharacterParents();
+                    onEditorList(new object[] { "similar", item.IndexToItem(index) });
                 }
             };
             UIMenuListItem skinList = new UIMenuListItem("Цвет кожи", GetFloatList(0.0f, 1.0f, 0.1f), 0);
@@ -124,8 +119,7 @@ namespace cs_packages.player
             {
                 if (item == skinList)
                 {
-                    skin = (float)item.IndexToItem(index);
-                    UpdateCharacterParents();
+                    onEditorList(new object[] { "skin", item.IndexToItem(index) });
                 }
             };
             //Лицо
@@ -137,8 +131,7 @@ namespace cs_packages.player
             {
                 if (item == noseWidth)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "noseWidth", val });
+                    onEditorList(new object[] { "noseWidth", item.IndexToItem(index) });
                 }
             };
             UIMenuListItem noseHeight = new UIMenuListItem("Высота носа", valueList, 0);
@@ -147,8 +140,7 @@ namespace cs_packages.player
             {
                 if (item == noseHeight)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "noseHeight", val });
+                    onEditorList(new object[] { "noseHeight", item.IndexToItem(index) });
                 }
             };
             UIMenuListItem noseTipLength = new UIMenuListItem("Глубина кончика носа", valueList, 0);
@@ -157,8 +149,7 @@ namespace cs_packages.player
             {
                 if (item == noseTipLength)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "noseTipLength", val });
+                    onEditorList(new object[] { "noseTipLength", item.IndexToItem(index) });
                 }
             };
             UIMenuListItem noseDepth = new UIMenuListItem("Высота кончика носа", valueList, 0);
@@ -167,8 +158,7 @@ namespace cs_packages.player
             {
                 if (item == noseDepth)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "noseDepth", val });
+                    onEditorList(new object[] { "noseDepth", item.IndexToItem(index) });
                 }
             };
             UIMenuListItem noseTipHeight = new UIMenuListItem("Выстоа кончика носа", valueList, 0);
@@ -177,8 +167,7 @@ namespace cs_packages.player
             {
                 if (item == noseTipHeight)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "noseTipHeight", val });
+                    onEditorList(new object[] { "noseTipHeight", item.IndexToItem(index) });
                 }
             };
             UIMenuListItem noseBroke = new UIMenuListItem("Поломанность носа", valueList, 0);
@@ -187,8 +176,7 @@ namespace cs_packages.player
             {
                 if (item == noseBroke)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "noseTipHeight", val });
+                    onEditorList(new object[] { "noseTipHeight", item.IndexToItem(index) });
                 }
             };
             UIMenuListItem eyebrowHeight = new UIMenuListItem("Высота бровей", valueList, 0);
@@ -197,8 +185,7 @@ namespace cs_packages.player
             {
                 if (item == eyebrowHeight)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "eyebrowHeight", val });
+                    onEditorList(new object[] { "eyebrowHeight", item.IndexToItem(index) });
                 }
             };
             UIMenuListItem eyebrowDepth = new UIMenuListItem("Глубина бровей", valueList, 0);
@@ -207,8 +194,7 @@ namespace cs_packages.player
             {
                 if (item == eyebrowDepth)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "eyebrowDepth", val });
+                    onEditorList(new object[] { "eyebrowDepth", item.IndexToItem(index) });
                 }
             };
             UIMenuListItem cheekboneHeight = new UIMenuListItem("Высота скул", valueList, 0);
@@ -217,8 +203,7 @@ namespace cs_packages.player
             {
                 if (item == cheekboneHeight)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "cheekboneHeight", val });
+                    onEditorList(new object[] { "cheekboneHeight", item.IndexToItem(index) });
                 }
             };
             UIMenuListItem cheekboneWidth = new UIMenuListItem("Ширина скул", valueList, 0);
@@ -227,8 +212,7 @@ namespace cs_packages.player
             {
                 if (item == noseBroke)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "cheekboneWidth", val });
+                    onEditorList(new object[] { "cheekboneWidth", item.IndexToItem(index) });
                 }
             };
             UIMenuListItem cheekDepth = new UIMenuListItem("Глубина щеки", valueList, 0);
@@ -237,8 +221,7 @@ namespace cs_packages.player
             {
                 if (item == noseBroke)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "cheekDepth", val });
+                    onEditorList(new object[] { "cheekDepth", item.IndexToItem(index) });
                 }
             };
             UIMenuListItem eyeScale = new UIMenuListItem("Размер глаз", valueList, 0);
@@ -247,8 +230,7 @@ namespace cs_packages.player
             {
                 if (item == noseBroke)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "eyeScale", val });
+                    onEditorList(new object[] { "eyeScale", item.IndexToItem(index) });
                 }
             };
             UIMenuListItem lipThickness = new UIMenuListItem("Толщина губ", valueList, 0);
@@ -257,8 +239,7 @@ namespace cs_packages.player
             {
                 if (item == lipThickness)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "lipThickness", val });
+                    onEditorList(new object[] { "lipThickness", item.IndexToItem(index) });
                 }
             };
             UIMenuListItem jawWidth = new UIMenuListItem("Ширина челюсти", valueList, 0);
@@ -267,8 +248,7 @@ namespace cs_packages.player
             {
                 if (item == jawWidth)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "jawWidth", val });
+                    onEditorList(new object[] { "jawWidth", item.IndexToItem(index) });
                 }
             };
             UIMenuListItem jawShape = new UIMenuListItem("Форма челюсти", valueList, 0);
@@ -277,8 +257,7 @@ namespace cs_packages.player
             {
                 if (item == jawShape)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "jawShape", val });
+                    onEditorList(new object[] { "jawShape", item.IndexToItem(index) });
                 }
             };
             UIMenuListItem chinHeight = new UIMenuListItem("Высота подбородка", valueList, 0);
@@ -287,8 +266,7 @@ namespace cs_packages.player
             {
                 if (item == chinHeight)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "chinHeight", val });
+                    onEditorList(new object[] { "chinHeight", item.IndexToItem(index) });
                 }
             };
             UIMenuListItem chinDepth = new UIMenuListItem("Глубина подбородка", valueList, 0);
@@ -297,8 +275,7 @@ namespace cs_packages.player
             {
                 if (item == chinDepth)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "chinDepth", val });
+                    onEditorList(new object[] { "chinDepth", item.IndexToItem(index) });
                 }
             };
             UIMenuListItem chinWidth = new UIMenuListItem("Ширина подбородка", valueList, 0);
@@ -307,8 +284,7 @@ namespace cs_packages.player
             {
                 if (item == chinWidth)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "chinWidth", val });
+                    onEditorList(new object[] { "chinWidth", item.IndexToItem(index) });
                 }
             };
             UIMenuListItem chinIndent = new UIMenuListItem("Отступ подбородка", valueList, 0);
@@ -317,8 +293,7 @@ namespace cs_packages.player
             {
                 if (item == chinIndent)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "chinIndent", val });
+                    onEditorList(new object[] { "chinIndent", item.IndexToItem(index) });
                 }
             };
             UIMenuListItem neck = new UIMenuListItem("Шея", valueList, 0);
@@ -327,8 +302,7 @@ namespace cs_packages.player
             {
                 if (item == neck)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "neck", val });
+                    onEditorList(new object[] { "neck", item.IndexToItem(index) });
                 }
             };
             ////Внешность
@@ -340,10 +314,7 @@ namespace cs_packages.player
             {
                 if (item == hairM)
                 {
-                    Chat.Output(index.ToString());
-                    Chat.Output(item.IndexToItem(index).ToString());
-                    float val = (float) ((int) item.IndexToItem(index));
-                    onEditorList(new object[] { "hairM", val });
+                    onEditorList(new object[] { "hair", item.IndexToItem(index) });
                 }
             };
             List<object> FHair = hairIDList[1];
@@ -353,71 +324,69 @@ namespace cs_packages.player
             {
                 if (item == hairF)
                 {
-                    float val = (float)((int)item.IndexToItem(index));
-                    onEditorList(new object[] { "hairF", val });
+                    onEditorList(new object[] { "hair", item.IndexToItem(index) });
                 }
             };
-            UIMenuListItem eyebrowsM = new UIMenuListItem("Брови М", GetFloatList(0f, 33f, 1f), 0);
+            UIMenuListItem eyebrowsM = new UIMenuListItem("Брови М", GetIntList(0, 33, 1), 0);
             apper.AddItem(eyebrowsM);
             apper.OnListChange += (sender, item, index) =>
             {
                 if (item == eyebrowsM)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "eyebrowsM", val });
+                    Chat.Output(item.IndexToItem(index).GetType().Name);
+                    onEditorList(new object[] { "eyebrows", item.IndexToItem(index) });
                 }
             };
-            UIMenuListItem eyebrowsF = new UIMenuListItem("Брови Ж", GetFloatList(0f, 33f, 1f), 0);
+            UIMenuListItem eyebrowsF = new UIMenuListItem("Брови Ж", GetIntList(0, 33, 1), 0);
             apper.AddItem(eyebrowsF);
             apper.OnListChange += (sender, item, index) =>
             {
                 if (item == eyebrowsF)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "eyebrowsF", val });
+                    onEditorList(new object[] { "eyebrows", item.IndexToItem(index) });
                 }
             };
-            UIMenuListItem beard = new UIMenuListItem("Борода", GetFloatList(0f, 28f, 1f), 0);
+            UIMenuListItem beard = new UIMenuListItem("Борода", GetIntList(0, 28, 1), 0);
             apper.AddItem(beard);
             apper.OnListChange += (sender, item, index) =>
             {
                 if (item == beard)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "beard", val });
+                    onEditorList(new object[] { "beard", item.IndexToItem(index) });
                 }
             };
-            UIMenuListItem hairColor = new UIMenuListItem("Цвет волос", GetFloatList(0f, 10f, 1f), 0);
+            UIMenuListItem hairColor = new UIMenuListItem("Цвет волос", GetIntList(0, 10, 1), 0);
             apper.AddItem(hairColor);
             apper.OnListChange += (sender, item, index) =>
             {
                 if (item == hairColor)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "hairColor", val });
+                    onEditorList(new object[] { "hairColor", item.IndexToItem(index) });
                 }
             };
-            UIMenuListItem eyeColor = new UIMenuListItem("Цвет глаз", GetFloatList(1f, 10f, 1f), 0);
+            UIMenuListItem eyeColor = new UIMenuListItem("Цвет глаз", GetIntList(1, 10, 1), 0);
             apper.AddItem(eyeColor);
             apper.OnListChange += (sender, item, index) =>
             {
                 if (item == eyeColor)
                 {
-                    float val = (float)item.IndexToItem(index);
-                    onEditorList(new object[] { "eyeColor", val });
+                    onEditorList(new object[] { "eyeColor", item.IndexToItem(index) });
                 }
             };
-            UIMenu save = menuPool.AddSubMenu(mainMenu, "Сохранить");
+            UIMenuItem save = new UIMenuItem("Сохранить");
+            mainMenu.AddItem(save);
             mainMenu.OnItemSelect += (sender, item, index) =>
             {
-                OnSaveCharacter();
+                if (item == save)
+                {
+                    OnSaveCharacter();
+                }
             };
             //face.RemoveItemAt(hair.Index);
 
             menuPool.RefreshIndex();
             Events.Tick += DrawMenu;
             mainMenu.Visible = true;
-
             mainMenu.OnMenuClose += (sender) =>
             {
                 menuactive = false;
@@ -435,19 +404,108 @@ namespace cs_packages.player
 
         }
 
-        private void OnChangeCharacterGender()
+        public void onEditorList(object[] args)
         {
-            string n = "Female";
-            if (gender) {
-                n = "Male";
-            }
-            OnChangeCharacterGender(new object[] { n });
+            string field = args[0].ToString();
+            object val = args[1];
+            Chat.Output(field);
+            Chat.Output(val.ToString());
+            Chat.Output(val.GetType().Name);
+
+
+
+            model.GetType().GetProperty(field).SetValue(model, val);
+            Update(field);
         }
-        public void OnChangeCharacterGender(object[] args)
+
+        public void UpdateCharacterParents()
         {
-            string param = args[0].ToString();
-            gender = (param == "Male") ? true : false;
-            if (gender)
+            Player.LocalPlayer.SetHeadBlendData(
+                model.mother,
+                model.father,
+                0,
+
+                model.mother,
+                model.father,
+                0,
+
+                model.similar,
+                model.skin,
+                0.0f,
+
+                true
+            );
+        }
+        public void UpdateCharacterHair()
+        {
+            // hair
+            Player.LocalPlayer.SetComponentVariation(2, model.hair, 0, 0);
+            Player.LocalPlayer.SetHairColor(model.hairColor, 0);
+
+            // appearance colors
+            Player.LocalPlayer.SetHeadOverlayColor(2, 1, model.hairColor, 100); // eyebrow
+            Player.LocalPlayer.SetHeadOverlayColor(1, 1, model.hairColor, 100); // beard
+            Player.LocalPlayer.SetHeadOverlayColor(10, 1, model.hairColor, 100); // chesthair
+
+            // eye color
+            Player.LocalPlayer.SetEyeColor(model.eyeColor);
+        }
+        public void Update(string f)
+        {
+            switch (f)
+            {
+                case "gender":
+                    OnChangeCharacterGender();
+                    return;
+                case "similar":
+                    UpdateCharacterParents();
+                    return;
+                case "skin":
+                    UpdateCharacterParents();
+                    return;
+                case "father":
+                    UpdateCharacterParents();
+                    return;
+                case "mother":
+                    UpdateCharacterParents();
+                    return;
+                case "hair":
+                    UpdateCharacterHair();
+                    return;
+                case "eyebrows": Player.LocalPlayer.SetHeadOverlay(2, (int)model.GetType().GetProperty(f).GetValue(model), 100); return;
+                case "beard": Player.LocalPlayer.SetHeadOverlay(1, (int)model.GetType().GetProperty(f).GetValue(model), 100); return;
+                case "hairColor":
+                    UpdateCharacterHair();
+                    return;
+                case "eyeColor":
+                    UpdateCharacterHair();
+                    return;
+                case "noseWidth": Player.LocalPlayer.SetFaceFeature(0, (float)model.GetType().GetProperty(f).GetValue(model)); return;
+                case "noseHeight": Player.LocalPlayer.SetFaceFeature(1, (float)model.GetType().GetProperty(f).GetValue(model)); return;
+                case "noseTipLength": Player.LocalPlayer.SetFaceFeature(2, (float)model.GetType().GetProperty(f).GetValue(model)); return;
+                case "noseDepth": Player.LocalPlayer.SetFaceFeature(3, (float)model.GetType().GetProperty(f).GetValue(model)); return;
+                case "noseTipHeight": Player.LocalPlayer.SetFaceFeature(4, (float)model.GetType().GetProperty(f).GetValue(model)); return;
+                case "noseBroke": Player.LocalPlayer.SetFaceFeature(5, (float)model.GetType().GetProperty(f).GetValue(model)); return;
+                case "eyebrowHeight": Player.LocalPlayer.SetFaceFeature(6, (float)model.GetType().GetProperty(f).GetValue(model)); return;
+                case "eyebrowDepth": Player.LocalPlayer.SetFaceFeature(7, (float)model.GetType().GetProperty(f).GetValue(model)); return;
+                case "cheekboneHeight": Player.LocalPlayer.SetFaceFeature(8, (float)model.GetType().GetProperty(f).GetValue(model)); return;
+                case "cheekboneWidth": Player.LocalPlayer.SetFaceFeature(9, (float)model.GetType().GetProperty(f).GetValue(model)); return;
+                case "cheekDepth": Player.LocalPlayer.SetFaceFeature(10, (float)model.GetType().GetProperty(f).GetValue(model)); return;
+                case "eyeScale": Player.LocalPlayer.SetFaceFeature(11, (float)model.GetType().GetProperty(f).GetValue(model)); return;
+                case "lipThickness": Player.LocalPlayer.SetFaceFeature(12, (float)model.GetType().GetProperty(f).GetValue(model)); return;
+                case "jawWidth": Player.LocalPlayer.SetFaceFeature(13, (float)model.GetType().GetProperty(f).GetValue(model)); return;
+                case "jawShape": Player.LocalPlayer.SetFaceFeature(14, (float)model.GetType().GetProperty(f).GetValue(model)); return;
+                case "chinHeight": Player.LocalPlayer.SetFaceFeature(15, (float)model.GetType().GetProperty(f).GetValue(model)); return;
+                case "chinDepth": Player.LocalPlayer.SetFaceFeature(16, (float)model.GetType().GetProperty(f).GetValue(model)); return;
+                case "chinWidth": Player.LocalPlayer.SetFaceFeature(17, (float)model.GetType().GetProperty(f).GetValue(model)); return;
+                case "chinIndent": Player.LocalPlayer.SetFaceFeature(18, (float)model.GetType().GetProperty(f).GetValue(model)); return;
+                case "neck": Player.LocalPlayer.SetFaceFeature(19, (float)model.GetType().GetProperty(f).GetValue(model)); return;
+            }
+        }
+
+        public void OnChangeCharacterGender()
+        {
+            if (model.gender)
             {
                 Player.LocalPlayer.Model = RAGE.Game.Misc.GetHashKey("mp_m_freemode_01");
                 outClothes = 1;
@@ -464,172 +522,9 @@ namespace cs_packages.player
 
             appearance[1] = 255;
 
-            UpdateCharacterParents();
-            UpdateCharacterHair();
-            UpdateAppearance();
+            UpdateAllModel();
             UpdateClothes();
-            for (var i = 0; i < 20; i++)
-            {
-                Player.LocalPlayer.SetFaceFeature(i, features[i]);
-            }
-        }
 
-
-        public void onEditorList1(object[] args)
-        {
-            float lvl = (float)args[1];
-            //object lvl = args[1];
-
-            string param = args[0].ToString();
-
-            model.GetType().GetProperty(param).SetValue(model, lvl);
-
-
-            switch (param)
-            {
-                case "similar":
-                    similarity = lvl;
-                    UpdateCharacterParents();
-                    return;
-                case "skin":
-                    skin = lvl;
-                    UpdateCharacterParents();
-                    return;
-                case "noseWidth": Player.LocalPlayer.SetFaceFeature(0, lvl); features[0] = lvl; return;
-                case "noseHeight": Player.LocalPlayer.SetFaceFeature(1, lvl); features[1] = lvl; return;
-                case "noseTipLength": Player.LocalPlayer.SetFaceFeature(2, lvl); features[2] = lvl; return;
-                case "noseDepth": Player.LocalPlayer.SetFaceFeature(3, lvl); features[3] = lvl; return;
-                case "noseTipHeight": Player.LocalPlayer.SetFaceFeature(4, lvl); features[4] = lvl; return;
-                case "noseBroke": Player.LocalPlayer.SetFaceFeature(5, lvl); features[5] = lvl; return;
-                case "eyebrowHeight": Player.LocalPlayer.SetFaceFeature(6, lvl); features[6] = lvl; return;
-                case "eyebrowDepth": Player.LocalPlayer.SetFaceFeature(7, lvl); features[7] = lvl; return;
-                case "cheekboneHeight": Player.LocalPlayer.SetFaceFeature(8, lvl); features[8] = lvl; return;
-                case "cheekboneWidth": Player.LocalPlayer.SetFaceFeature(9, lvl); features[9] = lvl; return;
-                case "cheekDepth": Player.LocalPlayer.SetFaceFeature(10, lvl); features[10] = lvl; return;
-                case "eyeScale": Player.LocalPlayer.SetFaceFeature(11, lvl); features[11] = lvl; return;
-                case "lipThickness": Player.LocalPlayer.SetFaceFeature(12, lvl); features[12] = lvl; return;
-                case "jawWidth": Player.LocalPlayer.SetFaceFeature(13, lvl); features[13] = lvl; return;
-                case "jawShape": Player.LocalPlayer.SetFaceFeature(14, lvl); features[14] = lvl; return;
-                case "chinHeight": Player.LocalPlayer.SetFaceFeature(15, lvl); features[15] = lvl; return;
-                case "chinDepth": Player.LocalPlayer.SetFaceFeature(16, lvl); features[16] = lvl; return;
-                case "chinWidth": Player.LocalPlayer.SetFaceFeature(17, lvl); features[17] = lvl; return;
-                case "chinIndent": Player.LocalPlayer.SetFaceFeature(18, lvl); features[18] = lvl; return;
-                case "neck": Player.LocalPlayer.SetFaceFeature(19, lvl); features[19] = lvl; return;
-                case "father":
-                    father = (int) fathers[Convert.ToInt32(lvl)];
-                    UpdateCharacterParents();
-                    return;
-                case "mother":
-                    mother = (int )mothers[Convert.ToInt32(lvl)];
-                    UpdateCharacterParents();
-                    return;
-                case "hairM":
-                    hair = Convert.ToInt32(lvl);
-                    UpdateCharacterHair();
-                    return;
-                case "hairF":
-                    hair = Convert.ToInt32(lvl);
-                    UpdateCharacterHair();
-                    return;
-                case "eyebrowsM":
-                    appearance[2] = Convert.ToInt32(lvl);
-                    UpdateAppearance();
-                    return;
-                case "eyebrowsF":
-                    appearance[2] = Convert.ToInt32(lvl);
-                    UpdateAppearance();
-                    return;
-                case "beard":
-                    var overlay = (Convert.ToInt32(lvl) == 0) ? 255 : Convert.ToInt32(lvl) - 1;
-                    appearance[1] = Convert.ToInt32(lvl);
-                    UpdateAppearance();
-                    return;
-                case "hairColor":
-                    hairColor = Convert.ToInt32(lvl);
-                    UpdateCharacterHair();
-                    return;
-                case "eyeColor":
-                    eyeColor = Convert.ToInt32(lvl);
-                    UpdateCharacterHair();
-                    return;
-            }
-        }
-
-        public void OnSaveCharacter()
-        {
-            ////todo проверка на спам
-            ////if (new Date().getTime() - global.lastCheck < 1000) return;
-            ////global.lastCheck = new Date().getTime();
-            //if (editorBrowser != null)
-            //{
-            //    editorBrowser.destroy();
-            //    editorBrowser = null;
-            //    mp.game.graphics.startScreenEffect("MinigameTransitionIn", 0, false);
-            //    int currentGender = (gender) ? 0 : 1;
-
-            //    var appearance_values = [];
-            //    for (var i = 0; i < 11; i++) appearance_values.push({ Value: appearance[i], Opacity: 100 });
-
-            //    var hair_or_colors = [];
-            //    hair_or_colors.push(hairIDList[currentGender][hair]);
-            //    hair_or_colors.push(hairColor);
-            //    hair_or_colors.push(0);
-            //    hair_or_colors.push(hairColor);
-            //    hair_or_colors.push(hairColor);
-            //    hair_or_colors.push(eyeColor);
-            //    hair_or_colors.push(0);
-            //    hair_or_colors.push(0);
-            //    hair_or_colors.push(hairColor);
-
-            //    setTimeout(function() {
-            //        mp.events.callRemote("SaveCharacter", currentGender, father, mother, similarity, skin, JSON.stringify(features), JSON.stringify(appearance_values), JSON.stringify(hair_or_colors));
-            //    }, 5000);
-            //}
-        }
-
-        public void UpdateCharacterHair()
-        {
-            int currentGender = (gender) ? 0 : 1;
-            // hair
-            Player.LocalPlayer.SetComponentVariation(2, (int) hairIDList[currentGender][hair], 0, 0);
-            Player.LocalPlayer.SetHairColor(hairColor, 0);
-
-            // appearance colors
-            Player.LocalPlayer.SetHeadOverlayColor(2, 1, hairColor, 100); // eyebrow
-            Player.LocalPlayer.SetHeadOverlayColor(1, 1, hairColor, 100); // beard
-            Player.LocalPlayer.SetHeadOverlayColor(10, 1, hairColor, 100); // chesthair
-
-            // eye color
-            Player.LocalPlayer.SetEyeColor(eyeColor);
-
-            
-        }
-
-        public void UpdateCharacterParents()
-        {
-            Player.LocalPlayer.SetHeadBlendData(
-                mother,
-                father,
-                0,
-
-                mother,
-                father,
-                0,
-
-                similarity,
-                skin,
-                0.0f,
-
-                true
-            );
-        }
-
-        public void UpdateAppearance()
-        {
-            for (var i = 0; i < 11; i++)
-            {
-                Player.LocalPlayer.SetHeadOverlay(i, appearance[i], 100);
-            }
         }
 
         public void UpdateClothes()
@@ -638,8 +533,16 @@ namespace cs_packages.player
             Player.LocalPlayer.SetComponentVariation(4, pants, 1, 0);
             Player.LocalPlayer.SetComponentVariation(6, shoes, 1, 0);
             Player.LocalPlayer.SetComponentVariation(8, 15, 0, 0);
-            int currentGender = (gender) ? 0 : 1;
+            int currentGender = (model.gender) ? 0 : 1;
             Player.LocalPlayer.SetComponentVariation(3, validTorsoIDs[currentGender][outClothes], 0, 0);
+        }
+
+        public void OnSaveCharacter()
+        {
+            Chat.Output("Сохранение идёт");
+            Events.CallRemote("remote_SaveCustomization", model);
+
+            Chat.Output("Сохранение завершено");
         }
 
         private static List<float> getFeaturesList()
@@ -662,15 +565,36 @@ namespace cs_packages.player
             return list;
         }
 
+        public void UpdateAllModel() 
+        {
+            foreach (var obj in model.GetType().GetProperties())
+            {
+                if(obj.Name != "gender")
+                {
+                    Update(obj.Name);
+                }
+                //Chat.Output(obj.Name);
+            }
+        }
 
         private List<object> GetFloatList(float begin, float end, float step)
         {
             List<object> floatList = new List<object>();
             for (float i = begin; i <= end; i += step)
             {
-                floatList.Add(float.Parse(i.ToString("0.00")));
+                floatList.Add(i);
             }
             return floatList;
+        }
+
+        private List<object> GetIntList(int begin, int end, int step)
+        {
+            List<object> list = new List<object>();
+            for (int i = begin; i <= end; i += step)
+            {
+                list.Add(i);
+            }
+            return list;
         }
 
         public void OnPlayerCommand(string cmd, Events.CancelEventArgs cancel)

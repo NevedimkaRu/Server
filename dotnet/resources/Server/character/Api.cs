@@ -46,6 +46,7 @@ namespace Server.character
                 }
                 player.Name = character.Name + "[" + player.Id + "]";
                 player.SetSharedData("IsSpawn", true);
+                customization.Api.LoadCustomization(player, character.Id);
             }
             else 
             {
