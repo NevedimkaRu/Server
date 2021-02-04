@@ -31,6 +31,10 @@ namespace Server.model
                     {
                         obj.SetValue(this, utils.Parser.ParseToListVector3(dt.Rows[0][obj.Name].ToString()));
                     }
+                    else if (obj.PropertyType.Name == "Boolean")
+                    {
+                        obj.SetValue(this, Convert.ToBoolean(dt.Rows[0][obj.Name]));
+                    }
                     else
                     {
                         obj.SetValue(this, dt.Rows[0][obj.Name]);
@@ -59,6 +63,10 @@ namespace Server.model
                     {
                         List<Vector3> val = (List<Vector3>)value;
                         props.Add(fldName, utils.Parser.ParseFromListVector3(val));
+                    }
+                    else if (obj.PropertyType.Name == "Vector3")
+                    {
+                        props.Add(fldName, JsonConvert.SerializeObject(value));
                     }
                     else
                     {
@@ -106,6 +114,10 @@ namespace Server.model
                     {
                         List<Vector3> val = (List<Vector3>)value;
                         props.Add(fldName, utils.Parser.ParseFromListVector3(val));
+                    }
+                    else if(obj.PropertyType.Name == "Vector3")
+                    {
+                        props.Add(fldName, JsonConvert.SerializeObject(value));
                     }
                     else
                     {
@@ -164,6 +176,60 @@ namespace Server.model
             MySql.Query(sql, props);
 
         }
+
+        public bool LoadByOtherId(string field, int fldId) 
+        {
+
+            string sql = $"select * from {getDBTableName()} where `{field}` = {fldId}";
+            DataTable dt = MySql.QueryRead(sql);
+
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                return false;
+            }
+
+            foreach (var obj in this.GetType().GetProperties())
+            {
+                //if (!IsDbTable(obj.Name)) continue;
+                if (dt.Columns.Contains(obj.Name))
+                {
+                    if (obj.PropertyType.Name == "Vector3")
+                    {
+                        obj.SetValue(this, JsonConvert.DeserializeObject<Vector3>(dt.Rows[0][obj.Name].ToString()));
+                    }
+                    else if (obj.PropertyType.Name == "List`1")
+                    {
+                        obj.SetValue(this, utils.Parser.ParseToListVector3(dt.Rows[0][obj.Name].ToString()));
+                    }
+                    else if (obj.PropertyType.Name == "Boolean")
+                    {
+                        obj.SetValue(this, Convert.ToBoolean(dt.Rows[0][obj.Name]));
+                    }
+                    else
+                    {
+                        obj.SetValue(this, dt.Rows[0][obj.Name]);
+                    }
+                }
+            }
+            return true;
+        }
+
+        public void Delete()
+        {
+            Delete(this.Id);
+        }
+
+        public void Delete(int Id)
+        {
+            string sql = $"delete from `{getDBTableName()}` where Id = {Id}";
+            MySql.Query(sql);
+        }
+
+        private string getDBTableName()
+        {
+            return this.GetType().Name.ToLower();
+        }
+
         private bool IsDbTable(string fldName)
         {
             if (fldName.IndexOf("_") == 0)
