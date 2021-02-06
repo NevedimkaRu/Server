@@ -597,7 +597,7 @@ namespace cs_packages.player
             return list;
         }
 
-        public void OnPlayerCommand(string cmd, Events.CancelEventArgs cancel)
+        public void OnPlayerCommand(string cmd, Events.CancelEventArgs cancel)//todo убрать
         {
             string[] args = cmd.Split(new char[] { ' ' });
             string commandName = args[0].Trim(new char[] { '/' });

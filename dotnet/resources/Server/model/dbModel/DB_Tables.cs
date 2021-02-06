@@ -49,7 +49,7 @@ namespace Server.model
             return this.Insert(tbname);
         }
         
-        public int Insert(String tbname)
+        private int Insert(String tbname)
         {
             Dictionary<string, object> props = new Dictionary<string, object>();
 

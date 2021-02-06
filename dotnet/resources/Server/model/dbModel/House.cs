@@ -12,7 +12,6 @@ namespace Server.model
         public int InteriorId { get; set; }
         public int Cost { get; set; }
         public bool Closed { get; set; }
-        public bool Garage { get; set; } = false;
         public uint _Dimension { get; set; }
         public string _Owner { get; set; }
         public Marker _Marker { get; set; }

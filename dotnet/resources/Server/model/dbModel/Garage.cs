@@ -13,14 +13,15 @@ namespace Server.model
         public uint Cost { get; set; }
         public Vector3 Position { get; set; }
         public float Rotation { get; set; }
+        public bool Closed { get; set; } = false;
         public Marker _Marker { get; set; }
         public TextLabel _TextLabel { get; set; }
         public Blip _Blip { get; set; }
+        public string _Owner { get; set; }
     }
 
     class GarageType
     {
-        public int InteriorId { get; set; }
         public string Ipl { get; set; } = null;
         public Vector3 Position { get; set; }//Позиция входа в дом / выхода на улицу
         public Vector3 ExitPosition { get;set; }//Выход из гаража(на машине)
@@ -28,9 +29,8 @@ namespace Server.model
         public Marker Marker { get; set; }
         //public TextLabel TextLabel { get; set; }
 
-        public GarageType(int InteriorId, string Ipl, Vector3 Position, Vector3 ExitPosition, List<GarageVehiclePosition> VehiclePosition)
+        public GarageType(string Ipl, Vector3 Position, Vector3 ExitPosition, List<GarageVehiclePosition> VehiclePosition)
         {
-            this.InteriorId = InteriorId;
             this.Ipl = Ipl;
             this.Position = Position;
             this.ExitPosition = ExitPosition;

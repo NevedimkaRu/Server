@@ -28,6 +28,13 @@ namespace Server
             Vector3 player_pos = player.Position;
             player.SetIntoVehicle(NAPI.Vehicle.CreateVehicle(hash, player_pos, 2f, new Color(0, 255, 100), new Color(0)), 0);
         }
+        [Command("vehhh", GreedyArg = true)]
+        public void cmd_CreateVehicle1(Player player, string hasn)
+        {
+            var hash = NAPI.Util.GetHashKey(hasn);
+            Vector3 player_pos = player.Position;
+            player.SetIntoVehicle(NAPI.Vehicle.CreateVehicle(hash, player_pos, 2f, 0, 0), 0);
+        }
         [Command("vehhash")]
         public void cmd_Vehhash(Player player)
         {
@@ -108,19 +115,19 @@ namespace Server
             NAPI.World.SetTime(hours, minutes, seconds);
         }
         [Command("rain")]
-        public static void CMD_setWeather1(Player player, byte weather)
+        public static void CMD_setWeather1(Player player)
         {
             if (!Debug) return;
             NAPI.World.SetWeather("RAIN");
         }
         [Command("smog")]
-        public static void CMD_setWeather2(Player player, byte weather)
+        public static void CMD_setWeather2(Player player)
         {
             if (!Debug) return;
             NAPI.World.SetWeather("SMOG");
         }
         [Command("clear")]
-        public static void CMD_setWeather3(Player player, byte weather)
+        public static void CMD_setWeather3(Player player)
         {
             if (!Debug) return;
             NAPI.World.SetWeather("CLEAR");
@@ -139,6 +146,22 @@ namespace Server
         public static void cmd_RequestIpl(Player player, string ipl)
         {
             NAPI.World.RequestIpl(ipl);
+        }
+        [Command("cc")]
+        public static void cmd_ClearChat(Player player)
+        {
+            for(int i = 0; i < 20; i++)
+            {
+                NAPI.Chat.SendChatMessageToAll(null);
+            }
+        }
+
+        [Command("setcolor", GreedyArg = true)]
+        public static void cmd_SetColor(Player player, string primary, string second)
+        {
+            if (player.Vehicle == null) return;
+            player.Vehicle.PrimaryColor = Convert.ToInt32(primary);
+            player.Vehicle.SecondaryColor = Convert.ToInt32(second);
         }
     }
 }

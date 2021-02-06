@@ -38,14 +38,14 @@ namespace cs_packages
             if ((bool)Player.LocalPlayer.GetSharedData("IsSpawn"))
             {
                 //Дрифт счётчик
-                vehicle.SetRadioEnabled(false);
+                /*vehicle.SetRadioEnabled(false);
                 driftHTML = new HtmlWindow("package://statics/html/drift.html");
                 vehHealth = vehicle.GetHealth();
-                driftHTML.Active = false;
+                driftHTML.Active = false;*/
                 //Спидометр
-                speedometerHTML = new HtmlWindow("package://statics/html/speedometer.html");
+                /*speedometerHTML = new HtmlWindow("package://statics/html/speedometer.html");
                 speedometerHTML.Active = true;
-                Events.Tick += UpdateSpeedometer;
+                Events.Tick += UpdateSpeedometer;*/
             }
 
 

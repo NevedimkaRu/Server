@@ -35,7 +35,6 @@ namespace Server.house
                 model.Position = JsonConvert.DeserializeObject<Vector3>(row["Position"].ToString());
                 model.InteriorId = Convert.ToInt32(row["InteriorId"]);
                 model.Cost = Convert.ToInt32(row["Cost"]);
-                model.Garage = Convert.ToBoolean(row["Garage"]);
                 model.Closed = Convert.ToBoolean(row["Closed"]);
                 model._Owner = Convert.ToString(row["Name"]);
                 model._Dimension = (uint)model.Id;
@@ -203,6 +202,25 @@ namespace Server.house
                new Vector3(0, 0, 0),
                1.0f,
                new Color(207, 207, 207));
+
+            foreach(var garage in Main.Garage)
+            {
+                if(garage.Value.HouseId == houseid)
+                {
+                    foreach(var veh in Main.Veh)
+                    {
+                        if(veh.Value._Garage.GarageId == garage.Value.Id)
+                        {
+                            veh.Value._Garage.GarageId = -1;
+                            veh.Value._Garage.GarageSlot = -1;
+                            MySql.Query($"UPDATE `vehiclesgarage` SET `GarageId` = '{veh.Value._Garage.GarageId}', " +
+                                $"`GarageSlot` = '{veh.Value._Garage.GarageSlot}' " +
+                                $"WHERE `VehicleId` = '{veh.Value.Id}'");
+                        }
+                    }
+                }
+            }
+
             Main.Houses[houseid].Update("CharacterId");
             Main.Houses[houseid].Update("Closed");
         }

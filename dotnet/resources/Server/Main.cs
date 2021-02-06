@@ -26,11 +26,20 @@ namespace Server
 
         public static Dictionary<int, GarageType> GarageTypes = new Dictionary<int, GarageType>()
         {
-            {0, new GarageType(0, null, new Vector3(173.2903, -1003.6, -99.65707), new Vector3(172.88823, -1005.8173, -98.99993), 
+            {0, new GarageType(null, new Vector3(173.2903, -1003.6, -99.65707), new Vector3(172.88823, -1005.8173, -98.99993), 
                 new List<GarageVehiclePosition>()
                 {
                        new GarageVehiclePosition(new Vector3(175.57777, -1003.6113, -99.681),-178.4336f),
                        new GarageVehiclePosition(new Vector3(171.66412, -1003.73596, -99.67906),-177.80727f)
+                }) 
+            },
+            {1, new GarageType(null, new Vector3(197.8153, -1002.293, -99.65749), new Vector3(197.8153, -1002.293, -99.65749),
+                new List<GarageVehiclePosition>()
+                {
+                       new GarageVehiclePosition(new Vector3(193.0595, -998.85315, -99.68073),-179.30615f),
+                       new GarageVehiclePosition(new Vector3(196.57741, -998.9872, -99.68111),-178.6532f),
+                       new GarageVehiclePosition(new Vector3(200.02084, -998.96313, -99.68071),-179.25778f),
+                       new GarageVehiclePosition(new Vector3(203.76367, -998.8757, -99.68072),-179.14012f)
                 }) 
             }
         };

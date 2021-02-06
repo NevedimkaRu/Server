@@ -963,4 +963,493 @@ System.Reflection.TargetInvocationException: Exception has been thrown by the ta
    at void Server.garage.Api.OnPlayerPressAltKey(Player player) in E:/RageMp/Drift/dotnet/resources/Server/garage/Api.cs:line 50
    at void Server.Main.Remote_OnPlayerPressAltKey(Player player) in E:/RageMp/Drift/dotnet/resources/Server/Main.cs:line 49
    --- End of inner exception stack trace ---
-   at object RuntimeMethodHa
+   at object RuntimeMethodHaInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 04.02.2021 18:53:36
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 6 server events(s)
+Server: loading commands.. found 15 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 27 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 11 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+7 - Lake - 1 - -390,8351 837,9808 224,89944
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `garage`
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Mario'
+[MySql QueryR] select * from `character` where AccountId = '1'
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryR] SELECT * FROM `vehiclesgarage` JOIN `vehicles` ON vehicles.Id = vehiclesgarage.VehicleId WHERE vehicles.OwnerId = '2'
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql QueryR] select * from customization where `CharacterId` = 2
+[MySql QueryR] select * from customization where `CharacterId` = 2
+[MySql QueryR] insert into `customization` (`characterId`,`gender`,`father`,`mother`,`similar`,`skin`,`hair`,`eyebrows`,`beard`,`hairColor`,`eyeColor`,`noseWidth`,`noseHeight`,`noseTipLength`,`noseDepth`,`noseTipHeight`,`noseBroke`,`eyebrowHeight`,`eyebrowDepth`,`cheekboneHeight`,`cheekboneWidth`,`cheekDepth`,`eyeScale`,`lipThickness`,`jawWidth`,`sjawShapekin`,`chinHeight`,`chinDepth`,`chinWidth`,`chinIndent`,`neck`) values (@characterId,@gender,@father,@mother,@similar,@skin,@hair,@eyebrows,@beard,@hairColor,@eyeColor,@noseWidth,@noseHeight,@noseTipLength,@noseDepth,@noseTipHeight,@noseBroke,@eyebrowHeight,@eyebrowDepth,@cheekboneHeight,@cheekboneWidth,@cheekDepth,@eyeScale,@lipThickness,@jawWidth,@sjawShapekin,@chinHeight,@chinDepth,@chinWidth,@chinIndent,@neck); select last_insert_id()
+[MySql QueryR] inInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 04.02.2021 19:11:18
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 6 server events(s)
+Server: loading commands.. found 15 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 27 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 11 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+7 - Lake - 1 - -390,8351 837,9808 224,89944
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `garage`
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Mario'
+[MySql QueryR] select * from `character` where AccountId = '1'
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryR] SELECT * FROM `vehiclesgarage` JOIN `vehicles` ON vehicles.Id = vehiclesgarage.VehicleId WHERE vehicles.OwnerId = '2'
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql QueryR] select * from customization where `CharacterId` = 2
+[MySql QueryR] insert into `garage` (`HouseId`,`CharacterId`,`GarageType`,`Cost`,`Position`,`Rotation`) values (@HouseId,@CharacterId,@GarageType,@Cost,@Position,@Rotation); select last_insert_id()
+[MySql QueryR] insert into `garage` (`HouseId`,`CharacterId`,`GarageType`,`Cost`,`Position`,`Rotation`) values (@HouseId,@CharacterId,@GarageType,@Cost,@Position,@Rotation); select last_insert_id()
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void Server.garage.Api.OnPlayerPressEKey(Player player) in E:/RageMp/Drift/dotnet/resources/Server/garage/Api.cs:line 169
+   at void Server.Main.Remote_OnPlayerPressEKey(Player player) in E:/RageMp/Drift/dotnet/resources/Server/Main.cs:line 48
+   --- End of inner exception stack tracInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 05.02.2021 18:19:32
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 6 server events(s)
+Server: loading commands.. found 17 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 29 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 11 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+7 - Lake - 1 - -390,8351 837,9808 224,89944
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `garage`
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Mario'
+[MySql QueryR] select * from `character` where AccountId = '1'
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryR] SELECT * FROM `vehiclesgarage` JOIN `vehicles` ON vehicles.Id = vehiclesgarage.VehicleId WHERE vehicles.OwnerId = '2'
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql QueryR] select * from customization where `CharacterId` = 2
+[MySql QueryR] select * from account where username = 'Rico'
+[MySql QueryR] select * from `character` where AccountId = '2'
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryR] SELECT * FROM `vehiclesgarage` JOIN `vehicles` ON vehicles.Id = vehiclesgarage.VehicleId WHERE vehicles.OwnerId = '1'
+[MySql QueryR] select * from customization where `CharacterId` = 1
+[06:30:59][0]Mario[0]: skyline
+[06:31:02][0]Mario[0]: vehhh
+UNHANDLED EXCEPTION WHEN PARSING COMMAND clear clear FROM PLAYER JustAzim[1]
+System.FormatException: Input string was not in a correct format.
+   at void Number.ThrowOverflowOrFormatException(ParsingStatus status, TypeCode type)
+   at byte string.System.IConvertible.ToByte(IFormatProvider provider)
+   at object Convert.ChangeType(object value, Type conversionType, IFormatProvider provider)
+   at bool GTANetworkInternals.CommandParser.Parse(PInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 06.02.2021 14:46:22
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 6 server events(s)
+Server: loading commands.. found 18 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 30 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 11 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+7 - Lake - 1 - -390,8351 837,9808 224,89944
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `garage`
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Mario'
+[MySql QueryR] select * from `character` where AccountId = '1'
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryR] SELECT * FROM `vehiclesgarage` JOIN `vehicles` ON vehicles.Id = vehiclesgarage.VehicleId WHERE vehicles.OwnerId = '2'
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql Query Error] MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '3'' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '3'' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:Initializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 06.02.2021 14:49:53
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 6 server events(s)
+Server: loading commands.. found 18 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 30 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 11 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+7 - Lake - 1 - -390,8351 837,9808 224,89944
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `garage`
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Mario'
+[MySql QueryR] select * from `character` where AccountId = '1'
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryR] SELECT * FROM `vehiclesgarage` JOIN `vehicles` ON vehicles.Id = vehiclesgarage.VehicleId WHERE vehicles.OwnerId = '2'
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql QueryR] select * from customization where `CharacterId` = 2
+[MySql Query] update `house` set `CharacterId` = @CharacterId where id = 1
+[MySql Query Error] MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1'' at line 1
+ ---> MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1'' at line 1
+   at async Task MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 49
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 133
+   at MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 06.02.2021 15:04:17
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 6 server events(s)
+Server: loading commands.. found 18 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 30 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 11 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+7 - Lake - 1 - -390,8351 837,9808 224,89944
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `garage`
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Mario'
+[MySql QueryR] select * from `character` where AccountId = '1'
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryR] SELECT * FROM `vehicles` JOIN `vehiclesgarage` ON vehicles.Id = vehiclesgarage.VehicleId WHERE vehicles.OwnerId = '2'
+[MySql Query] UPDATE `vehiclesgarage` SET `GarageId` = '-1', `GarageSlot` = '-1'WHERE `VehicleId` = '4'
+[MySql QueryR] select * from customization where `CharacterId` = 2
+[MySql Query] update `house` set `CharacterId` = @CharacterId where id = 1
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void Server.garage.Api.OnPlayerPressEKey(Player player) in E:/RageMp/Drift/dotnet/resources/Server/garage/Api.cs:line 140
+   at void Server.Main.Remote_OnPlayerPressEKey(Player player) in E:/RageMp/Drift/dotnet/resources/Server/Main.cs:line 48
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at voidInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 06.02.2021 17:06:16
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 6 server events(s)
+Server: loading commands.. found 18 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 30 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 11 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+7 - Lake - 1 - -390,8351 837,9808 224,89944
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `garage`
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Mario'
+[MySql QueryR] select * from `character` where AccountId = '1'
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryR] SELECT * FROM `vehicles` JOIN `vehiclesgarage` ON vehicles.Id = vehiclesgarage.VehicleId WHERE vehicles.OwnerId = '2'
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql QueryR] select * from customization where `CharacterId` = 2
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+UNHANDLED EXCEPTION IN COMMAND setingarage FOR RESOURCE Server
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.Collections.Generic.KeyNotFoundException: The given key '4' was not present in the dictionary.
+   at TValue System.Collections.Generic.Dictionary<TKey, TValue>.get_Item(TKey key)
+   at void Server.vehicle.Tuning.ApplyTuning(Vehicle vehicle, int vehicleID) in E:/RageMp/Drift/dotnet/resources/Server/vehicle/Tuning.cs:line 208
+   at void Server.vehicle.Api.SetVehicleInGarage(Player player, int carid, int garageid) in E:/RageMp/Drift/dotnet/resources/Server/vehicle/Api.cs:line 194
+   at void Server.vehicle.Api.cmd_SetVehicleInGarage(Player player, string carid, string garageid) in E:/RageMp/Drift/dotnet/resources/Server/vehicle/Api.cs:line 130
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] ar
