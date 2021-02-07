@@ -5,11 +5,12 @@ using Server.model;
 using GTANetworkAPI;
 using System.Data;
 using MySqlConnector;
+using Newtonsoft.Json;
 /*todo
- * Проверка на уничтожение транспорта, в идеале вообще запретить уничтожение
- * Удаление Dictionary при выходе игрока с сервера(Veh, VehicleTunings) и сам транспорт
- * Скопипиздить синхронизацию транспорта с RedAge
- */
+* Проверка на уничтожение транспорта, в идеале вообще запретить уничтожение
+* Удаление Dictionary при выходе игрока с сервера(Veh, VehicleTunings) и сам транспорт
+* Скопипиздить синхронизацию транспорта с RedAge
+*/
 namespace Server.vehicle
 {
     public class Api : Script
@@ -36,9 +37,6 @@ namespace Server.vehicle
         }
         public void DestroyCar(Player player, int carid)
         {
-            Main.Veh[carid]._Veh.ResetSharedData("vehicleId");//Не знаю, надо ли удалять дату, учитывая то, что дальше машина удаляется
-            Main.Veh[carid]._Veh.ResetSharedData("sh_Handling");
-
             Main.Veh[carid]._Veh.Delete();
             Main.Veh.Remove(carid);
             Main.VehicleTunings.Remove(carid);
@@ -119,6 +117,11 @@ namespace Server.vehicle
         {
             if (Main.Veh.ContainsKey(carid))//Проверка на то, существует ли машина
             {
+                if(Main.Veh[carid]._Garage.GarageId == -1)
+                {
+                    player.SendChatMessage("Транспорт находится в резерве. Поставьте его в гараж, чтобы телепортировать его к себе");
+                    return;
+                } 
                 if (Main.Veh[carid].OwnerId == Main.Players1[player].Character.Id && player.Vehicle == null)
                 {
                     if (Main.Veh[carid]._Veh != null) Main.Veh[carid]._Veh.Delete();//Удаляем машину
@@ -224,6 +227,7 @@ namespace Server.vehicle
         [Command("car",GreedyArg = true)]
         public void cmd_Car(Player player, string caridd)
         {
+            if (!Main.Players1.ContainsKey(player)) return;
             int carid = Convert.ToInt32(caridd);
             LoadVehicle(player, carid);
         }

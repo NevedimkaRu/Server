@@ -64,11 +64,13 @@ namespace Server.garage
             }
         }
 
+
         public static void RefreshGarage(int id)
         {
             if (Main.Garage[id]._Blip != null) Main.Garage[id]._Blip.Delete();
             if (Main.Garage[id]._Marker != null) Main.Garage[id]._Marker.Delete();
             if (Main.Garage[id]._TextLabel != null) Main.Garage[id]._TextLabel.Delete();
+            if (Main.Garage[id]._Owner != null) Main.Garage[id]._Owner = null;
 
             if (Main.Garage[id].HouseId != -1)
             {
@@ -77,12 +79,18 @@ namespace Server.garage
             else if (Main.Garage[id].HouseId == -1 && Main.Garage[id].CharacterId != -1)
             {
                 DataTable dtt = MySql.QueryRead("SELECT `Name` FROM `character` WHERE `Id` = '1'");
-                string charname = Convert.ToString(dtt.Rows[0]["Name"]);
+                Main.Garage[id]._Owner = Convert.ToString(dtt.Rows[0]["Name"]);
                 Main.Garage[id]._TextLabel = NAPI.TextLabel.CreateTextLabel(
                     $"Гараж {id}" +
-                    $"\nВладелец \"{charname}\" ",
+                    $"\nВладелец \"{Main.Garage[id]._Owner}\" ",
                     Main.Garage[id].Position, 10.0f, 2.0f, 0, new Color(250, 250, 250));
                 Main.Garage[id]._Blip = NAPI.Blip.CreateBlip(357, Main.Garage[id].Position, 1.0f, 6);
+                Main.Garage[id]._Marker = NAPI.Marker.CreateMarker(36,
+                   new Vector3(Main.Garage[id].Position.X, Main.Garage[id].Position.Y, Main.Garage[id].Position.Z),
+                   Main.Garage[id].Position,
+                   new Vector3(0, 0, 0),
+                   1.0f,
+                   new Color(207, 207, 207));
             }
             else if (Main.Garage[id].HouseId == -1 && Main.Garage[id].CharacterId == -1)
             {
@@ -92,6 +100,12 @@ namespace Server.garage
                     $"\nСтоимость \"{Main.Garage[id].Cost}\" ",
                     Main.Garage[id].Position, 10.0f, 2.0f, 0, new Color(250, 250, 250));
                 Main.Garage[id]._Blip = NAPI.Blip.CreateBlip(357, Main.Garage[id].Position, 1.0f, 43);
+                Main.Garage[id]._Marker = NAPI.Marker.CreateMarker(36,
+                   new Vector3(Main.Garage[id].Position.X, Main.Garage[id].Position.Y, Main.Garage[id].Position.Z),
+                   Main.Garage[id].Position,
+                   new Vector3(0, 0, 0),
+                   1.0f,
+                   new Color(207, 207, 207));
             }
 
         }
@@ -111,6 +125,51 @@ namespace Server.garage
             Main.Garage.Add(id, garage);
 
             RefreshGarage(id);
+        }
+
+        public static void SellGarage(int garageid)
+        {
+            if (!Main.Garage.ContainsKey(garageid)) return;
+            if (Main.Garage[garageid].HouseId != -1) return;
+            Main.Garage[garageid].CharacterId = -1;
+            Main.Garage[garageid]._Owner = null;
+            Main.Garage[garageid].Update("CharacterId");
+
+            foreach (var veh in Main.Veh)
+            {
+                if (veh.Value._Garage.GarageId == Main.Garage[garageid].Id)
+                {
+                    veh.Value._Garage.GarageId = -1;
+                    veh.Value._Garage.GarageSlot = -1;
+                    MySql.Query($"UPDATE `vehiclesgarage` SET `GarageId` = '{veh.Value._Garage.GarageId}', " +
+                            $"`GarageSlot` = '{veh.Value._Garage.GarageSlot}' " +
+                            $"WHERE `VehicleId` = '{veh.Value.Id}'");
+                    veh.Value._Veh.Delete();
+                }
+            }        
+            RefreshGarage(garageid);
+        }
+        public void PlayerBuyGarage(Player player, int garageid)
+        {
+            if (!Main.Garage.ContainsKey(garageid)
+                || !Main.Players1.ContainsKey(player)
+                || !Main.Players1[player].IsSpawn) return;
+
+            Main.Garage[garageid].CharacterId = Main.Players1[player].Character.Id;
+
+            string textlable = $"Гараж[{Main.Garage[garageid].Id}]\nВладелец: {Main.Players1[player].Character.Name}";
+
+            NAPI.TextLabel.SetTextLabelText(Main.Garage[garageid]._TextLabel, textlable);
+            Main.Garage[garageid]._Marker.Delete();
+
+            Main.Garage[garageid]._Marker = NAPI.Marker.CreateMarker(1,
+               new Vector3(Main.Garage[garageid].Position.X, Main.Garage[garageid].Position.Y, Main.Garage[garageid].Position.Z - 1.0f),
+               Main.Garage[garageid].Position,
+               new Vector3(0, 0, 0),
+               1.0f,
+               new Color(207, 207, 207));
+
+            Main.Garage[garageid].Update("CharacterId");
         }
         public static void OnPlayerPressEKey(Player player)
         {
@@ -172,7 +231,7 @@ namespace Server.garage
                             player.Position = Main.GarageTypes[garage.Value.GarageType].ExitPosition;
                             player.Dimension = (uint)garage.Value.Id;
                             Main.Players1[player].GarageId = garage.Value.Id;
-                            Main.Players1[player].HouseId = garage.Value.HouseId;
+                            if(garage.Value.HouseId != -1) Main.Players1[player].HouseId = garage.Value.HouseId;
                             RespawnPlayerVehicle(veh.Value.Id);
                             return;
                         }
@@ -197,7 +256,7 @@ namespace Server.garage
             if (!Main.Players1[player].IsSpawn || player.Vehicle != null) return;
             foreach (var garage in Main.Garage)
             {
-                if (player.Position.DistanceTo(Main.GarageTypes[garage.Value.GarageType].Position) < 1.3f)
+                if (player.Position.DistanceTo(Main.GarageTypes[garage.Value.GarageType].Position) < 1.3f && garage.Value.Id == player.Dimension)
                 {
                     if (garage.Value.HouseId != -1)
                     {
@@ -312,27 +371,21 @@ namespace Server.garage
             player.SendChatMessage($"Вы купили гараж[{garageid}] за {Main.Garage[garageid].Cost}");
             PlayerBuyGarage(player, garageid);
         }
-        public void PlayerBuyGarage(Player player, int garageid)
+        [Command("sellgarage", GreedyArg = true)]
+        public void cmd_SellGarage(Player player, string garageid)
         {
-            if (!Main.Garage.ContainsKey(garageid)
-                || !Main.Players1.ContainsKey(player)
-                || !Main.Players1[player].IsSpawn) return;
-
-            Main.Garage[garageid].CharacterId = Main.Players1[player].Character.Id;
-
-            string textlable = $"Гараж[{Main.Garage[garageid].Id}]\nВладелец: {Main.Players1[player].Character.Name}";
-
-            NAPI.TextLabel.SetTextLabelText(Main.Garage[garageid]._TextLabel, textlable);
-            Main.Garage[garageid]._Marker.Delete();
-
-            Main.Garage[garageid]._Marker = NAPI.Marker.CreateMarker(1,
-               new Vector3(Main.Garage[garageid].Position.X, Main.Garage[garageid].Position.Y, Main.Garage[garageid].Position.Z - 1.0f),
-               Main.Garage[garageid].Position,
-               new Vector3(0, 0, 0),
-               1.0f,
-               new Color(207, 207, 207));
-
-            Main.Garage[garageid].Update("CharacterId");
+            if (!Main.Players1.ContainsKey(player)) return;
+            if (!Main.Players1[player].IsSpawn) return;
+            if (!Main.Garage.ContainsKey(Convert.ToInt32(garageid)))
+            {
+                player.SendChatMessage("Гараж с таким id не существует.");
+            }
+            if (Main.Garage[Convert.ToInt32(garageid)].HouseId != -1)
+            {
+                player.SendChatMessage("Нельзя продать гараж, который привязан к дому");
+            }
+            SellGarage(Convert.ToInt32(garageid));
+            player.SendChatMessage($"Вы продали гараж {garageid}");
         }
         [Command("creategarage", GreedyArg = true)]
         public void cmd_CreateGarage(Player player)

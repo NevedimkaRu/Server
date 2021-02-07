@@ -216,8 +216,10 @@ namespace Server.house
                             MySql.Query($"UPDATE `vehiclesgarage` SET `GarageId` = '{veh.Value._Garage.GarageId}', " +
                                 $"`GarageSlot` = '{veh.Value._Garage.GarageSlot}' " +
                                 $"WHERE `VehicleId` = '{veh.Value.Id}'");
+                            veh.Value._Veh.Delete();
                         }
                     }
+                    break;
                 }
             }
 
