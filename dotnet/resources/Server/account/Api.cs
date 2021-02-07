@@ -47,7 +47,6 @@ namespace Server.account
             Main.Players1.Add(player, playerModel);
             character.Api.LoadCharacter(player, account.Id);
             
-
         }
 
         /*public async Task<bool> SaveAccount(Player player) 

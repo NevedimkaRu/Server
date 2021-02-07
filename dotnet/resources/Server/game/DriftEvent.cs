@@ -1,27 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Text;
 using GTANetworkAPI;
-using Newtonsoft.Json;
 using Server.model;
+
 namespace Server.game
 {
-
+    //todo Интерфейс, на 0 чекпоинте сделать 3d текст и можно чекпоинт, который показывает направление
     public class DriftEvent : Script
     {
-        static List<Vector3> Positions = new List<Vector3>
-        {
-            new Vector3(-398.9926, 806.9512, 222.63179),
-            new Vector3(282.09293, 832.8769, 191.4665),
-            new Vector3(312.68573, 1001.1451, 209.8595),
-            new Vector3(-342.85498, 944.4129, 232.06987),
-            new Vector3(-342.85498, 944.4129, 232.06987),
-            new Vector3(-342.85498, 944.4129, 232.06987),
-            new Vector3(-342.85498, 944.4129, 232.06987),
-            new Vector3(-342.85498, 944.4129, 232.06987)
-        };
-
         public static void ResourceStart()
         {
             DataTable dt = MySql.QueryRead("SELECT * FROM `traks`");
@@ -41,6 +27,9 @@ namespace Server.game
                 model.Reward = Convert.ToInt32(row["Reward"]);
                 model.RewardScore = Convert.ToInt32(row["RewardScore"]);
                 model.TimeLimit = Convert.ToInt32(row["TimeLimit"]);
+                model.Rotation = Convert.ToSingle(row["Rotation"]);
+
+                NAPI.Util.ConsoleOutput(model.Rotation.ToString());
 
                 ColShape colShape;
                 for (int i = 0; i < model.Positions.Count; i++ )
@@ -55,7 +44,13 @@ namespace Server.game
         [ServerEvent(Event.PlayerEnterColshape)]
         public void PlayerEnterColshape(ColShape colShape, Player player)
         {
-            if (!Main.Players1.ContainsKey(player)) return;
+            if(Main.Players1.ContainsKey(player))
+            {
+                if (!Main.Players1[player].IsSpawn) return;
+                if (player.Vehicle == null) return;
+                
+            }
+            
             if (Main.Players1[player].Track == null)
             {
                 
@@ -63,11 +58,15 @@ namespace Server.game
                 {
                     if (colShape == traks._ColShapes[0])
                     {
+                        if (Math.Abs(player.Vehicle.Rotation.Z) > Math.Abs(traks.Rotation) + 90 || Math.Abs(player.Vehicle.Rotation.Z) < Math.Abs(traks.Rotation) - 90) return;
                         Main.Players1[player].Track = traks;
                         Main.Players1[player].CurrentTrackIndex = 0;
                         NAPI.Task.Run(() =>
                         {
-                            player.TriggerEvent("trigger_SetTrackRoute", Main.Players1[player].Track.Positions[1], 1);
+                            player.TriggerEvent("trigger_SetTrackRoute", Main.Players1[player].Track.Positions[1], 
+                                1, 
+                                Main.Players1[player].Track.TimeLimit, 
+                                Main.Players1[player].Track.Positions[2]);
                             
                         });
                         NAPI.Task.Run(() =>
@@ -98,7 +97,11 @@ namespace Server.game
                 if(colShape == Main.Players1[player].Track._ColShapes[Main.Players1[player].Track._ColShapes.Count - 1] 
                     && Main.Players1[player].CurrentTrackIndex == Main.Players1[player].Track._ColShapes.Count - 2)
                 {
-                    player.TriggerEvent("trigger_SetTrackRoute", Main.Players1[player].Track.Positions[Main.Players1[player].Track._ColShapes.Count - 1], 999);
+                    player.TriggerEvent("trigger_SetTrackRoute", 
+                        Main.Players1[player].Track.Positions[Main.Players1[player].Track._ColShapes.Count - 1], 
+                        999, 
+                        -1,
+                        Main.Players1[player].Track.Positions[Main.Players1[player].Track._ColShapes.Count - 1]);
 
                     NAPI.Task.Run(() =>
                     {
@@ -116,7 +119,11 @@ namespace Server.game
                     {
                         NAPI.Task.Run(() =>
                         {
-                            player.TriggerEvent("trigger_SetTrackRoute", Main.Players1[player].Track.Positions[Main.Players1[player].CurrentTrackIndex + 1], 38);
+                            player.TriggerEvent("trigger_SetTrackRoute", 
+                                Main.Players1[player].Track.Positions[Main.Players1[player].CurrentTrackIndex + 1], 
+                                38, 
+                                0,
+                                Main.Players1[player].Track.Positions[Main.Players1[player].CurrentTrackIndex + 1]);
                         });
                         
                     }
@@ -124,7 +131,11 @@ namespace Server.game
                     {
                         NAPI.Task.Run(() =>
                         {
-                            player.TriggerEvent("trigger_SetTrackRoute", Main.Players1[player].Track.Positions[Main.Players1[player].CurrentTrackIndex + 1], 1);
+                            player.TriggerEvent("trigger_SetTrackRoute", 
+                                Main.Players1[player].Track.Positions[Main.Players1[player].CurrentTrackIndex + 1], 
+                                1, 
+                                0,
+                                Main.Players1[player].Track.Positions[Main.Players1[player].CurrentTrackIndex + 2]);
                         });
                             
                     }
@@ -153,6 +164,12 @@ namespace Server.game
                     Main.Players1[player].CurrentTrackIndex = -1;
                 }
             }
+        }
+        [RemoteEvent("remote_TimeLost")]
+        public void Remote_TimeLost(Player player)
+        {
+            Main.Players1[player].Track = null;
+            Main.Players1[player].CurrentTrackIndex = -1;
         }
     }
 }

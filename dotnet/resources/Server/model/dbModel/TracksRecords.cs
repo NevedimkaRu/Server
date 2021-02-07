@@ -10,19 +10,5 @@ namespace Server.model
         public int CharacterId { get; set; }
         public int TrackId { get; set; }
         public int Score { get; set; }
-
-        public static TracksRecords GetTrackRecordsByTrackId(Player player, int trackid)
-        {
-            TracksRecords model = new TracksRecords();
-
-            foreach (var track in Main.Players1[player].TracksRecords)//перебираем List рекордов
-            {
-                if (track.TrackId == trackid)
-                {
-                    return track;
-                }
-            }
-            return model;//Возвращаем пустую модель, если не найдено
-        }
     }
 }

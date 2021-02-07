@@ -205,6 +205,7 @@ namespace Server.vehicle
 
         public static void ApplyTuning(Vehicle vehicle, int vehicleID)
         {
+            if(!Main.VehicleTunings.ContainsKey(vehicleID)) return;
             vehicle.SetMod(0, Main.VehicleTunings[vehicleID].Spoiler);
             vehicle.SetMod(1, Main.VehicleTunings[vehicleID].FrontBumper);
             vehicle.SetMod(2, Main.VehicleTunings[vehicleID].RearBumper);
@@ -217,7 +218,7 @@ namespace Server.vehicle
             vehicle.SetMod(8, Main.VehicleTunings[vehicleID].Fender);// 8
             vehicle.SetMod(9, Main.VehicleTunings[vehicleID].RightFender);
             vehicle.SetMod(10, Main.VehicleTunings[vehicleID].Roof);
-            NAPI.Task.Run(() => //toto КОСТЫЛЬ
+            NAPI.Task.Run(() => //todo КОСТЫЛЬ
             {
                 vehicle.SetMod(11, Main.VehicleTunings[vehicleID].Engine);
             }, delayTime: 2000);
