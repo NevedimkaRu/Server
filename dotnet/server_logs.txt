@@ -707,4 +707,117 @@ System.Reflection.TargetInvocationException: Exception has been thrown by the ta
    at GTANetworkInternals.EventParser.Parse(Event _event, Object[] arguments)
    at GTANetworkInternals.EventCollection.<>c__DisplayClass4_0.<ParseEx>b__1(EventParser x)
    at System.Collections.Generic.List`1.ForEach(Action`1 action)
-   at GTANetworkInt
+   at GTANetworkIntInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 05.02.2021 20:13:00
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 6 server events(s)
+Server: loading commands.. found 13 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 22 commands(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 3 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `traks`
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+7 - Lake - 1 - -390,8351 837,9808 224,89944
+Teleports load
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Rico'
+[MySql QueryR] select * from `character` where AccountId = '2'
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryR] select * from customization where `CharacterId` = 1
+[MySql QueryR] select * from `vehicles` where `id` = 1
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+UNHANDLED EXCEPTION IN COMMAND goto FOR RESOURCE Server
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.FormatException: Input string was not in a correct format.
+   at void Number.ThrowOverflowOrFormatException(ParsingStatus status, TypeCode type)
+   at float float.Parse(string s)
+   at void Server.game.GameEvents.Api.cmd_goto(Player player, string x, string y, string z) in E:/RageMp/Drift/dotnet/resources/Server/game/GameEvents/Api.cs:line 51
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at bool GTANetworkInternals.CommandParser.Parse(Player sender, string cmdRaw, string ourcmd, string[] args)
+[08:16:21][0]JustAzim[0]: f
+UNHANDLED EXCEPTION IN COMMAND goto FOR RESOURCE Server
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.FormatException: Input string was not in a correct format.
+   at void Number.ThrowOverflowOrFormatException(ParsingStatus status, TypeCode type)
+   at float float.Parse(string s)
+   at void Server.game.GameEvents.Api.cmd_goto(Player player, string x, string y, string z) in E:/RageMp/Drift/dotnet/resources/Server/game/GameEvents/Api.cs:line 51
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at bool GTANetworkInternals.CommandParser.Parse(Player sender, string cmdRaw, string ourcmd, string[] args)
+UNHANDLED EXCEPTION IN COMMAND goto FOR RESOURCE Server
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.FormatException: Input string was not in a correct format.
+   at void Number.ThrowOverflowOrFormatException(ParsingStatus status, TypeCode type)
+   at float float.Parse(string s)
+   at void Server.game.GameEvents.Api.cmd_goto(Player player, string x, string y, string z) in E:/RageMp/Drift/dotnet/resources/Server/game/GameEvents/Api.cs:line 51
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at bool GTANetworkInternals.CommandParser.Parse(Player sender, string cmdRaw, string ourcmd, string[] args)
+[08:18:15][0]JustAzim[0]: g
+UNHANDLED EXCEPTION IN COMMAND goto FOR RESOURCE Server
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.FormatException: Input string was not in a correct format.
+   at void Number.ThrowOverflowOrFormatException(ParsingStatus status, TypeCode type)
+   at float float.Parse(string s)
+   at void Server.game.GameEvents.Api.cmd_goto(Player player, string x, string y, string z) in E:/RageMp/Drift/dotnet/resources/Server/game/GameEvents/Api.cs:line 51
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at bool GTANetworkInternals.CommandParser.Parse(Player sender, string cmdRaw, string ourcmd, string[] args)
+[08:18:22][0]JustAzim[0]: g
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.FormatException: Input string was not in a correct format.
+   at void Number.ThrowOverflowOrFormatException(ParsingStatus status, TypeCode type)
+   at float float.Parse(string s)
+   at void Server.game.GameEvents.Api.cmd_goto(Player player, string x, string y, string z) in E:/RageMp/Drift/dotnet/resources/Server/game/GameEvents/Api.cs:line 51
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at bool GTANetworkInternals.CommandParser.Parse(Player sender, string cmdRaw, string ourcmd, string[] args)
+UNHANDLED EXCEPTION IN COMMAND goto FOR RESOURCE Server
+UNHANDLED EXCEPTION IN COMMAND goto FOR RESOURCE Server
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.FormatException: Input string was not in a correct format.
+   at void Number.ThrowOverflowOrFormatException(ParsingStatus status, TypeCode type)
+   at float float.Parse(string s)
+   at void Server.game.GameEvents.Api.cmd_goto(Player player, string x, string y, string z) in E:/RageMp/Drift/dotnet/resources/Server/game/GameEvents/Api.cs:line 53
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFla

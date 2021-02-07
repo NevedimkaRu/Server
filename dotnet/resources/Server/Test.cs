@@ -13,6 +13,7 @@ namespace Server
         {
             NAPI.Util.ConsoleOutput("Всё ок!");
             game.DriftEvent.ResourceStart();
+            game.GameEvents.Api.ResourceStart();
         }
         [Command("veh")]
         public void cmd_CreateVehicle(Player player)

@@ -16,6 +16,8 @@ namespace Server.model
         public Traks Track { get; set; }
         public int CurrentTrackIndex { get; set; } = -1;
 
+        public MapGameEvent CurrentMapGameEvent { get; set; } = null;
+
 
     }
 }
