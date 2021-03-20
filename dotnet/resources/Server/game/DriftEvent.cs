@@ -44,6 +44,7 @@ namespace Server.game
         [ServerEvent(Event.PlayerEnterColshape)]
         public void PlayerEnterColshape(ColShape colShape, Player player)
         {
+            if (!Main.Players1.ContainsKey(player)) return;
             if(Main.Players1.ContainsKey(player))
             {
                 if (!Main.Players1[player].IsSpawn) return;

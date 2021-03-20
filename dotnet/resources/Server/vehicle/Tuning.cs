@@ -218,11 +218,11 @@ namespace Server.vehicle
             vehicle.SetMod(8, Main.VehicleTunings[vehicleID].Fender);// 8
             vehicle.SetMod(9, Main.VehicleTunings[vehicleID].RightFender);
             vehicle.SetMod(10, Main.VehicleTunings[vehicleID].Roof);
-            NAPI.Task.Run(() => //todo КОСТЫЛЬ
-            {
+            //NAPI.Task.Run(() => //todo КОСТЫЛЬ
+            //{
                 vehicle.SetMod(11, Main.VehicleTunings[vehicleID].Engine);
-            }, delayTime: 2000);
-            
+            //}, delayTime: 2000);
+
 
             vehicle.SetMod(12, Main.VehicleTunings[vehicleID].Brakes);
             vehicle.SetMod(13, Main.VehicleTunings[vehicleID].Transmission);
@@ -250,6 +250,20 @@ namespace Server.vehicle
 
         }
 
+        public void ApplyTuning(int carid)
+        {
+            if (!Main.VehicleTunings.ContainsKey(carid))
+            {
+                LoadTunning(carid);
+            }
+            ApplyTuning(Main.Veh[carid]._Veh, carid);
+        }
+        [RemoteEvent("remote_ApplyTunning")]
+        public void remoteApplyTunning(Player player, object[] args)
+        {
+            int carid = Convert.ToInt32(args[0]);
+            ApplyTuning(carid);
+        }
         [RemoteEvent("remote_SetTunning")]
         public void SetTuning(Player player, object[] args)
         {

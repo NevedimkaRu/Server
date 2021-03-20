@@ -16,6 +16,7 @@ body{
 	justify-content: center;
 	min-width:1%;
 	justify-content: center;
+	user-select: none;
 }
 
 
