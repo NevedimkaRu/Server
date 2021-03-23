@@ -10,6 +10,7 @@ namespace Server.garage
 {
     class Api : Script
     {
+        //todo сделать продажу игроку, выгонять всех игроков из гаража при продаже.
         [ServerEvent(Event.ResourceStart)]
         public void OnResourceStart()
         {
@@ -192,9 +193,13 @@ namespace Server.garage
                             veh.Value._Veh.Position = Main.Garage[Main.Players1[player].GarageId].Position;
                             veh.Value._Veh.Rotation = new Vector3(veh.Value._Veh.Rotation.X, veh.Value._Veh.Rotation.Y, Main.Garage[Main.Players1[player].GarageId].Rotation);
                             veh.Value._Veh.Dimension = 0;
-                            player.Position = Main.Garage[Main.Players1[player].GarageId].Position;
+
                             player.Dimension = 0;
-                            player.SetIntoVehicle(veh.Value._Veh, 0);
+                            player.Position = Main.Garage[Main.Players1[player].GarageId].Position;
+                            NAPI.Task.Run(() =>
+                            {
+                                player.SetIntoVehicle(veh.Value._Veh, 0);
+                            });
                             Main.Players1[player].HouseId = -1;
                             Main.Players1[player].GarageId = -1;
                             NAPI.Task.Run(() =>

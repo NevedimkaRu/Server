@@ -10,6 +10,7 @@ namespace Server.house
 {
     public class Api : Script
     {
+        //todo сделать оплату дома, продажу игроку, выгонять всех игроков из дома при его продаже.
         public Api()
         {
 

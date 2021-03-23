@@ -19,12 +19,15 @@ namespace Server
         public static Dictionary<int, House> Houses = new Dictionary<int, House>();
         public static Dictionary<int, Garage> Garage = new Dictionary<int, Garage>();
 
-        public static List<HouseInterior> HousesInteriors = new List<HouseInterior>()
+        public static Dictionary<int, Clan> Clans = new Dictionary<int, Clan>();
+        public static Dictionary<int, ClanRank> ClanRanks = new Dictionary<int, ClanRank>();
+
+        public static List<HouseInterior> HousesInteriors = new List<HouseInterior>() // Интерьеры домов и пикап выхода
         {
             {new HouseInterior("apa_v_mp_h_01_a",new Vector3(-786.8663,315.7642,217.6385)) }
         };
 
-        public static Dictionary<int, GarageType> GarageTypes = new Dictionary<int, GarageType>()
+        public static Dictionary<int, GarageType> GarageTypes = new Dictionary<int, GarageType>() // Интерьеры гаражей и различные координаты(транспорт, пикап выхода и тд)
         {
             {0, new GarageType(null, new Vector3(173.2903, -1003.6, -99.65707), new Vector3(172.88823, -1005.8173, -98.99993), 
                 new List<GarageVehiclePosition>()

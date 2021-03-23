@@ -1452,4 +1452,386 @@ System.Reflection.TargetInvocationException: Exception has been thrown by the ta
    at void Server.vehicle.Api.SetVehicleInGarage(Player player, int carid, int garageid) in E:/RageMp/Drift/dotnet/resources/Server/vehicle/Api.cs:line 194
    at void Server.vehicle.Api.cmd_SetVehicleInGarage(Player player, string carid, string garageid) in E:/RageMp/Drift/dotnet/resources/Server/vehicle/Api.cs:line 130
    --- End of inner exception stack trace ---
-   at object RuntimeMethodHandle.InvokeMethod(object target, object[] ar
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 08.02.2021 17:53:13
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 7 server events(s)
+Server: loading commands.. found 18 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 37 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 13 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+7 - Lake - 1 - -390,8351 837,9808 224,89944
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `garage`
+[MySql QueryR] SELECT `Name` FROM `character` WHERE `Id` = '2'
+[MySql QueryR] SELECT * FROM `clan`
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Rico'
+[MySql QueryR] select * from `character` where AccountId = '2'
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryR] select * from clanmember where `CharacterId` = 1
+[MySql QueryR] SELECT * FROM `vehicles` JOIN `vehiclesgarage` ON vehicles.Id = vehiclesgarage.VehicleId WHERE vehicles.OwnerId = '1'
+[MySql QueryR] select * from customization where `CharacterId` = 1
+[MySql QueryR] select * from account where username = 'Mario'
+[MySql QueryR] select * from `character` where AccountId = '1'
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryR] select * from clanmember where `CharacterId` = 2
+[MySql QueryR] SELECT * FROM `vehicles` JOIN `vehiclesgarage` ON vehicles.Id = vehiclesgarage.VehicleId WHERE vehicles.OwnerId = '2'
+[MySql QueryR] select * from customization where `CharacterId` = 2
+[MySql Query] update `garage` set `CharacterId` = @CharacterId where id = 5
+[06:00:28][0]JustAzim[0]: addcar
+[MySql QueryR] insert into `vehicles` (`ModelHash`,`OwnerId`,`Handling`) values (@ModelHash,@OwnerId,@Handling); select last_inInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 10.02.2021 11:26:55
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 7 server events(s)
+Server: loading commands.. found 18 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 40 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 13 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+7 - Lake - 1 - -390,8351 837,9808 224,89944
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `garage`
+[MySql QueryR] SELECT `Name` FROM `character` WHERE `Id` = '2'
+[MySql QueryR] SELECT `Name` FROM `character` WHERE `Id` = '1'
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Mario'
+[MySql QueryR] select * from `character` where AccountId = '1'
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryR] select * from clanmember where `CharacterId` = 2
+[MySql QueryR] SELECT * FROM `vehicles` JOIN `vehiclesgarage` ON vehicles.Id = vehiclesgarage.VehicleId WHERE vehicles.OwnerId = '2'
+[MySql QueryR] select * from customization where `CharacterId` = 2
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql Query] update `vehicletuning` set `RightFender` = @RightFender where id = 1
+[MySql Query] update `vehicletuning` set `RightFender` = @RightFender where id = 1
+[MySql Query] update `vehicletuning` set `RightFender` = @RightFender where id = 1
+[MySql Query] update `vehicletuning` set `RightFender` = @RightFender where id = 1
+[MySql Query] update `vehicletuning` set `RightFender` = @RightFender where id = 1
+[MySql Query] update `vehicletuning` set `RightFender` = @RInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 10.02.2021 16:56:16
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 7 server events(s)
+Server: loading commands.. found 18 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 40 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 13 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+7 - Lake - 1 - -390,8351 837,9808 224,89944
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `garage`
+[MySql QueryR] SELECT `Name` FROM `character` WHERE `Id` = '2'
+[MySql QueryR] SELECT `Name` FROM `character` WHERE `Id` = '1'
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Mario'
+[MySql QueryR] select * from `character` where AccountId = '1'
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryR] select * from clanmember where `CharacterId` = 2
+[MySql QueryR] SELECT * FROM `vehicles` JOIN `vehiclesgarage` ON vehicles.Id = vehiclesgarage.VehicleId WHERE vehicles.OwnerId = '2'
+[MySql QueryR] select * from customization where `CharacterId` = 2
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql Query] update `vehicletuning` set `Hood` = @Hood where id = 1
+[MySql Query] update `vehicletuning` set `Hood` = @Hood where id = 1
+[MySql Query] update `vehicletuning` set `Hood` = @Hood where id = 1
+[MySql Query] update `vehicletuning` set `Hood` = @Hood where id = 1
+[MySql Query] update `vehicletuning` set `Spoiler` = @Spoiler where id = 1
+[MySql Query] update `vehicletuning` set `Spoiler` = @Spoiler where id = 1
+[MySql Query] update `vehicletuning` set `SpoilInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 22.03.2021 16:40:15
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 7 server events(s)
+Server: loading commands.. found 18 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 41 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 13 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+7 - Lake - 1 - -390,8351 837,9808 224,89944
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `garage`
+[MySql QueryR] SELECT `Name` FROM `character` WHERE `Id` = '2'
+[MySql QueryR] SELECT `Name` FROM `character` WHERE `Id` = '1'
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Mario'
+[MySql QueryR] select * from `character` where AccountId = '1'
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryR] select * from clanmember where `CharacterId` = 2
+[MySql QueryR] SELECT * FROM `vehicles` JOIN `vehiclesgarage` ON vehicles.Id = vehiclesgarage.VehicleId WHERE vehicles.OwnerId = '2'
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql QueryR] select * from customization where `CharacterId` = 2
+UNHANDLED EXCEPTION IN COMMAND carinfo FOR RESOURCE Server
+System.ArgumentException: Object of type 'System.String' cannot be converted to type 'System.Int32'.
+   at object RuntimeType.TryChangeType(object value, Binder binder, CultureInfo culture, bool needsSpecialCast)
+   at object RuntimeType.CheckValue(object value, Binder binder, CultureInfo culture, BindingFlags invokeAttr)
+   at object[] System.Reflection.MethodBase.ChInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 22.03.2021 17:09:45
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 7 server events(s)
+Server: loading commands.. found 18 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loaded 41 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loaded 13 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT * FROM `teleport`
+1 - Абсерватория - Нету - -413,3618 1176,593 325,64175
+2 - VineWood - Нету - 809,63153 1276,3502 359,86295
+3 - ПортЛС - Нету - 873,4011 -2958,724 5,2689166
+4 - АэропортЛс - Нету - -992,8657 -2854,1875 13,332271
+5 - Порт ЛС2 тест - test2 - -1747,074 -198,79195 57,48485
+6 - ПортЛс2 - Нету - 5,1657043 -2534,5825 5,4170656
+7 - Lake - 1 - -390,8351 837,9808 224,89944
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `garage`
+[MySql QueryR] SELECT `Name` FROM `character` WHERE `Id` = '2'
+[MySql QueryR] SELECT `Name` FROM `character` WHERE `Id` = '1'
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryR] select * from account where username = 'Mario'
+[MySql QueryR] select * from `character` where AccountId = '1'
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryR] select * from clanmember where `CharacterId` = 2
+[MySql QueryR] SELECT * FROM `vehicles` JOIN `vehiclesgarage` ON vehicles.Id = vehiclesgarage.VehicleId WHERE vehicles.OwnerId = '2'
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql QueryR] select * from customization where `CharacterId` = 2
+[MySql QueryR] insert into `vehicles` (`ModelHash`,`OwnerId`,`Handling`) values (@ModelHash,@OwnerId,@Handling); select last_insert_id()
+[MySql QueryR] insert into `vehiclesgarage` (`VehicleId`,`GarageId`,`GarageSlot`) values (@VehicleId,@GarageId,@GarageSlot); select last_insert_id()
+[MySql Query] INSERT INTO `vehicletuning` (`CarId`) VALUES ('6')
+[MySql QueryR] SELECT * FROM `vehicletuning` WHERE `carid` = @id 
+[MySql Query

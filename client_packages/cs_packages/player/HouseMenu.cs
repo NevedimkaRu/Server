@@ -18,7 +18,6 @@ namespace cs_packages.player
             Events.Add("trigger_ShowExitHouseInfo", ShowExitHouseInfo);
             Events.Add("trigger_ShowHouseBuyMenu", ShowHouseBuyMenu);
             Events.Add("trigger_RequestPlayerIpl", RequestPlayerIpl);
-            
         }
 
         private void RequestPlayerIpl(object[] args)

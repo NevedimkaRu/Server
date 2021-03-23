@@ -14,7 +14,7 @@ namespace Server.model
 
         //temp
         public Vehicle _Veh { get; set; }
-
+        public ColShape _ColShape { get; set; }
     }
 
     public class VehiclesGarage : DB_Tables

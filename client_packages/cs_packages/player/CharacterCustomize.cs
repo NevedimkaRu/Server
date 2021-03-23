@@ -2,6 +2,7 @@
 using RAGE;
 using RAGE.Elements;
 using RAGE.NUI;
+using cs_packages.utils;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -104,7 +105,7 @@ namespace cs_packages.player
                 }
             };
 
-            UIMenuListItem simList = new UIMenuListItem("Схожесть", GetFloatList(0.0f, 1.0f, 0.1f), 0);
+            UIMenuListItem simList = new UIMenuListItem("Схожесть", Utils.GetFloatList(0.0f, 1.0f, 0.1f), 0);
             genethic.AddItem(simList);
             genethic.OnListChange += (sender, item, index) =>
             {
@@ -113,7 +114,7 @@ namespace cs_packages.player
                     onEditorList(new object[] { "similar", item.IndexToItem(index) });
                 }
             };
-            UIMenuListItem skinList = new UIMenuListItem("Цвет кожи", GetFloatList(0.0f, 1.0f, 0.1f), 0);
+            UIMenuListItem skinList = new UIMenuListItem("Цвет кожи", Utils.GetFloatList(0.0f, 1.0f, 0.1f), 0);
             genethic.AddItem(skinList);
             genethic.OnListChange += (sender, item, index) =>
             {
@@ -124,7 +125,7 @@ namespace cs_packages.player
             };
             //Лицо
             UIMenu face = menuPool.AddSubMenu(mainMenu, "Черты лица");
-            List<object> valueList= GetFloatList(-1.0f, 1.0f, 0.1f);
+            List<object> valueList= Utils.GetFloatList(-1.0f, 1.0f, 0.1f);
             UIMenuListItem noseWidth = new UIMenuListItem("Ширина носа", valueList, 0);
             face.AddItem(noseWidth);
             face.OnListChange += (sender, item, index) =>
@@ -327,7 +328,7 @@ namespace cs_packages.player
                     onEditorList(new object[] { "hair", item.IndexToItem(index) });
                 }
             };
-            UIMenuListItem eyebrowsM = new UIMenuListItem("Брови М", GetIntList(0, 33, 1), 0);
+            UIMenuListItem eyebrowsM = new UIMenuListItem("Брови М", Utils.GetIntList(0, 33, 1), 0);
             apper.AddItem(eyebrowsM);
             apper.OnListChange += (sender, item, index) =>
             {
@@ -337,7 +338,7 @@ namespace cs_packages.player
                     onEditorList(new object[] { "eyebrows", item.IndexToItem(index) });
                 }
             };
-            UIMenuListItem eyebrowsF = new UIMenuListItem("Брови Ж", GetIntList(0, 33, 1), 0);
+            UIMenuListItem eyebrowsF = new UIMenuListItem("Брови Ж", Utils.GetIntList(0, 33, 1), 0);
             apper.AddItem(eyebrowsF);
             apper.OnListChange += (sender, item, index) =>
             {
@@ -346,7 +347,7 @@ namespace cs_packages.player
                     onEditorList(new object[] { "eyebrows", item.IndexToItem(index) });
                 }
             };
-            UIMenuListItem beard = new UIMenuListItem("Борода", GetIntList(0, 28, 1), 0);
+            UIMenuListItem beard = new UIMenuListItem("Борода", Utils.GetIntList(0, 28, 1), 0);
             apper.AddItem(beard);
             apper.OnListChange += (sender, item, index) =>
             {
@@ -355,7 +356,7 @@ namespace cs_packages.player
                     onEditorList(new object[] { "beard", item.IndexToItem(index) });
                 }
             };
-            UIMenuListItem hairColor = new UIMenuListItem("Цвет волос", GetIntList(0, 10, 1), 0);
+            UIMenuListItem hairColor = new UIMenuListItem("Цвет волос", Utils.GetIntList(0, 10, 1), 0);
             apper.AddItem(hairColor);
             apper.OnListChange += (sender, item, index) =>
             {
@@ -364,7 +365,7 @@ namespace cs_packages.player
                     onEditorList(new object[] { "hairColor", item.IndexToItem(index) });
                 }
             };
-            UIMenuListItem eyeColor = new UIMenuListItem("Цвет глаз", GetIntList(1, 10, 1), 0);
+            UIMenuListItem eyeColor = new UIMenuListItem("Цвет глаз", Utils.GetIntList(1, 10, 1), 0);
             apper.AddItem(eyeColor);
             apper.OnListChange += (sender, item, index) =>
             {
@@ -575,26 +576,6 @@ namespace cs_packages.player
                 }
                 //Chat.Output(obj.Name);
             }
-        }
-
-        private List<object> GetFloatList(float begin, float end, float step)
-        {
-            List<object> floatList = new List<object>();
-            for (float i = begin; i <= end; i += step)
-            {
-                floatList.Add(i);
-            }
-            return floatList;
-        }
-
-        private List<object> GetIntList(int begin, int end, int step)
-        {
-            List<object> list = new List<object>();
-            for (int i = begin; i <= end; i += step)
-            {
-                list.Add(i);
-            }
-            return list;
         }
 
         public void OnPlayerCommand(string cmd, Events.CancelEventArgs cancel)//todo убрать

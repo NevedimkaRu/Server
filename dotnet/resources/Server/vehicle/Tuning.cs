@@ -218,11 +218,7 @@ namespace Server.vehicle
             vehicle.SetMod(8, Main.VehicleTunings[vehicleID].Fender);// 8
             vehicle.SetMod(9, Main.VehicleTunings[vehicleID].RightFender);
             vehicle.SetMod(10, Main.VehicleTunings[vehicleID].Roof);
-            NAPI.Task.Run(() => //todo КОСТЫЛЬ
-            {
-                vehicle.SetMod(11, Main.VehicleTunings[vehicleID].Engine);
-            }, delayTime: 2000);
-            
+            vehicle.SetMod(11, Main.VehicleTunings[vehicleID].Engine);
 
             vehicle.SetMod(12, Main.VehicleTunings[vehicleID].Brakes);
             vehicle.SetMod(13, Main.VehicleTunings[vehicleID].Transmission);

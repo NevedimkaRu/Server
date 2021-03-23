@@ -25,8 +25,8 @@ namespace Server.character
                 Main.Players1[player].Character = character;
                 Main.Players1[player].IsSpawn = true;
 
-
-                DataTable dt = MySql.QueryRead("SELECT * FROM `tracksrecords`");
+                DataTable dt;
+                dt = MySql.QueryRead("SELECT * FROM `tracksrecords`");
                 
                 if (dt != null || dt.Rows.Count != 0)
                 {
@@ -44,6 +44,16 @@ namespace Server.character
                         }
                     }
                 }
+
+                ClanMember clan = new ClanMember();
+                if(clan.LoadByOtherId("CharacterId", Main.Players1[player].Character.Id))
+                { 
+                    Main.Players1[player].Clan = clan;
+                    Main.Clans[Main.Players1[player].Clan.ClanId]._Members.Add(Main.Players1[player]);
+                }
+
+
+                
                 player.Name = character.Name + "[" + player.Id + "]";
                 player.SetSharedData("IsSpawn", true);
                 vehicle.Api.LoadPlayerVehice(player);
