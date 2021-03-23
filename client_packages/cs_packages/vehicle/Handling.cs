@@ -47,7 +47,7 @@ namespace cs_packages.vehicle
             Events.CallRemote("remote_ApplyTunning", veh.GetSharedData("vehicleId"));
         }
 
-        public static void SetHandling(Vehicle veh, int id)
+        public static void SetHandlingFromServer(Vehicle veh, int id)
         {
             if (id == 0) return;
             switch (id)
