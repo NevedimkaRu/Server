@@ -246,6 +246,20 @@ namespace Server.vehicle
 
         }
 
+        public void ApplyTuning(int carid)
+        {
+            if (!Main.VehicleTunings.ContainsKey(carid))
+            {
+                LoadTunning(carid);
+            }
+            ApplyTuning(Main.Veh[carid]._Veh, carid);
+        }
+        [RemoteEvent("remote_ApplyTunning")]
+        public void remoteApplyTunning(Player player, object[] args)
+        {
+            int carid = Convert.ToInt32(args[0]);
+            ApplyTuning(carid);
+        }
         [RemoteEvent("remote_SetTunning")]
         public void SetTuning(Player player, object[] args)
         {

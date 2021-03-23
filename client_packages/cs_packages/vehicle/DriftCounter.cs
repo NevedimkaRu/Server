@@ -5,8 +5,9 @@ using RAGE;
 using RAGE.Ui;
 //using RAGE.Game;
 using RAGE.Elements;
+using cs_packages.model;
 
-namespace cs_packages
+namespace cs_packages.vehicle
 {
     public class DriftCounter : Events.Script
     {
@@ -26,6 +27,8 @@ namespace cs_packages
             Events.OnPlayerLeaveVehicle += OnPlayerLeaveVehicle;
             Events.Add("trigger_ResetDriftScore", ResetPlayerDriftScoreFromServer);
             Events.Add("trigger_GetPlayerScore", GetPlayerScore);
+            //todo оптимизировать
+            Events.Tick += UpdateSpeedometer;
         }
         
         public void GetPlayerScore(object[] args)
@@ -39,13 +42,15 @@ namespace cs_packages
             {
                 //Дрифт счётчик
                 vehicle.SetRadioEnabled(false);
-                driftHTML = new HtmlWindow("package://statics/html/drift.html");
                 vehHealth = vehicle.GetHealth();
-                driftHTML.Active = false;
+                if(driftHTML == null) 
+                {
+                    driftHTML = new HtmlWindow("package://statics/html/drift.html");
+                    driftHTML.Active = false;
+                }
                 //Спидометр
                 /*speedometerHTML = new HtmlWindow("package://statics/html/speedometer.html");
                 speedometerHTML.Active = true;*/
-                Events.Tick += UpdateSpeedometer;
             }
 
 
@@ -78,9 +83,9 @@ namespace cs_packages
         public static void UpdateSpeedometer(List<Events.TickNametagData> nametags)
         {
             if (Player.LocalPlayer.Vehicle == null) {
-                Events.Tick -= UpdateSpeedometer;
-                speedometerHTML.Destroy();
-                driftHTML.Destroy();
+                //if (speedometerHTML.Active) speedometerHTML.Active = false;
+                if (driftHTML.Active)driftHTML.Active = false;
+               
                 return; 
             }
             Vehicle vehicle = Player.LocalPlayer.Vehicle;
@@ -160,11 +165,12 @@ namespace cs_packages
             RAGE.Game.UIText.Draw(totalscore.ToString(), new Point(1175, 560), 0.5f, Color.White, RAGE.Game.Font.ChaletComprimeCologne, false); // Вывоб общего числа очков
         }
         
-        private static void StopDrift(int reason)
+        public static void StopDrift(int reason)
         {
             if (reason == 0)
             {
                 totalscore += score;
+                ThisPlayer.Score += score;
                 Api.Notify("~g~Time Out");
                 UpdatePlayerScore(totalscore);
             }

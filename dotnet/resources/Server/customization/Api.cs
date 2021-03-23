@@ -24,6 +24,7 @@ namespace Server.customization
             else 
             { 
                 model.ParseClientData(obj);
+                model.characterId = Main.Players1[player].Character.Id;
                 model.Insert();
             }
             model.SetToPlayer(player);

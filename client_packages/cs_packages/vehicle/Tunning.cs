@@ -4,6 +4,7 @@ using System.Text;
 using RAGE;
 using RAGE.Elements;
 using RAGE.NUI;
+using RAGE.Ui;
 
 namespace cs_packages.vehicle
 {
@@ -12,7 +13,8 @@ namespace cs_packages.vehicle
         private bool menuactive = false;
         public Tunning()
         {
-            Input.Bind(0x73, true, ShowTunningMenu);//f4
+            Input.Bind(VirtualKeys.F4, true, ShowTunningMenu);//f4
+            Input.Bind(VirtualKeys.H, true, RepairCar);
         }
 
         List<string> slotNames = new List<string>() 
@@ -128,6 +130,14 @@ namespace cs_packages.vehicle
                 menuPool.ProcessMenus();
             }
             
+        }
+
+        public void RepairCar()
+        {
+            if (Player.LocalPlayer.Vehicle != null)
+            {
+                Events.CallRemote("remote_RepairCar", Player.LocalPlayer.Vehicle);
+            }
         }
     }
 }

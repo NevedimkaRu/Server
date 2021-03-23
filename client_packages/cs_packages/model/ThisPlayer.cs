@@ -1,0 +1,12 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace cs_packages.model
+{
+    public static class ThisPlayer
+    {
+        public static int Score { get; set; }
+
+    }
+}

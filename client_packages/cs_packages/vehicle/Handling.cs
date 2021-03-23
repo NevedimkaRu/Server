@@ -4,7 +4,7 @@ using System.Text;
 using RAGE;
 using RAGE.Elements;
 
-namespace cs_packages.test
+namespace cs_packages.vehicle
 {
     public class Handling : Events.Script
     {
@@ -37,7 +37,18 @@ namespace cs_packages.test
         {
             Vehicle veh = (Vehicle)args[0];
             int id = Convert.ToInt32(args[1]);
+            SetHandlingChain(veh, id);
+        }
 
+        public static void SetHandlingChain(Vehicle veh, int id)
+        {
+            SetHandling(veh, id);
+            Chat.Output("На клиенте " + veh.GetSharedData("vehicleId").ToString());
+            Events.CallRemote("remote_ApplyTunning", veh.GetSharedData("vehicleId"));
+        }
+
+        public static void SetHandling(Vehicle veh, int id)
+        {
             if (id == 0) return;
             switch (id)
             {

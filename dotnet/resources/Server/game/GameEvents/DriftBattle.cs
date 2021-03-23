@@ -2,6 +2,7 @@
 using Server.model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Server.game.GameEvents
@@ -17,6 +18,7 @@ namespace Server.game.GameEvents
         {
             LoadMaps();
             LoadGameEvents();
+            //LoadColShapes();
         }
 
         //[ServerEvent(Event.PlayerEnterColshape)]
@@ -57,14 +59,28 @@ namespace Server.game.GameEvents
             GE = ge;
         }
 
+
+        public static void LoadColShapes()
+        {
+            ColShape cs = NAPI.ColShape.Create2DColShape(825.0543f, -3069.2056f, 376.9623f, 124.0965f, 0);
+            cs.OnEntityEnterColShape += (shape, player) =>
+            {
+                NAPI.Chat.SendChatMessageToPlayer(player, "Enter ColShape");
+            };
+            cs.OnEntityExitColShape += (shape, player) =>
+            {
+                NAPI.Chat.SendChatMessageToPlayer(player, "Leave ColShape");
+            };
+        }
+
         public static void LoadMaps()
         {
             //ColShape cs = NAPI.ColShape.Create3DColShape(new Vector3(826.4169f, -2946.8687f, -20.906034f), new Vector3(1202.3827f, -3069.0847f, 30.8862033f), 0);
-            ColShape cs = NAPI.ColShape.CreateSphereColShape(new Vector3(1000f, - 3000f, 5), 250f);
+            ColShape cs = NAPI.ColShape.CreateSphereColShape(new Vector3(1000f, -3000f, 5), 250f);
             cs.OnEntityEnterColShape += (shape, player) =>
             {
                 NAPI.Chat.SendChatMessageToPlayer(player, "Вы вошли в зону ");
-            }; 
+            };
             cs.OnEntityExitColShape += (shape, player) =>
             {
                 NAPI.Chat.SendChatMessageToPlayer(player, "Вы вышли из зоны");
@@ -95,8 +111,8 @@ namespace Server.game.GameEvents
             if (!GE.IsActive) return;
             if (GE.Players.Count >= GE.MinPlayers)
             {
-                SendMessageToGameEventMember("Мероприятие начнётся через 10 секунд, если хотите отказатся введите /outevent");
-                NAPI.Task.Run(ActivateGameEvent, delayTime: 10000);
+                SendMessageToGameEventMember("Мероприятие начнётся через 3 секунд, если хотите отказатся введите /outevent");
+                NAPI.Task.Run(ActivateGameEvent, delayTime: 3000);
             }
         }
 
@@ -113,56 +129,176 @@ namespace Server.game.GameEvents
                 NAPI.Chat.SendChatMessageToAll("Погнали Ёпта");
                 for (int i = 0; i < GE.Players.Count; i++)
                 {
-                    Player player = GE.Players[i];
-                    player.Position = GE._Map.PlayerPositions[i];
-                    Vehicle veh = NAPI.Vehicle.CreateVehicle(VehicleHash.Elegy2, GE._Map.PlayerPositions[i], GE._Map.Rotation, new Color(0, 255, 100), new Color(0));
-                    NAPI.Task.Run(() => 
-                    {
-                        player.SetIntoVehicle(veh, 0);
-                    }, delayTime: 1000 );
+                    int index = i;
+                    int carid = GE.CarIds[GE.Players[index]];
+                    if (Main.Veh[carid]._Veh != null) Main.Veh[carid]._Veh.Delete();
+                    Main.Veh[carid]._Veh = NAPI.Vehicle.CreateVehicle(NAPI.Util.GetHashKey(Main.Veh[carid].ModelHash), GE._Map.PlayerPositions[index], GE._Map.Rotation, 0, 0);
+                    //vehicle.Api.LoadVehicleInPos(GE.Players[index], carid, GE._Map.PlayerPositions[index], GE._Map.Rotation);
+                    Main.Veh[carid]._Veh.SetSharedData("vehicleId", Main.Veh[carid].Id);
                 }
+                for (int i = 0; i < GE.Players.Count; i++)
+                {
+                    int index = i;
+                    NAPI.Task.Run(() =>
+                    {
+                        GE.Players[index].TriggerEvent("startWarmUp", GE._Map.PlayerPositions[index], Main.Veh[GE.CarIds[GE.Players[index]]]._Veh.Handle, Main.Veh[GE.CarIds[GE.Players[index]]].Handling);
+                    });
+                }
+                NAPI.Task.Run(() =>
+                {
+                    StartGameEvent();
+                }, delayTime: 30000);
+                
             }
         }
 
+        private static void StartForPlayer(int i)
+        {
+            GE.Players[i].Position = GE._Map.PlayerPositions[i];
+            NAPI.Task.Run(() => {
+                GE.Players[i].SetIntoVehicle(Main.Veh[GE.CarIds[GE.Players[i]]]._Veh, 0);
+            });
+            NAPI.Task.Run(() =>
+            {
+                GE.Players[i].TriggerEvent("freezeCountdown", 10);
+            });
+        }
 
-        [Command("initdriftevent")]
-        public void cmd_initDriftEvent(Player player)
+        public static void initDrifEvent()
         {
             NAPI.Chat.SendChatMessageToAll("Началось мероприятие " + GE.Name + " Введите /driftevent чтобы принять участие");
             GE.IsActive = true;
         }
 
-        [Command("driftevent")]
-        public void cmd_drifrevent(Player player)
+        public static void ToDriftEvent(Player player, int CarId)
         {
             if (GE.IsActive)
             {
 
                 if (GE.Players.Count <= GE.MaxPlayers)
                 {
+                    if (Main.Veh[CarId].OwnerId != Main.Players1[player].Character.Id)
+                    {
+                        NAPI.Chat.SendChatMessageToPlayer(player, "Это не ваша машина");
+                        return;
+                    }
+                    Vehicle veh = Main.Veh[CarId]._Veh;
+                    if (veh == null)
+                    {
+                        NAPI.Chat.SendChatMessageToPlayer(player, "Эта машина в резерве");
+                        return;
+                    }
                     GE.Players.Add(player);
+                    GE.CarIds.Add(player, CarId);
                     NAPI.Chat.SendChatMessageToPlayer(player, "Вы согласились принять участие в " + GE.Name + ", дожидаемся остальных игроков.");
                     NAPI.Chat.SendChatMessageToPlayer(player, "Количество участников: " + (GE.Players.Count));
                     NAPI.Chat.SendChatMessageToPlayer(player, "Минимально необходимое количество участников: " + (GE.MinPlayers));
                     TryToStartEvent();
                 }
-                else {
+                else
+                {
                     NAPI.Chat.SendChatMessageToPlayer(player, "Мест пока нету, как и системы очереди, но вы держитесь, она пилится");
                 }
             }
         }
 
-        [Command("outevent")]
-        public void cmd_outevent(Player player)
+        public void ResetEvent()
+        {
+            NAPI.Chat.SendChatMessageToAll("reset event");
+            GE.ReadyPlayers.Clear();
+            GE.Scores.Clear();
+            TryToStartEvent();
+        }
+
+        public static void StartGameEvent()
+        {
+            foreach (Player player in GE.Players)
+            {
+                if (!GE.ReadyPlayers.Contains(player)) {
+                    PlayerOutEvent(player);
+                }    
+            }
+
+            foreach (Player player in GE.Players)
+            {
+                NAPI.Chat.SendChatMessageToPlayer(player, "Starting event");
+                NAPI.Task.Run(() =>
+                {
+                    player.TriggerEvent("startDriftBattle");
+                });
+            }
+           
+        }
+
+        public void InitFinishEvent() 
+        {
+            List<string> results = new List<string>();
+            int place = 1;
+            foreach (KeyValuePair<Player, int> score in GE.Scores.OrderByDescending(key => key.Value))
+            {
+                results.Add((place++) + " место: " + score.Key.Name + " - " + score.Value + " очков");
+            }
+            foreach (Player player in GE.Players)
+            {
+                NAPI.Chat.SendChatMessageToPlayer(player, "Результаты:");
+                foreach (string s in results)
+                {
+                    NAPI.Chat.SendChatMessageToPlayer(player, s);
+                }
+            }
+
+            NAPI.Task.Run(() => {
+                ResetEvent();
+            }, delayTime: 10000);
+        }
+
+        public static void PlayerOutEvent(Player player)
         {
             if (!GE.IsActive)
             {
                 NAPI.Chat.SendChatMessageToPlayer(player, "Вы не являетесь участником мероприятия");
             }
-            else {
-                GE.Players.Remove(player);
+            else
+            {
+                GE.RemovePlayer(player);
                 NAPI.Chat.SendChatMessageToPlayer(player, "Вы отказались от участия");
             }
+        }
+
+        [RemoteEvent("remote_readyDriftBattle")]
+        public void ReadyToEvent(Player player, object[] args)
+        {
+            GE.ReadyPlayers.Add(player);
+        }
+
+        [RemoteEvent("remote_sendScore")]
+        public void SendScore(Player player, object[] args)
+        {
+            NAPI.Chat.SendChatMessageToPlayer(player, "Score sended");
+            int score = Convert.ToInt32(args[0]);
+            GE.Scores.Add(player, score);
+            if (GE.Scores.Count == GE.Players.Count)
+            {
+                InitFinishEvent();
+            }
+        }
+
+        [Command("initdriftevent")]
+        public void cmd_initDriftEvent(Player player)
+        {
+            initDrifEvent();
+        }
+
+        [Command("driftevent", GreedyArg = true)]
+        public void cmd_drifrevent(Player player, string carId)
+        {
+            ToDriftEvent(player, int.Parse(carId));
+        }
+
+        [Command("outevent")]
+        public void cmd_outevent(Player player)
+        {
+            PlayerOutEvent(player);
         }
 
         [Command("goto", GreedyArg = true)]
