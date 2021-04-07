@@ -28,7 +28,6 @@ namespace cs_packages.vehicle
             Events.Add("trigger_ResetDriftScore", ResetPlayerDriftScoreFromServer);
             Events.Add("trigger_GetPlayerScore", GetPlayerScore);
             //todo оптимизировать
-            Events.Tick += UpdateSpeedometer;
         }
         
         public void GetPlayerScore(object[] args)
@@ -40,6 +39,7 @@ namespace cs_packages.vehicle
         {
             if ((bool)Player.LocalPlayer.GetSharedData("IsSpawn"))
             {
+                Events.Tick += UpdateSpeedometer;
                 //Дрифт счётчик
                 vehicle.SetRadioEnabled(false);
                 vehHealth = vehicle.GetHealth();
@@ -59,6 +59,7 @@ namespace cs_packages.vehicle
         {
             if ((bool)Player.LocalPlayer.GetSharedData("IsSpawn"))
             {
+                Events.Tick -= UpdateSpeedometer;
                 multiplier = 1;
                 score = 0;
                 playerDrifting = false;
@@ -83,6 +84,7 @@ namespace cs_packages.vehicle
         public static void UpdateSpeedometer(List<Events.TickNametagData> nametags)
         {
             if (Player.LocalPlayer.Vehicle == null) {
+                Events.Tick -= UpdateSpeedometer;
                 //if (speedometerHTML.Active) speedometerHTML.Active = false;
                 if (driftHTML.Active)driftHTML.Active = false;
                
