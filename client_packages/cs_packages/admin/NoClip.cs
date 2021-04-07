@@ -7,7 +7,7 @@ using RAGE.Elements;
 
 namespace cs_packages.admin
 {
-    class NoClip : Events.Script
+    public class NoClip : Events.Script
     {
         enum ControlKeys
         {
@@ -21,7 +21,6 @@ namespace cs_packages.admin
         int camHandle;
         public NoClip()
         {
-            
             Input.Bind((int)ControlKeys.F2, true, () => {
                 isNoclip = !isNoclip;
                 if (isNoclip) StartNoclip();
@@ -43,7 +42,8 @@ namespace cs_packages.admin
             player.SetVisible(false, false);
             player.SetCollision(false, false);
             Events.Tick += CamRender;
-        }        
+        }
+
         public void StopNoclip()
         {
             Api.Notify("NoClip ~r~деактивирован");
@@ -57,7 +57,7 @@ namespace cs_packages.admin
             Cam.DestroyCam(camHandle,true);
             Events.Tick -= CamRender;
         }
-        private void CamRender(List<Events.TickNametagData> nametags)
+        public void CamRender(List<Events.TickNametagData> nametags)
         {
             if (camHandle == 0) return;
             float rightAxisX = Pad.GetDisabledControlNormal(0, 220);

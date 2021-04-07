@@ -14,7 +14,20 @@ namespace cs_packages.vehicle
         public Tunning()
         {
             Input.Bind(VirtualKeys.F4, true, ShowTunningMenu);//f4
+            Input.Bind(VirtualKeys.Home, true, SendIndexTuning);
             Input.Bind(VirtualKeys.H, true, RepairCar);
+        }
+
+        private void SendIndexTuning()
+        {
+            List<int> indexes = new List<int>();
+            for(int i = 0; i <= 75; i++)
+            {
+                int totalmods = Player.LocalPlayer.Vehicle.GetNumMods(i);
+                indexes.Add(totalmods);
+
+            }
+            Events.CallRemote("remote_SendIndexTuning", indexes);
         }
 
         List<string> slotNames = new List<string>() 
@@ -117,12 +130,9 @@ namespace cs_packages.vehicle
             mainMenu.OnMenuClose += (sender) =>
             {
                 menuactive = false;
-                Chat.Output("ЗАКРЫТО!"); 
                 Events.Tick -= DrawMenu;
             };
         }
-        /*В очередной раз разработчики RAGEMP показали свою гениальность. Почему нету метода для удаления эвентов? Мне бы не пришлось ставить проверку на то открыто меню
-         или нет. Из-за этого хуйня будет каждый тик проверять активацию меню, хотя она нахуй не нужна если меню закрыто*/
         private void DrawMenu(List<Events.TickNametagData> nametags)
         {
             if(menuactive)

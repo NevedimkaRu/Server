@@ -20,7 +20,7 @@ namespace Server
         {
             if (!Debug) return;
             Vector3 player_pos = player.Position;
-            player.SetIntoVehicle(NAPI.Vehicle.CreateVehicle(VehicleHash.Elegy2, player_pos, 2f, new Color(0, 255, 100), new Color(0),"МУР",255,false,true,player.Dimension),0);
+            player.SetIntoVehicle(NAPI.Vehicle.CreateVehicle(VehicleHash.Elegy2, player_pos, 2f, new Color(0, 255, 100), new Color(0), "МУР", 255, false, true, player.Dimension), 0);
         }
         [Command("vehh", GreedyArg = true)]
         public void cmd_CreateVehicleHash(Player player, VehicleHash hash)
@@ -85,7 +85,7 @@ namespace Server
         {
             player.SendChatMessage(player.Vehicle.Rotation.ToString());
         }
-        [Command("createtp",GreedyArg = true)]
+        [Command("createtp", GreedyArg = true)]
         public void cmd_CreateTeleport(Player player, string name, string discription)
         {
             if (!Debug) return;
@@ -95,7 +95,7 @@ namespace Server
         public void cmd_Teleport(Player player, string teleportid)
         {
             int id = Convert.ToInt32(teleportid);
-            if(Main.Teleports.ContainsKey(id))
+            if (Main.Teleports.ContainsKey(id))
             {
                 player.Position = (Main.Teleports[id].Position);
             }
@@ -136,7 +136,7 @@ namespace Server
         [Command("mod", GreedyArg = true)]
         public static void cmd_SetMod(Player player, string modeType, string modeIndex)
         {
-            if(player.Vehicle != null)
+            if (player.Vehicle != null)
             {
                 player.Vehicle.SetMod(Convert.ToInt32(modeType), Convert.ToInt32(modeIndex));
                 player.SendChatMessage($"{modeType} - {modeIndex}");
@@ -151,7 +151,7 @@ namespace Server
         [Command("cc")]
         public static void cmd_ClearChat(Player player)
         {
-            for(int i = 0; i < 20; i++)
+            for (int i = 0; i < 20; i++)
             {
                 NAPI.Chat.SendChatMessageToAll(null);
             }
@@ -164,5 +164,6 @@ namespace Server
             player.Vehicle.PrimaryColor = Convert.ToInt32(primary);
             player.Vehicle.SecondaryColor = Convert.ToInt32(second);
         }
+
     }
 }
