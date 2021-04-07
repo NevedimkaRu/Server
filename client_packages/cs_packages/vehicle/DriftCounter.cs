@@ -40,6 +40,7 @@ namespace cs_packages.vehicle
         {
             if ((bool)Player.LocalPlayer.GetSharedData("IsSpawn"))
             {
+                Events.Tick += UpdateSpeedometer;
                 //Дрифт счётчик
                 Events.Tick += UpdateSpeedometer;
                 vehicle.SetRadioEnabled(false);
@@ -60,6 +61,7 @@ namespace cs_packages.vehicle
         {
             if ((bool)Player.LocalPlayer.GetSharedData("IsSpawn"))
             {
+                Events.Tick -= UpdateSpeedometer;
                 multiplier = 1;
                 score = 0;
                 playerDrifting = false;
