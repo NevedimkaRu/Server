@@ -13,10 +13,16 @@ namespace cs_packages.house
         private TextLabel text;
         private MapObject obj;
         private float distance = 6;
+
         public Furniture()
         {
             Input.Bind(RAGE.Ui.VirtualKeys.B, true, TestFurniture);
             
+        }
+
+        public void EditObject()
+        {
+
         }
 
         private void TestFurniture()
@@ -34,7 +40,6 @@ namespace cs_packages.house
             else
             {
                 obj.SetCollision(true, true);
-                //obj.SetActivatePhysicsAsSoonAsItIsUnfrozen(true);
                 distance = 6f;
                 Events.Tick -= Tick; 
             }
@@ -68,7 +73,7 @@ namespace cs_packages.house
             }
             if (Input.IsDown(RAGE.Ui.VirtualKeys.Up))
             {
-                //if (distance > 10) distance = 10f;
+                if (distance > 10) distance = 10f;
                 distance += 0.05f;
             }
             if (Input.IsDown(RAGE.Ui.VirtualKeys.Down))

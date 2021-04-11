@@ -7,10 +7,8 @@ using System.Data;
 using MySqlConnector;
 using Newtonsoft.Json;
 /*todo
-* Проверка на уничтожение транспорта, в идеале вообще запретить уничтожение
 * Удаление Dictionary при выходе игрока с сервера(Veh, VehicleTunings) и сам транспорт
 * Скопипиздить синхронизацию транспорта с RedAge
-* Запретить спавнить транспорт в виртуальном мире
 */
 namespace Server.vehicle
 {
@@ -105,7 +103,7 @@ namespace Server.vehicle
                 }
             }
         }
-        [Command("carinfo",GreedyArg = true)]
+        [Command("carinfo", GreedyArg = true)]
         public void CMD_CarInfo(Player player, string carid)
         {
             if (!Main.Veh.ContainsKey(Convert.ToInt32(carid))) return;
@@ -136,7 +134,7 @@ namespace Server.vehicle
                     dimension);
                 if (!Main.VehicleTunings.ContainsKey(carid)) Tuning.LoadTunning(Main.Veh[carid].Id);
                 Tuning.ApplyTuning(Main.Veh[carid]._Veh, carid);
-                Main.Veh[carid]._Veh.SetData<int>("CarId",carid);
+                Main.Veh[carid]._Veh.SetData<int>("CarId", carid);
                 Main.Veh[carid]._Veh.SetSharedData("sd_Handling", Main.Veh[carid].Handling);
                 Main.Veh[carid]._Veh.SetSharedData("sd_EngineMod", Main.VehicleTunings[carid].Engine);
             }
@@ -145,17 +143,17 @@ namespace Server.vehicle
         {
             if (Main.Veh.ContainsKey(carid))//Проверка на то, существует ли машина
             {
-                if(player.Dimension != 0)
+                if (player.Dimension != 0)
                 {
                     player.SendChatMessage("Транспорт нельзя заспавнить в интерьере/другом мире");
                     return;
                 }
-                if(Main.Veh[carid]._Garage.GarageId == -1)
+                if (Main.Veh[carid]._Garage.GarageId == -1)
                 {
                     player.SendChatMessage("Транспорт находится в резерве. Поставьте его в гараж, чтобы телепортировать его к себе");
                     return;
                 }
-                
+
                 if (Main.Veh[carid].OwnerId == Main.Players1[player].Character.Id)
                 {
                     if (Main.Players1[player].CarId != -1 && player.Vehicle == null)
@@ -178,16 +176,16 @@ namespace Server.vehicle
                             vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Rotation,
                             (uint)Main.Veh[Main.Players1[player].CarId]._Garage.GarageId
                         );
-                        //player.WarpOutOfVehicle();
                     }
                     if (player.Vehicle != null)
                     {
-                        /*player.WarpOutOfVehicle();
+                        player.WarpOutOfVehicle();
 
                         int caridd = player.Vehicle.GetData<int>("CarId");
                         var vehpos = Main.GarageTypes[Main.Garage[Main.Veh[caridd]._Garage.GarageId].GarageType].VehiclePosition;
-                        NAPI.Task.Run(() => {
-                            SpawnPlayerVehicle
+                        Main.Veh[caridd]._Veh.Delete();
+                        Main.Veh[caridd]._Veh = null;
+                        SpawnPlayerVehicle
                             (
                                 Main.Veh[caridd].Id,
                                 new Vector3
@@ -199,37 +197,6 @@ namespace Server.vehicle
                                 vehpos[Main.Veh[caridd]._Garage.GarageSlot].Rotation,
                                 (uint)Main.Veh[caridd]._Garage.GarageId
                             );
-                            SpawnPlayerVehicle(carid, player.Position, player.Rotation.Z, player.Dimension);
-                            Main.Players1[player].CarId = carid;
-                            player.SetIntoVehicle(Main.Veh[carid]._Veh, 0);
-                        }, delayTime: 500);*/
-
-                        player.WarpOutOfVehicle();
-
-                        int caridd = player.Vehicle.GetData<int>("CarId");
-                        var vehpos = Main.GarageTypes[Main.Garage[Main.Veh[caridd]._Garage.GarageId].GarageType].VehiclePosition;
-                        Main.Veh[caridd]._Veh.Delete();
-                        Main.Veh[caridd]._Veh = null;
-                        /*NAPI.Task.Run(() =>
-                        {*/
-                            SpawnPlayerVehicle
-                                (
-                                    Main.Veh[caridd].Id,
-                                    new Vector3
-                                    (
-                                        vehpos[Main.Veh[caridd]._Garage.GarageSlot].Position.X,
-                                        vehpos[Main.Veh[caridd]._Garage.GarageSlot].Position.Y,
-                                        vehpos[Main.Veh[caridd]._Garage.GarageSlot].Position.Z
-                                    ),
-                                    vehpos[Main.Veh[caridd]._Garage.GarageSlot].Rotation,
-                                    (uint)Main.Veh[caridd]._Garage.GarageId
-                                );
-                        //}, delayTime: 500);
-                            
-                        /*SpawnPlayerVehicle(carid, player.Position, player.Rotation.Z, player.Dimension);
-                        Main.Players1[player].CarId = carid;
-                        player.SetIntoVehicle(Main.Veh[carid]._Veh, 0);*/
-                        //return;
                     }
                     SpawnPlayerVehicle(carid, player.Position, player.Rotation.Z, player.Dimension);
                     Main.Players1[player].CarId = carid;
@@ -239,27 +206,27 @@ namespace Server.vehicle
         }
         public void SetVehicleInGarage(Player player, int carid, int garageid)
         {
-            if(Main.Veh.ContainsKey(carid) && Main.Garage.ContainsKey(garageid))
+            if (Main.Veh.ContainsKey(carid) && Main.Garage.ContainsKey(garageid))
             {
-                if(Main.Veh[carid].OwnerId != Main.Players1[player].Character.Id)
+                if (Main.Veh[carid].OwnerId != Main.Players1[player].Character.Id)
                 {
                     player.SendChatMessage("Это не ваш транспорт");
                     return;
                 }
-                if(Main.Garage[garageid].CharacterId != -1 && Main.Garage[garageid].CharacterId != Main.Players1[player].Character.Id)
+                if (Main.Garage[garageid].CharacterId != -1 && Main.Garage[garageid].CharacterId != Main.Players1[player].Character.Id)
                 {
                     player.SendChatMessage("Это не ваш гараж");
                     return;
                 }
-                if(Main.Garage[garageid].HouseId != -1 && Main.Houses.ContainsKey(Main.Garage[garageid].HouseId))
+                if (Main.Garage[garageid].HouseId != -1 && Main.Houses.ContainsKey(Main.Garage[garageid].HouseId))
                 {
-                    if(Main.Houses[Main.Garage[garageid].HouseId].CharacterId != Main.Players1[player].Character.Id)
+                    if (Main.Houses[Main.Garage[garageid].HouseId].CharacterId != Main.Players1[player].Character.Id)
                     {
                         player.SendChatMessage("Это не ваш гараж");
                         return;
                     }
                 }
-                if(Main.Garage[garageid].CharacterId == -1 && Main.Garage[garageid].HouseId == -1)
+                if (Main.Garage[garageid].CharacterId == -1 && Main.Garage[garageid].HouseId == -1)
                 {
                     player.SendChatMessage("Это не ваш гараж");
                     return;
@@ -272,7 +239,7 @@ namespace Server.vehicle
                     if (veh.Value._Garage.GarageId == garageid)
                     {
                         slots.Add(veh.Value._Garage.GarageSlot);
-                        if(slots.Count >= count)
+                        if (slots.Count >= count)
                         {
                             player.SendChatMessage("В гараже нету свободного места");
                             return;
@@ -280,7 +247,7 @@ namespace Server.vehicle
                     }
                 }
                 int slot = 0;
-                for(int i = 0; i < count; i++)
+                for (int i = 0; i < count; i++)
                 {
                     if (!slots.Contains(i))
                     {
@@ -291,7 +258,7 @@ namespace Server.vehicle
                 player.SendChatMessage($"Вы поставили транспорт {Main.Veh[carid].ModelHash} в гараж {Main.Garage[garageid].Id} слот {slot}");
                 Main.Veh[carid]._Garage.GarageId = garageid;
                 Main.Veh[carid]._Garage.GarageSlot = slot;
-
+                Main.Veh[carid]._Garage.Update();
                 var vehpos = Main.GarageTypes[Main.Garage[garageid].GarageType].VehiclePosition;
                 SpawnPlayerVehicle
                 (
@@ -312,24 +279,32 @@ namespace Server.vehicle
             }
         }
 
-        public static void LoadVehicleInPos(Player player, int carid, Vector3 pos, float rotatoin = 0f)
+        [ServerEvent(Event.VehicleDamage)]
+        public void OnVehicleDamage(Vehicle vehicle, float bodyHealthLose, float engineHealthLoss)
         {
-            if (Main.Veh[carid]._Veh != null) Main.Veh[carid]._Veh.Delete();//Удаляем машину
+            if (vehicle.Health < 100) vehicle.Repair();//todo протестировать
+        }
 
-            Main.Veh[carid]._Veh = NAPI.Vehicle.CreateVehicle(NAPI.Util.GetHashKey(Main.Veh[carid].ModelHash), pos, rotatoin, 0, 0);//и заного создаём
-            Main.Veh[carid]._Veh.SetSharedData("sh_Handling", Main.Veh[carid].Handling);
-            Main.Veh[carid]._Veh.SetSharedData("vehicleId", carid);
-            NAPI.Chat.SendChatMessageToPlayer(player, "На сервере " + carid);
-
-            NAPI.Task.Run(() =>
+        [ServerEvent(Event.VehicleDeath)]
+        public void OnVehicleDeath(Vehicle vehicle)//todo протестировать
+        {
+            if(vehicle.GetData<int>("CarId") != -1)
             {
-                player.TriggerEvent("add_SetHandling", Main.Veh[carid]._Veh.Handle, Main.Veh[carid].Handling);//todo Сделать синхронизацию между всеми игроками
-            });
-            //if (!Main.VehicleTunings.ContainsKey(carid))
-            //{
-            //    Tuning.LoadTunning(carid);
-            //}
-            //Tuning.ApplyTuning(Main.Veh[carid]._Veh, carid);
+                int carid = Convert.ToInt32(vehicle.GetData<int>("CarId"));
+                var vehpos = Main.GarageTypes[Main.Garage[Main.Veh[carid]._Garage.GarageId].GarageType].VehiclePosition;
+                SpawnPlayerVehicle
+                (
+                    Main.Veh[carid].Id,
+                    new Vector3
+                    (
+                        vehpos[Main.Veh[carid]._Garage.GarageSlot].Position.X,
+                        vehpos[Main.Veh[carid]._Garage.GarageSlot].Position.Y,
+                        vehpos[Main.Veh[carid]._Garage.GarageSlot].Position.Z
+                    ),
+                    vehpos[Main.Veh[carid]._Garage.GarageSlot].Rotation,
+                    (uint)Main.Veh[carid]._Garage.GarageId
+                );
+            }
         }
 
         [RemoteEvent("remote_RepairCar")]

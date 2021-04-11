@@ -49,7 +49,7 @@ namespace Server.character
                 if(clan.LoadByOtherId("CharacterId", Main.Players1[player].Character.Id))
                 { 
                     Main.Players1[player].Clan = clan;
-                    Main.Clans[Main.Players1[player].Clan.ClanId]._Members.Add(Main.Players1[player]);
+                    //Main.Clans[Main.Players1[player].Clan.ClanId]._Members.Add(Main.Players1[player]);
                 }
 
 

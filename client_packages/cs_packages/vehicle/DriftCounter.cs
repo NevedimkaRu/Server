@@ -28,6 +28,7 @@ namespace cs_packages.vehicle
             Events.Add("trigger_ResetDriftScore", ResetPlayerDriftScoreFromServer);
             Events.Add("trigger_GetPlayerScore", GetPlayerScore);
             //todo оптимизировать
+            
         }
         
         public void GetPlayerScore(object[] args)
@@ -41,6 +42,7 @@ namespace cs_packages.vehicle
             {
                 Events.Tick += UpdateSpeedometer;
                 //Дрифт счётчик
+                Events.Tick += UpdateSpeedometer;
                 vehicle.SetRadioEnabled(false);
                 vehHealth = vehicle.GetHealth();
                 if(driftHTML == null) 
@@ -63,6 +65,7 @@ namespace cs_packages.vehicle
                 multiplier = 1;
                 score = 0;
                 playerDrifting = false;
+                Events.Tick -= UpdateSpeedometer;
             }
         }
 

@@ -8,7 +8,7 @@ using Server.model;
 
 namespace Server.account
 {
-    //todo Сохранение аккаунтов
+    //todo Сохранение аккаунтов и переписать под async
     public class Api
     {
         public static void CreateAccount(Player player, string name, string password)
@@ -59,7 +59,7 @@ namespace Server.account
                     "`DriftScore`= @ds " +
                     "WHERE `Username`= @name"
                 };
-                cmd.Parameters.AddWithValue("@ds", Main.Players[player].DriftScore);
+                cmd.Parameters.AddWithValue("@ds", Main.Players1[player].Character.DriftScore);
 
                 await MySql.QueryAsync(cmd);
                 return true;

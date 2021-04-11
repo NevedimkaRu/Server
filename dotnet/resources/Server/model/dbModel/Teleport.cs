@@ -10,6 +10,7 @@ namespace Server.model
         public string Name { get; set; }
         public string Discription { get; set; }
         public Vector3 Position { get; set; }
+        public int Type { get; set; }
 
         public Teleport(string Name, string Discription, Vector3 Position)
         {
