@@ -16,14 +16,13 @@ namespace cs_packages.Interface
         MainMenu()
         {
             Input.Bind(VirtualKeys.M, true, ToggleMenu);
+            Input.Bind(VirtualKeys.RightButton, true, BackRouter);
             Input.Bind(VirtualKeys.Escape, true, CloseMenu);
             Events.Add("trigger_OpenMenuData", OpenMenuData);
             Events.Add("vui_spawnCar", SpawnCar);
             Events.Add("vui_isMenuOpen", ChangeMenuOpenStatus);
 
         }
-
-
 
         public static void ToggleMenu()
         {
@@ -36,6 +35,14 @@ namespace cs_packages.Interface
             else
             {
                 OpenMenu();
+            }
+        }
+
+        private void BackRouter()
+        {
+            if(isMenuOpen)
+            {
+                Vui.VuiExec("back()");
             }
         }
 

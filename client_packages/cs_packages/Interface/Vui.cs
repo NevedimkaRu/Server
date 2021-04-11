@@ -21,6 +21,13 @@ namespace cs_packages.Interface
         {
             index.ExecuteJs("VuiModals." + func);
         }
+
+        public static void VuiExec(string func)
+        {
+            index.ExecuteJs("Exec." + func);
+        }
+
+
         private void cmd(string cmd, Events.CancelEventArgs cancel)
         {
             string[] args = cmd.Split(new char[] { ' ' });
