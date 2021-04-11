@@ -45,6 +45,7 @@ namespace Server.Interface
                     housesData.houseId = house.Value.Id;
                     housesData.houseClosed = house.Value.Closed;
                     FinalData.houses.Add(housesData);
+                    break;
                 }
             }
 
