@@ -35,7 +35,9 @@ namespace Server.clan
                 }
                 Main.Clans.Add(model.Id, model);
                 Main.Clans[model.Id]._Ranks.Add(rank);
+                GetClanMembers(model.Id);
             }
+            
         }
 
         public static List<ClanMembers> GetClanMembers(int clanid)
@@ -93,21 +95,6 @@ namespace Server.clan
             {
                 player.SendChatMessage($"ID[{rank.Rank}] {rank.RankTitle}");
             }
-        }
-        
-        [Command("clan")]
-        public void cmd_Clan(Player player)
-        {
-            if (!Main.Players1.ContainsKey(player)) return;
-            if (Main.Players1[player].Clan == null) return;
-
-            ClanClient client = new ClanClient();
-            client.Title = Main.Clans[Main.Players1[player].Clan.ClanId].Title;
-            client.Ranks = Main.Clans[Main.Players1[player].Clan.ClanId]._Ranks;
-            client.Settings = Main.Clans[Main.Players1[player].Clan.ClanId]._Settings;
-            client.Members = GetClanMembers(Main.Players1[player].Clan.ClanId);
-            
-            player.TriggerEvent("trigger_ShowClanMenu", client);
         }
 
         [Command("dim")]

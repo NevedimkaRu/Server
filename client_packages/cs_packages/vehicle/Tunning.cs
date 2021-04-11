@@ -14,7 +14,7 @@ namespace cs_packages.vehicle
         public Tunning()
         {
             Input.Bind(VirtualKeys.F4, true, ShowTunningMenu);//f4
-            Input.Bind(VirtualKeys.Home, true, SendIndexTuning);
+            Input.Bind(VirtualKeys.Home, true, SendIndexTuning);//todo убрать
             Input.Bind(VirtualKeys.H, true, RepairCar);
         }
 
@@ -25,7 +25,6 @@ namespace cs_packages.vehicle
             {
                 int totalmods = Player.LocalPlayer.Vehicle.GetNumMods(i);
                 indexes.Add(totalmods);
-
             }
             Events.CallRemote("remote_SendIndexTuning", indexes);
         }

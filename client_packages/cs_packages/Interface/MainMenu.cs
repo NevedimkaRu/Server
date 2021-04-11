@@ -2,14 +2,14 @@
 using Newtonsoft.Json.Linq;
 using RAGE;
 using RAGE.Ui;
+using RAGE.Elements;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using static RAGE.Events;
 
 namespace cs_packages.Interface
 {
-    class MainMenu : Script
+    class MainMenu : Events.Script
     {
         //Кастомный сеттер
         private static bool isMenuOpen = false;
@@ -27,6 +27,8 @@ namespace cs_packages.Interface
 
         public static void ToggleMenu()
         {
+           
+            if (!(bool)Player.LocalPlayer._GetSharedData<bool>("IsSpawn")) return;
             if (isMenuOpen)
             {
                 CloseMenu();
@@ -57,7 +59,7 @@ namespace cs_packages.Interface
         //Эвент после получения данных открыть меню
         private void OpenMenuData(object[] args)
         {
-            Chat.Output("2");
+            Chat.Output(args[0].ToString());
             Vui.VuiModals("openMenu(" + args[0].ToString() + ")");
             //Vui.VuiModals("openMenu()");
         }
