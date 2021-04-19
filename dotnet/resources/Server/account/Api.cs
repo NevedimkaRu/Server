@@ -4,6 +4,7 @@ using System.Data;
 using System.Threading.Tasks;
 using GTANetworkAPI;
 using MySqlConnector;
+using Server.Interface;
 using Server.model;
 
 namespace Server.account
@@ -11,20 +12,28 @@ namespace Server.account
     //todo Сохранение аккаунтов и переписать под async
     public class Api
     {
-        public static void CreateAccount(Player player, string name, string password)
+        public static void CreateAccount(Player player, string name, string password, string characterName)
         {
 
 
-            PlayerModel model = new PlayerModel();
+            Account account = new Account();
+            if (account.GetByUserName(name)) 
+            {
+                player.TriggerEvent("trigger_RegisterError", "Аккаунта с таким логином уже существует");
+                return;
+            }
 
-            model.Account.Username = name;
-            model.Account.Password = password;
+            account.Username = name;
+            account.Password = password;
 
 
-            model.Account.Insert();
-
-            LoginAccount(player, name, password);
-
+            account.Insert();
+            PlayerModel playerModel = new PlayerModel();
+            playerModel.Account = account;
+            Main.Players1.Add(player, playerModel);
+            //todo Нужно сделать проверку на занятость ника именно здесь
+            character.Api.CreateCharacter(player, characterName);
+            player.TriggerEvent("trigger_FinishAuth");
         }
         public static void LoginAccount(Player player, string name, string password)
         {
@@ -32,13 +41,14 @@ namespace Server.account
             
             if(!account.GetByUserName(name))
             {
-                player.SendChatMessage("Такой аккаунт не существует.");
+                player.TriggerEvent("trigger_AuthError", "Такой аккаунт не существует");
                 return;
             }
 
             if (account.Password != password)
             {
-                player.SendChatMessage("Неправильный логин/пароль");
+                player.TriggerEvent("trigger_AuthError", "Неправильный логин/пароль");
+
                 return;
             }
             player.SendChatMessage($"Вы успешно авторизировались как {name}");
@@ -46,7 +56,8 @@ namespace Server.account
             playerModel.Account = account;
             Main.Players1.Add(player, playerModel);
             character.Api.LoadCharacter(player, account.Id);
-            
+
+            player.TriggerEvent("trigger_FinishAuth");
         }
 
         /*public async Task<bool> SaveAccount(Player player) 

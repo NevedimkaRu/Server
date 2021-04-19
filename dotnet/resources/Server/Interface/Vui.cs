@@ -7,6 +7,9 @@ namespace Server.Interface
 {
     class Vui : Script
     {
-
+        public static void ErrorNotify(Player player, string errorText)
+        {
+            player.TriggerEvent("trigger_ErrorNotify", errorText);
+        }
     }
 }

@@ -15,6 +15,12 @@ namespace cs_packages.Interface
         {
             index.Active = true;
             Events.OnPlayerCommand += cmd;
+            Events.Add("trigger_ErrorNotify", ErrorNotify);
+        }
+
+        private void ErrorNotify(object[] args)
+        {
+            Vui.Notify(args[0].ToString());
         }
 
         public static void VuiModals(string func)
@@ -24,7 +30,12 @@ namespace cs_packages.Interface
 
         public static void VuiExec(string func)
         {
-            index.ExecuteJs("Exec." + func);
+            index.ExecuteJs("Vui." + func);
+        }
+        public static void Notify(string text)
+        {
+            Chat.Output("ВЫёбывается");
+            index.ExecuteJs($"Vui.$q.notify('{text}')");
         }
 
 
@@ -33,11 +44,10 @@ namespace cs_packages.Interface
             string[] args = cmd.Split(new char[] { ' ' });
             string commandName = args[0].Trim(new char[] { '/' });
 
-            Chat.Output(commandName);
             if (commandName == "VUI")
             {
                 Chat.Output("1");
-                index.ExecuteJs(args[1].ToString());
+                index.ExecuteJs("console.log(mp)");
             }
             if (commandName == "unblur")
             {

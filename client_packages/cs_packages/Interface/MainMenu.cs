@@ -48,12 +48,18 @@ namespace cs_packages.Interface
 
         public static void CloseMenu()
         {
-            Vui.VuiModals("closeMenu()");
+            if (isMenuOpen)
+            {
+                //RAGE.Game.Pad.EnableAllControlActions(0);
+                Task.Run(() => {
+                    Vui.VuiModals("closeMenu()");
+                }, delayTime: 100);
+            }
         }
 
         public static void OpenMenu()
         {
-            Chat.Output("1");
+            //RAGE.Game.Pad.DisableControlAction(2, 202, true);
             Events.CallRemote("remote_PrepareMenuData");
         }
 

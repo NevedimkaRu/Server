@@ -16,6 +16,22 @@ namespace Server.account
             var account_api = new Api();
             account_api.SaveAccount(player).Wait();
         }*/
+
+        [RemoteEvent("remote_login")]
+        public void LoginAccount(Player player, string login, string password) 
+        {
+            Api.LoginAccount(player, login, password);
+        }
+
+        [RemoteEvent("remote_register")]
+        public void RegisterAccount(Player player, string login, string password, string characterName) 
+        {
+            Api.CreateAccount(player, login, password, characterName);
+        }
+
+
+
+
         [Command("login", GreedyArg = true)]
         public void cmd_Login(Player player, string name, string password)
         {
@@ -36,7 +52,7 @@ namespace Server.account
                 return;
             }
 
-            Api.CreateAccount(player, name, password);
+            //Api.CreateAccount(player, name, password);
         }
 
         [Command("createcharacter", GreedyArg = true)]
