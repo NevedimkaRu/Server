@@ -13,7 +13,7 @@ namespace Server.game.GameEvents
         public static GameEvent GE = new GameEvent();
         public static List<MapGameEvent> MapList = new List<MapGameEvent>();
 
-
+        [ServerEvent(Event.ResourceStart)]
         public static void ResourceStart()
         {
             LoadMaps();

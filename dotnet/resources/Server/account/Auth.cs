@@ -62,11 +62,5 @@ namespace Server.account
                 $"\n Level: {Main.Players1[player].Character.Level}"
                 );
         }
-
-        [ServerEvent(Event.PlayerConnected)]
-        public void OnPlayerConected(Player player)
-        {
-            player.SetSharedData("IsSpawn", false);
-        }
     }
 }

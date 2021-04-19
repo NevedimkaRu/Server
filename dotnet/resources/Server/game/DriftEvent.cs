@@ -2,12 +2,14 @@
 using System.Data;
 using GTANetworkAPI;
 using Server.model;
+using Server.utils;
 
 namespace Server.game
 {
     //todo Интерфейс, на 0 чекпоинте сделать 3d текст и можно чекпоинт, который показывает направление
     public class DriftEvent : Script
     {
+        [ServerEvent(Event.ResourceStart)]
         public static void ResourceStart()
         {
             DataTable dt = MySql.QueryRead("SELECT * FROM `traks`");
@@ -44,8 +46,7 @@ namespace Server.game
         [ServerEvent(Event.PlayerEnterColshape)]
         public void PlayerEnterColshape(ColShape colShape, Player player)
         {
-            if (!Main.Players1.ContainsKey(player)) return;
-            if (!Main.Players1[player].IsSpawn) return;
+            if (!Check.GetPlayerStatus(player, Check.PlayerStatus.Spawn)) return;
             if (player.Vehicle == null) return;
             if (Main.Players1[player].Track == null)
             {

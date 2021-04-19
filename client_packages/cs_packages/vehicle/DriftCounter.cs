@@ -6,6 +6,7 @@ using RAGE.Ui;
 //using RAGE.Game;
 using RAGE.Elements;
 using cs_packages.model;
+using cs_packages.utils;
 
 namespace cs_packages.vehicle
 {
@@ -38,7 +39,7 @@ namespace cs_packages.vehicle
 
         private void OnPlayerEnterVehicle(Vehicle vehicle, int seatId)
         {
-            if ((bool)Player.LocalPlayer.GetSharedData("IsSpawn"))
+            if (Check.GetPlayerStatus(Check.PlayerStatus.Spawn))
             {
                 Events.Tick += UpdateSpeedometer;
                 //Дрифт счётчик
@@ -59,7 +60,7 @@ namespace cs_packages.vehicle
         }
         public void OnPlayerLeaveVehicle(Vehicle vehicle, int seatId)//todo проверка на авторизацию
         {
-            if ((bool)Player.LocalPlayer.GetSharedData("IsSpawn"))
+            if (Check.GetPlayerStatus(Check.PlayerStatus.Spawn))
             {
                 Events.Tick -= UpdateSpeedometer;
                 multiplier = 1;

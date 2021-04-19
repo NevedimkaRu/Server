@@ -1,6 +1,7 @@
 ﻿using GTANetworkAPI;
 using Newtonsoft.Json;
 using Server.model;
+using Server.utils;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -72,8 +73,7 @@ namespace Server.house
         }
         public static void OnPlayerPressAltKey(Player player)
         {
-            if (!Main.Players1.ContainsKey(player)) return;
-            if (!Main.Players1[player].IsSpawn || player.Vehicle != null) return;
+            if (!Check.GetPlayerStatus(player, Check.PlayerStatus.Spawn) || player.Vehicle != null) return;
             foreach (var house in Main.Houses)
             {
                 if (player.Position.DistanceTo(house.Value.Position) < 1.3f)
@@ -168,9 +168,7 @@ namespace Server.house
 
         public void PlayerBuyHouse(Player player, int houseid)
         {
-            if (!Main.Houses.ContainsKey(houseid) 
-                || !Main.Players1.ContainsKey(player) 
-                || !Main.Players1[player].IsSpawn) return;
+            if (!Main.Houses.ContainsKey(houseid) || Check.GetPlayerStatus(player, Check.PlayerStatus.Spawn)) return;
 
             Main.Houses[houseid].CharacterId = Main.Players1[player].Character.Id;
 
