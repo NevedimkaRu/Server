@@ -6,6 +6,7 @@ using GTANetworkAPI;
 using System.Data;
 using MySqlConnector;
 using Newtonsoft.Json;
+using Server.utils;
 /*todo
 * Удаление Dictionary при выходе игрока с сервера(Veh, VehicleTunings) и сам транспорт
 * Скопипиздить синхронизацию транспорта с RedAge
@@ -179,10 +180,13 @@ namespace Server.vehicle
                     }
                     if (player.Vehicle != null)
                     {
-                        player.WarpOutOfVehicle();
 
                         int caridd = player.Vehicle.GetData<int>("CarId");
                         var vehpos = Main.GarageTypes[Main.Garage[Main.Veh[caridd]._Garage.GarageId].GarageType].VehiclePosition;
+                        if (Main.Veh[caridd].Id == carid) return;
+                        
+                        player.WarpOutOfVehicle();
+
                         Main.Veh[caridd]._Veh.Delete();
                         Main.Veh[caridd]._Veh = null;
                         SpawnPlayerVehicle
@@ -316,9 +320,14 @@ namespace Server.vehicle
                 NAPI.Vehicle.RepairVehicle(veh);
             }
         }
+        [RemoteEvent("remote_SpawnPlayerCar")]
+        public void Remote_SpawnPlayerVehicle(Player player, int carid)
+        {
+            LoadVehicle(player, carid);
+        }
 
             //Тестовые команды
-            [Command("car",GreedyArg = true)]
+        [Command("car",GreedyArg = true)]
         public void cmd_Car(Player player, string caridd)
         {
             if (!Main.Players1.ContainsKey(player)) return;

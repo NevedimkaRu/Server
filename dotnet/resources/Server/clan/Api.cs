@@ -35,7 +35,7 @@ namespace Server.clan
                 }
                 Main.Clans.Add(model.Id, model);
                 Main.Clans[model.Id]._Ranks.Add(rank);
-                GetClanMembers(model.Id);
+                //GetClanMembers(model.Id);
             }
             
         }

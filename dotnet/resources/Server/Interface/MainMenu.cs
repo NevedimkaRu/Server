@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Server.utils;
 
 namespace Server.Interface
 {
@@ -11,12 +12,14 @@ namespace Server.Interface
         [RemoteEvent("remote_PrepareMenuData")]
         public void PrepareMenuData(Player player)
         {
+            if (!Check.GetPlayerStatus(player, Check.PlayerStatus.Spawn)) return;
             string JsonData = getJsonMenuData(player);
             player.TriggerEvent("trigger_OpenMenuData", JsonData);
         }
 
         private string getJsonMenuData(Player player)
         {
+            
             dynamic FinalData = new JObject();
 
             FinalData.test = FinalData["testString"];

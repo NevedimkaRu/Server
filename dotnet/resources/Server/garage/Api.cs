@@ -5,6 +5,7 @@ using System.Text;
 using GTANetworkAPI;
 using Newtonsoft.Json;
 using Server.model;
+using Server.utils;
 
 namespace Server.garage
 {
@@ -14,7 +15,7 @@ namespace Server.garage
         [ServerEvent(Event.ResourceStart)]
         public void OnResourceStart()
         {
-            DataTable dt = MySql.QueryRead("SELECT * FROM `garage`");
+            DataTable dt = MySql.QueryRead("SELECT garage.*, character.Name FROM `garage` Left join `character` on garage.CharacterId = character.Id");
             if (dt == null || dt.Rows.Count == 0)
             {
                 return;
@@ -31,6 +32,7 @@ namespace Server.garage
                 model.Position = JsonConvert.DeserializeObject<Vector3>(row["Position"].ToString());
                 model.Rotation = Convert.ToSingle(row["Rotation"]);
                 model.Closed = Convert.ToBoolean(row["Closed"]);
+                model._Owner = Convert.ToString(row["Name"]);
 
                 model._Marker = NAPI.Marker.CreateMarker(36,
                        new Vector3(model.Position.X, model.Position.Y, model.Position.Z),
@@ -43,9 +45,7 @@ namespace Server.garage
                     model._TextLabel = NAPI.TextLabel.CreateTextLabel("Press \"E\" ", model.Position, 10.0f, 2.0f, 0, new Color(250, 250, 250));
                 }
                 else if(model.HouseId == -1 && model.CharacterId != -1)
-                {
-                    DataTable dtt = MySql.QueryRead($"SELECT `Name` FROM `character` WHERE `Id` = '{model.CharacterId}'");
-                    model._Owner = Convert.ToString(dtt.Rows[0]["Name"]);
+                {   
                     model._TextLabel = NAPI.TextLabel.CreateTextLabel(
                         $"Гараж {model.Id}" +
                         $"\nВладелец \"{model._Owner}\" ", 
@@ -152,9 +152,8 @@ namespace Server.garage
         }
         public void PlayerBuyGarage(Player player, int garageid)
         {
-            if (!Main.Garage.ContainsKey(garageid)
-                || !Main.Players1.ContainsKey(player)
-                || !Main.Players1[player].IsSpawn) return;
+            if (!Main.Garage.ContainsKey(garageid) || !Check.GetPlayerStatus(player, Check.PlayerStatus.Spawn)) 
+                return;
 
             Main.Garage[garageid].CharacterId = Main.Players1[player].Character.Id;
 
@@ -174,8 +173,7 @@ namespace Server.garage
         }
         public static void OnPlayerPressEKey(Player player)
         {
-            if (!Main.Players1.ContainsKey(player)) return;
-            if (!Main.Players1[player].IsSpawn || player.Vehicle == null) return;
+            if (!Check.GetPlayerStatus(player, Check.PlayerStatus.Spawn) || player.Vehicle == null) return;
 
             foreach (var garage in Main.GarageTypes)
             {
@@ -257,8 +255,7 @@ namespace Server.garage
         }
         public static void OnPlayerPressAltKey(Player player)
         {
-            if (!Main.Players1.ContainsKey(player)) return;
-            if (!Main.Players1[player].IsSpawn || player.Vehicle != null) return;
+            if (!Check.GetPlayerStatus(player, Check.PlayerStatus.Spawn) || player.Vehicle != null) return;
             foreach (var garage in Main.Garage)
             {
                 if (player.Position.DistanceTo(Main.GarageTypes[garage.Value.GarageType].Position) < 1.3f && garage.Value.Id == player.Dimension)
@@ -379,8 +376,7 @@ namespace Server.garage
         [Command("sellgarage", GreedyArg = true)]
         public void cmd_SellGarage(Player player, string garageid)
         {
-            if (!Main.Players1.ContainsKey(player)) return;
-            if (!Main.Players1[player].IsSpawn) return;
+            if (!Check.GetPlayerStatus(player, Check.PlayerStatus.Spawn)) return;
             if (!Main.Garage.ContainsKey(Convert.ToInt32(garageid)))
             {
                 player.SendChatMessage("Гараж с таким id не существует.");

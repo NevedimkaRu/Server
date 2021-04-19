@@ -3049,3 +3049,339 @@ Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JOb
 
 ==================[10.04.2021 20:00:34]==================
 Microsof
+==================[11.04.2021 18:52:03]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'test'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[11.04.2021 18:52:03]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'cars'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[11.04.2021 18:52:03]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carId'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[11.04.2021 18:52:03]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carName'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[11.04.2021 18:52:03]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'cars'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[11.04.2021 18:52:03]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carName'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[11.04.2021 18:52:03]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houses'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[11.04.2021 18:52:03]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houseId'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[11.04.2021 18:52:03]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houseClosed'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[11.04.2021 18:52:03]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houses'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(I
+==================[11.04.2021 18:56:14]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'test'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[11.04.2021 18:56:14]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'cars'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[11.04.2021 18:56:14]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carId'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[11.04.2021 18:56:14]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carName'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[11.04.2021 18:56:14]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'cars'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[11.04.2021 18:56:14]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carName'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[11.04.2021 18:56:14]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houses'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[11.04.2021 18:56:14]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houseId'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[11.04.2021 18:56:14]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houseClosed'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[11.04.2021 18:56:14]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houses'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(I
+==================[18.04.2021 21:36:51]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'test'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:36:51]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'cars'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:36:51]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carId'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:36:51]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carName'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:36:51]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'cars'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:36:51]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carName'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:36:51]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houses'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:36:51]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houseId'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:36:51]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houseClosed'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:36:51]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houses'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(I
+==================[18.04.2021 21:37:42]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'test'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:37:42]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'cars'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:37:42]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carId'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:37:42]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carName'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:37:42]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'cars'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:37:42]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carName'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:37:42]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houses'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:37:42]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houseId'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:37:42]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houseClosed'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:37:42]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houses'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(I
+==================[18.04.2021 21:47:20]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'test'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:47:20]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'cars'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:47:20]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carId'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:47:20]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carName'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:47:20]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'cars'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:47:20]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carName'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:47:20]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houses'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:47:20]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houseId'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:47:20]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houseClosed'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:47:20]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houses'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(I
+==================[18.04.2021 21:56:39]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'test'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:56:39]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'cars'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:56:39]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carId'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:56:39]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carName'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:56:39]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'cars'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:56:39]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carName'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:56:39]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houses'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:56:39]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houseId'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:56:39]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houseClosed'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:56:39]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houses'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(I
+==================[18.04.2021 21:57:57]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'test'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:57:57]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'cars'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:57:57]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carId'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:57:57]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carName'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:57:57]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'cars'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:57:57]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'carName'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:57:57]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houses'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:57:57]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houseId'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:57:57]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houseClosed'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(ICSharpBinder payload, ArgumentObject argument, LocalVariableSymbol local, Expr optionalIndexerArguments)
+=========================================================
+
+==================[18.04.2021 21:57:57]==================
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'Newtonsoft.Json.Linq.JObject' does not contain a definition for 'houses'
+   at Expr Microsoft.CSharp.RuntimeBinder.RuntimeBinder.BindProperty(I

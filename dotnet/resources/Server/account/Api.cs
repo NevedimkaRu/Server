@@ -60,6 +60,11 @@ namespace Server.account
             player.TriggerEvent("trigger_FinishAuth");
         }
 
+        [ServerEvent(Event.PlayerConnected)]
+        public void OnPlayerConnected(Player player)
+        {
+            player.SetSharedData("IsSpawn", false);
+        }
         /*public async Task<bool> SaveAccount(Player player) 
         {
             try
