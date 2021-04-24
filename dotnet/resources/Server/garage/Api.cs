@@ -200,14 +200,6 @@ namespace Server.garage
                             });
                             Main.Players1[player].HouseId = -1;
                             Main.Players1[player].GarageId = -1;
-                            NAPI.Task.Run(() =>
-                            {
-                                player.TriggerEvent("add_SetHandling", veh.Value._Veh.Handle, veh.Value.Handling);//todo Сделать синхронизацию между всеми игроками
-                            });
-                            NAPI.Task.Run(() => //todo КОСТЫЛЬ
-                            {
-                                veh.Value._Veh.SetMod(11, Main.VehicleTunings[veh.Value.Id].Engine);
-                            }, delayTime: 2000);
                             return;
                         }
                     }

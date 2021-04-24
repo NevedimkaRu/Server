@@ -20,32 +20,12 @@ namespace Server.teleport
 
             player.SendChatMessage($"Вы создали телепорт:[{model.Id}] {model.Name} - {model.Discription} - {model.Position}");
 
-            LoadTeleports();
+             Main.Teleports.Add(model);
 
         }
-
-        /*[ServerEvent(Event.ResourceStart)]
-        public static void CreateTeleportTest()
-        {
-            Teleport model = new Teleport();
-            model.Name = "test";
-            model.Discription = "test23213";
-
-            model.SetId(5);
-            model.Discription = "test2";
-            model.Name = "Порт ЛС2 тест";
-            model.Update("Name,Discription");
-            model.SetId(5);
-
-            NAPI.Util.ConsoleOutput("================================");
-            NAPI.Util.ConsoleOutput(model.Id.ToString() + " | " + model.Name + " | " + model.Discription);
-            NAPI.Util.ConsoleOutput("================================");
-        }*/
-
+        [ServerEvent(Event.ResourceStart)]
         public static void LoadTeleports()
         {
-            var tp = new Teleport();
-
             DataTable dt = MySql.QueryRead("SELECT * FROM `teleport`");
             if (dt == null || dt.Rows.Count == 0)
             {
@@ -54,22 +34,14 @@ namespace Server.teleport
 
             foreach (DataRow row in dt.Rows)
             {
-                int teleportid = Convert.ToInt32(row["Id"]);
-                Teleport model = new Teleport(teleportid,
-                    Convert.ToString(row["Name"]),
-                    Convert.ToString(row["Discription"]),
-                    JsonConvert.DeserializeObject<Vector3>(row["Position"].ToString()));
-                
-                if(!Main.Teleports.ContainsKey(teleportid)) Main.Teleports.Add(teleportid, model);
-                NAPI.Util.ConsoleOutput($"{model.Id} - {model.Name} - {model.Discription} - {model.Position}");
+                Teleport model = new Teleport();
+                model.Id = Convert.ToInt32(row["Id"]);
+                model.Name = Convert.ToString(row["Name"]);
+                model.Discription = Convert.ToString(row["Discription"]);
+                model.Position = JsonConvert.DeserializeObject<Vector3>(row["Position"].ToString());
+                Main.Teleports.Add(model);
             }
             NAPI.Util.ConsoleOutput("Teleports load");
-        }
-
-        [ServerEvent(Event.ResourceStart)]
-        public static void onResourceStart()
-        {
-            LoadTeleports();
         }
     }
 }

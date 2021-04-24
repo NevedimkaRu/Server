@@ -174,22 +174,6 @@ namespace Server
                 return QueryRead(cmd);
             }
         }
-
-        public static void TestQuery() // Пример создания нового поля в таблице. Аналогично обновление в полях.
-        {
-            string sql = "INSERT INTO `accounts`(`Username`, `Password`) VALUES ('Nico', '123')";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
-        }
-
-        public static int InsertReq(object[] args)
-        {
-            for (int i = 0; i < args.Length; i++ )
-            {
-               
-            }
-            return 1;
-        }
     }
 }
             

@@ -1,4 +1,5 @@
-﻿using RAGE;
+﻿using cs_packages.model;
+using RAGE;
 using RAGE.Game;
 using System;
 using System.Collections.Generic;
@@ -45,6 +46,7 @@ namespace cs_packages.Interface
             MainMenu.CloseMenu();
             RemoveCam();
             Chat.Activate(true);
+            ThisPlayer.IsSpawn = true;
         }
 
         private void RegisterAccount(object[] args)

@@ -4,6 +4,7 @@ using System.Text;
 using Server.model;
 using GTANetworkAPI;
 using System.Data;
+using Server.model;
 using MySqlConnector;
 using Newtonsoft.Json;
 using Server.utils;
@@ -15,6 +16,7 @@ namespace Server.vehicle
 {
     public class Api : Script
     {
+        
         public void AddVehicle(int charid, string vehhash, out int carid)
         {
             Vehicles veh = new Vehicles();
@@ -35,6 +37,7 @@ namespace Server.vehicle
             Main.Veh.Add(id, veh);
             MySql.Query($"INSERT INTO `vehicletuning` (`CarId`) VALUES ('{veh.Id}')");
             Tuning.LoadTunning(veh.Id);
+            //Handling.CreateDefaultHandling(veh.Id, 0);
         }
         public void DestroyCar(Player player, int carid)
         {
@@ -59,7 +62,10 @@ namespace Server.vehicle
                 model.ModelHash = Convert.ToString(row["ModelHash"]);
                 model.OwnerId = Convert.ToInt32(row["OwnerId"]);
                 model.Handling = Convert.ToInt32(row["Handling"]);
-
+                if(model.Handling > 2 && Main.Players1[player].Character.Vip == 0 || model.Handling > 5)
+                {
+                    model.Handling = 0;
+                }
                 VehiclesGarage garage = new VehiclesGarage();
                 garage.VehicleId = Convert.ToInt32(row["VehicleId"]);
                 garage.GarageId = Convert.ToInt32(row["GarageId"]);
@@ -71,6 +77,7 @@ namespace Server.vehicle
                 {
                     Main.Veh.Add(model.Id, model);
                 }
+                Handling.LoadVehicleHandling(model.Id);
             }
 
             foreach (var veh in Main.Veh)
@@ -137,6 +144,7 @@ namespace Server.vehicle
                 Tuning.ApplyTuning(Main.Veh[carid]._Veh, carid);
                 Main.Veh[carid]._Veh.SetData<int>("CarId", carid);
                 Main.Veh[carid]._Veh.SetSharedData("sd_Handling", Main.Veh[carid].Handling);
+                Main.Veh[carid]._Veh.SetSharedData("sd_Handling1", Main.Veh[carid]._HandlingData.Find(c => c.Slot == Main.Veh[carid].Handling));
                 Main.Veh[carid]._Veh.SetSharedData("sd_EngineMod", Main.VehicleTunings[carid].Engine);
             }
         }

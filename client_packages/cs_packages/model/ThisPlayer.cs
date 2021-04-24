@@ -7,6 +7,6 @@ namespace cs_packages.model
     public static class ThisPlayer
     {
         public static int Score { get; set; }
-
+        public static bool IsSpawn { get; set; } = false;
     }
 }
