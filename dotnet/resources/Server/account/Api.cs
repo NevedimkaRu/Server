@@ -33,7 +33,7 @@ namespace Server.account
             Main.Players1.Add(player, playerModel);
             //todo Нужно сделать проверку на занятость ника именно здесь
             character.Api.CreateCharacter(player, characterName);
-            player.TriggerEvent("trigger_FinishAuth");
+            player.TriggerEvent("trigger_FinishRegister");
         }
         public static void LoginAccount(Player player, string name, string password)
         {
