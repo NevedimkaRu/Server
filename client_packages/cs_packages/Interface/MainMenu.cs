@@ -7,6 +7,7 @@ using cs_packages.utils;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using cs_packages.model;
 
 namespace cs_packages.Interface
 {
@@ -33,7 +34,8 @@ namespace cs_packages.Interface
 
         public static void ToggleMenu()
         {
-            if (Check.GetPlayerStatus(Check.PlayerStatus.OpenChat)) return;
+            if (!ThisPlayer.IsSpawn) return;
+            if (!Check.GetPlayerStatus(Check.PlayerStatus.OpenChat))
             if (isMenuOpen)
             {
                 Vui.CloseModals();

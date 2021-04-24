@@ -1,4 +1,5 @@
-﻿using RAGE;
+﻿using cs_packages.model;
+using RAGE;
 using RAGE.Game;
 using System;
 using System.Collections.Generic;
@@ -49,6 +50,8 @@ namespace cs_packages.Interface
             RemoveCam();
             RAGE.Elements.Player.LocalPlayer.Position = new Vector3(-427.4464f, 1116.9916f, 326.76862f);
             RAGE.Elements.Player.LocalPlayer.SetRotation(0, 0, -20.288025f, 2, true);
+            Chat.Activate(true);
+            ThisPlayer.IsSpawn = true;
         }
 
         private void RegisterAccount(object[] args)

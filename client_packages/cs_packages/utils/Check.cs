@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using cs_packages.model;
 using RAGE;
 namespace cs_packages.utils
 {
@@ -14,13 +15,9 @@ namespace cs_packages.utils
         };
         public static bool GetPlayerStatus(PlayerStatus status)
         {
-            if (!(bool)RAGE.Elements.Player.LocalPlayer._GetSharedData<bool>("IsSpawn")) return false;
+            if (ThisPlayer.IsSpawn == false) return false;
             switch (status)
             {
-                case PlayerStatus.Spawn:
-                    {
-                        return true;
-                    }
                 case PlayerStatus.OpenChat:
                     {
                        return RAGE.Elements.Player.LocalPlayer.IsTypingInTextChat;
@@ -29,7 +26,6 @@ namespace cs_packages.utils
                     {
                         return false;
                     }
-
             }
 
             return true;

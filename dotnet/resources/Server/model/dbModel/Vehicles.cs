@@ -10,7 +10,9 @@ namespace Server.model
         public string ModelHash { get; set; }
         public int OwnerId { get; set; }
         public int Handling { get; set; }
+        public List<VehicleHandling> _HandlingData = new List<VehicleHandling>();
         public VehiclesGarage _Garage { get; set; }
+        
 
         //temp
         public Vehicle _Veh { get; set; }

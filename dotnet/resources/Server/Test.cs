@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Collections.Generic;
 using GTANetworkAPI;
 
 namespace Server
@@ -93,7 +94,7 @@ namespace Server
         public void cmd_Teleport(Player player, string teleportid)
         {
             int id = Convert.ToInt32(teleportid);
-            if (Main.Teleports.ContainsKey(id))
+            if (Main.Teleports.Find(c => c.Id == id) != null)
             {
                 player.Position = (Main.Teleports[id].Position);
             }
@@ -161,6 +162,15 @@ namespace Server
             if (player.Vehicle == null) return;
             player.Vehicle.PrimaryColor = Convert.ToInt32(primary);
             player.Vehicle.SecondaryColor = Convert.ToInt32(second);
+        }
+        [Command("setclothes", GreedyArg = true)]
+        public static void cmd_SetClothes(Player player, string slot, string drawable, string texture)
+        {
+            Dictionary<int, ComponentVariation> clothDictionary = new Dictionary<int, ComponentVariation>();
+            clothDictionary.Add(Convert.ToInt32(slot), new ComponentVariation { Drawable = Convert.ToInt32(drawable), Texture = Convert.ToInt32(texture) });
+            //NAPI.Player.SetPlayerClothes(player, clothDictionary);
+            player.SetClothes(clothDictionary);
+            player.SendChatMessage(NAPI.Util.GetHashKey("radmir_clothes").ToString());
         }
 
     }

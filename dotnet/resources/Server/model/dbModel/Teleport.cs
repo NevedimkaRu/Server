@@ -23,13 +23,5 @@ namespace Server.model
         { 
         
         }
-
-        public Teleport(int Id, string Name, string Discription, Vector3 Position)
-        {
-            this.Id = Id;
-            this.Name = Name;
-            this.Discription = Discription;
-            this.Position = Position;
-        }
     }
 }

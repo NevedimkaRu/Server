@@ -50,7 +50,7 @@ namespace cs_packages.game.GameEvents
         {
             Vector3 pos = (Vector3)args[0];
             Vehicle veh = (Vehicle)args[1];
-            int handlingId = Convert.ToInt32(args[2]);
+            //int handlingId = Convert.ToInt32(args[2]);
             Player.LocalPlayer.Position = pos;
             if (veh != null)
             {
@@ -61,7 +61,7 @@ namespace cs_packages.game.GameEvents
                     Player.LocalPlayer.SetIntoVehicle(veh.Handle, -1);
                     //RAGE.Game.Pad.DisableControlAction(1, 75, true);
                     veh.SetRadioEnabled(false);
-                    vehicle.Handling.SetHandlingChain(veh, handlingId);
+                    //vehicle.Handling.SetHandlingChain(veh, handlingId);
                     Player.LocalPlayer.FreezePosition(true);
                     //if (Player.LocalPlayer.Vehicle != null) Player.LocalPlayer.Vehicle.FreezePosition(true);
                     Events.CallRemote("remote_readyDriftBattle");
@@ -74,7 +74,7 @@ namespace cs_packages.game.GameEvents
                         Player.LocalPlayer.SetIntoVehicle(veh.Handle, -1);
                         //RAGE.Game.Pad.DisableControlAction(1, 75, true);
                         veh.SetRadioEnabled(false);
-                        vehicle.Handling.SetHandlingChain(veh, handlingId);
+                        //vehicle.Handling.SetHandlingChain(veh, handlingId);
                         Player.LocalPlayer.FreezePosition(true);
                         //if(Player.LocalPlayer.Vehicle != null) Player.LocalPlayer.Vehicle.FreezePosition(true);
                         Events.CallRemote("remote_readyDriftBattle");

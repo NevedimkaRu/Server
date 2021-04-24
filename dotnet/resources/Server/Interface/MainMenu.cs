@@ -71,10 +71,10 @@ namespace Server.Interface
             foreach(var teleport in Main.Teleports)
             {
                 dynamic teleportData = new JObject();
-                teleportData.tpId = teleport.Value.Id;
-                teleportData.tpName = teleport.Value.Name;
-                teleportData.tpDiscription = teleport.Value.Discription;
-                teleportData.tpType = teleport.Value.Type;
+                teleportData.tpId = teleport.Id;
+                teleportData.tpName = teleport.Name;
+                teleportData.tpDiscription = teleport.Discription;
+                teleportData.tpType = teleport.Type;
 
                 FinalData.teleports.Add(teleportData);
             }
