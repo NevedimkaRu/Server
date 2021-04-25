@@ -13,7 +13,6 @@ namespace cs_packages.Interface
 {
     class MainMenu : Events.Script
     {
-        //Кастомный сеттер
         private static bool isMenuOpen = false;
         MainMenu()
         {
@@ -25,13 +24,21 @@ namespace cs_packages.Interface
             Events.Add("vui_isMenuOpen", ChangeMenuOpenStatus);
         }
 
+        private void CloseMenu()
+        {
+            Task.Run(() =>
+            {
+                Vui.CloseModals();
+            }, delayTime: 100);
+        }
+
         public static void ToggleMenu()
         {
             if (!ThisPlayer.IsSpawn) return;
             if (!Check.GetPlayerStatus(Check.PlayerStatus.OpenChat))
             if (isMenuOpen)
             {
-                CloseMenu();
+                Vui.CloseModals();
             }
             else
             {
@@ -44,18 +51,6 @@ namespace cs_packages.Interface
             if(isMenuOpen)
             {
                 Vui.VuiExec("back()");
-            }
-        }
-
-        public static void CloseMenu()
-        {
-            Chat.Activate(true);
-            if (isMenuOpen)
-            {
-                //RAGE.Game.Pad.EnableAllControlActions(0);
-                Task.Run(() => {
-                    Vui.VuiModals("closeMenu()");
-                }, delayTime: 100);
             }
         }
 
@@ -97,10 +92,7 @@ namespace cs_packages.Interface
             {
                 RAGE.Game.Graphics.TransitionFromBlurred(0);
                 RAGE.Ui.Cursor.Visible = false;
-                Vui.index.Active = false;
-                Vui.index.Active = true;
             }
-
         }
     }
 }

@@ -29,8 +29,8 @@ namespace Server.account
             playerModel.Account = account;
             Main.Players1.Add(player, playerModel);
             //todo Нужно сделать проверку на занятость ника именно здесь
-            await character.Api.CreateCharacter(player, characterName);
-            player.TriggerEvent("trigger_FinishAuth");
+            character.Api.CreateCharacter(player, characterName);
+            player.TriggerEvent("trigger_FinishRegister");
         }
         public static async Task LoginAccount(Player player, string name, string password)
         {

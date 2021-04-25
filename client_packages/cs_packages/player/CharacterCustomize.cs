@@ -6,12 +6,14 @@ using cs_packages.utils;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using cs_packages.Interface;
+using Newtonsoft.Json;
 
 namespace cs_packages.player
 {
     class CharacterCustomize : Events.Script
     {
-        Customize model = new Customize();
+        public static Customize model = new Customize();
         private bool menuactive = false;
 
         List<object> fathers = new List<object> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 42, 43, 44 };
@@ -25,27 +27,27 @@ namespace cs_packages.player
             new List<object>{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 31, 76, 77, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 90, 91}
         };
 
-        List<List<int>> validTorsoIDs = new List<List<int>>{
+        static List<List<int>> validTorsoIDs = new List<List<int>>{
             new List<int>{ 0, 0, 2, 14, 14, 5, 14, 14, 8, 0, 14, 15, 12 },
             new List<int>{ 0, 5, 2, 3, 4, 4, 5, 5, 5, 0 }
         };
 
-        int outClothes = 1;
-        int pants = 0;
-        int shoes = 1;
+        static int outClothes = 1;
+        static int pants = 0;
+        static int shoes = 1;
 
-        int hair = 0;
-        int hairColor = 0;
-        int eyeColor = 0;
+        static int hair = 0;
+        static int hairColor = 0;
+        static int eyeColor = 0;
 
-        bool gender = true;
-        int father = 0;
-        int mother = 21;
-        float similarity = 0.5f;
-        float skin = 0.5f;
+        static bool gender = true;
+        static int father = 0;
+        static int mother = 21;
+        static float similarity = 0.5f;
+        static float skin = 0.5f;
 
-        List<float> features = getFeaturesList();
-        List<int> appearance = getAppearanceList();
+        static List<float> features = getFeaturesList();
+        static List<int> appearance = getAppearanceList();
 
 
         //Eventы для вызова с js Файла
@@ -53,8 +55,34 @@ namespace cs_packages.player
         {
             Input.Bind(0x72, true, ShowCharacterCustomizeMenu);//f3
             Events.OnPlayerCommand += OnPlayerCommand;
+            Events.Add("trigger_setCharacterCostumize", SetCharacterCostumize);
+            //Events.OnPlayerSpawn += OnPlayerSpawn;
             //Events.Add("changeCharacterGender", OnChangeCharacterGender);
             //Events.Add("EditorList", onEditorList);
+        }
+
+        public static void SetDefaultModel()
+        {
+            Vui.VuiModals($"CharacterEditor.fillData({model})");
+            OnChangeCharacterGender();
+        }
+
+        private void SetCharacterCostumize(object[] args)
+        {
+            model = JsonConvert.DeserializeObject<Customize>(args[0].ToString());
+            Vui.VuiModals($"CharacterEditor.fillData({model})");
+        }
+
+        public static void UpdatePlayerByModel(Customize c)
+        {
+            foreach (var obj in model.GetType().GetProperties())
+            {
+                if(obj.GetValue(model) != obj.GetValue(c))
+                {
+                    obj.SetValue(model, obj.GetValue(c));
+                    Update(obj.Name);   
+                }
+            }
         }
 
         private MenuPool menuPool;
@@ -419,7 +447,7 @@ namespace cs_packages.player
             Update(field);
         }
 
-        public void UpdateCharacterParents()
+        public static void UpdateCharacterParents()
         {
             Player.LocalPlayer.SetHeadBlendData(
                 model.mother,
@@ -437,7 +465,7 @@ namespace cs_packages.player
                 true
             );
         }
-        public void UpdateCharacterHair()
+        public static void UpdateCharacterHair()
         {
             // hair
             Player.LocalPlayer.SetComponentVariation(2, model.hair, 0, 0);
@@ -451,7 +479,7 @@ namespace cs_packages.player
             // eye color
             Player.LocalPlayer.SetEyeColor(model.eyeColor);
         }
-        public void Update(string f)
+        public static void Update(string f)
         {
             switch (f)
             {
@@ -504,7 +532,7 @@ namespace cs_packages.player
             }
         }
 
-        public void OnChangeCharacterGender()
+        public static void OnChangeCharacterGender()
         {
             if (model.gender)
             {
@@ -528,7 +556,7 @@ namespace cs_packages.player
 
         }
 
-        public void UpdateClothes()
+        public static void UpdateClothes()
         {
             Player.LocalPlayer.SetComponentVariation(11, outClothes, 1, 0);
             Player.LocalPlayer.SetComponentVariation(4, pants, 1, 0);
@@ -538,7 +566,7 @@ namespace cs_packages.player
             Player.LocalPlayer.SetComponentVariation(3, validTorsoIDs[currentGender][outClothes], 0, 0);
         }
 
-        public void OnSaveCharacter()
+        public static void OnSaveCharacter()
         {
             Chat.Output("Сохранение идёт");
             Events.CallRemote("remote_SaveCustomization", model);
@@ -566,7 +594,7 @@ namespace cs_packages.player
             return list;
         }
 
-        public void UpdateAllModel() 
+        public static void UpdateAllModel() 
         {
             foreach (var obj in model.GetType().GetProperties())
             {
@@ -582,6 +610,16 @@ namespace cs_packages.player
         {
             string[] args = cmd.Split(new char[] { ' ' });
             string commandName = args[0].Trim(new char[] { '/' });
+            if (commandName == "cetest")
+            {
+                Vui.VuiModals("openCharacterEditor()");
+                Events.CallRemote("remote_GetCharacterCostumize");
+                return;
+            }
+            if (commandName == "ce")
+            {
+                CharacterEditor.OpenMenu();
+            }
             if (commandName == "tp1") 
             {
                 Player.LocalPlayer.Position = new Vector3(402.5164f, -1002.847f, -99.2587f);

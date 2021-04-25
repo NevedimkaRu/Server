@@ -18,6 +18,10 @@ namespace cs_packages.Interface
             Events.Add("trigger_ErrorNotify", ErrorNotify);
         }
 
+        public static void CloseModals()
+        {
+            VuiModals("closeMenu()");
+        }
         private void ErrorNotify(object[] args)
         {
             Vui.Notify(args[0].ToString());
@@ -34,7 +38,6 @@ namespace cs_packages.Interface
         }
         public static void Notify(string text)
         {
-            Chat.Output("ВЫёбывается");
             index.ExecuteJs($"Vui.$q.notify('{text}')");
         }
 
