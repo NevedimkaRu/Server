@@ -7,5 +7,6 @@
 	"csharp" : "true",
 	"port": 22005,
 	"resources-compression-level" : 0,
-	"allow-cef-debugging": true
+	"allow-cef-debugging": true,
+	"api-threading-debugging" : false
 }

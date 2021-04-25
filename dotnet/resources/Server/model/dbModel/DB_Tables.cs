@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Server.model
 {
@@ -176,6 +177,47 @@ namespace Server.model
             MySql.Query(sql, props);
 
         }
+        /*public async Task UpdateAsync(string fields)
+        {
+            string tbname = this.GetType().Name;
+
+            Dictionary<string, object> props = new Dictionary<string, object>();
+
+            foreach (var obj in this.GetType().GetProperties())
+            {
+                string fldName = obj.Name;
+                object value = obj.GetValue(this, null);
+                if (fldName != "Id" && value != null && IsDbTable(fldName))
+                {
+                    if (obj.PropertyType.Name == "List`1")
+                    {
+                        List<Vector3> val = (List<Vector3>)value;
+                        props.Add(fldName, utils.Parser.ParseFromListVector3(val));
+                    }
+                    else
+                    {
+                        props.Add(fldName, value);
+                    }
+                }
+            }
+            string[] flds = fields.Split(",");
+
+            string valuesParamStr = "";
+
+            foreach (string f in flds)
+            {
+                valuesParamStr += "`" + f + "` = @" + f + ",";
+            }
+            valuesParamStr = valuesParamStr.Remove(valuesParamStr.Length - 1, 1);
+
+
+
+            string sql = $"update `{tbname.ToLower()}` " +
+            $"set {valuesParamStr}" +
+            $" where id = {this.Id}";
+            MySql.QueryAsync(sql, props);
+
+        }*/
 
         public bool LoadByOtherId(string field, int fldId) 
         {

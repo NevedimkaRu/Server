@@ -4,10 +4,10 @@ using System.Text;
 using Server.model;
 using GTANetworkAPI;
 using System.Data;
-using Server.model;
 using MySqlConnector;
 using Newtonsoft.Json;
 using Server.utils;
+using System.Threading.Tasks;
 /*todo
 * Удаление Dictionary при выходе игрока с сервера(Veh, VehicleTunings) и сам транспорт
 * Скопипиздить синхронизацию транспорта с RedAge
@@ -46,10 +46,10 @@ namespace Server.vehicle
             Main.VehicleTunings.Remove(carid);
             player.SendChatMessage("Destroy");
         }
-        public static void LoadPlayerVehice(Player player)
+        public static async Task LoadPlayerVehice(Player player)
         {
             if (!Main.Players1.ContainsKey(player)) return;
-            DataTable dt = MySql.QueryRead($"SELECT * FROM `vehicles` JOIN `vehiclesgarage` ON vehicles.Id = vehiclesgarage.VehicleId WHERE vehicles.OwnerId = '{Main.Players1[player].Character.Id}'");
+            DataTable dt = await MySql.QueryReadAsync($"SELECT * FROM `vehicles` JOIN `vehiclesgarage` ON vehicles.Id = vehiclesgarage.VehicleId WHERE vehicles.OwnerId = '{Main.Players1[player].Character.Id}'");
             if (dt == null || dt.Rows.Count == 0)
             {
                 return;
@@ -129,23 +129,26 @@ namespace Server.vehicle
             }
             else
             {
-                Main.Veh[carid]._Veh = NAPI.Vehicle.CreateVehicle(
-                    NAPI.Util.GetHashKey(Main.Veh[carid].ModelHash),
-                    new Vector3(position.X, position.Y, position.Z),
-                    rotation,
-                    0,
-                    0,
-                    "NOMER",
-                    255,
-                    false,
-                    true,
-                    dimension);
-                if (!Main.VehicleTunings.ContainsKey(carid)) Tuning.LoadTunning(Main.Veh[carid].Id);
-                Tuning.ApplyTuning(Main.Veh[carid]._Veh, carid);
-                Main.Veh[carid]._Veh.SetData<int>("CarId", carid);
-                Main.Veh[carid]._Veh.SetSharedData("sd_Handling", Main.Veh[carid].Handling);
-                Main.Veh[carid]._Veh.SetSharedData("sd_Handling1", Main.Veh[carid]._HandlingData.Find(c => c.Slot == Main.Veh[carid].Handling));
-                Main.Veh[carid]._Veh.SetSharedData("sd_EngineMod", Main.VehicleTunings[carid].Engine);
+                NAPI.Task.Run(() =>
+                {
+                    Main.Veh[carid]._Veh = NAPI.Vehicle.CreateVehicle(
+                        NAPI.Util.GetHashKey(Main.Veh[carid].ModelHash),
+                        new Vector3(position.X, position.Y, position.Z),
+                        rotation,
+                        0,
+                        0,
+                        "NOMER",
+                        255,
+                        false,
+                        true,
+                        dimension);
+                    if (!Main.VehicleTunings.ContainsKey(carid)) Tuning.LoadTunning(Main.Veh[carid].Id);
+                    Tuning.ApplyTuning(Main.Veh[carid]._Veh, carid);
+                    Main.Veh[carid]._Veh.SetData<int>("CarId", carid);
+                    Main.Veh[carid]._Veh.SetSharedData("sd_Handling", Main.Veh[carid].Handling);
+                    Main.Veh[carid]._Veh.SetSharedData("sd_Handling1", Main.Veh[carid]._HandlingData.Find(c => c.Slot == Main.Veh[carid].Handling));
+                    Main.Veh[carid]._Veh.SetSharedData("sd_EngineMod", Main.VehicleTunings[carid].Engine);
+                });
             }
         }
         public void LoadVehicle(Player player, int carid)//todo сделать проверку на наличие гаража для машины

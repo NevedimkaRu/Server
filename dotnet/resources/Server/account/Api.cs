@@ -9,15 +9,12 @@ using Server.model;
 
 namespace Server.account
 {
-    //todo Сохранение аккаунтов и переписать под async
-    public class Api
+    public class Api : Script
     {
-        public static void CreateAccount(Player player, string name, string password, string characterName)
+        public static async Task CreateAccount(Player player, string name, string password, string characterName)
         {
-
-
             Account account = new Account();
-            if (account.GetByUserName(name)) 
+            if (await account.GetByUserNameAsync(name)) 
             {
                 player.TriggerEvent("trigger_RegisterError", "Аккаунта с таким логином уже существует");
                 return;
@@ -32,53 +29,48 @@ namespace Server.account
             playerModel.Account = account;
             Main.Players1.Add(player, playerModel);
             //todo Нужно сделать проверку на занятость ника именно здесь
-            character.Api.CreateCharacter(player, characterName);
+            await character.Api.CreateCharacter(player, characterName);
             player.TriggerEvent("trigger_FinishAuth");
         }
-        public static void LoginAccount(Player player, string name, string password)
+        public static async Task LoginAccount(Player player, string name, string password)
         {
             Account account = new Account();
-            
-            if(!account.GetByUserName(name))
+
+            if (await account.GetByUserNameAsync(name))
+            {
+                if (account.Password != password)
+                {
+                    player.TriggerEvent("trigger_AuthError", "Неправильный логин/пароль");
+
+                    return;
+                }
+                PlayerModel playerModel = new PlayerModel();
+                playerModel.Account = account;
+                Main.Players1.Add(player, playerModel);
+                await character.Api.LoadCharacter(player, account.Id);
+
+                utils.Trigger.ClientEvent(player, "trigger_FinishAuth");
+                player.SendChatMessage($"Вы успешно авторизировались как {name}");
+                //player.TriggerEvent("trigger_FinishAuth");
+                return;
+            }
+            else
             {
                 player.TriggerEvent("trigger_AuthError", "Такой аккаунт не существует");
                 return;
             }
-
-            if (account.Password != password)
-            {
-                player.TriggerEvent("trigger_AuthError", "Неправильный логин/пароль");
-
-                return;
-            }
-            player.SendChatMessage($"Вы успешно авторизировались как {name}");
-            PlayerModel playerModel = new PlayerModel();
-            playerModel.Account = account;
-            Main.Players1.Add(player, playerModel);
-            character.Api.LoadCharacter(player, account.Id);
-
-            player.TriggerEvent("trigger_FinishAuth");
         }
-        /*public async Task<bool> SaveAccount(Player player) 
+        public static void SaveAccount(Player player)
         {
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand
-                {
-                    CommandText = "UPDATE `accounts` SET " +
-                    "`DriftScore`= @ds " +
-                    "WHERE `Username`= @name"
-                };
-                cmd.Parameters.AddWithValue("@ds", Main.Players1[player].Character.DriftScore);
+            Main.Players1[player].Character.Update();
+        }
 
-                await MySql.QueryAsync(cmd);
-                return true;
-            }
-            catch(Exception ex) 
-            { 
-                NAPI.Util.ConsoleOutput($"[SaveAccount Exept] {ex.ToString()}");
-                return false;
-            }
-        }*/
+        [ServerEvent(Event.PlayerDisconnected)]
+        public void OnPlayerDisconnected(Player player, DisconnectionType type, string reason)
+        {
+            if (!Main.Players1.ContainsKey(player)) return;
+            SaveAccount(player);
+            Main.Players1.Remove(player);
+        }
     }
 }

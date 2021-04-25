@@ -17,6 +17,8 @@ namespace Server
         public static Dictionary<int, VehicleTuning> VehicleTunings = new Dictionary<int, VehicleTuning>();
         public static List<VehicleTuningCost> VehicleTuningsCost = new List<VehicleTuningCost>();
 
+        public static List<Admin> Admins = new List<Admin>();
+
         public static Dictionary<int, House> Houses = new Dictionary<int, House>();
         public static Dictionary<int, Garage> Garage = new Dictionary<int, Garage>();
 
@@ -53,6 +55,12 @@ namespace Server
         public Main()
         {
             MySql.MySqlConnect();//Подключение к бд
+        }
+
+        [ServerEvent(Event.ChatMessage)]
+        public void OnPlayerChatMessage(Player player, string message)
+        {
+            if (!Check.GetPlayerStatus(player, Check.PlayerStatus.Spawn)) return;
         }
 
         [RemoteEvent("remote_PressEKey")]

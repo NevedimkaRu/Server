@@ -386,6 +386,7 @@ namespace Server.garage
             if (player.Vehicle == null)
             {
                 player.SendChatMessage("Вы должны находиться в машине");
+                return;
             }
             Vehicle vehicle = player.Vehicle;
 

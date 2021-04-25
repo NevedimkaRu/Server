@@ -174,6 +174,40 @@ namespace Server
                 return QueryRead(cmd);
             }
         }
+
+        /// <summary>
+        /// Асинхронная версия Read
+        /// </summary>
+        /// <param name="command">Передаем заранее составленную команду</param>
+        /// <returns>Ответ базы данных в формате таблицы</returns>
+        public static async Task<DataTable> QueryReadAsync(MySqlCommand command)
+        {
+            if (Debug) NAPI.Util.ConsoleOutput($"[MySql QueryReadAsync] {command}");
+            using (MySqlConnection connection = new MySqlConnection(connStr))
+            {
+                await connection.OpenAsync();
+
+                command.Connection = connection;
+
+                MySqlDataReader reader = await command.ExecuteReaderAsync();
+                DataTable result = new DataTable();
+                result.Load(reader);
+
+                return result;
+            }
+        }
+        /// <summary>
+        /// Асинхронная версия Read
+        /// </summary>
+        /// <param name="command">Передаем заранее составленную команду</param>
+        /// <returns>Ответ базы данных в формате таблицы</returns>
+        public static async Task<DataTable> QueryReadAsync(string command)
+        {
+            using (MySqlCommand cmd = new MySqlCommand(command))
+            {
+                return await QueryReadAsync(cmd);
+            }
+        }
     }
 }
             

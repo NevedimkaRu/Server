@@ -17,53 +17,18 @@ namespace Server.account
             account_api.SaveAccount(player).Wait();
         }*/
 
+
+
         [RemoteEvent("remote_login")]
-        public void LoginAccount(Player player, string login, string password) 
+        public async void LoginAccount(Player player, string login, string password) 
         {
-            Api.LoginAccount(player, login, password);
+             await Api.LoginAccount(player, login, password);
         }
 
         [RemoteEvent("remote_register")]
-        public void RegisterAccount(Player player, string login, string password, string characterName) 
+        public async void RegisterAccount(Player player, string login, string password, string characterName) 
         {
-            Api.CreateAccount(player, login, password, characterName);
-        }
-
-
-
-
-        [Command("login", GreedyArg = true)]
-        public void cmd_Login(Player player, string name, string password)
-        {
-            if (name.Length <= 0 || password.Length <= 0)
-            {
-                player.SendChatMessage("Введите Nick/Name и пароль.");
-                return;
-            }
-
-            Api.LoginAccount(player, name, password);
-        }
-        [Command("register", GreedyArg = true)]
-        public void cmd_Register(Player player, string name, string password)
-        {
-            if (name.Length <= 0 || password.Length <= 0)
-            {
-                player.SendChatMessage("Введите Nick/Name и пароль.");
-                return;
-            }
-
-            //Api.CreateAccount(player, name, password);
-        }
-
-        [Command("createcharacter", GreedyArg = true)]
-        public void cmd_CreateCharacter(Player player, string name)
-        {
-            if (name.Length <= 4) 
-            {
-                player.SendChatMessage("Имя персонажа должно состять минимум из 4 символов");
-                return;
-            }
-            character.Api.CreateCharacter(player, name);
+            await Api.CreateAccount(player, login, password, characterName);
         }
         
         [Command("stats")]

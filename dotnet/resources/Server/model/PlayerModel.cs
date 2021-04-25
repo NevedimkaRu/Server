@@ -11,6 +11,7 @@ namespace Server.model
         public Character Character { get; set; }
         public Customization Customization { get; set; }
         public List<TracksRecords> TracksRecords = new List<TracksRecords>();
+        public Admin Admin { get; set; }
 
         public ClanMember Clan { get; set; } = null;
 
