@@ -152,5 +152,12 @@ namespace Server.vehicle
             CreateDefaultHandling(Convert.ToInt32(carid), Convert.ToInt32(slot));
             player.SendChatMessage($"Стандартный handling для {carid}, слот {slot}");
         }
+
+        [RemoteEvent("remote_SetHandling")]
+        public void SetHandling(Player player, object[] args)
+        {
+            VehicleHandling model = JsonConvert.DeserializeObject<VehicleHandling>(args[0].ToString());
+            player.Vehicle.SetSharedData("sd_Handling1", model);
+        }
     }
 }

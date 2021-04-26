@@ -20,6 +20,7 @@ namespace cs_packages.Interface
 
         public static void CloseModals()
         {
+            Api.Notify("method: closeModals()");
             VuiModals("closeMenu()");
         }
         private void ErrorNotify(object[] args)

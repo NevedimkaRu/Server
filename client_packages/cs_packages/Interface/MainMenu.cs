@@ -16,8 +16,8 @@ namespace cs_packages.Interface
         private static bool isMenuOpen = false;
         MainMenu()
         {
-            Input.Bind(VirtualKeys.M, true, ToggleMenu);
-            Input.Bind(VirtualKeys.RightButton, true, BackRouter);
+            Input.Bind(VirtualKeys.Tab, true, ToggleMenu);
+            Input.Bind(VirtualKeys.Q, true, BackRouter);
             Input.Bind(VirtualKeys.Escape, true, CloseMenu);
             Events.Add("trigger_OpenMenuData", OpenMenuData);
             Events.Add("vui_spawnCar", SpawnCar);
@@ -38,7 +38,8 @@ namespace cs_packages.Interface
             if (!Check.GetPlayerStatus(Check.PlayerStatus.OpenChat))
             if (isMenuOpen)
             {
-                Vui.CloseModals();
+                    Api.Notify("method: ToggleMenu()");
+                    Vui.CloseModals();
             }
             else
             {
@@ -50,6 +51,7 @@ namespace cs_packages.Interface
         {
             if(isMenuOpen)
             {
+                Api.Notify("method: BackRouter()");
                 Vui.VuiExec("back()");
             }
         }
@@ -80,6 +82,7 @@ namespace cs_packages.Interface
 
         private void ChangeMenuOpenStatus(object[] args)
         {
+            Api.Notify("method: ChangeMenuOpenStatus()");
             bool status = Convert.ToBoolean(args[0]);
             Chat.Output(status.ToString());
             isMenuOpen = status;
