@@ -21,7 +21,7 @@ namespace Server.admin
             }*/
             int id = Convert.ToInt32(accountId);
             int lvl = Convert.ToInt32(adminLvl);
-            if(lvl == 0)
+            if (lvl == 0)
             {
                 foreach (Player target in NAPI.Pools.GetAllPlayers())
                 {
@@ -37,14 +37,14 @@ namespace Server.admin
                 Api.RemoveAdmin(id);
                 return;
             }
-            if(Main.Admins.Find(c => c.AccountId == id) != null)
+            if (Main.Admins.Find(c => c.AccountId == id) != null)
             {
                 player.SendChatMessage($"Аккаунт с ID {id} уже назначен администратором");
                 return;
             }
-            foreach(Player target in NAPI.Pools.GetAllPlayers())
+            foreach (Player target in NAPI.Pools.GetAllPlayers())
             {
-                if(Main.Players1[target].Account.Id == id)
+                if (Main.Players1[target].Account.Id == id)
                 {
                     target.SendChatMessage($"Администратор {Main.Players1[player].Character.Name} назначил вас администратором {lvl} уровня");
                     target.SendChatMessage($"Придумайте пароль для доступа к администраторским функциям используя команду /areg ");
@@ -63,7 +63,7 @@ namespace Server.admin
             string admins = "";
             foreach (Player target in NAPI.Pools.GetAllPlayers())
             {
-                if(Main.Players1[target].Admin != null)
+                if (Main.Players1[target].Admin != null)
                 {
                     admins += $"{Main.Players1[target].Character.Name} : {Main.Players1[target].Admin.Lvl} | ";
                 }
@@ -94,7 +94,7 @@ namespace Server.admin
         [Command("alogin", GreedyArg = true)]
         public void cmd_Alogin(Player player, string pass)
         {
-            
+
             if (Main.Players1[player].Admin != null)
             {
                 if (Main.Players1[player].Admin._IsLogin) return;
@@ -104,13 +104,63 @@ namespace Server.admin
             Admin model = Main.Admins.Find(c => c.AccountId == Main.Players1[player].Account.Id);
             if (model != null)
             {
-                if(pass == model.Password)
+                if (pass == model.Password)
                 {
                     player.SendChatMessage($"Вы успешно авторизировались как администратор {model.Lvl} уровня");
                     Main.Players1[player].Admin = model;
                     Main.Players1[player].Admin._IsLogin = true;
                 }
             }
+        }
+        [Command("ban", GreedyArg = true)]
+        public void cmd_Ban(Player player, string id, string days, string reason)
+        {
+            if (!Api.GetAccess(player, 1)) return;
+
+            int _id = Convert.ToInt32(id);
+            int _days = Convert.ToInt32(days);
+            if (_days <= 0 || _days > 14)
+            {
+                player.SendChatMessage("Количество дней от 1 до 14");
+                return;
+            }
+            foreach (Player target in NAPI.Pools.GetAllPlayers())
+            {
+                if (target.Value == _id)
+                {
+                    string dayys;
+                    if (_days == 1) dayys = "день";
+                    else if (_days >= 2 || _days <= 4) dayys = "дня";
+                    else dayys = "дней";
+                    NAPI.Chat.SendChatMessageToAll($"Администратор {Main.Players1[player].Character.Name} забанил игрока {Main.Players1[target].Character.Name} на {dayys}  по причине: {reason}");
+                    Ban.BanPlayer(target, reason, _days);
+                    return;
+                }
+            }
+            player.SendChatMessage("Игрок не найден");
+        }
+        [Command("offban", GreedyArg = true)]
+        public void cmd_OffLineBan(Player player, string accid, string days, string reason)
+        {
+            if (!Api.GetAccess(player, 1)) return;
+            int _id = Convert.ToInt32(accid);
+            int _days = Convert.ToInt32(days);
+            if (_days <= 0 || _days > 14)
+            {
+                player.SendChatMessage("Количество дней от 1 до 14");
+                return;
+            }
+            string name = Ban.BanPlayer(_id, reason, _days);
+            if(name == null)
+            {
+                player.SendChatMessage("Аккаунт с таким Id не найден");
+                return;
+            }
+            string dayys;
+            if (_days == 1) dayys = "день";
+            else if (_days >= 2 || _days <= 4) dayys = "дня";
+            else dayys = "дней";
+            Api.SendAdminMessage($"Администратор {Main.Players1[player].Character.Name} забанил игрока {name} на {dayys} дня(ей) по причине: {reason}");
         }
     }
 }

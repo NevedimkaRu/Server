@@ -11437,4 +11437,1234 @@ Started! Waiting for connections..
 [MySql QueryReadAsync] MySqlConnector.MySqlCommand
 [MySql QueryR] SELECT * FROM `tracksrecords`
 [MySql QueryReadAsync] MySqlConnector.MySqlCommand
-[MySql Qu
+[MySql Qu-> SERVER STARTED AT 25.04.2021 18:27:13
+Initializing Bootstrapper.dll (1.1.0.0)..
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 13 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 44 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 26 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `teleport`
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT garage.*, character.Name FROM `garage` Left join `character` on garage.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+[MySql QueryR] SELECT admin. * , character.Name FROM `admin` JOIN `character` ON admin.AccountId = `character`.AccountId
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryReadAsyInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 25.04.2021 18:32:17
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 13 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 44 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 26 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `teleport`
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT garage.*, character.Name FROM `garage` Left join `character` on garage.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+[MySql QueryR] SELECT admin. * , character.Name FROM `admin` JOIN `character` ON admin.AccountId = `character`.AccountId
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryReadAsy-> SERVER STARTED AT 25.04.2021 18:40:44
+Initializing Bootstrapper.dll (1.1.0.0)..
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 13 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 45 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 26 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `teleport`
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT garage.*, character.Name FROM `garage` Left join `character` on garage.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+[MySql QueryR] SELECT admin. * , character.Name FROM `admin` JOIN `character` ON admin.AccountId = `character`.AccountId
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryReadAsyInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 25.04.2021 18:46:14
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 13 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 45 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 26 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `teleport`
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT garage.*, character.Name FROM `garage` Left join `character` on garage.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+[MySql QueryR] SELECT admin. * , character.Name FROM `admin` JOIN `character` ON admin.AccountId = `character`.AccountId
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryReadAsyInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 25.04.2021 18:48:05
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 13 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 45 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 26 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `teleport`
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT garage.*, character.Name FROM `garage` Left join `character` on garage.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+[MySql QueryR] SELECT admin. * , character.Name FROM `admin` JOIN `character` ON admin.AccountId = `character`.AccountId
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryReadAsyInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 25.04.2021 18:50:59
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 13 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 45 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 26 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `teleport`
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT garage.*, character.Name FROM `garage` Left join `character` on garage.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+[MySql QueryR] SELECT admin. * , character.Name FROM `admin` JOIN `character` ON admin.AccountId = `character`.AccountId
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryReadAsyInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 25.04.2021 18:53:32
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 13 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 45 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 26 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `teleport`
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT garage.*, character.Name FROM `garage` Left join `character` on garage.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+[MySql QueryR] SELECT admin. * , character.Name FROM `admin` JOIN `character` ON admin.AccountId = `character`.AccountId
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryR] SELECT * FROM `tracksrecords`
+[MySql QueryReadAsyInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 25.04.2021 19:11:30
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 13 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 45 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 26 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `teleport`
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT garage.*, character.Name FROM `garage` Left join `character` on garage.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+[MySql QueryR] SELECT admin. * , character.Name FROM `admin` JOIN `character` ON admin.AccountId = `character`.AccountId
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryR-> SERVER STARTED AT 25.04.2021 19:16:15
+Initializing Bootstrapper.dll (1.1.0.0)..
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 13 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 45 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 26 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `teleport`
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT garage.*, character.Name FROM `garage` Left join `character` on garage.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+[MySql QueryR] SELECT admin. * , character.Name FROM `admin` JOIN `character` ON admin.AccountId = `character`.AccountId
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryR-> SERVER STARTED AT 25.04.2021 19:17:11
+Initializing Bootstrapper.dll (1.1.0.0)..
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 13 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 45 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 26 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `teleport`
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT garage.*, character.Name FROM `garage` Left join `character` on garage.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+[MySql QueryR] SELECT admin. * , character.Name FROM `admin` JOIN `character` ON admin.AccountId = `character`.AccountId
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryRInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 25.04.2021 19:19:14
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 13 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 45 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 26 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `teleport`
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT garage.*, character.Name FROM `garage` Left join `character` on garage.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+[MySql QueryR] SELECT admin. * , character.Name FROM `admin` JOIN `character` ON admin.AccountId = `character`.AccountId
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryR-> SERVER STARTED AT 25.04.2021 19:20:06
+Initializing Bootstrapper.dll (1.1.0.0)..
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 13 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 45 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 26 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `teleport`
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT garage.*, character.Name FROM `garage` Left join `character` on garage.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+[MySql QueryR] SELECT admin. * , character.Name FROM `admin` JOIN `character` ON admin.AccountId = `character`.AccountId
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql Query] delete from `ban` where Id = 5
+[MySql QueryReadAsy-> SERVER STARTED AT 25.04.2021 19:53:15
+Initializing Bootstrapper.dll (1.1.0.0)..
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 13 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 46 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 26 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `teleport`
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT garage.*, character.Name FROM `garage` Left join `character` on garage.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+[MySql QueryR] SELECT admin. * , character.Name FROM `admin` JOIN `character` ON admin.AccountId = `character`.AccountId
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryRInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 25.04.2021 20:03:44
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 13 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 46 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 26 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `teleport`
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT garage.*, character.Name FROM `garage` Left join `character` on garage.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+[MySql QueryR] SELECT admin. * , character.Name FROM `admin` JOIN `character` ON admin.AccountId = `character`.AccountId
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryRInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 25.04.2021 20:08:23
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loaded 13 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 46 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 26 remote event(s)
+Всё ок!
+[MySql QueryR] SELECT * FROM `teleport`
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT garage.*, character.Name FROM `garage` Left join `character` on garage.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `traks`
+169,32462
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+[MySql QueryR] SELECT admin. * , character.Name FROM `admin` JOIN `character` ON admin.AccountId = `character`.AccountId
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryR

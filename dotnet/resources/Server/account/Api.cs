@@ -23,7 +23,6 @@ namespace Server.account
             account.Username = name;
             account.Password = password;
 
-
             account.Insert();
             PlayerModel playerModel = new PlayerModel();
             playerModel.Account = account;
@@ -41,7 +40,14 @@ namespace Server.account
                 if (account.Password != password)
                 {
                     player.TriggerEvent("trigger_AuthError", "Неправильный логин/пароль");
-
+                    return;
+                }
+                Ban banModel = new Ban();
+                banModel = await admin.Ban.CheckBanStatus(account.Id);
+                if(banModel != null)
+                {
+                    player.SendChatMessage($"Ваш аккаунт забанен до {banModel.UnBanDate}. По причине: {banModel.Reason}");
+                    player.Kick();
                     return;
                 }
                 PlayerModel playerModel = new PlayerModel();

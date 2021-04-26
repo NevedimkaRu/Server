@@ -16,7 +16,7 @@ namespace cs_packages.house
 
         public Furniture()
         {
-            Input.Bind(RAGE.Ui.VirtualKeys.B, true, TestFurniture);
+            //Input.Bind(RAGE.Ui.VirtualKeys.B, true, TestFurniture);
             
         }
 
