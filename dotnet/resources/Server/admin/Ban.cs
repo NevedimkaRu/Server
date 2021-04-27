@@ -29,6 +29,18 @@ namespace Server.admin
             model.Insert();
             player.Kick();
         }
+
+        public static bool UnBanPlayer(int accountId)
+        {
+            DataTable dt = MySql.QueryRead($"SELECT * FROM `ban` WHERE `AccountId` = {accountId}");
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                return false;
+            }
+            MySql.Query($"DELETE FROM `ban` WHERE `AccountId` = {accountId}");
+            return true;
+        }
+
         public static string BanPlayer(int accid, string reason, int days = 0)
         {
             DataTable dt = MySql.QueryRead($"SELECT `Name` FROM `character` WHERE `AccountId` = {accid}");
@@ -69,7 +81,7 @@ namespace Server.admin
                 model.BanDate = Convert.ToDateTime(row["BanDate"]);
                 model.UnBanDate = Convert.ToDateTime(row["UnBanDate"]);
                 model.Reason = Convert.ToString(row["Reason"]);
-                if (DateTime.UtcNow.CompareTo(model.UnBanDate) >= 0)
+                if (DateTime.UtcNow.AddHours(3).CompareTo(model.UnBanDate) >= 0)
                 {
                     model.Delete();
                     return null;

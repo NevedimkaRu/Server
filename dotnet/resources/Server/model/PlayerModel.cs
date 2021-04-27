@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace Server.model
 {
@@ -12,6 +13,8 @@ namespace Server.model
         public Customization Customization { get; set; }
         public List<TracksRecords> TracksRecords = new List<TracksRecords>();
         public Admin Admin { get; set; }
+        public List<Mute> Mute = new List<Mute>();
+        public Timer MuteTimer;
 
         public ClanMember Clan { get; set; } = null;
 

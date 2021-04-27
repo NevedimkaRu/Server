@@ -51,16 +51,15 @@ namespace Server
         };
 
         public static List<Traks> Traks = new List<Traks>();
-
         public Main()
         {
             MySql.MySqlConnect();//Подключение к бд
+            NAPI.Server.SetGlobalServerChat(false);
         }
-
         [ServerEvent(Event.ChatMessage)]
-        public void OnPlayerChatMessage(Player player, string message)
+        public void ASQWEASD(Player player, string message)
         {
-            if (!Check.GetPlayerStatus(player, Check.PlayerStatus.Spawn)) return;
+
         }
 
         [RemoteEvent("remote_PressEKey")]

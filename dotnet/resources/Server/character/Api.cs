@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Server.character
@@ -54,6 +55,12 @@ namespace Server.character
                 player.Name = character.Name + "[" + player.Id + "]";
                 await vehicle.Api.LoadPlayerVehice(player);
                 customization.Api.LoadCustomization(player, character.Id);
+                List<model.Mute> muteModel = await admin.Mute.CheckMuteStatus(character.Id);
+                if (muteModel != null)
+                {
+                    Main.Players1[player].Mute = muteModel;
+                    Main.Players1[player].MuteTimer = new Timer(admin.Mute.tc, player, 0, 1000);
+                }
             }
             else 
             {

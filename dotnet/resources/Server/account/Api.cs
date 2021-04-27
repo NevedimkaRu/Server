@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Threading;
 using System.Threading.Tasks;
 using GTANetworkAPI;
 using MySqlConnector;
@@ -57,6 +58,7 @@ namespace Server.account
 
                 utils.Trigger.ClientEvent(player, "trigger_FinishAuth");
                 player.SendChatMessage($"Вы успешно авторизировались как {name}");
+
                 //player.TriggerEvent("trigger_FinishAuth");
                 return;
             }
@@ -66,6 +68,7 @@ namespace Server.account
                 return;
             }
         }
+
         public static void SaveAccount(Player player)
         {
             Main.Players1[player].Character.Update();
@@ -76,6 +79,14 @@ namespace Server.account
         {
             if (!Main.Players1.ContainsKey(player)) return;
             SaveAccount(player);
+            if(Main.Players1[player].Mute != null)
+            {
+                foreach(model.Mute muteModel in Main.Players1[player].Mute)
+                {
+                    muteModel.Update("TimeLeft");
+                    Main.Players1[player].MuteTimer.Dispose();
+                }
+            }
             Main.Players1.Remove(player);
         }
     }

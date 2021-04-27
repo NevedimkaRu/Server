@@ -193,25 +193,31 @@ namespace Server.vehicle
                     {
 
                         int caridd = player.Vehicle.GetData<int>("CarId");
-                        var vehpos = Main.GarageTypes[Main.Garage[Main.Veh[caridd]._Garage.GarageId].GarageType].VehiclePosition;
-                        if (Main.Veh[caridd].Id == carid) return;
-                        
                         player.WarpOutOfVehicle();
+                        if(Main.Veh.ContainsKey(caridd))
+                        {
+                            if (Main.Veh[carid].OwnerId == Main.Players1[player].Character.Id);
+                            {
+                                var vehpos = Main.GarageTypes[Main.Garage[Main.Veh[caridd]._Garage.GarageId].GarageType].VehiclePosition;
+                                if (Main.Veh[caridd].Id == carid) return;
+                        
 
-                        Main.Veh[caridd]._Veh.Delete();
-                        Main.Veh[caridd]._Veh = null;
-                        SpawnPlayerVehicle
-                            (
-                                Main.Veh[caridd].Id,
-                                new Vector3
-                                (
-                                    vehpos[Main.Veh[caridd]._Garage.GarageSlot].Position.X,
-                                    vehpos[Main.Veh[caridd]._Garage.GarageSlot].Position.Y,
-                                    vehpos[Main.Veh[caridd]._Garage.GarageSlot].Position.Z
-                                ),
-                                vehpos[Main.Veh[caridd]._Garage.GarageSlot].Rotation,
-                                (uint)Main.Veh[caridd]._Garage.GarageId
-                            );
+                                Main.Veh[caridd]._Veh.Delete();
+                                Main.Veh[caridd]._Veh = null;
+                                SpawnPlayerVehicle
+                                    (
+                                        Main.Veh[caridd].Id,
+                                        new Vector3
+                                        (
+                                            vehpos[Main.Veh[caridd]._Garage.GarageSlot].Position.X,
+                                            vehpos[Main.Veh[caridd]._Garage.GarageSlot].Position.Y,
+                                            vehpos[Main.Veh[caridd]._Garage.GarageSlot].Position.Z
+                                        ),
+                                        vehpos[Main.Veh[caridd]._Garage.GarageSlot].Rotation,
+                                        (uint)Main.Veh[caridd]._Garage.GarageId
+                                    );
+                            }
+                        }
                     }
                     SpawnPlayerVehicle(carid, player.Position, player.Rotation.Z, player.Dimension);
                     Main.Players1[player].CarId = carid;
@@ -303,7 +309,7 @@ namespace Server.vehicle
         [ServerEvent(Event.VehicleDeath)]
         public void OnVehicleDeath(Vehicle vehicle)//todo протестировать
         {
-            if(vehicle.GetData<int>("CarId") != -1)
+            if(vehicle.HasData("CarId"))
             {
                 int carid = Convert.ToInt32(vehicle.GetData<int>("CarId"));
                 var vehpos = Main.GarageTypes[Main.Garage[Main.Veh[carid]._Garage.GarageId].GarageType].VehiclePosition;
