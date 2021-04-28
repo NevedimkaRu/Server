@@ -21,7 +21,7 @@ namespace Server.model
 
             foreach (var obj in this.GetType().GetProperties())
             {
-                //if (!IsDbTable(obj.Name)) continue;
+                if (!IsDbTable(obj.Name)) continue;
                 if (dt.Columns.Contains(obj.Name))
                 {
                     if (obj.PropertyType.Name == "Vector3") 
@@ -232,7 +232,7 @@ namespace Server.model
 
             foreach (var obj in this.GetType().GetProperties())
             {
-                //if (!IsDbTable(obj.Name)) continue;
+                if (!IsDbTable(obj.Name)) continue;
                 if (dt.Columns.Contains(obj.Name))
                 {
                     if (obj.PropertyType.Name == "Vector3")
@@ -265,6 +265,34 @@ namespace Server.model
         {
             string sql = $"delete from `{getDBTableName()}` where Id = {Id}";
             MySql.Query(sql);
+        }
+
+        public void LoadByDataRow(DataRow row)
+        {
+            foreach (var obj in this.GetType().GetProperties())
+            {
+                if (!IsDbTable(obj.Name)) continue;
+                if (!row.Table.Columns.Contains(obj.Name)) continue;
+                if (row.Table.Columns.Contains(obj.Name))
+                {
+                    if (obj.PropertyType.Name == "Vector3")
+                    {
+                        obj.SetValue(this, JsonConvert.DeserializeObject<Vector3>(row[obj.Name].ToString()));
+                    }
+                    else if (obj.PropertyType.Name == "List`1")
+                    {
+                        obj.SetValue(this, utils.Parser.ParseToListVector3(row[obj.Name].ToString()));
+                    }
+                    else if (obj.PropertyType.Name == "Boolean")
+                    {
+                        obj.SetValue(this, Convert.ToBoolean(row[obj.Name]));
+                    }
+                    else
+                    {
+                        obj.SetValue(this, row[obj.Name]);
+                    }
+                }
+            }
         }
 
         private string getDBTableName()
