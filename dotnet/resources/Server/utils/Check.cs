@@ -1,6 +1,7 @@
 ﻿using GTANetworkAPI;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Server.utils
@@ -30,6 +31,16 @@ namespace Server.utils
             }
 
             return true;
+        }
+
+        public static Player GetPlayerByID(int id)
+        {
+            foreach (Player player in Main.Players1.Keys.ToList())
+            {
+                if (!Main.Players1.ContainsKey(player)) continue;
+                if (player.Value == id) return player;
+            }
+            return null;
         }
     }
 }

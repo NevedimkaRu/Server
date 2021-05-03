@@ -116,7 +116,7 @@ namespace Server.admin
         public void cmd_Ban(Player player, string id, string days, string reason)
         {
             if (!Api.GetAccess(player, 1)) return;
-
+            
             int _id = Convert.ToInt32(id);
             int _days = Convert.ToInt32(days);
             if (_id == player.Value)
@@ -202,6 +202,13 @@ namespace Server.admin
             {
                 player.SendChatMessage($"У аккаунта с ID[{id}] нету бана или он не существует.");
             }
+        }
+        [Command("givescore")]
+        public void cmd_GiveScore(Player player, int id, int score)
+        {
+            if (!Api.GetAccess(player, 1)) return;
+            character.Api.GivePlayerExp(utils.Check.GetPlayerByID(id), score);
+            Api.SendAdminMessage($"Администратор {Main.Players1[player].Character.Name} выдал игроку {Main.Players1[utils.Check.GetPlayerByID(id)].Character.Name}[{utils.Check.GetPlayerByID(id).Value}] {score} Exp");
         }
     }
 }

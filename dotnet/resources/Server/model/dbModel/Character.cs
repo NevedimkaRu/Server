@@ -13,11 +13,9 @@ namespace Server.model
         public int DriftScore { get; set; }
         public int Money { get; set; }
         public int Level { get; set; }
+        public int Exp { get; set; }
         public int Vip { get; set; }
-       
-
-       
-
+        
         public Character()
         { 
         }

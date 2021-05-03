@@ -87,6 +87,13 @@ namespace Server.account
                     Main.Players1[player].MuteTimer.Dispose();
                 }
             }
+            foreach(var veh in Main.Veh.Values)
+            {
+                if(veh.OwnerId == Main.Players1[player].Character.Id)
+                {
+                    if(Main.Veh.ContainsKey(veh.Id)) Main.Veh.Remove(veh.Id);
+                }
+            }
             Main.Players1.Remove(player);
         }
     }

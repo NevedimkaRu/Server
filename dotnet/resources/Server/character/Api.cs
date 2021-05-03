@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Server.character
 {
-    class Api
+    class Api : Script
     {
 
         public static async Task CreateCharacter(Player player, string name) {
@@ -66,6 +66,45 @@ namespace Server.character
             {
                 player.SendChatMessage("Создайте персонажа");
             }
+        }
+
+        public static void GivePlayerExp(Player player, int exp)
+        {
+            if (!utils.Check.GetPlayerStatus(player, utils.Check.PlayerStatus.Spawn)) return;
+            if (Main.Players1[player].Character.Level == 30) return;
+            Main.Players1[player].Character.Exp += exp;
+            int needexp = (Main.Players1[player].Character.Level + 1) * 20000;
+            if(Main.Players1[player].Character.Exp >= needexp)
+            {
+                if(Main.Players1[player].Character.Level == 29)
+                {
+                    player.SendChatMessage("Подзравляем, вы дошли до максимального уровня персонажа!");
+                }
+                Main.Players1[player].Character.Level += 1;
+                Main.Players1[player].Character.Exp = Main.Players1[player].Character.Exp - needexp;
+                player.SendChatMessage($"Вы перешли на {Main.Players1[player].Character.Level} уровень.");
+            }
+        }
+
+        public static void GivePlayerMoney(Player player, int money)
+        {
+            if (!utils.Check.GetPlayerStatus(player, utils.Check.PlayerStatus.Spawn)) return;
+            Main.Players1[player].Character.Money += money;
+        }
+        public static void GivePlayerDriftScore(Player player, int score)
+        {
+            if (!utils.Check.GetPlayerStatus(player, utils.Check.PlayerStatus.Spawn)) return;
+            Main.Players1[player].Character.DriftScore += score;
+        }
+        [Command("stats")]
+        public void cmd_Stats(Player player)
+        {
+            player.SendChatMessage(
+                $"Name: {Main.Players1[player].Character.Name} " +
+                $"DriftScore: {Main.Players1[player].Character.DriftScore} " +
+                $"Money: {Main.Players1[player].Character.Money} " +
+                $"Level: {Main.Players1[player].Character.Level} ({Main.Players1[player].Character.Exp}/{(Main.Players1[player].Character.Level + 1) * 20000})"
+                );
         }
 
     }

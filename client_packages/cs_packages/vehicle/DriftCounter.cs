@@ -14,8 +14,7 @@ namespace cs_packages.vehicle
     {
         private static float modV;
         private static bool playerDrifting = false;
-        private static int multiplier = 1;
-        private static int totalscore = 0;
+        private static float multiplier = 1.0f;
         private static DateTime lastTickTime;
         private static int score = 0;
         private static int vehHealth;
@@ -43,7 +42,7 @@ namespace cs_packages.vehicle
             {
                 Events.Tick += UpdateSpeedometer;
                 //Дрифт счётчик
-                Events.Tick += UpdateSpeedometer;
+                //Events.Tick += UpdateSpeedometer;
                 vehicle.SetRadioEnabled(false);
                 vehHealth = vehicle.GetHealth();
                 if(driftHTML == null) 
@@ -58,7 +57,7 @@ namespace cs_packages.vehicle
 
 
         }
-        public void OnPlayerLeaveVehicle(Vehicle vehicle, int seatId)//todo проверка на авторизацию
+        public void OnPlayerLeaveVehicle(Vehicle vehicle, int seatId)
         {
             if (Check.GetPlayerStatus(Check.PlayerStatus.Spawn))
             {
@@ -66,7 +65,7 @@ namespace cs_packages.vehicle
                 multiplier = 1;
                 score = 0;
                 playerDrifting = false;
-                Events.Tick -= UpdateSpeedometer;
+                //Events.Tick -= UpdateSpeedometer;
             }
         }
 
@@ -104,8 +103,7 @@ namespace cs_packages.vehicle
         private static void OnDrift(Vehicle vehicle)
         {
             float angle = Angle(vehicle);
-            float velocity = Velocity(vehicle);
-            int timeLost = 3;
+            int timeLost = 5;
             DateTime tickTime = DateTime.UtcNow;
             if (angle > 0)
             {
@@ -116,38 +114,13 @@ namespace cs_packages.vehicle
                 playerDrifting = true;
                 lastTickTime = tickTime;
 
-                score += (int)Math.Floor(angle) * multiplier / 5;
+                score += (int)Math.Floor(angle * multiplier) / 10;
 
-                if (score > 1000) multiplier = 2;
-                if (score > 4000) multiplier = 3;
-                if (score > 8000) multiplier = 4;
-                if (score > 12000) multiplier = 5;
-                if (score > 18000) multiplier = 6;
-                if (score > 25000) multiplier = 7;
-            }
-
-            switch (multiplier)
-            {
-                case 1:
-                    {
-                        timeLost = 6;
-                        break;
-                    }
-                case 3:
-                    {
-                        timeLost = 5;
-                        break;
-                    }
-                case 5:
-                    {
-                        timeLost = 4;
-                        break;
-                    }
-                case 7:
-                    {
-                        timeLost = 3;
-                        break;
-                    }
+                if (score > 1000) multiplier = 1.1f;
+                if (score > 4000) multiplier = 1.2f;
+                if (score > 8000) multiplier = 1.3f;
+                if (score > 12000) multiplier = 1.4f;
+                if (score > 18000) multiplier = 1.5f;
             }
 
             if ((tickTime.Ticks - lastTickTime.Ticks) >= timeLost * 10000000)
@@ -168,17 +141,16 @@ namespace cs_packages.vehicle
             }
             else DriftScore();
 
-            RAGE.Game.UIText.Draw(totalscore.ToString(), new Point(1175, 560), 0.5f, Color.White, RAGE.Game.Font.ChaletComprimeCologne, false); // Вывоб общего числа очков
+            //RAGE.Game.UIText.Draw(totalscore.ToString(), new Point(1175, 560), 0.5f, Color.White, RAGE.Game.Font.ChaletComprimeCologne, false); // Вывоб общего числа очков
         }
         
         public static void StopDrift(int reason)
         {
             if (reason == 0)
             {
-                totalscore += score;
                 ThisPlayer.Score += score;
                 Api.Notify("~g~Time Out");
-                UpdatePlayerScore(totalscore);
+                UpdatePlayerScore(score);
             }
             else
             {
@@ -190,15 +162,14 @@ namespace cs_packages.vehicle
 
         public static void ResetPlayerDriftScore()
         {
-            multiplier = 1;
+            multiplier = 1.0f;
             score = 0;
             playerDrifting = false;
         }
 
-        private static void UpdatePlayerScore(int _score)
-        {
-            _score = totalscore;
-            Events.CallRemote("onScoreUpdate", _score);//Отправляем на сервер
+        private static void UpdatePlayerScore(int score)
+        { 
+            Events.CallRemote("remote_UpdatePlayerDriftScore", score);//Отправляем на сервер
         }
 
         public static int GetVehicleSpeed(Vehicle vehicle)
@@ -224,7 +195,7 @@ namespace cs_packages.vehicle
             float sin = -(float)Math.Sin(Math.PI * rotation.Z / 180.0);
             float cos = (float)Math.Cos(Math.PI * rotation.Z / 180.0);
 
-            float cosX = (sin * vehicle.GetVelocity().X + cos * vehicle.GetVelocity().Y) / modV;
+            float cosX = (sin * vehicle.GetVelocity().X + cos * vehicle.GetVelocity().Y) / Velocity(vehicle);
             if (cosX > 0.966 || cosX < 0) return 0;
             return (float)(Math.Acos(cosX) * (180.0 / Math.PI) * 0.5);
         }
