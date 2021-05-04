@@ -27,7 +27,8 @@ namespace Server.Interface
             //Машины
             FinalData.cars = new JArray() as dynamic;
 
-            foreach(var car in Main.Veh)
+            //todo Надо бы хранить машины игрока в модели PlayerModel а то чёт херня какая-то постоянно искать их во всём списке
+            foreach (var car in Main.Veh)
             {
                 if(car.Value.OwnerId == Main.Players1[player].Character.Id)
                 {

@@ -20,7 +20,6 @@ namespace cs_packages.Interface
 
         public static void Dispatch(string store, string data) { 
             Vui.index.ExecuteJs("Vui.$store.dispatch('" + store + "', '" + data + "');");
-            Chat.Output("Vui.$store.dispatch('" + store + "', '" + data + "');");
         }
     }
 }

@@ -22,7 +22,6 @@ namespace cs_packages.Interface
 
         private void SaveHandling(object[] args)
         {
-            Chat.Output(args[0].ToString());
             VehicleHandling model = RAGE.Util.Json.Deserialize<VehicleHandling>(args[0].ToString());
             if (Player.LocalPlayer.Vehicle != null)
             {
@@ -35,7 +34,6 @@ namespace cs_packages.Interface
         private void ChangeMenuOpenStatus(object[] args)
         {
             bool status = Convert.ToBoolean(args[0]);
-            Chat.Output(status.ToString());
             isMenuOpen = status;
             //Api.Notify("isMenuOpen: " + isMenuOpen.ToString());
             if (isMenuOpen)
@@ -49,6 +47,16 @@ namespace cs_packages.Interface
             }
         }
 
+        public void OpenHEMenu() 
+        {
+            Vehicle veh = Player.LocalPlayer.Vehicle;
+            if (veh != null)
+            {
+                Vui.VuiModals("openHandlingEditor()");
+                Vui.VuiModals($"HandlingEditor.fillData({ veh.GetSharedData("sd_Handling1") });");
+            }
+        }
+
         private void cmd(string cmd, Events.CancelEventArgs cancel)
         {
             string[] args = cmd.Split(new char[] { ' ' });
@@ -56,12 +64,7 @@ namespace cs_packages.Interface
 
             if (commandName == "he")
             {
-                Vehicle veh = Player.LocalPlayer.Vehicle;
-                if (veh != null)
-                {
-                    Vui.VuiModals("openHandlingEditor()");
-                    Vui.VuiModals($"HandlingEditor.fillData({ veh.GetSharedData("sd_Handling1") });");
-                }
+                OpenHEMenu();   
             }
         }
     }

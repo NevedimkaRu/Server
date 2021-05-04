@@ -66,7 +66,6 @@ namespace cs_packages.Interface
         private void SpawnCar(object[] args)
         {
             int carId = Convert.ToInt32(args[0]);
-            Chat.Output("Спавним машину id - " + carId);
             Events.CallRemote("remote_SpawnPlayerCar", carId);
         }
 
@@ -74,7 +73,6 @@ namespace cs_packages.Interface
         private void OpenMenuData(object[] args)
         {
             Chat.Activate(true);
-            Chat.Output(args[0].ToString());
             Vui.VuiModals("openMenu(" + args[0].ToString() + ")");
             //Vui.VuiModals("openMenu()");
         }
@@ -84,7 +82,6 @@ namespace cs_packages.Interface
         {
             Api.Notify("method: ChangeMenuOpenStatus()");
             bool status = Convert.ToBoolean(args[0]);
-            Chat.Output(status.ToString());
             isMenuOpen = status;
             if (isMenuOpen)
             {
