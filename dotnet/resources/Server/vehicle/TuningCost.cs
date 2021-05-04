@@ -24,7 +24,6 @@ namespace Server.vehicle
                 tuningcost.Index = Convert.ToInt32(row["Index"]);
                 tuningcost.Cost = Convert.ToInt32(row["Cost"]);
 
-
                 Main.VehicleTuningsCost.Add(tuningcost);
             }
         }
@@ -32,7 +31,6 @@ namespace Server.vehicle
         public void remote_SendIndexTuning(Player player, object[] args)
         {
             List<int> indexes = new List<int>();
-            
 
             indexes = JsonConvert.DeserializeObject<List<int>>(Convert.ToString(args[0]));
             for(int i = 0; i <=75;i++)

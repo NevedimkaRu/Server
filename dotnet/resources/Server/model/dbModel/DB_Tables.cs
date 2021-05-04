@@ -258,6 +258,7 @@ namespace Server.model
 
         public void Delete()
         {
+            if (this.Id == 0) return;
             Delete(this.Id);
         }
 

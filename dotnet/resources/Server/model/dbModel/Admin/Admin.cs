@@ -11,5 +11,6 @@ namespace Server.model
         public string Password { get; set; } = null;
         public bool _IsLogin { get; set; } = false;
         public string _CharName { get; set; }
+        public Spectate _Spectate = new Spectate();
     }
 }

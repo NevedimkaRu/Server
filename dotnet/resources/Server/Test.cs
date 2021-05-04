@@ -96,9 +96,10 @@ namespace Server
         public void cmd_Teleport(Player player, string teleportid)
         {
             int id = Convert.ToInt32(teleportid);
-            if (Main.Teleports.Find(c => c.Id == id) != null)
+            model.Teleport teleport = Main.Teleports.Find(c => c.Id == id);
+            if (teleport != null)
             {
-                player.Position = (Main.Teleports[id].Position);
+                player.Position = teleport.Position;
             }
         }
         [Command("tl")]

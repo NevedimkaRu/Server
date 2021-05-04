@@ -12,6 +12,7 @@ namespace Server.model
         public int Handling { get; set; }
         public List<VehicleHandling> _HandlingData = new List<VehicleHandling>();
         public VehiclesGarage _Garage { get; set; }
+        public VehicleTuning _Tuning { get; set; }
         
 
         //temp

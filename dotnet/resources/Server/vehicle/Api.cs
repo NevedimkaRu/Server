@@ -31,21 +31,21 @@ namespace Server.vehicle
             garage.GarageId = -1;
             garage.GarageSlot = -1;
             garage.VehicleId = veh.Id;
-            garage.Insert();
-
+            garage.Id = garage.Insert();
+            
             veh._Garage = garage;
+
+            VehicleTuning tuning = new VehicleTuning();
+            tuning.CarId = veh.Id;
+            tuning.Id = tuning.Insert();
+
+            veh._Tuning = tuning;
+
             Main.Veh.Add(id, veh);
             MySql.Query($"INSERT INTO `vehicletuning` (`CarId`) VALUES ('{veh.Id}')");
             Tuning.LoadTunning(veh.Id);
             return carid;
             //Handling.CreateDefaultHandling(veh.Id, 0);
-        }
-        public void DestroyCar(Player player, int carid)
-        {
-            Main.Veh[carid]._Veh.Delete();
-            Main.Veh.Remove(carid);
-            Main.VehicleTunings.Remove(carid);
-            player.SendChatMessage("Destroy");
         }
         public static async Task LoadPlayerVehice(Player player)
         {
@@ -68,6 +68,7 @@ namespace Server.vehicle
                     model.Handling = 0;
                 }
                 VehiclesGarage garage = new VehiclesGarage();
+                garage.Id = Convert.ToInt32(row["Id"]);
                 garage.VehicleId = Convert.ToInt32(row["VehicleId"]);
                 garage.GarageId = Convert.ToInt32(row["GarageId"]);
                 garage.GarageSlot = Convert.ToInt32(row["GarageSlot"]);
@@ -78,6 +79,7 @@ namespace Server.vehicle
                 {
                     Main.Veh.Add(model.Id, model);
                 }
+                Tuning.LoadTunning(model.Id);
                 Handling.LoadVehicleHandling(model.Id);
             }
 
@@ -143,7 +145,7 @@ namespace Server.vehicle
                         false,
                         true,
                         dimension);
-                    if (!Main.VehicleTunings.ContainsKey(carid)) Tuning.LoadTunning(Main.Veh[carid].Id);
+                    if (Main.Veh[carid]._Tuning == null) Tuning.LoadTunning(Main.Veh[carid].Id);
                     Tuning.ApplyTuning(Main.Veh[carid]._Veh, carid);
                     Main.Veh[carid]._Veh.SetData<int>("CarId", carid);
                     if (Main.Veh[carid]._HandlingData.Count == 0)
@@ -151,11 +153,11 @@ namespace Server.vehicle
                         Handling.LoadVehicleHandling(carid, true);
                     }
                     Main.Veh[carid]._Veh.SetSharedData("sd_Handling1", Main.Veh[carid]._HandlingData.Find(c => c.Slot == Main.Veh[carid].Handling));
-                    Main.Veh[carid]._Veh.SetSharedData("sd_EngineMod", Main.VehicleTunings[carid].Engine);
+                    Main.Veh[carid]._Veh.SetSharedData("sd_EngineMod", Main.Veh[carid]._Tuning.Engine);
                 });
             }
         }
-        public void LoadVehicle(Player player, int carid)//todo сделать проверку на наличие гаража для машины
+        public void LoadVehicle(Player player, int carid)
         {
             if (Main.Veh.ContainsKey(carid))//Проверка на то, существует ли машина
             {
@@ -174,7 +176,7 @@ namespace Server.vehicle
                 {
                     if (Main.Players1[player].CarId != -1 && player.Vehicle == null)
                     {
-
+                        if (!Main.Veh.ContainsKey(Main.Players1[player].CarId)) return;
                         if (player.Vehicle != null)
                         {
 
@@ -197,15 +199,13 @@ namespace Server.vehicle
                     {
 
                         int caridd = player.Vehicle.GetData<int>("CarId");
+                        if (caridd == carid) return;
                         player.WarpOutOfVehicle();
                         if(Main.Veh.ContainsKey(caridd))
                         {
                             if (Main.Veh[carid].OwnerId == Main.Players1[player].Character.Id);
                             {
                                 var vehpos = Main.GarageTypes[Main.Garage[Main.Veh[caridd]._Garage.GarageId].GarageType].VehiclePosition;
-                                if (Main.Veh[caridd].Id == carid) return;
-                        
-
                                 Main.Veh[caridd]._Veh.Delete();
                                 Main.Veh[caridd]._Veh = null;
                                 SpawnPlayerVehicle
@@ -229,7 +229,35 @@ namespace Server.vehicle
                 }
             }
         }
-        public static void SetVehicleInGarage(Player player, int carid, int garageid)
+
+        public void RemoveVehicle(int carid)
+        {
+            if (!Main.Veh.ContainsKey(carid)) return;
+            if (Main.Veh[carid]._Garage != null)
+                Main.Veh[carid]._Garage.Delete();
+            if(Main.Veh[carid]._HandlingData.Count != 0)
+            {
+                foreach(VehicleHandling model in Main.Veh[carid]._HandlingData)
+                {
+                    model.Delete();
+                }
+            }
+            if(Main.Veh[carid]._Tuning != null) Main.Veh[carid]._Tuning.Delete();
+            if(Main.Veh[carid]._Veh != null) Main.Veh[carid]._Veh.Delete();
+            Main.Veh[carid].Delete();
+            Main.Veh.Remove(carid);
+        }
+
+        [Command("sellcar")]
+        public void cmd_SellCar(Player player, int carid)
+        {
+            if (!Main.Veh.ContainsKey(carid)) return;
+            if (Main.Veh[carid].OwnerId != Main.Players1[player].Character.Id) return;
+            RemoveVehicle(carid);
+            player.SendChatMessage("Вы продали машину");
+        }
+
+        public void SetVehicleInGarage(Player player, int carid, int garageid)
         {
             if (Main.Veh.ContainsKey(carid) && Main.Garage.ContainsKey(garageid))
             {
@@ -332,6 +360,14 @@ namespace Server.vehicle
             }
         }
 
+        [RemoteEvent("remote_UpdatePlayerDriftScore")]
+        public void UpdatePlayerDriftScore(Player player, int score)
+        {
+            character.Api.GivePlayerExp(player, score);
+            character.Api.GivePlayerMoney(player, score);
+            character.Api.GivePlayerDriftScore(player, score);
+            Main.Players1[player].Character.Update("Level,Exp,Money");
+        }
         [RemoteEvent("remote_RepairCar")]
         public void RepairCar(Player player, object[] args)
         {
@@ -347,7 +383,7 @@ namespace Server.vehicle
             LoadVehicle(player, carid);
         }
 
-            //Тестовые команды
+        //Тестовые команды
         [Command("car",GreedyArg = true)]
         public void cmd_Car(Player player, string caridd)
         {

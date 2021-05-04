@@ -57,7 +57,7 @@ namespace Server.vehicle
                 tuning.Livery = Convert.ToInt32(row["Livery"]);//48
                 tuning.Plate = Convert.ToInt32(row["Plate"]); //53
                 tuning.WindowTint = Convert.ToInt32(row["WindowTint"]);//55
-                Main.VehicleTunings.Add(carid, tuning);
+                Main.Veh[carid]._Tuning = tuning;
             }
         }
         public static void SaveVehicleTuning(int vehicleId, int modeType, int modeIndex)
@@ -65,136 +65,136 @@ namespace Server.vehicle
             switch(modeType)
             {
                 case 0:
-                    Main.VehicleTunings[vehicleId].Spoiler = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Spoiler");
+                    Main.Veh[vehicleId]._Tuning.Spoiler = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Spoiler");
                     break;
                 case 1:
-                    Main.VehicleTunings[vehicleId].FrontBumper = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("FrontBumper");
+                    Main.Veh[vehicleId]._Tuning.FrontBumper = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("FrontBumper");
                     break;
                 case 2: 
-                    Main.VehicleTunings[vehicleId].RearBumper = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("RearBumper");
+                    Main.Veh[vehicleId]._Tuning.RearBumper = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("RearBumper");
                     break;
                 case 3: 
-                    Main.VehicleTunings[vehicleId].SideSkirt = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("SideSkirt");
+                    Main.Veh[vehicleId]._Tuning.SideSkirt = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("SideSkirt");
                     break;
                 case 4: 
-                    Main.VehicleTunings[vehicleId].Exhaust = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Exhaust");
+                    Main.Veh[vehicleId]._Tuning.Exhaust = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Exhaust");
                     break;
                 case 5: 
-                    Main.VehicleTunings[vehicleId].Frame = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Frame");
+                    Main.Veh[vehicleId]._Tuning.Frame = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Frame");
                     break;
                 case 6: 
-                    Main.VehicleTunings[vehicleId].Grille = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Grille");
+                    Main.Veh[vehicleId]._Tuning.Grille = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Grille");
                     break;
                 case 7: 
-                    Main.VehicleTunings[vehicleId].Hood = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Hood");
+                    Main.Veh[vehicleId]._Tuning.Hood = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Hood");
                     break;
                 case 8: 
-                    Main.VehicleTunings[vehicleId].Fender = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Fender");
+                    Main.Veh[vehicleId]._Tuning.Fender = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Fender");
                     break;
                 case 9: 
-                    Main.VehicleTunings[vehicleId].RightFender = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("RightFender");
+                    Main.Veh[vehicleId]._Tuning.RightFender = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("RightFender");
                     break;
                 case 10: 
-                    Main.VehicleTunings[vehicleId].Roof = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Roof");
+                    Main.Veh[vehicleId]._Tuning.Roof = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Roof");
                     break;
                 case 11: 
-                    Main.VehicleTunings[vehicleId].Engine = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Engine");
+                    Main.Veh[vehicleId]._Tuning.Engine = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Engine");
                     break;
                 case 12: 
-                    Main.VehicleTunings[vehicleId].Brakes = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Brakes");
+                    Main.Veh[vehicleId]._Tuning.Brakes = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Brakes");
                     break;
                 case 13: 
-                    Main.VehicleTunings[vehicleId].Transmission = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Transmission");
+                    Main.Veh[vehicleId]._Tuning.Transmission = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Transmission");
                     break;
                 case 14: 
-                    Main.VehicleTunings[vehicleId].Horns = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Horns");
+                    Main.Veh[vehicleId]._Tuning.Horns = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Horns");
                     break;
                 case 15:
-                    Main.VehicleTunings[vehicleId].Suspension = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Suspension");
+                    Main.Veh[vehicleId]._Tuning.Suspension = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Suspension");
                     break;
                 case 16: 
-                    Main.VehicleTunings[vehicleId].Armor = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Armor");
+                    Main.Veh[vehicleId]._Tuning.Armor = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Armor");
                     break;
                 case 18: 
-                    Main.VehicleTunings[vehicleId].Turbo = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Turbo");
+                    Main.Veh[vehicleId]._Tuning.Turbo = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Turbo");
                     break;
                 case 22: 
-                    Main.VehicleTunings[vehicleId].Xenon = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Xenon");
+                    Main.Veh[vehicleId]._Tuning.Xenon = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Xenon");
                     break;
                 case 23: 
-                    Main.VehicleTunings[vehicleId].FrontWheels = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("FrontWheels");
+                    Main.Veh[vehicleId]._Tuning.FrontWheels = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("FrontWheels");
                     break;
                 case 24: 
-                    Main.VehicleTunings[vehicleId].BackWheels = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("BackWheels");
+                    Main.Veh[vehicleId]._Tuning.BackWheels = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("BackWheels");
                     break;
                 case 25: 
-                    Main.VehicleTunings[vehicleId].PlateHolders = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("PlateHolders");
+                    Main.Veh[vehicleId]._Tuning.PlateHolders = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("PlateHolders");
                     break;
                 case 27: 
-                    Main.VehicleTunings[vehicleId].TrimDesign = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("TrimDesign");
+                    Main.Veh[vehicleId]._Tuning.TrimDesign = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("TrimDesign");
                     break;
                 case 28: 
-                    Main.VehicleTunings[vehicleId].Ornaments = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Ornaments");
+                    Main.Veh[vehicleId]._Tuning.Ornaments = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Ornaments");
                     break;
                 case 30: 
-                    Main.VehicleTunings[vehicleId].DialDesign = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("DialDesign");
+                    Main.Veh[vehicleId]._Tuning.DialDesign = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("DialDesign");
                     break;
                 case 33: 
-                    Main.VehicleTunings[vehicleId].SteeringWheel = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("SteeringWheel");
+                    Main.Veh[vehicleId]._Tuning.SteeringWheel = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("SteeringWheel");
                     break;
                 case 34:
-                    Main.VehicleTunings[vehicleId].ShiftLever = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("ShiftLever");
+                    Main.Veh[vehicleId]._Tuning.ShiftLever = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("ShiftLever");
                     break;
                 case 35:
-                    Main.VehicleTunings[vehicleId].Plaques = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Plaques");
+                    Main.Veh[vehicleId]._Tuning.Plaques = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Plaques");
                     break;
                 case 38:
-                    Main.VehicleTunings[vehicleId].Hydraulics = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Hydraulics");
+                    Main.Veh[vehicleId]._Tuning.Hydraulics = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Hydraulics");
                     break;
                 case 40:
-                    Main.VehicleTunings[vehicleId].Boost = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Boost");
+                    Main.Veh[vehicleId]._Tuning.Boost = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Boost");
                     break;
                 case 48:
-                    Main.VehicleTunings[vehicleId].Livery = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Livery");
+                    Main.Veh[vehicleId]._Tuning.Livery = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Livery");
                     break;
                 case 53:
-                    Main.VehicleTunings[vehicleId].Plate = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("Plate");
+                    Main.Veh[vehicleId]._Tuning.Plate = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("Plate");
                     break;
                 case 55:
-                    Main.VehicleTunings[vehicleId].WindowTint = modeIndex;
-                    Main.VehicleTunings[vehicleId].Update("WindowTint");
+                    Main.Veh[vehicleId]._Tuning.WindowTint = modeIndex;
+                    Main.Veh[vehicleId]._Tuning.Update("WindowTint");
                     break;
                 default:
                     {
@@ -203,63 +203,48 @@ namespace Server.vehicle
             }
         }
 
-        public static void ApplyTuning(Vehicle vehicle, int vehicleID)
+        public static void ApplyTuning(Vehicle vehicle, int vehicleId)
         {
-            if(!Main.VehicleTunings.ContainsKey(vehicleID)) return;
-            vehicle.SetMod(0, Main.VehicleTunings[vehicleID].Spoiler);
-            vehicle.SetMod(1, Main.VehicleTunings[vehicleID].FrontBumper);
-            vehicle.SetMod(2, Main.VehicleTunings[vehicleID].RearBumper);
+            vehicle.SetMod(0, Main.Veh[vehicleId]._Tuning.Spoiler);
+            vehicle.SetMod(1, Main.Veh[vehicleId]._Tuning.FrontBumper);
+            vehicle.SetMod(2, Main.Veh[vehicleId]._Tuning.RearBumper);
 
-            vehicle.SetMod(3, Main.VehicleTunings[vehicleID].SideSkirt);// 3
-            vehicle.SetMod(4, Main.VehicleTunings[vehicleID].Exhaust);// 4
-            vehicle.SetMod(5, Main.VehicleTunings[vehicleID].Frame);// 5
-            vehicle.SetMod(6, Main.VehicleTunings[vehicleID].Grille);// 6
-            vehicle.SetMod(7, Main.VehicleTunings[vehicleID].Hood);// 7
-            vehicle.SetMod(8, Main.VehicleTunings[vehicleID].Fender);// 8
-            vehicle.SetMod(9, Main.VehicleTunings[vehicleID].RightFender);
-            vehicle.SetMod(10, Main.VehicleTunings[vehicleID].Roof);
-            vehicle.SetMod(11, Main.VehicleTunings[vehicleID].Engine);
+            vehicle.SetMod(3, Main.Veh[vehicleId]._Tuning.SideSkirt);// 3
+            vehicle.SetMod(4, Main.Veh[vehicleId]._Tuning.Exhaust);// 4
+            vehicle.SetMod(5, Main.Veh[vehicleId]._Tuning.Frame);// 5
+            vehicle.SetMod(6, Main.Veh[vehicleId]._Tuning.Grille);// 6
+            vehicle.SetMod(7, Main.Veh[vehicleId]._Tuning.Hood);// 7
+            vehicle.SetMod(8, Main.Veh[vehicleId]._Tuning.Fender);// 8
+            vehicle.SetMod(9, Main.Veh[vehicleId]._Tuning.RightFender);
+            vehicle.SetMod(10, Main.Veh[vehicleId]._Tuning.Roof);
+            vehicle.SetMod(11, Main.Veh[vehicleId]._Tuning.Engine);
 
-            vehicle.SetMod(12, Main.VehicleTunings[vehicleID].Brakes);
-            vehicle.SetMod(13, Main.VehicleTunings[vehicleID].Transmission);
-            vehicle.SetMod(14, Main.VehicleTunings[vehicleID].Horns);
-            vehicle.SetMod(15, Main.VehicleTunings[vehicleID].Suspension);
-            vehicle.SetMod(16, Main.VehicleTunings[vehicleID].Armor);// 16
-            vehicle.SetMod(18, Main.VehicleTunings[vehicleID].Turbo);// 18
-            vehicle.SetMod(22, Main.VehicleTunings[vehicleID].Xenon);// 22
-            vehicle.SetMod(23, Main.VehicleTunings[vehicleID].FrontWheels);//23
-            vehicle.SetMod(24, Main.VehicleTunings[vehicleID].BackWheels);//24 Only for Motorcycles
+            vehicle.SetMod(12, Main.Veh[vehicleId]._Tuning.Brakes);
+            vehicle.SetMod(13, Main.Veh[vehicleId]._Tuning.Transmission);
+            vehicle.SetMod(14, Main.Veh[vehicleId]._Tuning.Horns);
+            vehicle.SetMod(15, Main.Veh[vehicleId]._Tuning.Suspension);
+            vehicle.SetMod(16, Main.Veh[vehicleId]._Tuning.Armor);// 16
+            vehicle.SetMod(18, Main.Veh[vehicleId]._Tuning.Turbo);// 18
+            vehicle.SetMod(22, Main.Veh[vehicleId]._Tuning.Xenon);// 22
+            vehicle.SetMod(23, Main.Veh[vehicleId]._Tuning.FrontWheels);//23
+            vehicle.SetMod(24, Main.Veh[vehicleId]._Tuning.BackWheels);//24 Only for Motorcycles
 
-            vehicle.SetMod(25, Main.VehicleTunings[vehicleID].PlateHolders);//25
-            vehicle.SetMod(27, Main.VehicleTunings[vehicleID].TrimDesign);//27
-            vehicle.SetMod(28, Main.VehicleTunings[vehicleID].Ornaments);//28
-            vehicle.SetMod(30, Main.VehicleTunings[vehicleID].DialDesign);//30
+            vehicle.SetMod(25, Main.Veh[vehicleId]._Tuning.PlateHolders);//25
+            vehicle.SetMod(27, Main.Veh[vehicleId]._Tuning.TrimDesign);//27
+            vehicle.SetMod(28, Main.Veh[vehicleId]._Tuning.Ornaments);//28
+            vehicle.SetMod(30, Main.Veh[vehicleId]._Tuning.DialDesign);//30
 
-            vehicle.SetMod(33, Main.VehicleTunings[vehicleID].SteeringWheel);//33
-            vehicle.SetMod(34, Main.VehicleTunings[vehicleID].ShiftLever);//34
-            vehicle.SetMod(35, Main.VehicleTunings[vehicleID].Plaques);//35
-            vehicle.SetMod(38, Main.VehicleTunings[vehicleID].Hydraulics);//38
-            vehicle.SetMod(40, Main.VehicleTunings[vehicleID].Boost);//40
-            vehicle.SetMod(48, Main.VehicleTunings[vehicleID].Livery);//48
-            vehicle.SetMod(53, Main.VehicleTunings[vehicleID].Plate);//53
-            vehicle.SetMod(55, Main.VehicleTunings[vehicleID].WindowTint);//55
+            vehicle.SetMod(33, Main.Veh[vehicleId]._Tuning.SteeringWheel);//33
+            vehicle.SetMod(34, Main.Veh[vehicleId]._Tuning.ShiftLever);//34
+            vehicle.SetMod(35, Main.Veh[vehicleId]._Tuning.Plaques);//35
+            vehicle.SetMod(38, Main.Veh[vehicleId]._Tuning.Hydraulics);//38
+            vehicle.SetMod(40, Main.Veh[vehicleId]._Tuning.Boost);//40
+            vehicle.SetMod(48, Main.Veh[vehicleId]._Tuning.Livery);//48
+            vehicle.SetMod(53, Main.Veh[vehicleId]._Tuning.Plate);//53
+            vehicle.SetMod(55, Main.Veh[vehicleId]._Tuning.WindowTint);//55
 
         }
 
-        public void ApplyTuning(int carid)
-        {
-            if (!Main.VehicleTunings.ContainsKey(carid))
-            {
-                LoadTunning(carid);
-            }
-            ApplyTuning(Main.Veh[carid]._Veh, carid);
-        }
-        [RemoteEvent("remote_ApplyTunning")]
-        public void remoteApplyTunning(Player player, object[] args)
-        {
-            int carid = Convert.ToInt32(args[0]);
-            ApplyTuning(carid);
-        }
         [RemoteEvent("remote_SetTunning")]
         public void SetTuning(Player player, object[] args)
         {
