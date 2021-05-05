@@ -59,6 +59,7 @@ namespace Server.model
             this.DriftScore = Convert.ToInt32(row["DriftScore"]);
             this.Money = Convert.ToInt32(row["Money"]);
             this.Level = Convert.ToInt32(row["Level"]);
+            this.Exp = Convert.ToInt32(row["Exp"]);
 
             return true;
         }

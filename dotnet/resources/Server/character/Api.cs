@@ -61,6 +61,9 @@ namespace Server.character
                     Main.Players1[player].Mute = muteModel;
                     Main.Players1[player].MuteTimer = new Timer(admin.Mute.tc, player, 0, 1000);
                 }
+
+                player.TriggerEvent("trigger_setMoneyLevelExp", character.Money, character.Level, character.Exp);
+
             }
             else 
             {
@@ -83,13 +86,16 @@ namespace Server.character
                 Main.Players1[player].Character.Level += 1;
                 Main.Players1[player].Character.Exp = Main.Players1[player].Character.Exp - needexp;
                 player.SendChatMessage($"Вы перешли на {Main.Players1[player].Character.Level} уровень.");
+                player.TriggerEvent("trigger_SetLevel", Main.Players1[player].Character.Level);
             }
+            player.TriggerEvent("trigger_SetExp", Main.Players1[player].Character.Exp);
         }
 
         public static void GivePlayerMoney(Player player, int money)
         {
             if (!utils.Check.GetPlayerStatus(player, utils.Check.PlayerStatus.Spawn)) return;
             Main.Players1[player].Character.Money += money;
+            player.TriggerEvent("trigger_SetMoney", Main.Players1[player].Character.Money);
         }
         public static void GivePlayerDriftScore(Player player, int score)
         {

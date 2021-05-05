@@ -17,7 +17,7 @@ namespace Server.vehicle
     public class Api : Script
     {
         
-        public void AddVehicle(int charid, string vehhash, out int carid)
+        public static int AddVehicle(int charid, string vehhash)
         {
             Vehicles veh = new Vehicles();
             veh.ModelHash = vehhash;
@@ -25,7 +25,7 @@ namespace Server.vehicle
             veh.Handling = 4;
             int id = veh.Insert();
             veh.Id = id;
-            carid = veh.Id;
+            int carid = veh.Id;
 
             VehiclesGarage garage = new VehiclesGarage();
             garage.GarageId = -1;
@@ -42,6 +42,10 @@ namespace Server.vehicle
             veh._Tuning = tuning;
 
             Main.Veh.Add(id, veh);
+            MySql.Query($"INSERT INTO `vehicletuning` (`CarId`) VALUES ('{veh.Id}')");
+            Tuning.LoadTunning(veh.Id);
+            return carid;
+            //Handling.CreateDefaultHandling(veh.Id, 0);
         }
         public static async Task LoadPlayerVehice(Player player)
         {
@@ -59,7 +63,7 @@ namespace Server.vehicle
                 model.ModelHash = Convert.ToString(row["ModelHash"]);
                 model.OwnerId = Convert.ToInt32(row["OwnerId"]);
                 model.Handling = Convert.ToInt32(row["Handling"]);
-                if(model.Handling > 2 && Main.Players1[player].Character.Vip == 0 || model.Handling > 5)
+                if(model.Handling > 2 && Main.Players1[player].Character.Vip == 0 || model.Handling > 5 || model.Handling < 0)
                 {
                     model.Handling = 0;
                 }
@@ -144,7 +148,10 @@ namespace Server.vehicle
                     if (Main.Veh[carid]._Tuning == null) Tuning.LoadTunning(Main.Veh[carid].Id);
                     Tuning.ApplyTuning(Main.Veh[carid]._Veh, carid);
                     Main.Veh[carid]._Veh.SetData<int>("CarId", carid);
-                    Main.Veh[carid]._Veh.SetSharedData("sd_Handling", Main.Veh[carid].Handling);
+                    if (Main.Veh[carid]._HandlingData.Count == 0)
+                    {
+                        Handling.LoadVehicleHandling(carid, true);
+                    }
                     Main.Veh[carid]._Veh.SetSharedData("sd_Handling1", Main.Veh[carid]._HandlingData.Find(c => c.Slot == Main.Veh[carid].Handling));
                     Main.Veh[carid]._Veh.SetSharedData("sd_EngineMod", Main.Veh[carid]._Tuning.Engine);
                 });
@@ -169,24 +176,26 @@ namespace Server.vehicle
                 {
                     if (Main.Players1[player].CarId != -1 && player.Vehicle == null)
                     {
-                        if (!Main.Veh.ContainsKey(Main.Players1[player].CarId)) return;
-                        if (player.Vehicle != null)
+                        if (Main.Veh.ContainsKey(Main.Players1[player].CarId))
                         {
+                            if (player.Vehicle != null)
+                            {
 
-                        }
-                        var vehpos = Main.GarageTypes[Main.Garage[Main.Veh[Main.Players1[player].CarId]._Garage.GarageId].GarageType].VehiclePosition;
-                        SpawnPlayerVehicle
-                        (
-                            Main.Veh[Main.Players1[player].CarId].Id,
-                            new Vector3
+                            }
+                            var vehpos = Main.GarageTypes[Main.Garage[Main.Veh[Main.Players1[player].CarId]._Garage.GarageId].GarageType].VehiclePosition;
+                            SpawnPlayerVehicle
                             (
-                                vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Position.X,
-                                vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Position.Y,
-                                vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Position.Z
-                            ),
-                            vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Rotation,
-                            (uint)Main.Veh[Main.Players1[player].CarId]._Garage.GarageId
-                        );
+                                Main.Veh[Main.Players1[player].CarId].Id,
+                                new Vector3
+                                (
+                                    vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Position.X,
+                                    vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Position.Y,
+                                    vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Position.Z
+                                ),
+                                vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Rotation,
+                                (uint)Main.Veh[Main.Players1[player].CarId]._Garage.GarageId
+                            );
+                        }
                     }
                     if (player.Vehicle != null)
                     {
@@ -250,7 +259,7 @@ namespace Server.vehicle
             player.SendChatMessage("Вы продали машину");
         }
 
-        public void SetVehicleInGarage(Player player, int carid, int garageid)
+        public static void SetVehicleInGarage(Player player, int carid, int garageid)
         {
             if (Main.Veh.ContainsKey(carid) && Main.Garage.ContainsKey(garageid))
             {
@@ -388,8 +397,7 @@ namespace Server.vehicle
         [Command("addcar",GreedyArg = true)]
         public void cmd_AddCar(Player player, string charid, string vehhash)
         {
-            int carid;
-            AddVehicle(Convert.ToInt32(charid), vehhash, out carid);
+            int carid = AddVehicle(Convert.ToInt32(charid), vehhash);
             player.SendChatMessage($"Вы создали транспорт {vehhash}[{carid}]");
         }
         [Command("tc")]

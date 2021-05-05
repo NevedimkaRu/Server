@@ -2,6 +2,8 @@
 using System.IO;
 using System.Collections.Generic;
 using GTANetworkAPI;
+using System.Data;
+using Server.model;
 
 namespace Server
 {

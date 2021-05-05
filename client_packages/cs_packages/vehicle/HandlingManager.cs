@@ -48,7 +48,7 @@ namespace cs_packages.vehicle
         private MenuPool menuPool;
         public HandlingManager()
         {
-            Input.Bind(RAGE.Ui.VirtualKeys.F7, true, ShowHandlingMenu);//f4
+            //Input.Bind(RAGE.Ui.VirtualKeys.F7, true, ShowHandlingMenu);//f4
         }
 
         private void ShowHandlingMenu()

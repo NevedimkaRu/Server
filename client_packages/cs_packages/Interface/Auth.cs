@@ -72,7 +72,6 @@ namespace cs_packages.Interface
         private void ChangeMenuOpenStatus(object[] args)
         {
             bool status = Convert.ToBoolean(args[0]);
-            Chat.Output(status.ToString());
             isMenuOpen = status;
             if (isMenuOpen)
             {

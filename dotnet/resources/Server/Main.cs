@@ -15,6 +15,7 @@ namespace Server
         public static Dictionary<int, Vehicles> Veh = new Dictionary<int, Vehicles>();
         public static List<Teleport> Teleports = new List<Teleport>();
         public static List<VehicleTuningCost> VehicleTuningsCost = new List<VehicleTuningCost>();
+        public static List<VehicleStore> VehicleStore = new List<VehicleStore>();
 
         public static List<Admin> Admins = new List<Admin>();
 
