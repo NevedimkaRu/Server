@@ -24,19 +24,28 @@ namespace Server.vehicle
                 tuningcost.Index = Convert.ToInt32(row["Index"]);
                 tuningcost.Cost = Convert.ToInt32(row["Cost"]);
 
-                Main.VehicleTuningsCost.Add(tuningcost);
             }
+        }
+        public class TuningComponents
+        {
+            public int Component { get; set; }
+            public List<int> Indexes;
+            public List<string> IndexesNames;
         }
         [RemoteEvent("remote_SendIndexTuning")]
         public void remote_SendIndexTuning(Player player, object[] args)
         {
-            List<int> indexes = new List<int>();
+            List<TuningComponents> components = new List<TuningComponents>();
 
-            indexes = JsonConvert.DeserializeObject<List<int>>(Convert.ToString(args[0]));
-            for(int i = 0; i <=75;i++)
+            components = JsonConvert.DeserializeObject<List<TuningComponents>>(Convert.ToString(args[0]));
+            for (int i = 0; i <= 55; i++)
             {
-                if (indexes[i] == 0) continue;
-                for(int a = indexes[i]; a >= 1; a--)
+                if (i == 9 || i == 11 || i == 12 || i == 13 || i == 15 || i == 16 || i == 18 || i == 24) continue;
+                TuningComponents component = new TuningComponents();
+                component = components.Find(c => c.Component == i);
+                if (component == null) continue;
+                if (component.Indexes.Count == 0) continue;
+                for (int a = 0; a < component.Indexes.Count; a++)
                 {
                     VehicleTuningCost model = new VehicleTuningCost();
                     uint vehmodel = player.Vehicle.Model;
@@ -45,12 +54,10 @@ namespace Server.vehicle
                     model.Index = a;
                     model.Component = i;
                     model.Cost = a * 1000;
-                    Main.VehicleTuningsCost.Add(model);
+                    model.IndexName = component.IndexesNames[a];
                     model.Insert();
                 }
             }
-            //ClanClient model = Deserialize<ClanClient>(args[0].ToString());
-
         }
     }
 }

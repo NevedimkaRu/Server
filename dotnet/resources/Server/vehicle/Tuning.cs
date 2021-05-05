@@ -5,6 +5,8 @@ using System.Text;
 using MySqlConnector;
 using System.Data;
 using Server.model;
+using System.Threading.Tasks;
+
 namespace Server.vehicle
 {
     class Tuning : Script
@@ -263,5 +265,34 @@ namespace Server.vehicle
                 player.SendChatMessage($"{modeType} - {modeIndex}");
             }        
         }
+        public static async Task<Dictionary<int, List<VehicleTuningDict>>> GetVehicleTuningComponents(string VehHash)
+        {
+            Dictionary<int,List< VehicleTuningDict>> components = new Dictionary<int, List<VehicleTuningDict>>();
+
+            DataTable dt = await MySql.QueryReadAsync($"select * from vehicletuningcost where ModelHash = '{NAPI.Util.GetHashKey(VehHash)}' ORDER BY Component,`Index`");
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                return null;
+            }
+            int lastComponent = 0;
+            List<VehicleTuningDict> list = new List<VehicleTuningDict>();
+            foreach (DataRow row in dt.Rows)
+            {
+                VehicleTuningDict tuning = new VehicleTuningDict();
+                int component = Convert.ToInt32(row["Component"]);
+                if(lastComponent != component)
+                {
+                    components.Add(lastComponent, list);
+                    lastComponent = component;
+                    list = new List<VehicleTuningDict>();
+                }
+                tuning.Index = Convert.ToInt32(row["Index"]);
+                tuning.Cost = Convert.ToInt32(row["Cost"]);
+                list.Add(tuning);
+                NAPI.Util.ConsoleOutput($"{component} - {tuning.Index} - {tuning.Cost}");
+            }
+            return components;
+        }
+
     }
 }

@@ -41,7 +41,6 @@ namespace Server.game
                 }
                 Main.Traks.Add(model);
             }
-            
         }
         [ServerEvent(Event.PlayerEnterColshape)]
         public void PlayerEnterColshape(ColShape colShape, Player player)

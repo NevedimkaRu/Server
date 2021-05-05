@@ -18,70 +18,89 @@ namespace cs_packages.vehicle
             Input.Bind(VirtualKeys.H, true, RepairCar);
         }
 
-        private void SendIndexTuning()
+        public class TuningComponents
         {
-            List<int> indexes = new List<int>();
-            for(int i = 0; i <= 75; i++)
-            {
-                int totalmods = Player.LocalPlayer.Vehicle.GetNumMods(i);
-                indexes.Add(totalmods);
-            }
-            Events.CallRemote("remote_SendIndexTuning", indexes);
+            public int Component { get; set; }
+            public List<int> Indexes;
+            public List<string> IndexesNames;
         }
+
 
         List<string> slotNames = new List<string>() 
         {
-            "Spoiler",
-            "Front Bumper",
-            "Rear Bumper",
-            "Side Skirts",
-            "Exhaust",
-            "Rollcage",
-            "Grille",
-            "Bonnet",
-            "Fenders and Arches",
-            "Fenders",
-            "Roof",
-            "Engine",
-            "Brakes",
-            "Transmission",
-            "Horn",
-            "Suspension",
-            "Armor",
-            "",
-            "Turbo",
-            "",
-            "",
-            "",
-            "Headlights",
-            "Front Wheels",
-            "Back Wheels",
-            "Plate Holders",
-            "Vanity Plates",
-            "Interior Trim",
-            "Ornaments",
-            "Interior Dash",
-            "Dials",
-            "Door Speakers",
-            "Leather Seats",
-            "Steering Wheels",
-            "Column Shifters",
-            "Plaques",
-            "ICE",
-            "Speakers",
-            "Hydraulics",
-            "Engine Block",
-            "Air Filters",
-            "Strut Braces",
-            "Arch Covers",
-            "Aerials",
-            "Exterior Trim",
-            "Tank",
-            "Windows",
-            "",
-            "Livery"
+            "Spoiler",//0
+            "Front Bumper",//1
+            "Rear Bumper",//2
+            "Side Skirts",//3
+            "Exhaust",//4
+            "Frame",//5
+            "Grille",//6
+            "Hood",//7
+            "Fender",//8
+            "Right Fender",//9
+            "Roof",//10
+            "Engine",//11
+            "Brakes",//12
+            "Transmission",//13
+            "Horn",//14
+            "Suspension",//15
+            "Armor",//16
+            "",//17
+            "Turbo",//18
+            "",//19
+            "",//20
+            "",//21
+            "Xenon",//22
+            "Front Wheels",//23
+            "Back Wheels",//24
+            "Plate Holders",//25
+            "",//26
+            "Trim Design",//27
+            "Ornaments",//28
+            "",//29
+            "Dial Design",//30
+            "",//31
+            "",//32
+            "Steering Wheels",//33
+            "Shift Lever",//34
+            "Plaques",//35
+            "",//36
+            "Speakers",//37
+            "Hydraulics",//38
+            "Engine Block",//39
+            "Air Filters",//40
+            "Strut Braces",//41
+            "Arch Covers",//42
+            "Aerials",//43
+            "Exterior Trim",//44
+            "Tank",//45
+            "Windows",//46
+            "",//47
+            "Livery",//48
         };
+        private void SendIndexTuning()
+        {
+            List<TuningComponents> components = new List<TuningComponents>();
+            for (int i = 0; i <= 48; i++)
+            {
+                TuningComponents model = new TuningComponents();
+                model.Component = i;
+                int totalmods = Player.LocalPlayer.Vehicle.GetNumMods(i);
+                if (totalmods == 0 && slotNames[i].Length == 0) continue;
+                Chat.Output($"{i} {slotNames[i]}");
+                model.Indexes = new List<int>();
+                model.IndexesNames = new List<string>();
+                for (int a = 0; a < totalmods; a++)
+                {
+                    model.Indexes.Add(a);
+                    string lablename = RAGE.Game.Ui.GetLabelText(Player.LocalPlayer.Vehicle.GetModTextLabel(i, a));
 
+                    model.IndexesNames.Add(lablename == "NULL" ? $"{slotNames[i]} {a}" : lablename);
+                }
+                components.Add(model);
+            }
+            Events.CallRemote("remote_SendIndexTuning", components);
+        }
 
         private MenuPool menuPool;
 

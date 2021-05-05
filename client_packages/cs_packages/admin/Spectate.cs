@@ -22,7 +22,6 @@ namespace cs_packages.admin
         private void Tick(List<Events.TickNametagData> nametags)
         {
             if (!utils.Check.GetPlayerStatus(utils.Check.PlayerStatus.Spawn)) return;
-            Chat.Output("1");
             foreach (Player player in Entities.Players.Streamed)
             {
                 /* Variables */
