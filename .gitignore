@@ -339,3 +339,4 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 /client_packages/cs_packages/utils/_DebugUtils.cs
+/client_packages/game_resources/dlcpacks

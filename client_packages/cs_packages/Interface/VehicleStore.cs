@@ -38,7 +38,7 @@ namespace cs_packages.Interface
         private void ErrorVehicleStore(object[] args)
         {
             string error = args[0].ToString();
-            Vui.VuiModals($"VehicleStore.buyError({error})");
+            Vui.VuiModals($"VehicleStore.buyError('{error}')");
         }
 
         private void SelectGarage(object[] args)

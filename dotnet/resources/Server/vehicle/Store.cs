@@ -45,7 +45,7 @@ namespace Server.vehicle
                 return;
             }
 
-            character.Money -= vs.Cost;
+            Server.character.Api.GivePlayerMoney(player, -vs.Cost);
             character.Update();
             int carid = Api.AddVehicle(character.Id, vs.Hash);
             Api.SetVehicleInGarage(player, carid, garageId);

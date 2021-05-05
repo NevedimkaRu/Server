@@ -14,8 +14,8 @@ namespace cs_packages.admin
         public Spectate()
         {
             Events.Add("trigger_Spectate", SpectateMode);
-            Events.OnEntityStreamIn += OnEntityStreamIn;
-            Events.Tick += Tick;
+            //Events.OnEntityStreamIn += OnEntityStreamIn;
+            //Events.Tick += Tick;
             RAGE.Nametags.Enabled = true;
         }
 

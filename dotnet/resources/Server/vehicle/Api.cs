@@ -176,24 +176,26 @@ namespace Server.vehicle
                 {
                     if (Main.Players1[player].CarId != -1 && player.Vehicle == null)
                     {
-                        if (!Main.Veh.ContainsKey(Main.Players1[player].CarId)) return;
-                        if (player.Vehicle != null)
+                        if (Main.Veh.ContainsKey(Main.Players1[player].CarId))
                         {
+                            if (player.Vehicle != null)
+                            {
 
-                        }
-                        var vehpos = Main.GarageTypes[Main.Garage[Main.Veh[Main.Players1[player].CarId]._Garage.GarageId].GarageType].VehiclePosition;
-                        SpawnPlayerVehicle
-                        (
-                            Main.Veh[Main.Players1[player].CarId].Id,
-                            new Vector3
+                            }
+                            var vehpos = Main.GarageTypes[Main.Garage[Main.Veh[Main.Players1[player].CarId]._Garage.GarageId].GarageType].VehiclePosition;
+                            SpawnPlayerVehicle
                             (
-                                vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Position.X,
-                                vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Position.Y,
-                                vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Position.Z
-                            ),
-                            vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Rotation,
-                            (uint)Main.Veh[Main.Players1[player].CarId]._Garage.GarageId
-                        );
+                                Main.Veh[Main.Players1[player].CarId].Id,
+                                new Vector3
+                                (
+                                    vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Position.X,
+                                    vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Position.Y,
+                                    vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Position.Z
+                                ),
+                                vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Rotation,
+                                (uint)Main.Veh[Main.Players1[player].CarId]._Garage.GarageId
+                            );
+                        }
                     }
                     if (player.Vehicle != null)
                     {
@@ -257,7 +259,7 @@ namespace Server.vehicle
             player.SendChatMessage("Вы продали машину");
         }
 
-        public void SetVehicleInGarage(Player player, int carid, int garageid)
+        public static void SetVehicleInGarage(Player player, int carid, int garageid)
         {
             if (Main.Veh.ContainsKey(carid) && Main.Garage.ContainsKey(garageid))
             {
