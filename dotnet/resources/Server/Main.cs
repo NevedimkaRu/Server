@@ -19,6 +19,7 @@ namespace Server
         public static Dictionary<int, Titles> Titles = new Dictionary<int, Titles>();
 
         public static List<Admin> Admins = new List<Admin>();
+        public static List<Report> Reports = new List<Report>();
 
         public static Dictionary<int, House> Houses = new Dictionary<int, House>();
         public static Dictionary<int, Garage> Garage = new Dictionary<int, Garage>();

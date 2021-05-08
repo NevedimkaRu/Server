@@ -23,6 +23,10 @@ namespace Server.account
 
             account.Username = name;
             account.Password = password;
+            account.SociaClubId = player.SocialClubId;
+            account.RegisterIp = player.Address;
+            account.LastIp = player.Address;
+            account.RegisterDate = DateTime.UtcNow.AddHours(3);
 
             account.Insert();
             PlayerModel playerModel = new PlayerModel();
@@ -51,6 +55,8 @@ namespace Server.account
                     player.Kick();
                     return;
                 }
+                account.LastIp = player.Address;
+                account.Update("LastIp");
                 PlayerModel playerModel = new PlayerModel();
                 playerModel.Account = account;
                 Main.Players1.Add(player, playerModel);
@@ -91,9 +97,11 @@ namespace Server.account
             {
                 if(veh.OwnerId == Main.Players1[player].Character.Id)
                 {
-                    if(Main.Veh.ContainsKey(veh.Id)) Main.Veh.Remove(veh.Id);
+                    veh._Veh.Delete();
+                    Main.Veh.Remove(veh.Id);
                 }
             }
+            admin.Report.DeleteReport(player);
             Main.Players1.Remove(player);
         }
     }

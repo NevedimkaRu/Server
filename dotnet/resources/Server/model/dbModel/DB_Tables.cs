@@ -36,6 +36,14 @@ namespace Server.model
                     {
                         obj.SetValue(this, Convert.ToBoolean(dt.Rows[0][obj.Name]));
                     }
+                    else if (obj.PropertyType.Name == "UInt64")
+                    {
+                        obj.SetValue(this, Convert.ToUInt64(dt.Rows[0][obj.Name]));
+                    }
+                    else if (obj.PropertyType.Name == "DateTime")
+                    {
+                        obj.SetValue(this, Convert.ToDateTime(dt.Rows[0][obj.Name]));
+                    }
                     else
                     {
                         obj.SetValue(this, dt.Rows[0][obj.Name]);
@@ -247,6 +255,14 @@ namespace Server.model
                     {
                         obj.SetValue(this, Convert.ToBoolean(dt.Rows[0][obj.Name]));
                     }
+                    else if (obj.PropertyType.Name == "UInt64")
+                    {
+                        obj.SetValue(this, Convert.ToUInt64(dt.Rows[0][obj.Name]));
+                    }
+                    else if (obj.PropertyType.Name == "DateTime")
+                    {
+                        obj.SetValue(this, Convert.ToDateTime(dt.Rows[0][obj.Name]));
+                    }
                     else
                     {
                         obj.SetValue(this, dt.Rows[0][obj.Name]);
@@ -282,6 +298,14 @@ namespace Server.model
                     else if (obj.PropertyType.Name == "Boolean")
                     {
                         obj.SetValue(this, Convert.ToBoolean(dt.Rows[0][obj.Name]));
+                    }
+                    else if (obj.PropertyType.Name == "UInt64")
+                    {
+                        obj.SetValue(this, Convert.ToUInt64(dt.Rows[0][obj.Name]));
+                    }                    
+                    else if (obj.PropertyType.Name == "DateTime")
+                    {
+                        obj.SetValue(this, Convert.ToDateTime(dt.Rows[0][obj.Name]));
                     }
                     else
                     {
@@ -323,6 +347,14 @@ namespace Server.model
                     else if (obj.PropertyType.Name == "Boolean")
                     {
                         obj.SetValue(this, Convert.ToBoolean(row[obj.Name]));
+                    }
+                    else if (obj.PropertyType.Name == "UInt64")
+                    {
+                        obj.SetValue(this, Convert.ToUInt64(row[obj.Name]));
+                    }
+                    else if (obj.PropertyType.Name == "DateTime")
+                    {
+                        obj.SetValue(this, Convert.ToDateTime(row[obj.Name]));
                     }
                     else
                     {

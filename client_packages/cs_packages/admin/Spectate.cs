@@ -9,14 +9,11 @@ namespace cs_packages.admin
 {
     public class Spectate : Events.Script
     {
-        TextLabel text;
-        List<Player> nearbyPlayers = new List<Player>();
         public Spectate()
         {
             Events.Add("trigger_Spectate", SpectateMode);
             //Events.OnEntityStreamIn += OnEntityStreamIn;
             Events.Tick += Tick;
-            RAGE.Nametags.Enabled = true;
         }
 
         private void Tick(List<Events.TickNametagData> nametags)
@@ -53,23 +50,6 @@ namespace cs_packages.admin
                         RAGE.NUI.UIResText.Alignment.Centered, true, true, 0);
                 }
             }
-        }
-
-        private void OnEntityStreamIn(Entity entity)
-        {
-            /*if(entity.Type == RAGE.Elements.Type.Player)
-            {
-                RAGE.Elements.Player player = (Player)entity;
-                bool IsInvisible = (bool)player._GetSharedData<bool>("INVISIBLE");
-                if (IsInvisible)
-                {
-                    player.SetCollision(false, false);
-                    player.Name = "";
-                }
-                nearbyPlayers.Add(player);
-                Chat.Output($"{player.Name}");
-
-            }*/
         }
 
         private void SpectateMode(object[] args)

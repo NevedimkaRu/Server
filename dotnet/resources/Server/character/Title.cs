@@ -44,5 +44,44 @@ namespace Server.character
             }
             return list;
         }
+
+        public static void AddTitle(string title)
+        {
+            Titles model = new Titles();
+            model.TitleId = Main.Titles.Keys.Count + 1;
+            model.Title = title;
+            model.Id = model.Insert();
+            
+            Main.Titles.Add(model.TitleId, model);
+        }
+
+        [Command("addtitle", GreedyArg = true)]
+        public void cmd_AddTitle(Player player, string title)
+        {
+            AddTitle(title);
+            player.SendChatMessage($"Вы добавили титул: '{title}'");
+        }
+
+        [Command("givetitle")]
+        public void cmd_GivePlayerTitle(Player player, int playerid, int titleid)
+        {
+            CharacterTitle title = new CharacterTitle();
+            title.CharacterId = Main.Players1[utils.Check.GetPlayerByID(playerid)].Character.Id;
+            title.TitleId = titleid;
+            title.Id = title.Insert();
+            Main.Players1[utils.Check.GetPlayerByID(playerid)].Titles.Add(title);
+        }
+        [Command("settitle")]
+        public void cmd_SetTitle(Player player, int titleid)
+        {
+            if (Main.Players1[player].Titles != null)
+            {
+                if (Main.Players1[player].Titles.Find(c => c.TitleId == titleid) != null)
+                {
+                    Main.Players1[player].Character.Title = titleid;
+                    player.SetSharedData("sd_Title", Main.Titles[Main.Players1[player].Character.Title].Title);
+                }
+            }
+        }
     }
 }

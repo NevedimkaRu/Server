@@ -10,7 +10,7 @@ namespace Server
 {
     class MySql : Script
     {
-        public const string connStr = "server=triniti.ru-hoster.com;user=justaAxT;database=justaAxT;port=3306;password=D8C34ykzq5;";
+        public const string connStr = "server=triniti.ru-hoster.com;user=justaAxT;database=justaAxT;port=3306;password=D8C34ykzq5;Convert Zero Datetime=true;";
         readonly static MySqlConnection conn = new MySqlConnection(connStr);
         public static bool Debug = true;
 
