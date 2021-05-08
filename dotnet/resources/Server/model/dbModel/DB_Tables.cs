@@ -255,6 +255,42 @@ namespace Server.model
             }
             return true;
         }
+        public async Task<bool> LoadByOtherFieldAsync(string field, string value)
+        {
+
+            string sql = $"select * from `{getDBTableName()}` where `{field}` = '{value}'";
+            DataTable dt = await MySql.QueryReadAsync(sql);
+
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                return false;
+            }
+
+            foreach (var obj in this.GetType().GetProperties())
+            {
+                if (!IsDbTable(obj.Name)) continue;
+                if (dt.Columns.Contains(obj.Name))
+                {
+                    if (obj.PropertyType.Name == "Vector3")
+                    {
+                        obj.SetValue(this, JsonConvert.DeserializeObject<Vector3>(dt.Rows[0][obj.Name].ToString()));
+                    }
+                    else if (obj.PropertyType.Name == "List`1")
+                    {
+                        obj.SetValue(this, utils.Parser.ParseToListVector3(dt.Rows[0][obj.Name].ToString()));
+                    }
+                    else if (obj.PropertyType.Name == "Boolean")
+                    {
+                        obj.SetValue(this, Convert.ToBoolean(dt.Rows[0][obj.Name]));
+                    }
+                    else
+                    {
+                        obj.SetValue(this, dt.Rows[0][obj.Name]);
+                    }
+                }
+            }
+            return true;
+        }
 
         public void Delete()
         {

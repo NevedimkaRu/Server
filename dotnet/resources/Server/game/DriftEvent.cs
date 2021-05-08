@@ -9,6 +9,23 @@ namespace Server.game
     //todo Интерфейс, на 0 чекпоинте сделать 3d текст и можно чекпоинт, который показывает направление
     public class DriftEvent : Script
     {
+        public static async void LoadPlayerTrackScore(Player player)
+        {
+            DataTable dt = await MySql.QueryReadAsync($"SELECT * FROM `tracksrecords` WHERE `CharacterId` = {Main.Players1[player].Character.Id}");
+
+            if (dt != null || dt.Rows.Count != 0)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    TracksRecords model = new TracksRecords();
+                    model.Id = Convert.ToInt32(row["Id"]);
+                    model.CharacterId = Convert.ToInt32(row["CharacterId"]);
+                    model.Score = Convert.ToInt32(row["Score"]);
+                    model.TrackId = Convert.ToInt32(row["TrackId"]);
+                    Main.Players1[player].TracksRecords.Add(model);
+                }
+            }
+        }
         [ServerEvent(Event.ResourceStart)]
         public static void ResourceStart()
         {

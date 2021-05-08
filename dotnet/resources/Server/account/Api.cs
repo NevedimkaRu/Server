@@ -15,9 +15,9 @@ namespace Server.account
         public static async Task CreateAccount(Player player, string name, string password, string characterName)
         {
             Account account = new Account();
-            if (await account.GetByUserNameAsync(name)) 
+            if (await account.LoadByOtherFieldAsync("Username",name))
             {
-                player.TriggerEvent("trigger_RegisterError", "Аккаунта с таким логином уже существует");
+                player.TriggerEvent("trigger_RegisterError", "Аккаунт с таким логином уже существует");
                 return;
             }
 
@@ -29,14 +29,14 @@ namespace Server.account
             playerModel.Account = account;
             Main.Players1.Add(player, playerModel);
             //todo Нужно сделать проверку на занятость ника именно здесь
-            character.Api.CreateCharacter(player, characterName);
+            await character.Api.CreateCharacter(player, characterName);
             player.TriggerEvent("trigger_FinishRegister");
         }
         public static async Task LoginAccount(Player player, string name, string password)
         {
             Account account = new Account();
-
-            if (await account.GetByUserNameAsync(name))
+            //if (await account.GetByUserNameAsync(name))
+            if (await account.LoadByOtherFieldAsync("Username", name))
             {
                 if (account.Password != password)
                 {

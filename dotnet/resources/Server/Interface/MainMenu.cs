@@ -34,7 +34,8 @@ namespace Server.Interface
                 {
                     dynamic carsData = new JObject();
                     carsData.carId = car.Value.Id;
-                    carsData.carName = NAPI.Vehicle.GetVehicleDisplayName((VehicleHash)NAPI.Util.GetHashKey(car.Value.ModelHash));
+                    var name = Main.VehicleStore.Find(c => c.Hash == car.Value.ModelHash);
+                    carsData.carName = name == null ? NAPI.Vehicle.GetVehicleDisplayName((VehicleHash)NAPI.Util.GetHashKey(car.Value.ModelHash)) : name.Title;
                     FinalData.cars.Add(carsData);
                 }
             }

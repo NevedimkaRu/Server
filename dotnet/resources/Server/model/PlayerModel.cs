@@ -15,6 +15,7 @@ namespace Server.model
         public Admin Admin { get; set; }
         public List<Mute> Mute = new List<Mute>();
         public Timer MuteTimer;
+        public List<CharacterTitle> Titles { get; set; }
 
         public ClanMember Clan { get; set; } = null;
 

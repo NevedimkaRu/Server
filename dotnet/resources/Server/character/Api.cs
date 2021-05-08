@@ -21,44 +21,26 @@ namespace Server.character
         public static async Task LoadCharacter(Player player, int accountId)
         {
             Character character = new Character();
-            if (await character.getByAccountIdAsync(accountId))
+            if (await character.LoadByOtherFieldAsync("AccountId", $"{accountId}"))
             {
                 Main.Players1[player].Character = character;
                 Main.Players1[player].IsSpawn = true;
 
-                DataTable dt;
-                dt = MySql.QueryRead("SELECT * FROM `tracksrecords`");
-                
-                if (dt != null || dt.Rows.Count != 0)
-                {
-                    TracksRecords model = new TracksRecords();
-
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        model.Id = Convert.ToInt32(row["Id"]);
-                        model.CharacterId = Convert.ToInt32(row["CharacterId"]);
-                        model.Score = Convert.ToInt32(row["Score"]);
-                        model.TrackId = Convert.ToInt32(row["TrackId"]);
-                        if(model.CharacterId == Main.Players1[player].Character.Id)
-                        {
-                            Main.Players1[player].TracksRecords.Add(model);
-                        }
-                    }
-                }
-
-                /*ClanMember clan = new ClanMember();
-                if(clan.LoadByOtherId("CharacterId", Main.Players1[player].Character.Id))
-                { 
-                    Main.Players1[player].Clan = clan;
-                }*/
-
                 player.Name = character.Name + "[" + player.Id + "]";
+                game.DriftEvent.LoadPlayerTrackScore(player);
                 await vehicle.Api.LoadPlayerVehice(player);
                 customization.Api.LoadCustomization(player, character.Id);
-                List<model.Mute> muteModel = await admin.Mute.CheckMuteStatus(character.Id);
-                if (muteModel != null)
+                Main.Players1[player].Titles = await Title.LoadCharacterTitle(player);
+                if(Main.Players1[player].Titles != null)
                 {
-                    Main.Players1[player].Mute = muteModel;
+                    if(Main.Players1[player].Titles.Find(c => c.TitleId == Main.Players1[player].Character.Title) != null)
+                    {
+                        player.SetSharedData("sd_Title",Main.Titles[Main.Players1[player].Character.Title].Title);
+                    }
+                }
+                Main.Players1[player].Mute = await admin.Mute.CheckMuteStatus(character.Id);
+                if (Main.Players1[player].Mute != null)
+                {
                     Main.Players1[player].MuteTimer = new Timer(admin.Mute.tc, player, 0, 1000);
                 }
 

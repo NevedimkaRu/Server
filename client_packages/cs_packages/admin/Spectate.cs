@@ -15,7 +15,7 @@ namespace cs_packages.admin
         {
             Events.Add("trigger_Spectate", SpectateMode);
             //Events.OnEntityStreamIn += OnEntityStreamIn;
-            //Events.Tick += Tick;
+            Events.Tick += Tick;
             RAGE.Nametags.Enabled = true;
         }
 
@@ -32,10 +32,22 @@ namespace cs_packages.admin
 
                 if (RAGE.Game.Graphics.GetScreenCoordFromWorldCoord(position.X, position.Y, position.Z + 0.60f, ref _screenX, ref _screenY))
                 {
-                    RAGE.NUI.UIResText.Draw($"{player.Name}", 
+                    string title = Convert.ToString(player._GetSharedData<string>("sd_Title"));
+                    if(title != null)
+                    {
+                        RAGE.NUI.UIResText.Draw($"{title}",
+                            (int)(1920 * _screenX),
+                            (int)((1080 * _screenY) + 30),
+                            RAGE.Game.Font.HouseScript,
+                            0.4f,
+                            Color.White,
+                            RAGE.NUI.UIResText.Alignment.Centered, true, true, 0);
+                    }
+
+                    RAGE.NUI.UIResText.Draw($"{player.Name}",
                         (int)(1920 * _screenX),
-                        (int)(1080 * _screenY), 
-                        RAGE.Game.Font.Pricedown, 
+                        (int)(1080 * _screenY),
+                        RAGE.Game.Font.ChaletLondon,
                         0.4f,
                         Color.White,
                         RAGE.NUI.UIResText.Alignment.Centered, true, true, 0);
