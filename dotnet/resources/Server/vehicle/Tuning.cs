@@ -288,6 +288,7 @@ namespace Server.vehicle
                 }
                 tuning.Index = Convert.ToInt32(row["Index"]);
                 tuning.Cost = Convert.ToInt32(row["Cost"]);
+                tuning.Name = Convert.ToString(row["IndexName"]);
                 list.Add(tuning);
                 NAPI.Util.ConsoleOutput($"{component} - {tuning.Index} - {tuning.Cost}");
             }

@@ -66,7 +66,6 @@ namespace Server.game
             if (player.Vehicle == null) return;
             if (Main.Players1[player].Track == null)
             {
-                
                 foreach (Traks traks in Main.Traks)
                 {
                     if (colShape == traks._ColShapes[0])
@@ -98,7 +97,7 @@ namespace Server.game
                         track = utils.Track.GetTrackRecordsByTrackId(player, traks.Id);
 
                         
-                        player.SendChatMessage($"Вам рекорд на страссе {traks.Name}:" +
+                        player.SendChatMessage($"Ваш рекорд на страссе {traks.Name}:" +
                             $" {track.Score}");
                         break;
                     }

@@ -11,6 +11,7 @@ namespace Server.model
         public DateTime UnBanDate { get; set; }
         public bool Permanent { get; set; }
         public string Reason { get; set; }
-
     }
+
+
 }

@@ -18,5 +18,6 @@ namespace Server.model
     {
         public int Index { get; set; } 
         public int Cost { get; set; }
+        public string Name { get; set; }
     }
 }

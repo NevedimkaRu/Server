@@ -90,12 +90,15 @@ namespace Server.admin
         public void OnPlayerChatMessage(Player player, string message)
         {
             if (!utils.Check.GetPlayerStatus(player, utils.Check.PlayerStatus.Spawn)) return;
-            model.Mute muteModel = Main.Players1[player].Mute.Find(c => c.Type == model.Mute.CHAT);
-            if (muteModel != null)
+            if(Main.Players1[player].Mute != null)
             {
-                message = "EBAL";
-                player.SendChatMessage($"У вас заблокирован доступ к чату. Осталось: {muteModel.TimeLeft}");
-                return;
+                model.Mute muteModel = Main.Players1[player].Mute.Find(c => c.Type == model.Mute.CHAT);
+                if (muteModel != null)
+                {
+                    message = "EBAL";
+                    player.SendChatMessage($"У вас заблокирован доступ к чату. Осталось: {muteModel.TimeLeft}");
+                    return;
+                }
             }
             else
             {

@@ -365,9 +365,17 @@ namespace Server.vehicle
         [RemoteEvent("remote_UpdatePlayerDriftScore")]
         public void UpdatePlayerDriftScore(Player player, int score)
         {
+            if (player.Vehicle != Main.Veh[Main.Players1[player].CarId]._Veh)
+            {
+                return;
+            }
             character.Api.GivePlayerExp(player, score);
             character.Api.GivePlayerMoney(player, score);
             character.Api.GivePlayerDriftScore(player, score);
+            if(Main.Players1[player].TeleportId != -1)
+            {
+                character.Record.CheckPlayerMapRecord(player, Main.Players1[player].TeleportId, score);
+            }
             Main.Players1[player].Character.Update("Level,Exp,Money");
         }
         [RemoteEvent("remote_RepairCar")]

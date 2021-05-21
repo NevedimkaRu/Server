@@ -51,7 +51,8 @@ namespace Server.account
                 banModel = await admin.Ban.CheckBanStatus(account.Id);
                 if(banModel != null)
                 {
-                    player.SendChatMessage($"Ваш аккаунт забанен до {banModel.UnBanDate}. По причине: {banModel.Reason}");
+                    if(banModel.Permanent) player.SendChatMessage($"Ваш аккаунт забанен навсегда. По причине: {banModel.Reason}");
+                    else player.SendChatMessage($"Ваш аккаунт забанен до {banModel.UnBanDate}. По причине: {banModel.Reason}");
                     player.Kick();
                     return;
                 }

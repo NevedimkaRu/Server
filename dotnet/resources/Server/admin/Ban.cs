@@ -81,7 +81,8 @@ namespace Server.admin
                 model.BanDate = Convert.ToDateTime(row["BanDate"]);
                 model.UnBanDate = Convert.ToDateTime(row["UnBanDate"]);
                 model.Reason = Convert.ToString(row["Reason"]);
-                if (DateTime.UtcNow.AddHours(3).CompareTo(model.UnBanDate) >= 0)
+                model.Permanent = Convert.ToBoolean(row["Permanent"]);
+                if (DateTime.UtcNow.AddHours(3).CompareTo(model.UnBanDate) >= 0 && !model.Permanent)
                 {
                     model.Delete();
                     return null;

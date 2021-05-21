@@ -102,15 +102,6 @@ namespace Server
                 player.Position = teleport.Position;
             }
         }
-        [Command("tl")]
-        public void cmd_TeleportList(Player player)
-        {
-            if (!Debug) return;
-            for (int a = 1; a != Main.Teleports.Count + 1; a++)
-            {
-                player.SendChatMessage($"[{Main.Teleports[a].Id}]{Main.Teleports[a].Name} - {Main.Teleports[a].Discription}");
-            }
-        }
         [Command("settime")]
         public static void cmd_setTime(Player player, int hours, int minutes, int seconds)
         {

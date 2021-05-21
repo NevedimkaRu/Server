@@ -30,6 +30,7 @@ namespace Server.character
                 game.DriftEvent.LoadPlayerTrackScore(player);
                 await vehicle.Api.LoadPlayerVehice(player);
                 customization.Api.LoadCustomization(player, character.Id);
+                Main.Players1[player].Records = await Record.LoadPlayerRecords(player);
                 Main.Players1[player].Titles = await Title.LoadCharacterTitle(player);
                 if(Main.Players1[player].Titles != null)
                 {

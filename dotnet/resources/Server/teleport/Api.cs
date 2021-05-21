@@ -35,10 +35,27 @@ namespace Server.teleport
             foreach (DataRow row in dt.Rows)
             {
                 Teleport model = new Teleport();
-                model.Id = Convert.ToInt32(row["Id"]);
-                model.Name = Convert.ToString(row["Name"]);
-                model.Discription = Convert.ToString(row["Discription"]);
-                model.Position = JsonConvert.DeserializeObject<Vector3>(row["Position"].ToString());
+                model.LoadByDataRow(row);
+                if(model.ColShapePos != null)
+                {
+                    model._ColShape = NAPI.ColShape.CreateCylinderColShape(model.ColShapePos, model.ColShapeRange, model.ColShapeHeight,0);
+                    model._ColShape.OnEntityEnterColShape += (shape, player) =>
+                    {
+                        if (utils.Check.GetPlayerStatus(player, utils.Check.PlayerStatus.Spawn))
+                        {
+                            Main.Players1[player].TeleportId = model.Id;
+                            player.SendChatMessage($"Вы вошли в {model.Name}");
+                        }
+                    };                
+                    model._ColShape.OnEntityExitColShape += (shape, player) =>
+                    {
+                        if (utils.Check.GetPlayerStatus(player, utils.Check.PlayerStatus.Spawn))
+                        {
+                            Main.Players1[player].TeleportId = -1;
+                            player.SendChatMessage($"Вы вышли из {model.Name}");
+                        }
+                    };
+                }
                 Main.Teleports.Add(model);
             }
             NAPI.Util.ConsoleOutput("Teleports load");
