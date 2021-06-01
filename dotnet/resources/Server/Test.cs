@@ -23,6 +23,29 @@ namespace Server
             Vector3 player_pos = player.Position;
             player.SetIntoVehicle(NAPI.Vehicle.CreateVehicle(VehicleHash.Elegy2, player_pos, 2f, new Color(0, 255, 100), new Color(0), "МУР", 255, false, true, player.Dimension), 0);
         }
+        Vehicle vehhh;
+        
+        [Command("test")]
+        public void cmd_Test(Player player)
+        {
+            Vector3 player_pos = player.Position;
+            Vector3 secondpos = player.Position;
+            secondpos.X -= 10.95f;
+            secondpos.Y -= 15.25f;
+            var dir =  player_pos - secondpos;
+            var angle = -Math.Atan2(dir.Y, dir.X) * (180.0f / 3.1416f);
+            vehhh = NAPI.Vehicle.CreateVehicle(VehicleHash.Elegy2, secondpos, Convert.ToSingle(angle), new Color(0, 255, 100), new Color(0), "МУР", 255, false, true, player.Dimension);
+        }
+        [ServerEvent(Event.Update)]
+        public void OnUpdate()
+        {
+            if(vehhh != null)
+            {
+                Vector3 dir =  vehhh.Position - utils.Check.GetPlayerByID(0).Position;
+                double angle = -Math.Atan2(dir.X, dir.Y) * (180 / 3.1416f) + 180;
+                vehhh.Rotation = new Vector3(0,0, angle);
+            }
+        }
         [Command("vehh", GreedyArg = true)]
         public void cmd_CreateVehicleHash(Player player, VehicleHash hash)
         {

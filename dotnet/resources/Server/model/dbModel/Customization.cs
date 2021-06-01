@@ -100,28 +100,5 @@ namespace Server.model
           
             NAPI.Player.SetPlayerEyeColor(player, (byte) this.eyeColor);
         }
-
-        public bool getByCharacterId(int characterId)
-        {
-            DataTable db = MySql.QueryRead($"select * from `customization` where characterId = '{characterId}'");
-            if (db == null || db.Rows.Count == 0)
-            {
-                return false;
-            }
-            DataRow row = db.Rows[0];
-            foreach (var obj in GetType().GetProperties())
-            {
-                string fld = obj.Name;
-                if (GetType().GetProperty(fld).PropertyType.Name == "Boolean")
-                {
-                    obj.SetValue(this, Convert.ToBoolean(row[fld]));
-                } else
-                {
-                    obj.SetValue(this, row[fld]);
-                }
-            }
-
-            return true;
-        }
     }
 }

@@ -29,7 +29,7 @@ namespace Server.character
                 player.Name = character.Name + "[" + player.Id + "]";
                 game.DriftEvent.LoadPlayerTrackScore(player);
                 await vehicle.Api.LoadPlayerVehice(player);
-                customization.Api.LoadCustomization(player, character.Id);
+                customization.Api.LoadCustomization(player, character.Id);//todo Сделать асинхронным
                 Main.Players1[player].Records = await Record.LoadPlayerRecords(player);
                 Main.Players1[player].Titles = await Title.LoadCharacterTitle(player);
                 if(Main.Players1[player].Titles != null)

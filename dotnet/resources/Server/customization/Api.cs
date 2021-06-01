@@ -29,6 +29,7 @@ namespace Server.customization
                 model.characterId = Main.Players1[player].Character.Id;
                 model.Insert();
             }
+            Main.Players1[player].Customization = model;
             model.SetToPlayer(player);
         }
 
@@ -45,6 +46,7 @@ namespace Server.customization
         {
             Customization model = new Customization();
             model.LoadByOtherId("CharacterId", characterId);
+            Main.Players1[player].Customization = model;
             model.SetToPlayer(player);
         }
     }
