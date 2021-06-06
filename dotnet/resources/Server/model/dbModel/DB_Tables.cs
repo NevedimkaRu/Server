@@ -44,6 +44,10 @@ namespace Server.model
                     {
                         obj.SetValue(this, Convert.ToDateTime(dt.Rows[0][obj.Name]));
                     }
+                    else if (obj.PropertyType.Name == "UInt32")
+                    {
+                        obj.SetValue(this, Convert.ToUInt32(dt.Rows[0][obj.Name]));
+                    }
                     else
                     {
                         obj.SetValue(this, dt.Rows[0][obj.Name]);
@@ -263,6 +267,10 @@ namespace Server.model
                     {
                         obj.SetValue(this, Convert.ToDateTime(dt.Rows[0][obj.Name]));
                     }
+                    else if (obj.PropertyType.Name == "UInt32")
+                    {
+                        obj.SetValue(this, Convert.ToUInt32(dt.Rows[0][obj.Name]));
+                    }
                     else
                     {
                         obj.SetValue(this, dt.Rows[0][obj.Name]);
@@ -306,6 +314,10 @@ namespace Server.model
                     else if (obj.PropertyType.Name == "DateTime")
                     {
                         obj.SetValue(this, Convert.ToDateTime(dt.Rows[0][obj.Name]));
+                    }
+                    else if (obj.PropertyType.Name == "UInt32")
+                    {
+                        obj.SetValue(this, Convert.ToUInt32(dt.Rows[0][obj.Name]));
                     }
                     else
                     {
@@ -355,6 +367,10 @@ namespace Server.model
                     else if (obj.PropertyType.Name == "DateTime")
                     {
                         obj.SetValue(this, Convert.ToDateTime(row[obj.Name]));
+                    }
+                    else if (obj.PropertyType.Name == "UInt32")
+                    {
+                        obj.SetValue(this, Convert.ToUInt32(row[obj.Name]));
                     }
                     else
                     {
