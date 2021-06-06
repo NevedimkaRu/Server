@@ -17,6 +17,7 @@ namespace Server.model
         public Timer MuteTimer;
         public List<CharacterTitle> Titles { get; set; } = new List<CharacterTitle>();
         public List<Record> Records { get; set; }
+        public PlayerClothes Clothes = new PlayerClothes();
         public int TeleportId { get; set; } = -1;
 
         public ClanMember Clan { get; set; } = null;
