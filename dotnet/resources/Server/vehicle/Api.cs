@@ -205,7 +205,7 @@ namespace Server.vehicle
                         player.WarpOutOfVehicle();
                         if(Main.Veh.ContainsKey(caridd))
                         {
-                            if (Main.Veh[carid].OwnerId == Main.Players1[player].Character.Id);
+                            if (Main.Veh[carid].OwnerId == Main.Players1[player].Character.Id)
                             {
                                 var vehpos = Main.GarageTypes[Main.Garage[Main.Veh[caridd]._Garage.GarageId].GarageType].VehiclePosition;
                                 Main.Veh[caridd]._Veh.Delete();

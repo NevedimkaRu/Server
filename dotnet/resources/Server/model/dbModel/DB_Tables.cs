@@ -273,7 +273,6 @@ namespace Server.model
         }
         public async Task<bool> LoadByOtherFieldAsync(string field, string value)
         {
-
             string sql = $"select * from `{getDBTableName()}` where `{field}` = '{value}'";
             DataTable dt = await MySql.QueryReadAsync(sql);
 

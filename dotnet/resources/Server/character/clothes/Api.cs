@@ -74,7 +74,7 @@ namespace Server.character.clothes
 
 
 
-        public static void SetPlayerClothes(Player player,Clothes.ClothesTypes clothesType, int clothes, int texture)
+        public static bool SetPlayerClothes(Player player,Clothes.ClothesTypes clothesType, int clothes, int texture)
         {
             int toptype = Dict.ClothesDict[Clothes.ClothesTypes.Tops].ClothesList[true][clothes].Type;
             bool gender = Main.Players1[player].Customization.gender;
@@ -85,22 +85,24 @@ namespace Server.character.clothes
                     Main.Players1[player].Clothes.Mask = -1;
                     Main.Players1[player].Clothes.MaskTexture = 0;
                 }
-                if (Dict.ClothesDict[Clothes.ClothesTypes.Masks].ClothesList[true][clothes] == null) return;
+                if (Dict.ClothesDict[Clothes.ClothesTypes.Masks].ClothesList[true][clothes] == null) return false;
                 if (Dict.ClothesDict[Clothes.ClothesTypes.Masks].ClothesList[true][clothes].Drawable == -1 
-                    || Dict.ClothesDict[Clothes.ClothesTypes.Masks].ClothesList[true][clothes].Textures.Contains(texture) == false) return;
+                    || Dict.ClothesDict[Clothes.ClothesTypes.Masks].ClothesList[true][clothes].Textures.Contains(texture) == false) return false;
                 Main.Players1[player].Clothes.Mask = clothes;
                 Main.Players1[player].Clothes.MaskTexture = texture;
 
                 player.SetClothes(1, clothes, texture);
+                return true;
             }
             else if (clothesType == Clothes.ClothesTypes.Legs)
             {
-                if (Dict.ClothesDict[Clothes.ClothesTypes.Legs].ClothesList[gender][clothes] == null) return;
+                if (Dict.ClothesDict[Clothes.ClothesTypes.Legs].ClothesList[gender][clothes] == null) return false;
                 if (Dict.ClothesDict[Clothes.ClothesTypes.Legs].ClothesList[gender][clothes].Drawable == -1 
-                    || Dict.ClothesDict[Clothes.ClothesTypes.Legs].ClothesList[gender][clothes].Textures.Contains(texture) == false) return;
+                    || Dict.ClothesDict[Clothes.ClothesTypes.Legs].ClothesList[gender][clothes].Textures.Contains(texture) == false) return false;
                 Main.Players1[player].Clothes.Legs = clothes;
                 Main.Players1[player].Clothes.LegsTexture = texture;
                 player.SetClothes(4, clothes, texture);
+                return true;
             }
             else if(clothesType == Clothes.ClothesTypes.Tops)
             {
@@ -113,12 +115,13 @@ namespace Server.character.clothes
                     player.SetClothes(11, 15, 0);
                     player.SetClothes(8, 15, 0);
                     player.SetClothes(3, Dict.CorrectTorso[gender][15], 0);
+                    return true;
                 }
-                if (Dict.ClothesDict[Clothes.ClothesTypes.Tops].ClothesList[gender][clothes] == null) return;
+                if (Dict.ClothesDict[Clothes.ClothesTypes.Tops].ClothesList[gender][clothes] == null) return false;
                 if (toptype != -1)
                 {
                     if (Dict.ClothesDict[Clothes.ClothesTypes.Tops].ClothesList[gender][clothes].Drawable == -1 ||
-                            Dict.ClothesDict[Clothes.ClothesTypes.Tops].ClothesList[gender][clothes].Textures.Contains(texture) == false) return;
+                            Dict.ClothesDict[Clothes.ClothesTypes.Tops].ClothesList[gender][clothes].Textures.Contains(texture) == false) return false;
 
                     if (Dict.UndershirtsDict[gender].ContainsKey(Main.Players1[player].Clothes.Undershirt) 
                         && Dict.UndershirtsDict[gender][Main.Players1[player].Clothes.Undershirt].Drawables.ContainsKey(toptype))
@@ -131,10 +134,12 @@ namespace Server.character.clothes
                         Main.Players1[player].Clothes.TopTexture = texture;
                         player.SetClothes(11, clothes, texture);
                         player.SetClothes(3, Dict.CorrectTorso[gender][clothes], 0);
+                        return true;
                     }
                     else
                     {
                         player.SendChatMessage("Эта футболка/рубашка не подходит к данному топу");
+                        return false;
                     }
                 }
                 else
@@ -155,7 +160,7 @@ namespace Server.character.clothes
                                     Main.Players1[player].Clothes.UndershirtTexture);
                                 player.SetClothes(11, Main.Players1[player].Clothes.Top, 0);
                                 player.SetClothes(3, Dict.CorrectTorso[gender][Main.Players1[player].Clothes.Top], 0);
-                                return;
+                                return true;
                             }
                         }
                     }
@@ -173,8 +178,10 @@ namespace Server.character.clothes
                     }
                     player.SetClothes(11, clothes, texture);
                     player.SetClothes(3, Dict.CorrectTorso[gender][clothes], 0);
+                    return true;
                 }
             }
+            return false;
         }
         [Command("sc")]
         public static void cmd_SetClothes(Player player,int clothestype, int drawable, int texture)

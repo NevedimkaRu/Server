@@ -11,6 +11,7 @@ namespace Server.model
         public int CharacterId { get; set; }
         public int GarageType { get; set; }
         public uint Cost { get; set; }
+        public int Type { get; set; }
         public Vector3 Position { get; set; }
         public float Rotation { get; set; }
         public bool Closed { get; set; } = false;

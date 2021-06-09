@@ -11,7 +11,13 @@ namespace Server.garage
 {
     class Api : Script
     {
-        //todo сделать продажу игроку, выгонять всех игроков из гаража при продаже.
+        public static Dictionary<int, Vector3> StandartGarage = new Dictionary<int, Vector3>()
+        {
+            {1, new Vector3(-433.07422, 1129.4246, 325.90454) },
+            {2, new Vector3(-424.71643, 1126.3676, 325.85483) },
+            {3, new Vector3(-417.47037, 1124.4901, 325.90454) }
+        };
+        //todo сделать продажу игроку, выгонять всех игроков из гаража при продаже, запретить продавать стандартный гараж.
         [ServerEvent(Event.ResourceStart)]
         public void OnResourceStart()
         {
@@ -32,6 +38,7 @@ namespace Server.garage
                 model.Position = JsonConvert.DeserializeObject<Vector3>(row["Position"].ToString());
                 model.Rotation = Convert.ToSingle(row["Rotation"]);
                 model.Closed = Convert.ToBoolean(row["Closed"]);
+                model.Type = Convert.ToInt32(row["Type"]);
                 model._Owner = Convert.ToString(row["Name"]);
 
                 model._Marker = NAPI.Marker.CreateMarker(36,
@@ -40,28 +47,42 @@ namespace Server.garage
                        new Vector3(0, 0, 0),
                        1.0f,
                        new Color(207, 207, 207));
-                if(model.HouseId != -1)
+                if (model.Type == 0)
                 {
-                    model._TextLabel = NAPI.TextLabel.CreateTextLabel("Press \"E\" ", model.Position, 10.0f, 2.0f, 0, new Color(250, 250, 250));
-                }
-                else if(model.HouseId == -1 && model.CharacterId != -1)
-                {   
-                    model._TextLabel = NAPI.TextLabel.CreateTextLabel(
-                        $"Гараж {model.Id}" +
-                        $"\nВладелец \"{model._Owner}\" ", 
-                        model.Position, 10.0f, 2.0f, 0, new Color(250, 250, 250));
-                    model._Blip = NAPI.Blip.CreateBlip(357, model.Position,1.0f, 6);
-                }
-                else if(model.HouseId == -1 && model.CharacterId == -1)
-                {
-                    model._TextLabel = NAPI.TextLabel.CreateTextLabel(
-                        $"Гараж {model.Id}. " +
-                        $"\nМест для транспорта - {Main.GarageTypes[model.GarageType].VehiclePosition.Count}" +
-                        $"\nСтоимость \"{model.Cost}\" ", 
-                        model.Position, 10.0f, 2.0f, 0, new Color(250, 250, 250));
-                    model._Blip = NAPI.Blip.CreateBlip(357, model.Position, 1.0f, 43);
+                    if (model.HouseId != -1)
+                    {
+                        model._TextLabel = NAPI.TextLabel.CreateTextLabel("Press \"E\" ", model.Position, 10.0f, 2.0f, 0, new Color(250, 250, 250));
+                    }
+                    else if (model.HouseId == -1 && model.CharacterId != -1)
+                    {
+                        model._TextLabel = NAPI.TextLabel.CreateTextLabel(
+                            $"Гараж {model.Id}" +
+                            $"\nВладелец \"{model._Owner}\" ",
+                            model.Position, 10.0f, 2.0f, 0, new Color(250, 250, 250));
+                        model._Blip = NAPI.Blip.CreateBlip(357, model.Position, 1.0f, 6);
+                    }
+                    else if (model.HouseId == -1 && model.CharacterId == -1)
+                    {
+                        model._TextLabel = NAPI.TextLabel.CreateTextLabel(
+                            $"Гараж {model.Id}. " +
+                            $"\nМест для транспорта - {Main.GarageTypes[model.GarageType].VehiclePosition.Count}" +
+                            $"\nСтоимость \"{model.Cost}\" ",
+                            model.Position, 10.0f, 2.0f, 0, new Color(250, 250, 250));
+                        model._Blip = NAPI.Blip.CreateBlip(357, model.Position, 1.0f, 43);
+                    }
                 }
                 Main.Garage.Add(model.Id, model);
+            }
+            foreach(var standartGarage in StandartGarage)
+            {
+                NAPI.Marker.CreateMarker(36,
+                       standartGarage.Value,
+                       standartGarage.Value,
+                       new Vector3(0, 0, 0),
+                       1.0f,
+                       new Color(207, 207, 207));
+                NAPI.TextLabel.CreateTextLabel($"Стандартный гараж.", standartGarage.Value, 10.0f, 2.0f, 0, new Color(250, 250, 250));
+                NAPI.Blip.CreateBlip(357, standartGarage.Value, 1.0f, 43);
             }
         }
 
@@ -111,21 +132,30 @@ namespace Server.garage
 
         }
 
-        public static void CreateGarage(Vector3 position, float rotation, uint cost = 100000)
+        public static void CreateGarage(Vector3 position, float rotation,int type, uint cost = 100000)
         {
             Garage garage = new Garage();
             garage.HouseId = -1;
             garage.CharacterId = -1;
             garage.GarageType = 0;
-            garage.Position = position;
-            garage.Rotation = rotation;
-            garage.Cost = cost;
+            if(type != 0)
+            {
+                garage.Position = StandartGarage[type];
+                garage.Rotation = 0f;
+                garage.Cost = 0;
+            }
+            else
+            {
+                garage.Position = position;
+                garage.Rotation = rotation;
+                garage.Cost = 100000;
+            }
+            garage.Type = type;
 
             int id = garage.Insert();
 
             Main.Garage.Add(id, garage);
-
-            RefreshGarage(id);
+            if(type == 0) RefreshGarage(id);
         }
 
         public static void SellGarage(int garageid)
@@ -187,7 +217,26 @@ namespace Server.garage
                         }
                         if (veh.Value.OwnerId == Main.Players1[player].Character.Id && player.Vehicle.Handle == veh.Value._Veh.Handle)
                         {
+                            if (Main.Players1[player].CarId != -1)
+                            {
+                                if (Main.Veh.ContainsKey(Main.Players1[player].CarId))
+                                {
+                                    var vehpos = Main.GarageTypes[Main.Garage[Main.Veh[Main.Players1[player].CarId]._Garage.GarageId].GarageType].VehiclePosition;
+                                    vehicle.Api.SpawnPlayerVehicle
+                                    (
+                                        Main.Veh[Main.Players1[player].CarId].Id,
+                                        new Vector3
+                                        (
+                                            vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Position.X,
+                                            vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Position.Y,
+                                            vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Position.Z
+                                        ),
+                                        vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Rotation,
+                                        (uint)Main.Veh[Main.Players1[player].CarId]._Garage.GarageId
+                                    );
 
+                                }
+                            }
                             veh.Value._Veh.Position = Main.Garage[Main.Players1[player].GarageId].Position;
                             veh.Value._Veh.Rotation = new Vector3(veh.Value._Veh.Rotation.X, veh.Value._Veh.Rotation.Y, Main.Garage[Main.Players1[player].GarageId].Rotation);
                             veh.Value._Veh.Dimension = 0;
@@ -200,6 +249,7 @@ namespace Server.garage
                             });
                             Main.Players1[player].HouseId = -1;
                             Main.Players1[player].GarageId = -1;
+                            Main.Players1[player].CarId = veh.Value.Id;
                             return;
                         }
                     }
@@ -261,6 +311,7 @@ namespace Server.garage
                         {
                             utils.Other.RequestPlayerIpl(player, Main.HousesInteriors[Main.Houses[(int)player.Dimension].InteriorId].InteriorIpl);
                         }
+                        return;
                     }
                     else
                     {
@@ -271,12 +322,25 @@ namespace Server.garage
                         {
                             utils.Other.RemovePlayerIpl(player, Main.GarageTypes[garage.Value.GarageType].Ipl);
                         }
+                        return;
                     }
                 }
                 if(player.Position.DistanceTo(garage.Value.Position) < 1.3f)
                 {
                     if(garage.Value.HouseId == -1)//Если гараж не привязан к дому
                     {
+                        if(garage.Value.Type != 0)
+                        {
+                            if (garage.Value.CharacterId != Main.Players1[player].Character.Id) return;
+                            player.Position = Main.GarageTypes[Main.Garage[garage.Value.Id].GarageType].Position;
+                            player.Dimension = (uint)Main.Garage[garage.Value.Id].Id;
+                            Main.Players1[player].GarageId = Main.Garage[garage.Value.Id].Id;
+                            if (Main.GarageTypes[Main.Garage[garage.Value.Id].GarageType].Ipl != null)
+                            {
+                                Other.RequestPlayerIpl(player, Main.GarageTypes[Main.Garage[garage.Value.Id].GarageType].Ipl);
+                            }
+                            return;
+                        }
                         if(garage.Value.CharacterId == -1)//покупка гаража
                         {
                             player.TriggerEvent("trigger_ShowGarageBuyMenu", garage.Value.Id, garage.Value.Cost);
@@ -294,6 +358,7 @@ namespace Server.garage
                     }
                 }
             }
+            
         }
 
         [RemoteEvent("remote_EnterGarage")]
@@ -380,17 +445,25 @@ namespace Server.garage
             SellGarage(Convert.ToInt32(garageid));
             player.SendChatMessage($"Вы продали гараж {garageid}");
         }
-        [Command("creategarage", GreedyArg = true)]
-        public void cmd_CreateGarage(Player player)
+        [Command("creategarage")]
+        public void cmd_CreateGarage(Player player, int type)
         {
-            if (player.Vehicle == null)
+            if(type == 0)
             {
-                player.SendChatMessage("Вы должны находиться в машине");
-                return;
-            }
-            Vehicle vehicle = player.Vehicle;
+                if (player.Vehicle == null && type == 0)
+                {
+                    player.SendChatMessage("Вы должны находиться в машине");
+                    return;
+                }
+                Vehicle vehicle = player.Vehicle;
 
-            CreateGarage(vehicle.Position, vehicle.Rotation.Z);
+                CreateGarage(vehicle.Position, vehicle.Rotation.Z, 0);
+
+            }
+            else
+            {
+                CreateGarage(null, 0, type);
+            }
         }
     }
 }
