@@ -6,6 +6,7 @@ using MySqlConnector;
 using System.Data;
 using Server.model;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Server.vehicle
 {
@@ -247,6 +248,50 @@ namespace Server.vehicle
 
         }
 
+        public void BuyTuning(Player player, int modeType, int modeIndex) 
+        {
+            Vehicle veh = player.Vehicle;
+            
+            if(!Main.Veh.ContainsKey(Main.Players1[player].CarId))
+            {
+                if (Test.Debug)
+                {
+                    player.SendChatMessage("Dictionary Veh doesn't have such key");
+                }
+                player.TriggerEvent("trigger_buyTuningError", "Тупая ошибка в Dictionary Main.Veh");
+                return;
+            }
+            if(Main.Veh[Main.Players1[player].CarId]._Veh != player.Vehicle) 
+            {
+                if (Test.Debug) 
+                {
+                    player.SendChatMessage("Debug: Main.Veh.[Main.Players1[player].CarId] != player.Vehicle");
+                }
+                return;
+            }
+            int tuningCost = Main.VehicleTuningsCost.Find(c => c.Component == modeType && c.Index == modeIndex && c.ModelHash == player.Vehicle.Model).Cost;
+            if (Main.Players1[player].Character.Money < tuningCost)
+            {
+                player.TriggerEvent("trigger_buyTuningError", "Недостаточно средств");
+                return;
+            }
+
+            veh.SetMod(modeType, modeIndex);
+
+            SaveVehicleTuning(Main.Players1[player].CarId, modeType, modeIndex);
+            character.Api.GivePlayerMoney(player, -tuningCost);
+            player.TriggerEvent("trigger_buyTuningSuccess");
+            
+        }
+
+        [RemoteEvent("remote_BuyTuning")]
+        public void RemoteBuyTuningComponent(Player player, object[] args)
+        {
+            int modeType = (int)args[0];
+            int modeIndex = (int)args[1];
+            BuyTuning(player, modeType, modeIndex);
+        }
+
         [RemoteEvent("remote_SetTunning")]
         public void SetTuning(Player player, object[] args)
         {
@@ -265,30 +310,33 @@ namespace Server.vehicle
                 player.SendChatMessage($"{modeType} - {modeIndex}");
             }        
         }
-        public static async Task<Dictionary<int, List<VehicleTuningDict>>> GetVehicleTuningComponents(string VehHash)
+
+        [RemoteProc("remote_GetVehTuningStoreData")]
+        public string GetVehTuningStoreData(Player player)
+        {
+                Dictionary<int, List<VehicleTuningDict>> data = GetVehicleTuningComponents(player.Vehicle.Model);
+                return JsonConvert.SerializeObject(data);
+        }
+
+        public static Dictionary<int, List<VehicleTuningDict>> GetVehicleTuningComponents(uint VehHash)
         {
             Dictionary<int,List< VehicleTuningDict>> components = new Dictionary<int, List<VehicleTuningDict>>();
-
-            DataTable dt = await MySql.QueryReadAsync($"select * from vehicletuningcost where ModelHash = '{NAPI.Util.GetHashKey(VehHash)}' ORDER BY Component,`Index`");
-            if (dt == null || dt.Rows.Count == 0)
-            {
-                return null;
-            }
             int lastComponent = 0;
             List<VehicleTuningDict> list = new List<VehicleTuningDict>();
-            foreach (DataRow row in dt.Rows)
+            foreach (VehicleTuningCost vtCost in Main.VehicleTuningsCost)
             {
+                if (vtCost.ModelHash != VehHash) continue;
                 VehicleTuningDict tuning = new VehicleTuningDict();
-                int component = Convert.ToInt32(row["Component"]);
-                if(lastComponent != component)
+                int component = Convert.ToInt32(vtCost.Component);
+                if (lastComponent != component)
                 {
                     components.Add(lastComponent, list);
                     lastComponent = component;
                     list = new List<VehicleTuningDict>();
                 }
-                tuning.Index = Convert.ToInt32(row["Index"]);
-                tuning.Cost = Convert.ToInt32(row["Cost"]);
-                tuning.Name = Convert.ToString(row["IndexName"]);
+                tuning.Index = vtCost.Index;
+                tuning.Cost = vtCost.Cost;
+                tuning.Name = vtCost.IndexName;
                 list.Add(tuning);
                 NAPI.Util.ConsoleOutput($"{component} - {tuning.Index} - {tuning.Cost}");
             }

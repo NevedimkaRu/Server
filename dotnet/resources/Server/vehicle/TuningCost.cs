@@ -10,20 +10,17 @@ namespace Server.vehicle
 {
     public class TuningCost : Script
     {
+        [ServerEvent(Event.ResourceStart)]
         public static void LoadTunningCost()
         {
-            VehicleTuningCost tuningcost = new VehicleTuningCost();
 
             DataTable result = MySql.QueryRead("SELECT * FROM `vehicletuningcost`");
 
             foreach (DataRow row in result.Rows)
             {
-                tuningcost.Id = Convert.ToInt32(row["Id"]);
-                tuningcost.ModelHash = Convert.ToUInt32(row["ModelHash"]);
-                tuningcost.Component = Convert.ToInt32(row["Component"]);
-                tuningcost.Index = Convert.ToInt32(row["Index"]);
-                tuningcost.Cost = Convert.ToInt32(row["Cost"]);
-
+                VehicleTuningCost tuningcost = new VehicleTuningCost();
+                tuningcost.LoadByDataRow(row);
+                Main.VehicleTuningsCost.Add(tuningcost);
             }
         }
         public class TuningComponents
