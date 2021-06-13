@@ -35,6 +35,8 @@ namespace Server.account
             //todo Нужно сделать проверку на занятость ника именно здесь
             await character.Api.CreateCharacter(player, characterName);
             player.TriggerEvent("trigger_FinishRegister");
+
+            SendClientData(player);
         }
         public static async Task LoginAccount(Player player, string name, string password)
         {
@@ -67,6 +69,8 @@ namespace Server.account
                 player.SendChatMessage($"Вы успешно авторизировались как {name}");
 
                 //player.TriggerEvent("trigger_FinishAuth");
+
+                SendClientData(player);
                 return;
             }
             else
@@ -104,6 +108,14 @@ namespace Server.account
             }
             admin.Report.DeleteReport(player);
             Main.Players1.Remove(player);
+        }
+
+        private static void SendClientData(Player player)
+        {
+            //Отправка каких либо данных на клиент
+
+            //Json файл магазина одежды
+            character.clothes.Api.SendClothesStoreData(player);
         }
     }
 }
