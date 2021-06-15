@@ -15,45 +15,11 @@ namespace Server.model
 
         public void SetId(int id)
         {
-            string tbname = this.GetType().Name;
+            string tbname = getDBTableName();
             string sql = $"select * from `{tbname.ToLower()}` where `id` = {id}";
             DataTable dt = MySql.QueryRead(sql);
 
-            foreach (var obj in this.GetType().GetProperties())
-            {
-                if (!IsDbTable(obj.Name)) continue;
-                if (dt.Columns.Contains(obj.Name))
-                {
-                    if (obj.PropertyType.Name == "Vector3") 
-                    {
-                        obj.SetValue(this, JsonConvert.DeserializeObject<Vector3>(dt.Rows[0][obj.Name].ToString()));
-                    } 
-                    else if(obj.PropertyType.Name == "List`1")
-                    {
-                        obj.SetValue(this, utils.Parser.ParseToListVector3(dt.Rows[0][obj.Name].ToString()));
-                    }
-                    else if (obj.PropertyType.Name == "Boolean")
-                    {
-                        obj.SetValue(this, Convert.ToBoolean(dt.Rows[0][obj.Name]));
-                    }
-                    else if (obj.PropertyType.Name == "UInt64")
-                    {
-                        obj.SetValue(this, Convert.ToUInt64(dt.Rows[0][obj.Name]));
-                    }
-                    else if (obj.PropertyType.Name == "DateTime")
-                    {
-                        obj.SetValue(this, Convert.ToDateTime(dt.Rows[0][obj.Name]));
-                    }
-                    else if (obj.PropertyType.Name == "UInt32")
-                    {
-                        obj.SetValue(this, Convert.ToUInt32(dt.Rows[0][obj.Name]));
-                    }
-                    else
-                    {
-                        obj.SetValue(this, dt.Rows[0][obj.Name]);
-                    }
-                }
-            }
+            LoadByDataRow(dt.Rows[0]);
         }
 
         public int Insert()
@@ -64,30 +30,7 @@ namespace Server.model
         
         private int Insert(String tbname)
         {
-            Dictionary<string, object> props = new Dictionary<string, object>();
-
-            foreach (var obj in this.GetType().GetProperties())
-            {
-                string fldName = obj.Name;
-                object value = obj.GetValue(this, null);
-                if (fldName !=  "Id" && value != null && IsDbTable(fldName)) 
-                {
-                    if(obj.PropertyType.Name == "List`1")
-                    {
-                        List<Vector3> val = (List<Vector3>)value;
-                        props.Add(fldName, utils.Parser.ParseFromListVector3(val));
-                    }
-                    else if (obj.PropertyType.Name == "Vector3")
-                    {
-                        props.Add(fldName, JsonConvert.SerializeObject(value));
-                    }
-                    else
-                    {
-                        props.Add(fldName, value);
-                    }
-                    
-                }
-            }
+            Dictionary<string, object> props = GetParamsForQuery();
 
             string fieldsStr = "";
             string parametersStr = "";
@@ -111,35 +54,10 @@ namespace Server.model
 
         public void Update()
         {
-            string tbname = this.GetType().Name;
+            string tbname = getDBTableName();
 
-            Dictionary<string, object> props = new Dictionary<string, object>();
-
-            string valuesParamStr = "";
-            foreach (var obj in this.GetType().GetProperties())
-            {
-                string fldName = obj.Name;
-                object value = obj.GetValue(this, null);
-                if (fldName != "Id" && value != null)
-                {
-                    valuesParamStr += "`" + fldName + "` = @" + fldName + ",";
-                    if (obj.PropertyType.Name == "List`1")
-                    {
-                        List<Vector3> val = (List<Vector3>)value;
-                        props.Add(fldName, utils.Parser.ParseFromListVector3(val));
-                    }
-                    else if(obj.PropertyType.Name == "Vector3")
-                    {
-                        props.Add(fldName, JsonConvert.SerializeObject(value));
-                    }
-                    else
-                    {
-                        props.Add(fldName, value);
-                    }
-                    
-                }
-            }
-            valuesParamStr = valuesParamStr.Remove(valuesParamStr.Length - 1, 1);
+            Dictionary<string, object> props = GetParamsForQuery();
+            string valuesParamStr = GetParamStrForAll();
 
             string sql = $"update `{tbname.ToLower()}` " +
             $"set {valuesParamStr}" +
@@ -148,46 +66,45 @@ namespace Server.model
 
         }
 
+        public async Task UpdateAsync()
+        {
+            string tbname = getDBTableName();
+
+            Dictionary<string, object> props = GetParamsForQuery();
+            string valuesParamStr = GetParamStrForAll();
+
+            string sql = $"update `{tbname.ToLower()}` " +
+            $"set {valuesParamStr}" +
+            $" where id = {this.Id}";
+            await MySql.QueryAsync(sql, props);
+
+        }
+
         public void Update(string fields)
         {
-            string tbname = this.GetType().Name;
+            string tbname = getDBTableName();
 
-            Dictionary<string, object> props = new Dictionary<string, object>();
-
-            foreach (var obj in this.GetType().GetProperties())
-            {
-                string fldName = obj.Name;
-                object value = obj.GetValue(this, null);
-                if (fldName != "Id" && value != null && IsDbTable(fldName))
-                {
-                    if (obj.PropertyType.Name == "List`1")
-                    {
-                        List<Vector3> val = (List<Vector3>)value;
-                        props.Add(fldName, utils.Parser.ParseFromListVector3(val));
-                    }
-                    else
-                    {
-                    props.Add(fldName, value);
-                    }
-                }
-            }
-            string[] flds = fields.Split(",");
-
-            string valuesParamStr = "";
-
-            foreach (string f in flds)
-            {
-                valuesParamStr += "`" + f + "` = @" + f + ",";
-            }
-            valuesParamStr = valuesParamStr.Remove(valuesParamStr.Length - 1, 1);
-
-
+            Dictionary<string, object> props = GetParamsForQuery();
+            string valuesParamStr = GetParamStrForFields(fields);
 
             string sql = $"update `{tbname.ToLower()}` " +
             $"set {valuesParamStr}" +
             $" where id = {this.Id}";
             MySql.Query(sql, props);
 
+        }
+
+        public async Task UpdateAsync(string fields)
+        {
+            string tbname = getDBTableName();
+
+            Dictionary<string, object> props = GetParamsForQuery();
+            string valuesParamStr = GetParamStrForFields(fields);
+
+            string sql = $"update `{tbname.ToLower()}` " +
+            $"set {valuesParamStr}" +
+            $" where id = {this.Id}";
+            await MySql.QueryAsync(sql, props);
         }
         /*public async Task UpdateAsync(string fields)
         {
@@ -242,43 +159,11 @@ namespace Server.model
                 return false;
             }
 
-            foreach (var obj in this.GetType().GetProperties())
-            {
-                if (!IsDbTable(obj.Name)) continue;
-                if (dt.Columns.Contains(obj.Name))
-                {
-                    if (obj.PropertyType.Name == "Vector3")
-                    {
-                        obj.SetValue(this, JsonConvert.DeserializeObject<Vector3>(dt.Rows[0][obj.Name].ToString()));
-                    }
-                    else if (obj.PropertyType.Name == "List`1")
-                    {
-                        obj.SetValue(this, utils.Parser.ParseToListVector3(dt.Rows[0][obj.Name].ToString()));
-                    }
-                    else if (obj.PropertyType.Name == "Boolean")
-                    {
-                        obj.SetValue(this, Convert.ToBoolean(dt.Rows[0][obj.Name]));
-                    }
-                    else if (obj.PropertyType.Name == "UInt64")
-                    {
-                        obj.SetValue(this, Convert.ToUInt64(dt.Rows[0][obj.Name]));
-                    }
-                    else if (obj.PropertyType.Name == "DateTime")
-                    {
-                        obj.SetValue(this, Convert.ToDateTime(dt.Rows[0][obj.Name]));
-                    }
-                    else if (obj.PropertyType.Name == "UInt32")
-                    {
-                        obj.SetValue(this, Convert.ToUInt32(dt.Rows[0][obj.Name]));
-                    }
-                    else
-                    {
-                        obj.SetValue(this, dt.Rows[0][obj.Name]);
-                    }
-                }
-            }
+            LoadByDataRow(dt.Rows[0]);
             return true;
         }
+
+
         public async Task<bool> LoadByOtherFieldAsync(string field, string value)
         {
             string sql = $"select * from `{getDBTableName()}` where `{field}` = '{value}'";
@@ -289,41 +174,7 @@ namespace Server.model
                 return false;
             }
 
-            foreach (var obj in this.GetType().GetProperties())
-            {
-                if (!IsDbTable(obj.Name)) continue;
-                if (dt.Columns.Contains(obj.Name))
-                {
-                    if (obj.PropertyType.Name == "Vector3")
-                    {
-                        obj.SetValue(this, JsonConvert.DeserializeObject<Vector3>(dt.Rows[0][obj.Name].ToString()));
-                    }
-                    else if (obj.PropertyType.Name == "List`1")
-                    {
-                        obj.SetValue(this, utils.Parser.ParseToListVector3(dt.Rows[0][obj.Name].ToString()));
-                    }
-                    else if (obj.PropertyType.Name == "Boolean")
-                    {
-                        obj.SetValue(this, Convert.ToBoolean(dt.Rows[0][obj.Name]));
-                    }
-                    else if (obj.PropertyType.Name == "UInt64")
-                    {
-                        obj.SetValue(this, Convert.ToUInt64(dt.Rows[0][obj.Name]));
-                    }                    
-                    else if (obj.PropertyType.Name == "DateTime")
-                    {
-                        obj.SetValue(this, Convert.ToDateTime(dt.Rows[0][obj.Name]));
-                    }
-                    else if (obj.PropertyType.Name == "UInt32")
-                    {
-                        obj.SetValue(this, Convert.ToUInt32(dt.Rows[0][obj.Name]));
-                    }
-                    else
-                    {
-                        obj.SetValue(this, dt.Rows[0][obj.Name]);
-                    }
-                }
-            }
+            LoadByDataRow(dt.Rows[0]);
             return true;
         }
 
@@ -377,6 +228,69 @@ namespace Server.model
                     }
                 }
             }
+        }
+
+        private Dictionary<string, object> GetParamsForQuery()
+        {
+            Dictionary<string, object> props = new Dictionary<string, object>();
+
+            string valuesParamStr = "";
+            foreach (var obj in this.GetType().GetProperties())
+            {
+                string fldName = obj.Name;
+                object value = obj.GetValue(this, null);
+                if (fldName != "Id" && value != null)
+                {
+                    valuesParamStr += "`" + fldName + "` = @" + fldName + ",";
+                    if (obj.PropertyType.Name == "List`1")
+                    {
+                        List<Vector3> val = (List<Vector3>)value;
+                        props.Add(fldName, utils.Parser.ParseFromListVector3(val));
+                    }
+                    else if (obj.PropertyType.Name == "Vector3")
+                    {
+                        props.Add(fldName, JsonConvert.SerializeObject(value));
+                    }
+                    else
+                    {
+                        props.Add(fldName, value);
+                    }
+
+                }
+            }
+            valuesParamStr = valuesParamStr.Remove(valuesParamStr.Length - 1, 1);
+            return props;
+        }
+
+        private string GetParamStrForAll()
+        {
+            string valuesParamStr = "";
+            foreach (var obj in this.GetType().GetProperties())
+            {
+                string fldName = obj.Name;
+                object value = obj.GetValue(this, null);
+                if (fldName != "Id" && value != null)
+                {
+                    valuesParamStr += "`" + fldName + "` = @" + fldName + ",";
+                }
+            }
+            valuesParamStr = valuesParamStr.Remove(valuesParamStr.Length - 1, 1);
+            return valuesParamStr;
+        }
+
+        private string GetParamStrForFields(string fields)
+        {
+            string[] flds = fields.Split(",");
+            string valuesParamStr = "";
+
+            foreach (string f in flds)
+            {
+                valuesParamStr += "`" + f + "` = @" + f + ",";
+            }
+
+            valuesParamStr = valuesParamStr.Remove(valuesParamStr.Length - 1, 1);
+
+            return valuesParamStr;
         }
 
         private string getDBTableName()

@@ -11,9 +11,10 @@ namespace Server.model
         
         public string Username { get; set; } = null;
         public string Password { get; set; } = null;
-        public ulong SociaClubId { get; set; }
+        public ulong SocialClubId { get; set; }
         public string RegisterIp { get; set; }
         public string LastIp { get; set; }
         public DateTime RegisterDate { get; set; }
+        public bool RememberMe { get; set; }
     }
 }

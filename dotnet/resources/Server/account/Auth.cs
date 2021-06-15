@@ -20,9 +20,9 @@ namespace Server.account
 
 
         [RemoteEvent("remote_login")]
-        public async void LoginAccount(Player player, string login, string password) 
+        public async void LoginAccount(Player player, string login, string password, bool rememberMe) 
         {
-             await Api.LoginAccount(player, login, password);
+             await Api.LoginAccount(player, login, password, rememberMe);
         }
 
         [RemoteEvent("remote_register")]

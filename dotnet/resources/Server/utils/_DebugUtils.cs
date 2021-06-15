@@ -9,9 +9,9 @@ namespace Server.utils
     {
 
         [RemoteEvent("remote_login_debug")]
-        public void remoteLogin(Player player, String login, string password)
+        public void remoteLogin(Player player, String login, string password, bool rememberMe)
         {
-            account.Api.LoginAccount(player, login, password);
+            account.Api.LoginAccount(player, login, password, rememberMe);
         }
 
         [RemoteEvent("remote_initDriftevent")]
