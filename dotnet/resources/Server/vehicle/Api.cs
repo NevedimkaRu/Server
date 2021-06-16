@@ -42,10 +42,8 @@ namespace Server.vehicle
             veh._Tuning = tuning;
 
             Main.Veh.Add(id, veh);
-            MySql.Query($"INSERT INTO `vehicletuning` (`CarId`) VALUES ('{veh.Id}')");
             Tuning.LoadTunning(veh.Id);
             return carid;
-            //Handling.CreateDefaultHandling(veh.Id, 0);
         }
         public static async Task LoadPlayerVehice(Player player)
         {
@@ -232,10 +230,14 @@ namespace Server.vehicle
             }
         }
 
-        public void RemoveVehicle(int carid)
+        public async void RemoveVehicle(int carid)
         {
             if (!Main.Veh.ContainsKey(carid)) return;
-            if (Main.Veh[carid]._Garage != null)
+            await MySql.QueryAsync($"DELETE FROM `vehicles` WHERE `Id` = '{carid}';" +
+                $" DELETE FROM `vehiclehandling` WHERE `CarId` = '{carid}';" +
+                $" DELETE FROM `vehicletuning` WHERE `CarId` = '{carid}';" +
+                $" DELETE FROM `vehiclesgarage` WHERE `VehicleId` = '{carid}'");
+            /*if (Main.Veh[carid]._Garage != null)
                 Main.Veh[carid]._Garage.Delete();
             if(Main.Veh[carid]._HandlingData.Count != 0)
             {
@@ -246,7 +248,7 @@ namespace Server.vehicle
             }
             if(Main.Veh[carid]._Tuning != null) Main.Veh[carid]._Tuning.Delete();
             if(Main.Veh[carid]._Veh != null) Main.Veh[carid]._Veh.Delete();
-            Main.Veh[carid].Delete();
+            Main.Veh[carid].Delete();*/
             Main.Veh.Remove(carid);
         }
 

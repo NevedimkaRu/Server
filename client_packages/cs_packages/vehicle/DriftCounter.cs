@@ -65,6 +65,7 @@ namespace cs_packages.vehicle
                 multiplier = 1;
                 score = 0;
                 playerDrifting = false;
+                driftHTML.Active = false;
                 //Events.Tick -= UpdateSpeedometer;
             }
         }
@@ -89,7 +90,7 @@ namespace cs_packages.vehicle
             if (Player.LocalPlayer.Vehicle == null) {
                 Events.Tick -= UpdateSpeedometer;
                 //if (speedometerHTML.Active) speedometerHTML.Active = false;
-                if (driftHTML.Active)driftHTML.Active = false;
+                driftHTML.Active = false;
                
                 return; 
             }

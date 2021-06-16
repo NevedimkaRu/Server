@@ -21,11 +21,28 @@ namespace cs_packages.admin
         int camHandle;
         public NoClip()
         {
+            //Input.Bind(RAGE.Ui.VirtualKeys.X, true, CameraTest);
             Input.Bind((int)ControlKeys.F2, true, () => {
                 isNoclip = !isNoclip;
                 if (isNoclip) StartNoclip();
                 else StopNoclip();
             });
+            
+        }
+
+        private void CameraTest()
+        {
+            Vector3 playerPos = RAGE.Elements.Player.LocalPlayer.Position;
+            Vector3 camRot = Cam.GetGameplayCamRot(2);
+            int cumHandle = Cam.CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", playerPos.X, playerPos.Y, playerPos.Z, camRot.X, camRot.Y, camRot.Z, 45, true, 0);
+            Cam.SetCamActive(cumHandle, true);
+            Cam.RenderScriptCams(true, false, 0, true, false, 0);
+            RAGE.Task.Run(() => 
+            {
+                int cumHandle2 = Cam.CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", playerPos.X + 100, playerPos.Y, playerPos.Z, camRot.X, camRot.Y, 228, 45, true, 0);
+                Cam.SetCamActiveWithInterp(cumHandle2, cumHandle, 3000, 1, 1);
+            },delayTime: 500);
+           
         }
 
         public void StartNoclip()
