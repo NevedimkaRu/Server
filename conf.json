@@ -8,5 +8,6 @@
 	"port": 22005,
 	"resources-compression-level" : 0,
 	"allow-cef-debugging": true,
-	"api-threading-debugging" : false
+	"api-threading-debugging" : false,
+	"max-post-size" : 1000000
 }

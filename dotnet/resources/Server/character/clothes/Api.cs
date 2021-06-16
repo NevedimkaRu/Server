@@ -183,6 +183,41 @@ namespace Server.character.clothes
             }
             return false;
         }
+
+        [RemoteEvent("remote_SetCloth")]
+        public void RemoteSetCloth(Player player, int clothType, int clothId, int texture)
+        {
+            if (!SetPlayerClothes(player, (Clothes.ClothesTypes)clothType, clothId, texture)) 
+            {
+                player.TriggerEvent("trigger_buyTuningError","Несовместимость одежды");
+            }
+        }
+
+        public static void SendClothesStoreData(Player player)
+        {
+            //int testi = 0;
+            if (Main.Players1[player].Customization.gender)
+            {
+                //26 649 символов - максимальное колчиество символов в строке для передачи на клиент
+                int i = 0;
+                while (i < MaleClothesJson.Length)
+                {
+                    //player.SendChatMessage($"Передаётся порция {++testi}");
+                    player.TriggerEvent("trigger_bigPortionClothesData", MaleClothesJson.Substring(i, i + 26649 < MaleClothesJson.Length ? 26649 : MaleClothesJson.Length - i));
+                    i += 26650;
+                }
+            }
+            else
+            {
+                int i = 0;
+                while (i < FemaleClothesJson.Length)
+                {
+                    player.TriggerEvent("trigger_bigPortionClothesData", FemaleClothesJson.Substring(i, i + 26649 < FemaleClothesJson.Length ? 26649 : FemaleClothesJson.Length - i));
+                    i += 26650;
+                }
+            }
+        }
+
         [Command("sc")]
         public static void cmd_SetClothes(Player player,int clothestype, int drawable, int texture)
         {

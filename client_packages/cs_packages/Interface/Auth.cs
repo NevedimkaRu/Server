@@ -23,8 +23,16 @@ namespace cs_packages.Interface
             Events.Add("trigger_FinishRegister", FinishRegister);
             Events.Add("trigger_RegisterError", RegisterError);
             Events.Add("trigger_AuthError", AuthError);
+            Events.Add("trigger_FillLoginData", FillLoginData);
             Events.OnPlayerCommand += cmd;
             Events.OnPlayerReady += SetCam;
+        }
+
+        private void FillLoginData(object[] args)
+        {
+            string login = args[0].ToString();
+            string pass = args[1].ToString();
+            Vui.VuiModals($"AuthMenu.fillLoginData('{login}', '{pass}')");
         }
 
         private void FinishRegister(object[] args)
@@ -66,7 +74,8 @@ namespace cs_packages.Interface
         {
             string login = args[0].ToString();
             string password = args[1].ToString();
-            Events.CallRemote("remote_login", login, password);
+            bool rememberMe = Convert.ToBoolean(args[2]);
+            Events.CallRemote("remote_login", login, password, rememberMe);
         }
 
         private void ChangeMenuOpenStatus(object[] args)

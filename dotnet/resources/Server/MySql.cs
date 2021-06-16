@@ -128,6 +128,18 @@ namespace Server
             }
         }
 
+        public static async Task QueryAsync(string command, Dictionary<string, object> parameters)
+        {
+            using (MySqlCommand cmd = new MySqlCommand(command))
+            {
+                foreach (string f in parameters.Keys)
+                {
+                    cmd.Parameters.AddWithValue("@" + f, parameters[f]);
+                }
+                await QueryAsync(cmd);
+            }
+        }
+
         /// <summary>
         /// Отправить запрос и считать ответ
         /// </summary>

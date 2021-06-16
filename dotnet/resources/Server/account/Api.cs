@@ -12,6 +12,31 @@ namespace Server.account
 {
     public class Api : Script
     {
+        [ServerEvent(Event.ResourceStart)]
+        public void LoadRememberAccounts() 
+        {
+            DataTable dt = MySql.QueryRead($"select SocialClubId from account where RememberMe = 1");
+            foreach (DataRow row in dt.Rows)
+            {
+                Main.RememberAccounts.Add(Convert.ToUInt64(row["SocialClubId"]));
+            }
+        }
+
+        [ServerEvent(Event.PlayerConnected)]
+        public async void fillLoginData(Player player)
+        {
+            if (Main.RememberAccounts.Contains(player.SocialClubId))
+            {
+                DataTable dt = await MySql.QueryReadAsync($"select * from account where SocialClubId = {player.SocialClubId} and RememberMe = 1");
+                if (dt.Rows.Count > 0)
+                {
+                    Account acc = new Account();
+                    acc.LoadByDataRow(dt.Rows[0]);
+                    player.TriggerEvent("trigger_FillLoginData", acc.Username, acc.Password);
+                }
+            }
+
+        }
         public static async Task CreateAccount(Player player, string name, string password, string characterName)
         {
             Account account = new Account();
@@ -23,7 +48,7 @@ namespace Server.account
 
             account.Username = name;
             account.Password = password;
-            account.SociaClubId = player.SocialClubId;
+            account.SocialClubId = player.SocialClubId;
             account.RegisterIp = player.Address;
             account.LastIp = player.Address;
             account.RegisterDate = DateTime.UtcNow.AddHours(3);
@@ -35,8 +60,10 @@ namespace Server.account
             //todo Нужно сделать проверку на занятость ника именно здесь
             await character.Api.CreateCharacter(player, characterName);
             player.TriggerEvent("trigger_FinishRegister");
+
+            SendClientData(player);
         }
-        public static async Task LoginAccount(Player player, string name, string password)
+        public static async Task LoginAccount(Player player, string name, string password, bool rememberMe)
         {
             Account account = new Account();
             //if (await account.GetByUserNameAsync(name))
@@ -65,8 +92,23 @@ namespace Server.account
 
                 utils.Trigger.ClientEvent(player, "trigger_FinishAuth");
                 player.SendChatMessage($"Вы успешно авторизировались как {name}");
-
                 //player.TriggerEvent("trigger_FinishAuth");
+
+                if (rememberMe) 
+                {
+                    if (!Main.RememberAccounts.Contains(account.SocialClubId))
+                    {
+                        Main.RememberAccounts.Add(account.SocialClubId);
+                        account.RememberMe = true;
+                        await account.UpdateAsync("RememberMe");
+                    }
+                    else 
+                    {
+                        await MySql.QueryAsync($"update account set RememberMe = 0 where SocialClubId = {player.SocialClubId} and RememberMe = 1; update account set RememberMe = 1 where id = {account.Id}");
+                    }
+                }
+
+                SendClientData(player);
                 return;
             }
             else
@@ -104,6 +146,14 @@ namespace Server.account
             }
             admin.Report.DeleteReport(player);
             Main.Players1.Remove(player);
+        }
+
+        private static void SendClientData(Player player)
+        {
+            //Отправка каких либо данных на клиент
+
+            //Json файл магазина одежды
+            character.clothes.Api.SendClothesStoreData(player);
         }
     }
 }
