@@ -15,7 +15,6 @@ namespace cs_packages.Interface
         private Auth() 
         {
             Chat.Activate(false);
-            Vui.VuiModals("openAuthMenu()");
             Events.Add("vui_isAuthMenuOpen", ChangeMenuOpenStatus);
             Events.Add("vui_login", LoginAccount);
             Events.Add("vui_register", RegisterAccount);
@@ -24,14 +23,23 @@ namespace cs_packages.Interface
             Events.Add("trigger_RegisterError", RegisterError);
             Events.Add("trigger_AuthError", AuthError);
             Events.Add("trigger_FillLoginData", FillLoginData);
+            Events.Add("trigger_StartAuth", StartAuth);
             Events.OnPlayerCommand += cmd;
             Events.OnPlayerReady += SetCam;
         }
 
+        private void StartAuth(object[] args)
+        {
+            SetCam();
+            Vui.VuiModals("openAuthMenu()");
+        }
+
         private void FillLoginData(object[] args)
         {
+            SetCam();
             string login = args[0].ToString();
             string pass = args[1].ToString();
+            Vui.VuiModals("openAuthMenu()");
             Vui.VuiModals($"AuthMenu.fillLoginData('{login}', '{pass}')");
         }
 
