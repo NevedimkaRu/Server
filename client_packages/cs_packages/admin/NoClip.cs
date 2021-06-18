@@ -21,13 +21,37 @@ namespace cs_packages.admin
         int camHandle;
         public NoClip()
         {
+            Events.OnPlayerCommand += Cmd;
             //Input.Bind(RAGE.Ui.VirtualKeys.X, true, CameraTest);
             Input.Bind((int)ControlKeys.F2, true, () => {
                 isNoclip = !isNoclip;
                 if (isNoclip) StartNoclip();
                 else StopNoclip();
             });
-            
+        }
+
+        private void Cmd(string cmd, Events.CancelEventArgs cancel)
+        {
+            string[] args = cmd.Split(new char[] { ' ' });
+            string commandName = args[0].Trim(new char[] { '/' });
+
+            if (commandName == "savecam")
+            {
+                if (camHandle == 0) return;
+                Vector3 rot = Cam.GetCamRot(camHandle, 2);
+                Vector3 pos = Cam.GetCamCoord(camHandle);
+                Events.CallRemote("SaveCam", Convert.ToString(pos), Convert.ToString(rot));
+            }
+            if(commandName == "fl")
+            {
+                RAGE.Game.Interior.EnableInteriorProp(252673, "basic_style_set");
+                RAGE.Game.Interior.RefreshInterior(252673);
+            }
+            if (commandName == "int")
+            {
+                Vector3 pos = RAGE.Elements.Player.LocalPlayer.Position;
+                Chat.Output(Interior.GetInteriorAtCoords(pos.X, pos.Y, pos.Z).ToString());
+            }
         }
 
         private void CameraTest()
@@ -42,7 +66,6 @@ namespace cs_packages.admin
                 int cumHandle2 = Cam.CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", playerPos.X + 100, playerPos.Y, playerPos.Z, camRot.X, camRot.Y, 228, 45, true, 0);
                 Cam.SetCamActiveWithInterp(cumHandle2, cumHandle, 3000, 1, 1);
             },delayTime: 500);
-           
         }
 
         public void StartNoclip()
@@ -76,14 +99,14 @@ namespace cs_packages.admin
         }
         public void CamRender(List<Events.TickNametagData> nametags)
         {
-            if (camHandle == 0) return;
+            if (camHandle == 0 || utils.Check.GetPlayerStatus(utils.Check.PlayerStatus.OpenChat)) return;
             float rightAxisX = Pad.GetDisabledControlNormal(0, 220);
             float rightAxisY = Pad.GetDisabledControlNormal(0, 221);
             float leftAxisX = Pad.GetDisabledControlNormal(0, (int)Control.ScriptLeftAxisX);//left/right
             float leftAxisY = Pad.GetDisabledControlNormal(0, (int)Control.ScriptLeftAxisY);//up/down
-            var rot = Cam.GetCamRot(camHandle,2);
+            Vector3 rot = Cam.GetCamRot(camHandle,2);
             Vector3 pos = Cam.GetCamCoord(camHandle);
-            var rr = GetDirectionByRotation(Cam.GetCamRot(camHandle,2));
+            Vector3 rr = GetDirectionByRotation(Cam.GetCamRot(camHandle,2));
 
             float fastMult = 1;
             float slowMult = 1;
@@ -111,6 +134,7 @@ namespace cs_packages.admin
               pos.Y + vector.Y + 1,
               pos.Z + vector.Z + 1
             );
+            RAGE.Elements.Player.LocalPlayer.SetRotation(rot.X, 0, rot.Z, 2, true);
 
             rightVector.X *= leftAxisX * 0.5f;
             rightVector.Y *= leftAxisX * 0.5f;

@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 using GTANetworkAPI;
+using Newtonsoft.Json;
 using System.Data;
 using Server.model;
 
@@ -162,7 +163,9 @@ namespace Server
         [Command("ipl", GreedyArg = true)]
         public static void cmd_RequestIpl(Player player, string ipl)
         {
-            NAPI.World.RequestIpl(ipl);
+            //NAPI.World.RequestIpl(ipl);
+            
+            Server.utils.Other.RequestPlayerIpl(player, ipl);
         }
         [Command("cc")]
         public static void cmd_ClearChat(Player player)
@@ -188,6 +191,18 @@ namespace Server
             //NAPI.Player.SetPlayerClothes(player, clothDictionary);
             player.SetClothes(clothDictionary);
             player.SendChatMessage(NAPI.Util.GetHashKey("radmir_clothes").ToString());
+        }
+        [RemoteEvent("SaveCam")]
+        public static void SaveCam(Player player, string position, string rotation)
+        {
+            string pos = position.Replace(",", ".");
+            string rot = rotation.Replace(",", ".");
+            using (var stream = File.AppendText("SaveCam.txt"))
+            {
+                NAPI.Notification.SendNotificationToPlayer(player, "~g~Камера сохранена~r~", true);
+                stream.WriteLine($"Pos: {pos} - Rot: {rot}");
+                stream.Close();
+            }
         }
 
     }
