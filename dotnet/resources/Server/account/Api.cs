@@ -33,6 +33,11 @@ namespace Server.account
                     Account acc = new Account();
                     acc.LoadByDataRow(dt.Rows[0]);
                     player.TriggerEvent("trigger_FillLoginData", acc.Username, acc.Password);
+                    return;
+                }
+                else 
+                {
+                    player.TriggerEvent("trigger_StartAuth");
                 }
             }
 
@@ -94,7 +99,7 @@ namespace Server.account
                 player.SendChatMessage($"Вы успешно авторизировались как {name}");
                 //player.TriggerEvent("trigger_FinishAuth");
 
-                if (rememberMe) 
+                if (rememberMe)
                 {
                     if (!Main.RememberAccounts.Contains(account.SocialClubId))
                     {
@@ -102,9 +107,17 @@ namespace Server.account
                         account.RememberMe = true;
                         await account.UpdateAsync("RememberMe");
                     }
-                    else 
+                    else
                     {
                         await MySql.QueryAsync($"update account set RememberMe = 0 where SocialClubId = {player.SocialClubId} and RememberMe = 1; update account set RememberMe = 1 where id = {account.Id}");
+                    }
+                }
+                else 
+                {
+                    if (Main.RememberAccounts.Contains(player.SocialClubId))
+                    {
+                        await MySql.QueryAsync($"update account set RememberMe = 0 where SocialClubId = {player.SocialClubId} and RememberMe = 1;");
+                        Main.RememberAccounts.Remove(player.SocialClubId);
                     }
                 }
 
