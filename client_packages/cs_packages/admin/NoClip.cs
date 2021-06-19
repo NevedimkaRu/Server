@@ -4,6 +4,7 @@ using System.Text;
 using RAGE;
 using RAGE.Game;
 using RAGE.Elements;
+using RAGE.Ui;
 
 namespace cs_packages.admin
 {
@@ -110,19 +111,24 @@ namespace cs_packages.admin
 
             float fastMult = 1;
             float slowMult = 1;
+            float superSlowMult = 1;
             if (Input.IsDown((int)ControlKeys.Shift))
             {
                 fastMult = 3;
             }
             else if (Input.IsDown((int)ControlKeys.LCtrl))
             {
-                slowMult = 0.3f;
+                slowMult = 0.1f;
+            }
+            else if(Input.IsDown(VirtualKeys.Menu))
+            {
+                superSlowMult = 0.01f;
             }
 
             Vector3 vector = new Vector3(0, 0, 0);
-            vector.X = rr.X * leftAxisY * fastMult * slowMult;
-            vector.Y = rr.Y * leftAxisY * fastMult * slowMult;
-            vector.Z = rr.Z * leftAxisY * fastMult * slowMult;
+            vector.X = rr.X * leftAxisY * fastMult * slowMult * superSlowMult;
+            vector.Y = rr.Y * leftAxisY * fastMult * slowMult * superSlowMult;
+            vector.Z = rr.Z * leftAxisY * fastMult * slowMult * superSlowMult;
             Vector3 upVector = new Vector3(0, 0, 1);
             Vector3 rightVector = GetCrossProduct(
               GetNormalizedVector(rr),
@@ -136,9 +142,9 @@ namespace cs_packages.admin
             );
             RAGE.Elements.Player.LocalPlayer.SetRotation(rot.X, 0, rot.Z, 2, true);
 
-            rightVector.X *= leftAxisX * 0.5f;
-            rightVector.Y *= leftAxisX * 0.5f;
-            rightVector.Z *= leftAxisX * 0.5f;
+            rightVector.X *= leftAxisX * fastMult * slowMult * superSlowMult;
+            rightVector.Y *= leftAxisX * fastMult * slowMult * superSlowMult;
+            rightVector.Z *= leftAxisX * fastMult * slowMult * superSlowMult;
 
             float upMovement = 0.0f;
             if (Input.IsDown((int)ControlKeys.Q))
@@ -155,7 +161,7 @@ namespace cs_packages.admin
                 camHandle,
                 pos.X - vector.X + rightVector.X,
                 pos.Y - vector.Y + rightVector.Y,
-                pos.Z - vector.Z + rightVector.Z + upMovement - downMovement
+                pos.Z - vector.Z + (rightVector.Z + upMovement - downMovement) * fastMult * slowMult * superSlowMult
             );
             Cam.SetCamRot(
                 camHandle,
