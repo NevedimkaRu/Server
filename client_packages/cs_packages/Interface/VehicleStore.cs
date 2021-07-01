@@ -114,28 +114,31 @@ namespace cs_packages.Interface
             //402.55817f, -996.4657f, -99.00027f    Rot:    176.13338
             player.Position = PlayerPosNearCam;
             player.Dimension = (uint)(player.Id + 200);
-            player.FreezePosition(false);
-            player.SetInvincible(false);
-            player.SetVisible(true, true);
-            player.SetCollision(true, true);
-            //402.65216f, -1000.26294f, -99.00414f    Rot:    -3.4659793f
-            camHandle = Cam.CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", -46.448814f, -1100.5309f, 26.422335f, 0, 0, -48.993202f, 45, true, 0);
+            Camera.CamRotator.Start(SelectCarPosition, SelectCarPosition, new Vector3(2.5f, 2.5f, 1.3f), fov: 60, heading: 240f);
+            Camera.CamRotator.SetZBound(-0.8f, 2.1f);
+            //player.FreezePosition(false);
+            //player.SetInvincible(false);
+            //player.SetVisible(true, true);
+            //player.SetCollision(true, true);
+            ////402.65216f, -1000.26294f, -99.00414f    Rot:    -3.4659793f
+            //camHandle = Cam.CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", -46.448814f, -1100.5309f, 26.422335f, 0, 0, -48.993202f, 45, true, 0);
 
-            Cam.SetCamActive(camHandle, true);
-            Cam.RenderScriptCams(true, false, 0, true, false, 0);
+            //Cam.SetCamActive(camHandle, true);
+            //Cam.RenderScriptCams(true, false, 0, true, false, 0);
 
         }
 
         public static void RemoveCam()
         {
-            Cam.RenderScriptCams(false, false, 0, true, false, 0);
-            RAGE.Elements.Player player = RAGE.Elements.Player.LocalPlayer;
-            player.FreezePosition(false);
-            player.SetInvincible(false);
-            player.SetVisible(true, true);
-            player.SetCollision(true, true);
-            camHandle = 0;
-            Cam.DestroyCam(camHandle, true);
+            Camera.CamRotator.Stop();
+            //Cam.RenderScriptCams(false, false, 0, true, false, 0);
+            //RAGE.Elements.Player player = RAGE.Elements.Player.LocalPlayer;
+            //player.FreezePosition(false);
+            //player.SetInvincible(false);
+            //player.SetVisible(true, true);
+            //player.SetCollision(true, true);
+            //camHandle = 0;
+            //Cam.DestroyCam(camHandle, true);
         }
 
         private void cmd(string cmd, Events.CancelEventArgs cancel)

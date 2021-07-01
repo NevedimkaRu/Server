@@ -11,7 +11,7 @@ namespace cs_packages.Camera
     static class CamRotator
     {
         // Камера которая была до работы скрипта
-        private static int StartCamera { get; set; }
+        private static int StartCamera = -1;
 
         private static int Camera { get; set; }
         private static Vector3 BasePosition { get; set; }
@@ -28,11 +28,18 @@ namespace cs_packages.Camera
         private static Vector2 XBound { get; set; }
         private static Vector2 ZBound { get; set; }
         private static int Fov { get; set; }
-        
+
         private static int MinFov = 30;
         private static int MaxFov = 90;
 
-        public static void Start( Vector3 basePosition, Vector3 lookAtPosition, Vector3 offsetVector, float heading = -1f, int camera = -1, int fov = 45)
+        private static bool OnMove = false;
+
+        private static int MarginLeft {get;set;}
+        private static int MarginRight {get;set;}
+        private static int MarginTop {get;set;}
+        private static int MarginBottom {get;set;}
+
+        public static void Start(Vector3 basePosition, Vector3 lookAtPosition, Vector3 offsetVector, float heading = -1f, int camera = -1, int fov = 45, int marginLeft = 600, int marginRight = 0, int marginTop = 0, int marginBottom = 100)
         {
             SetDefault();
             Camera = camera;
@@ -47,11 +54,15 @@ namespace cs_packages.Camera
             ZUpMultipler = 1;
             XBound = new Vector2(0, 0);
             ZBound = new Vector2(-0.01f, 0.8f);
+            Fov = fov;
+            MarginLeft = marginLeft;
+            MarginRight = marginRight;
+            MarginTop = marginTop;
+            MarginBottom = marginBottom;
             CheckHeading();
             CreateCam();
             Cam.PointCamAtCoord(Camera, LookAtPosition.X, LookAtPosition.Y, LookAtPosition.Z);
 
-            Fov = fov;
 
             Activate(true);
             Events.Tick += OnTick;
@@ -62,13 +73,24 @@ namespace cs_packages.Camera
             IsPause = state;
         }
 
-        public static void Stop()
+        public static void Stop(int returnToCamera = -1)
         {
-            Activate(false);
-            Cam.SetCamActiveWithInterp(StartCamera, Camera, 1000, 1, 1);
+            if (!IsActive) return;
+            if (returnToCamera != -1)
+            {
+                Cam.SetCamActiveWithInterp(returnToCamera, Camera, 1000, 1, 1);
+            }
+            else if (StartCamera != -1)
+            {
+                Cam.SetCamActiveWithInterp(StartCamera, Camera, 1000, 1, 1);
+            }
+            else 
+            {
+                Cam.RenderScriptCams(false, false, 0, true, false, 0);
+            }
             RAGE.Task.Run(() => {
                 Cam.DestroyCam(Camera, true);
-                Events.Tick -= OnTick;
+                Activate(false);
             }, 
             delayTime: 1100);
         }
@@ -80,13 +102,18 @@ namespace cs_packages.Camera
             ChangePosition();
         }
 
+        public static int GetCam()
+        {
+            return Camera;
+        }
+
         private static void CreateCam()
         {
             if (Camera == -1)
             {
                 Vector3 playerPos = RAGE.Elements.Player.LocalPlayer.Position;
                 Vector3 camRot = Cam.GetGameplayCamRot(2);
-                int cam = Cam.CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", playerPos.X, playerPos.Y, playerPos.Z, camRot.X, camRot.Y, camRot.Z, 90, true, 0);
+                int cam = Cam.CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", playerPos.X, playerPos.Y, playerPos.Z, camRot.X, camRot.Y, camRot.Z, Fov, true, 0);
                 Cam.SetCamActive(cam, true);
                 Cam.RenderScriptCams(true, false, 0, true, false, 0);
                 Camera = cam;
@@ -96,7 +123,7 @@ namespace cs_packages.Camera
             {
                 Vector3 playerPos = RAGE.Elements.Player.LocalPlayer.Position;
                 Vector3 camRot = Cam.GetGameplayCamRot(2);
-                int cam = Cam.CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", playerPos.X, playerPos.Y, playerPos.Z, camRot.X, camRot.Y, camRot.Z, 90, true, 0);
+                int cam = Cam.CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", playerPos.X, playerPos.Y, playerPos.Z, camRot.X, camRot.Y, camRot.Z, Fov, true, 0);
                 //Cam.SetCamActive(cam, true);
                 Cam.RenderScriptCams(true, false, 0, true, false, 0);
 
@@ -134,11 +161,40 @@ namespace cs_packages.Camera
             float dX = currentPoint.X - x;
             float dY = currentPoint.Y - y;
 
+
+            int screenX = 0;
+            int screenY = 0;
+
+            Graphics.GetActiveScreenResolution(ref screenX, ref screenY);
+            float marginLeft = (MarginLeft / (1920f / screenX));
+            float marginRight = (MarginRight / (1920f / screenX));
+            float marginTop = (MarginTop / (1080f / screenX));
+            float marginBottom = (MarginBottom / (1080f / screenX));
+            
+            float _x = RAGE.Ui.Cursor.Position.X;
+            float _y = RAGE.Ui.Cursor.Position.Y;
+
+
             SetPoint(x, y);
 
             if (RAGE.Game.Pad.IsDisabledControlPressed(2, (int)RAGE.Game.Control.CursorAccept))
             {
-                OnMouseMove(dX, dY);
+                if (_x > 0 + marginLeft && _x < screenX - marginRight && _y > 0 + marginTop && _y < screenY - marginBottom)
+                //if (_x < screenX/2 + radiusX && _x > screenX/2 - radiusX && _y < screenY/2 + radiusY && _y > screenY/2 - radiusY)
+                {
+                    OnMove = true;
+                    //Chat.Output("OnMove: true");
+                }
+                if(OnMove)
+                {
+                    OnMouseMove(dX, dY);
+                    //Chat.Output("MouseMove");
+                }
+            }
+            else 
+            {
+                //Chat.Output("OnMove: false");
+                OnMove = false;
             }
 
             if (RAGE.Game.Pad.IsDisabledControlJustPressed(2, (int)RAGE.Game.Control.CursorScrollDown))
@@ -227,7 +283,11 @@ namespace cs_packages.Camera
                 RAGE.Ui.Cursor.Visible = false;
             }
             else {
-                RAGE.Ui.Cursor.Visible = true;
+                RAGE.Task.Run(() =>
+                {
+                    RAGE.Ui.Cursor.Visible = true;
+                },
+                delayTime: 100);
             }
         }
 
@@ -278,8 +338,10 @@ namespace cs_packages.Camera
         private static void SetDefault()
         {
             SetZBound(-0.8f, 1.8f);
-            SetZUpMultipler(5f);
+            SetZUpMultipler(8f);
             SetMaxMinPov(90, 30);
+            StartCamera = -1;
+            OnMove = false;
         }
     }
 }

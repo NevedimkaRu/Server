@@ -79,10 +79,12 @@ namespace cs_packages.Interface
                 RAGE.Game.Pad.DisableAllControlActions(1);
                 RAGE.Game.Pad.DisableAllControlActions(0);
                 //402.65216f, -1000.26294f, -99.00414f    Rot:    -3.4659793f
-                camHandle = Cam.CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", 402.65216f, -1000.26294f, -99.00414f, 0, 0, -3.4659793f, 35, true, 0);
+                //camHandle = Cam.CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", 402.65216f, -1000.26294f, -99.00414f, 0, 0, -3.4659793f, 35, true, 0);
 
-                Cam.SetCamActive(camHandle, true);
-                Cam.RenderScriptCams(true, false, 0, true, false, 0);
+                //Cam.SetCamActive(camHandle, true);
+                //Cam.RenderScriptCams(true, false, 0, true, false, 0);
+                Camera.CamRotator.Start(player.Position,player.Position, new Vector3(2.5f, 2.5f, 0.7f), fov: 40);
+                Camera.CamRotator.SetZBound(-0.8f, 2.1f);
             }, 100);
 
         }
@@ -94,8 +96,9 @@ namespace cs_packages.Interface
             player.SetInvincible(false);
             player.SetVisible(true, true);
             player.SetCollision(true, true);
-            camHandle = 0;
-            Cam.DestroyCam(camHandle, true);
+            Camera.CamRotator.Stop();
+            //camHandle = 0;
+            //Cam.DestroyCam(camHandle, true);
         }
 
     }

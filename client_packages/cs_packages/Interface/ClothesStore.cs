@@ -19,8 +19,8 @@ namespace cs_packages.Interface
             Events.Add("vui_setCloth", SetCloth);
             Events.Add("vui_discardCloth", DiscardCloth);
             Events.Add("vui_buyCloth", BuyCloth);
-            Events.Add("trigger_buyTuningSuccess", BuySucces);
-            Events.Add("trigger_buyTuningError", BuyError);
+            Events.Add("trigger_buyClothesSuccess", BuySucces);
+            Events.Add("trigger_buyClothesError", BuyError);
             Events.Add("trigger_bigPortionClothesData", BigPortionClothesData);
         }
 
@@ -86,15 +86,26 @@ namespace cs_packages.Interface
             if (isMenuOpen)
             {
                 RAGE.Ui.Cursor.Visible = true;
-                //SetCam();
+                SetCam();
             }
             else
             {
                 Chat.Activate(true);
                 RAGE.Ui.Cursor.Visible = false;
                 //CurrMods.Clear();
-                //RemoveCam();
+                RemoveCam();
             }
+        }
+
+        private static void SetCam()
+        {
+            Camera.CamRotator.Start(Player.LocalPlayer.Position, Player.LocalPlayer.Position, new Vector3(2.5f, 2.5f, 0.7f), fov: 40);
+            Camera.CamRotator.SetZBound(-0.8f, 2.1f);
+        }
+
+        private static void RemoveCam()
+        {
+            Camera.CamRotator.Stop();
         }
 
         private void cmd(string cmd, Events.CancelEventArgs cancel)

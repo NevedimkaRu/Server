@@ -36,15 +36,15 @@ namespace cs_packages.begin
                 null,
                 new Vector3(997.0209f, -3001.767f, -38.99113f),
                 new Vector3(-6.245818f, 0, 89.35027f)) },
-            {1, new CarList("accord",
+            {1, new CarList("elegy",
                 new Vector3(988.03546f, -3005.588f, -40.3263f), 
                 new Vector3(991.6177f, -3002.787f, -38.8937f),
                 new Vector3(-11.86801f, 0, 131.8012f)) },
-            {2, new CarList("civic",
+            {2, new CarList("elegy",
                 new Vector3(987.86316f, -3001.7742f, -40.326305f),
                 new Vector3(991.6177f, -2999.106f, -38.8937f),
                 new Vector3(-11.86801f, 0, 131.8012f)) },
-            {3, new CarList("mark2",
+            {3, new CarList("elegy",
                 new Vector3(987.8483f, -2998.0576f, -40.328674f),
                 new Vector3(991.6177f, -2995.224f, -38.8937f),
                 new Vector3(-11.86801f, 0, 131.8012f)) },
@@ -54,7 +54,7 @@ namespace cs_packages.begin
 
         private static int SelectedCar = -1;
 
-        private void OnClick(int x, int y, bool up, bool right, float relativeX, float relativeY, Vector3 worldPos, int entityHandle)
+        private static void OnClick(int x, int y, bool up, bool right, float relativeX, float relativeY, Vector3 worldPos, int entityHandle)
         {
             if (SelectedCar == -1) return;
             float radiusX = 200;
@@ -113,11 +113,23 @@ namespace cs_packages.begin
             {
                 if(i == 0)
                 {
-                    Cam.SetCamActiveWithInterp(Cars[i].CamId, Cars[SelectedCar].CamId, 3000, 1, 1);
+                    Chat.Output("selectedCar: " + SelectedCar + "i: " + i);
+                    if (SelectedCar != -1)
+                    {
+                        Chat.Output("srabotalo");
+                        Camera.CamRotator.Stop(Cars[0].CamId);
+                    }
+                    Events.OnClickWithRaycast += OnClick;
+                    //Cam.SetCamActiveWithInterp(Cars[i].CamId, Cars[SelectedCar].CamId, 3000, 1, 1);
                 }
-                else
+                if(i > 0 )
                 {
-                    Cam.SetCamActiveWithInterp(Cars[i].CamId, Cars[0].CamId, 3000, 1, 1);
+                    Camera.CamRotator.Start(Cars[i].Veh.Position, Cars[i].Veh.Position, new Vector3(2.5f, 2.5f, 1.3f), camera: Cars[SelectedCar].CamId, fov: 60);
+                    Camera.CamRotator.SetZBound(-0.8f, 2.1f);
+                    Camera.CamRotator.Pause(false);
+                    Cars[i].CamId = Camera.CamRotator.GetCam();
+                    Events.OnClickWithRaycast -= OnClick;
+                    //Cam.SetCamActiveWithInterp(Cars[i].CamId, Cars[0].CamId, 3000, 1, 1);
                 }
                 SelectedCar = i;
             }

@@ -28,7 +28,8 @@ namespace cs_packages.Interface
         private void BuyError(object[] args)
         {
             string ErrorText = args[0].ToString();
-            Vui.VuiModals($"VehicleTuning.buyError({ErrorText})");
+            Api.Notify(ErrorText);
+            Vui.VuiModals($"VehicleTuning.buyError('{ErrorText}')");
         }
 
         private void BuySuccess(object[] args)
@@ -48,6 +49,7 @@ namespace cs_packages.Interface
                 Vui.VuiModals("openVehicleTuningMenu()");
                 Vui.VuiModals($"VehicleTuning.fillData({ json });");
                 SetCurrentMods();
+
             }
         }
 
@@ -100,15 +102,26 @@ namespace cs_packages.Interface
             if (isMenuOpen)
             {
                 RAGE.Ui.Cursor.Visible = true;
-                //SetCam();
+                SetCam();
             }
             else
             {
                 Chat.Activate(true);
                 RAGE.Ui.Cursor.Visible = false;
                 CurrMods.Clear();
-                //RemoveCam();
+                RemoveCam();
             }
+        }
+
+        private static void SetCam()
+        {
+            Camera.CamRotator.Start(Player.LocalPlayer.Position, Player.LocalPlayer.Position, new Vector3(2.5f, 2.5f, 1.3f), fov: 60);
+            Camera.CamRotator.SetZBound(-0.8f, 2.1f);
+        }
+
+        private static void RemoveCam()
+        {
+            Camera.CamRotator.Stop();
         }
 
         private void cmd(string cmd, Events.CancelEventArgs cancel)
