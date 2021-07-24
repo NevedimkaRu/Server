@@ -24,6 +24,7 @@ namespace Server
 
         public static Dictionary<int, House> Houses = new Dictionary<int, House>();
         public static Dictionary<int, Garage> Garage = new Dictionary<int, Garage>();
+        public static Dictionary<int, Business> Biz = new Dictionary<int, Business>();
 
         public static Dictionary<int, Clan> Clans = new Dictionary<int, Clan>();
         public static Dictionary<int, ClanRank> ClanRanks = new Dictionary<int, ClanRank>();
@@ -69,6 +70,7 @@ namespace Server
         public void Remote_OnPlayerPressEKey(Player player)
         {
             garage.Api.OnPlayerPressEKey(player);
+            business.Api.OnPlayerPressEKey(player);
         }
 
         [RemoteEvent("remote_PressAlt")]
@@ -76,6 +78,7 @@ namespace Server
         {
             house.Api.OnPlayerPressAltKey(player);
             garage.Api.OnPlayerPressAltKey(player);
+            business.Api.OnPlayerPressAltKey(player);
         }        
     }
 }

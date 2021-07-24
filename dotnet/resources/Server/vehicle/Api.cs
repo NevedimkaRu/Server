@@ -42,43 +42,132 @@ namespace Server.vehicle
             veh._Tuning = tuning;
 
             Main.Veh.Add(id, veh);
-            Tuning.LoadTunning(veh.Id);
+            Main.Veh[id]._Tuning = tuning;
+            //Tuning.LoadTunning(veh.Id);
             return carid;
         }
         public static async Task LoadPlayerVehice(Player player)
         {
             if (!Main.Players1.ContainsKey(player)) return;
-            DataTable dt = await MySql.QueryReadAsync($"SELECT * FROM `vehicles` JOIN `vehiclesgarage` ON vehicles.Id = vehiclesgarage.VehicleId WHERE vehicles.OwnerId = '{Main.Players1[player].Character.Id}'");
+            DataTable dt = await MySql.QueryReadAsync($"SELECT * FROM `vehicles` " +
+                $"JOIN `vehiclesgarage` ON vehicles.Id = vehiclesgarage.VehicleId " +
+                $"JOIN `vehicletuning` ON vehicles.Id = vehicletuning.CarId " +
+                $"LEFT JOIN `vehiclehandling` ON vehicles.Id = vehiclehandling.CarId " +
+                $"WHERE vehicles.OwnerId = '{Main.Players1[player].Character.Id}'");
             if (dt == null || dt.Rows.Count == 0)
             {
                 return;
             }
-
+            int prevCarid = -1;
             foreach (DataRow row in dt.Rows)
             {
+                if (prevCarid != Convert.ToInt32(row["Id"]) && prevCarid != -1)
+                {
+                    vehicle.Handling.FillAllHandlingSlots(prevCarid);
+                }
                 Vehicles model = new Vehicles();
                 model.Id = Convert.ToInt32(row["Id"]);
+
                 model.ModelHash = Convert.ToString(row["ModelHash"]);
                 model.OwnerId = Convert.ToInt32(row["OwnerId"]);
                 model.Handling = Convert.ToInt32(row["Handling"]);
-                if(model.Handling > 2 && Main.Players1[player].Character.Vip == 0 || model.Handling > 5 || model.Handling < 0)
+                if (model.Handling > 2 && Main.Players1[player].Character.Vip == 0 || model.Handling > 5 || model.Handling < 0)
                 {
                     model.Handling = 0;
                 }
+                
                 VehiclesGarage garage = new VehiclesGarage();
-                garage.Id = Convert.ToInt32(row["Id"]);
+                garage.Id = Convert.ToInt32(row["Id1"]);
                 garage.VehicleId = Convert.ToInt32(row["VehicleId"]);
                 garage.GarageId = Convert.ToInt32(row["GarageId"]);
                 garage.GarageSlot = Convert.ToInt32(row["GarageSlot"]);
 
                 model._Garage = garage;
+                
+                VehicleTuning tuning = new VehicleTuning();
 
+                tuning.Id = Convert.ToInt32(row["Id2"]);
+                tuning.Spoiler = Convert.ToInt32(row["Spoiler"]);
+                tuning.FrontBumper = Convert.ToInt32(row["FrontBumper"]);
+                tuning.RearBumper = Convert.ToInt32(row["RearBumper"]);
+                tuning.SideSkirt = Convert.ToInt32(row["SideSkirt"]);// 3
+                tuning.Exhaust = Convert.ToInt32(row["Exhaust"]);// 4
+                tuning.Frame = Convert.ToInt32(row["Frame"]);// 5
+                tuning.Grille = Convert.ToInt32(row["Grille"]);// 6
+                tuning.Hood = Convert.ToInt32(row["Hood"]);// 7
+                tuning.Fender = Convert.ToInt32(row["Fender"]);// 8
+                tuning.RightFender = Convert.ToInt32(row["RightFender"]);
+                tuning.Roof = Convert.ToInt32(row["Roof"]);
+                tuning.Engine = Convert.ToInt32(row["Engine"]);
+                tuning.Brakes = Convert.ToInt32(row["Brakes"]);
+                tuning.Transmission = Convert.ToInt32(row["Transmission"]);
+                tuning.Horns = Convert.ToInt32(row["Horns"]);
+                tuning.Suspension = Convert.ToInt32(row["Suspension"]);
+                tuning.Armor = Convert.ToInt32(row["Armor"]);// 16
+                tuning.Turbo = Convert.ToInt32(row["Turbo"]);// 18
+                tuning.Xenon = Convert.ToInt32(row["Xenon"]);// 22
+                tuning.FrontWheels = Convert.ToInt32(row["FrontWheels"]);//23
+                tuning.BackWheels = Convert.ToInt32(row["BackWheels"]);//24 Only for Motorcycles
+                tuning.PlateHolders = Convert.ToInt32(row["PlateHolders"]);//25
+                tuning.TrimDesign = Convert.ToInt32(row["TrimDesign"]);//27
+                tuning.Ornaments = Convert.ToInt32(row["Ornaments"]);//28
+                tuning.DialDesign = Convert.ToInt32(row["DialDesign"]);//30
+                tuning.SteeringWheel = Convert.ToInt32(row["SteeringWheel"]);//33
+                tuning.ShiftLever = Convert.ToInt32(row["ShiftLever"]);//34
+                tuning.Plaques = Convert.ToInt32(row["Plaques"]);//35
+                tuning.Hydraulics = Convert.ToInt32(row["Hydraulics"]);//38
+                tuning.Boost = Convert.ToInt32(row["Boost"]);//40
+                tuning.Livery = Convert.ToInt32(row["Livery"]);//48
+                tuning.Plate = Convert.ToInt32(row["Plate"]); //53
+                tuning.WindowTint = Convert.ToInt32(row["WindowTint"]);//55
+
+                model._Tuning = tuning;
+
+                VehicleHandling handling = null;
+                if (!(row["Slot"] is DBNull))
+                {
+                    handling = new VehicleHandling();
+                    handling.Id = Convert.ToInt32(row["Id3"]);
+                    handling.CarId = Convert.ToInt32(row["CarId"]);
+                    handling.Slot = Convert.ToInt32(row["Slot"]);
+                    handling.fInitialDragCoeff = Convert.ToSingle(row["fInitialDragCoeff"]);
+                    handling.vecCentreOfMassOffset = JsonConvert.DeserializeObject<Vector3>(row["vecCentreOfMassOffset"].ToString());
+                    handling.vecInertiaMultiplier = JsonConvert.DeserializeObject<Vector3>(row["vecInertiaMultiplier"].ToString());
+                    handling.fDriveBiasFront = Convert.ToSingle(row["fDriveBiasFront"]);
+                    handling.nInitialDriveGears = Convert.ToInt32(row["nInitialDriveGears"]);
+                    handling.fInitialDriveForce = Convert.ToSingle(row["fInitialDriveForce"]);
+                    handling.fDriveInertia = Convert.ToSingle(row["fDriveInertia"]);
+                    handling.fClutchChangeRateScaleUpShift = Convert.ToSingle(row["fClutchChangeRateScaleUpShift"]);
+                    handling.fClutchChangeRateScaleDownShift = Convert.ToSingle(row["fClutchChangeRateScaleDownShift"]);
+                    handling.fInitialDriveMaxFlatVel = Convert.ToSingle(row["fInitialDriveMaxFlatVel"]);
+                    handling.fBrakeForce = Convert.ToSingle(row["fBrakeForce"]);
+                    handling.fBrakeBiasFront = Convert.ToSingle(row["fBrakeBiasFront"]);
+                    handling.fHandBrakeForce = Convert.ToSingle(row["fHandBrakeForce"]);
+                    handling.fSteeringLock = Convert.ToSingle(row["fSteeringLock"]);
+                    handling.fTractionCurveMax = Convert.ToSingle(row["fTractionCurveMax"]);
+                    handling.fTractionCurveMin = Convert.ToSingle(row["fTractionCurveMin"]);
+                    handling.fTractionCurveLateral = Convert.ToSingle(row["fTractionCurveLateral"]);
+                    handling.fTractionSpringDeltaMax = Convert.ToSingle(row["fTractionSpringDeltaMax"]);
+                    handling.fLowSpeedTractionLossMult = Convert.ToSingle(row["fLowSpeedTractionLossMult"]);
+                    handling.fTractionBiasFront = Convert.ToSingle(row["fTractionBiasFront"]);
+                    handling.fTractionLossMult = Convert.ToSingle(row["fTractionLossMult"]);
+                    handling.fSuspensionForce = Convert.ToSingle(row["fSuspensionForce"]);
+                    handling.fSuspensionCompDamp = Convert.ToSingle(row["fSuspensionCompDamp"]);
+                    handling.fSuspensionReboundDamp = Convert.ToSingle(row["fSuspensionReboundDamp"]);
+                    handling.fSuspensionRaise = Convert.ToSingle(row["fSuspensionRaise"]);
+                    handling.fSuspensionBiasFront = Convert.ToSingle(row["fSuspensionBiasFront"]);
+                }
                 if (!Main.Veh.ContainsKey(model.Id))
                 {
+                    if(handling != null) model._HandlingData.Add(handling);
+
                     Main.Veh.Add(model.Id, model);
                 }
-                Tuning.LoadTunning(model.Id);
-                Handling.LoadVehicleHandling(model.Id);
+                else
+                {
+                    if (handling != null) Main.Veh[model.Id]._HandlingData.Add(handling);
+                }
+                prevCarid = model.Id;
             }
 
             foreach (var veh in Main.Veh)
@@ -87,7 +176,7 @@ namespace Server.vehicle
                 {
                     if (veh.Value._Garage.GarageId == -1) continue;
                     if (veh.Value._Garage.GarageSlot <= Main.GarageTypes[Main.Garage[veh.Value._Garage.GarageId].GarageType].VehiclePosition.Count - 1)
-                    {
+                    {//todo Сделать проверку на занятый слот
                         var vehpos = Main.GarageTypes[Main.Garage[veh.Value._Garage.GarageId].GarageType].VehiclePosition;
                         SpawnPlayerVehicle(
                             veh.Value.Id,
@@ -146,9 +235,9 @@ namespace Server.vehicle
                     if (Main.Veh[carid]._Tuning == null) Tuning.LoadTunning(Main.Veh[carid].Id);
                     Tuning.ApplyTuning(Main.Veh[carid]._Veh, carid);
                     Main.Veh[carid]._Veh.SetData<int>("CarId", carid);
-                    if (Main.Veh[carid]._HandlingData.Count == 0)
+                    if (Main.Veh[carid]._HandlingData.Count == 0 || Main.Veh[carid]._HandlingData == null)
                     {
-                        Handling.LoadVehicleHandling(carid, true);
+                        Handling.FillAllHandlingSlots(carid);//todo затестить
                     }
                     Main.Veh[carid]._Veh.SetSharedData("sd_Handling1", Main.Veh[carid]._HandlingData.Find(c => c.Slot == Main.Veh[carid].Handling));
                     Main.Veh[carid]._Veh.SetSharedData("sd_EngineMod", Main.Veh[carid]._Tuning.Engine);

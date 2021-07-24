@@ -51,7 +51,7 @@ namespace cs_packages.house
             
             //Utils.PointingAT(20, out int hit, out int entity, out objPostition, out int materialHash);
             Vector3 _pos = RAGE.Game.Cam.GetGameplayCamCoord();
-            Vector3 _dir = admin.NoClip.GetDirectionByRotation(RAGE.Game.Cam.GetGameplayCamRot(0));
+            Vector3 _dir = utils.Utils.GetDirectionByRotation(RAGE.Game.Cam.GetGameplayCamRot(0));
             //Vector3 _farAway = new Vector3((_dir.X * distance) + (_pos.X), (_dir.Y * distance) + (_pos.Y), (_dir.Z * distance) + (_pos.Z));
             
             Vector3 _farAway = new Vector3((_dir.X * distance) + (_pos.X), (_dir.Y * distance) + (_pos.Y), Player.LocalPlayer.Position.Z - 1.0f);

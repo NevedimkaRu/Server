@@ -45,10 +45,13 @@ namespace Server.model
         }
     }
 
-    public class PlayerClothes
+    public class PlayerClothes : DB_Tables
     {
+        public int CharacterId { get; set; }
+
         public int Top { get; set; } = -1;
         public int TopTexture { get; set; }
+
         public int Undershirt { get; set; } = -1;
         public int UndershirtTexture { get; set; }
 
@@ -61,5 +64,4 @@ namespace Server.model
         public int Shoes { get; set; }
         public int ShoesTexture { get; set; }
     }
-
 }

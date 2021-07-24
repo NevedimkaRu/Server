@@ -29,7 +29,17 @@ namespace Server.character
                 player.Name = character.Name + "[" + player.Id + "]";
                 game.DriftEvent.LoadPlayerTrackScore(player);
                 await vehicle.Api.LoadPlayerVehice(player);
-                customization.Api.LoadCustomization(player, character.Id);//todo Сделать асинхронным
+                customization.Api.LoadCustomization(player, character.Id);
+                Main.Players1[player].Clothes = await clothes.Api.LoadPlayerClothes(player);
+                if(Main.Players1[player].Clothes == null)
+                {
+                    Main.Players1[player].Clothes = clothes.Api.CreatePlayerDefaultClothes(player);
+                    clothes.Api.SetDefaultPlayerClothes(player, Main.Players1[player].Clothes);
+                }
+                else
+                {
+                    clothes.Api.SetDefaultPlayerClothes(player, Main.Players1[player].Clothes);
+                }
                 Main.Players1[player].Records = await Record.LoadPlayerRecords(player);
                 Main.Players1[player].Titles = await Title.LoadCharacterTitle(player);
                 if(Main.Players1[player].Titles != null)

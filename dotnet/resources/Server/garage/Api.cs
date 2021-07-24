@@ -26,9 +26,10 @@ namespace Server.garage
             {
                 return;
             }
-
+            
             foreach (DataRow row in dt.Rows)
             {
+                
                 Garage model = new Garage();
                 model.Id = Convert.ToInt32(row["Id"]);
                 model.HouseId = Convert.ToInt32(row["HouseId"]);

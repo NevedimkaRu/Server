@@ -168,7 +168,7 @@ namespace cs_packages.vehicle
             entity = -1;
             materialHash = -1;
             Vector3 _pos = Cam.GetGameplayCamCoord();
-            Vector3 _dir = admin.NoClip.GetDirectionByRotation(Cam.GetGameplayCamRot(0));
+            Vector3 _dir = utils.Utils.GetDirectionByRotation(Cam.GetGameplayCamRot(0));
             Vector3 _farAway = new Vector3((_dir.X * distance) + (_pos.X), (_dir.Y * distance) + (_pos.Y), (_dir.Z * distance) + (_pos.Z));
             int _result = Shapetest
                 .StartShapeTestRay(_pos.X, _pos.Y, _pos.Z, _farAway.X, _farAway.Y, _farAway.Z, -1, 0, 7);
