@@ -144,6 +144,29 @@ namespace cs_packages.Interface
                 player.SetVisible(true, true);
                 player.SetCollision(true, true);
             }
+            //camera test
+            if (commandName == "crt")
+            {
+                RAGE.Task.Run(() =>
+               {
+                   Chat.Output("Погнали");
+                   Vector3 playerPos = RAGE.Elements.Player.LocalPlayer.Position;
+                   int cam  = Cam.GetRenderingCam();
+                   Cam.SetCamActive(cam, true);
+                   Cam.RenderScriptCams(true, false, 0, true, false, 0);
+                   Camera.CamRotator.Start(playerPos, playerPos, new Vector3(-3f, 3.5f, 0.5f), fov:80, camera: cam);
+                   Camera.CamRotator.SetZBound(-0.8f, 1.8f);
+                   Camera.CamRotator.SetZUpMultipler(5f);
+                   Camera.CamRotator.Pause(false);
+               },
+                delayTime: 500);
+            }
+            if (commandName == "crts")
+            {
+                Camera.CamRotator.Stop();
+
+            }
+
         }
     }
 }

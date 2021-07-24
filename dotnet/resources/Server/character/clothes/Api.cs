@@ -253,7 +253,7 @@ namespace Server.character.clothes
         {
             if (!SetPlayerClothes(player, (Clothes.ClothesTypes)clothType, clothId, texture)) 
             {
-                player.TriggerEvent("trigger_buyTuningError","Несовместимость одежды");
+                player.TriggerEvent("trigger_buyClothesError","Несовместимость одежды");
             }
         }
 
