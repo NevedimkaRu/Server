@@ -11,6 +11,11 @@ namespace Server.garage
 {
     class Api : Script
     {
+        public Api()
+        {
+            Events.OnPlayerPressAltKey += OnPlayerPressAlt;
+            Events.OnPlayerPressEKey += OnPlayerPressE;
+        }
         public static Dictionary<int, Vector3> StandartGarage = new Dictionary<int, Vector3>()
         {
             {1, new Vector3(-433.07422, 1129.4246, 325.90454) },
@@ -202,7 +207,7 @@ namespace Server.garage
 
             Main.Garage[garageid].Update("CharacterId");
         }
-        public static void OnPlayerPressEKey(Player player)
+        public void OnPlayerPressE(Player player)
         {
             if (!Check.GetPlayerStatus(player, Check.PlayerStatus.Spawn) || player.Vehicle == null) return;
 
@@ -296,7 +301,7 @@ namespace Server.garage
             }
             catch { }
         }
-        public static void OnPlayerPressAltKey(Player player)
+        public void OnPlayerPressAlt(Player player)
         {
             if (!Check.GetPlayerStatus(player, Check.PlayerStatus.Spawn) || player.Vehicle != null) return;
             foreach (var garage in Main.Garage)

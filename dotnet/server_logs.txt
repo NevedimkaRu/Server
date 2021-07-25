@@ -44712,4 +44712,3026 @@ Started! Waiting for connections..
    at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int32 startTickCount, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 875
    at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 430
    at MySqlConnector.MySqlConnection.Open() in /_/src/MySqlConnector/MySqlConnection.cs:line 376
-   at Server.MySql.Query(MySqlCommand c
+   at Server.MySql.Query(MySqlCommand cInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 16:01:22
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 22 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 61 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remotInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 16:11:01
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 22 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 61 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remotInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 16:22:32
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 22 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 61 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 33 remote event(s)
+Server: loading remote procedures.. found 1 remote procedure(s)
+Server: loading remote procedures.. found 1 remote procedure(s)
+Server: loaded 2 remote procedure(s)
+Всё ок!
+[MySql QueryR] select * from vehiclestore
+[MySql QueryR] SELECT * FROM `vehicletuningcost`
+[MySql QueryR] SELECT * FROM `teleport`
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT garage.*, character.Name FROM `garage` Left join `character` on garage.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `traks`
+169,123
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+[MySql QueryR] SELECT * FROM `titles`
+[MySql QueryR] select * from business
+[MySql QueryR] SELECT admin. * , character.Name FROM `admin` JOIN `character` ON admin.AccountId = `character`.AccountId
+[MySql QueryR] select SocialClubId from account where RememberMe = 1
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql Query] update `account` set `LastIp` = @LastIp where id = 1
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryR] select * from customization where `CharacterId` = 2
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryAsync] update account set RememberMe = 0 where SocialClubId = 25224641 and RememberMe = 1; update account set RememberMe = 1 where id = 1
+[MySql Query] update `character` set `Level` = @Level,`Exp` = @Exp,`Money` = @Money where id = 2
+[MySql Query] update `character` set `Level` = @Level,`Exp` = @Exp,`Money` = @Money where id = 2
+[MySql Query] update `character` set `Level` = @Level,`Exp` = @Exp,`Money` = @Money where id = 2
+[MySql Query] update `character` set `Level` = @Level,`Exp` = @Exp,`Money` = @Money where id = 2
+[MySql Query] update `character` set `Level` = @Level,`Exp` = @Exp,`Money` = @Money where id = 2
+[MySql Query Error] MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, Int32 startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int32 startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int32 startTickCount, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 410
+   at MySqlConnector.MySqlConnection.Open() in /_/srInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 22:12:03
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 22 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remotInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 22:20:26
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 22 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remotInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 22:21:12
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 22 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remotInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 22:24:15
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 22 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remotInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 22:26:25
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[MySql]Unable to connect to any of the specified MySQL hosts
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 33 remote event(s)
+Server: loading remote procedures.. found 1 remote procedure(s)
+Server: loading remote procedures.. found 1 remote procedure(s)
+Server: loaded 2 remote procedure(s)
+Всё ок!
+[MySql QueryR] select * from vehiclestore
+-> Error starting 'Server'
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> MySqlConnector.MySqlException (0x80004005): Connect Timeout expired.
+ ---> MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at async Task MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, int startTickCount, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 478
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at async ValueTask<ServerSession> MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, int startTickCount, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 140
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async ValueTask<ServerSession> MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, int startTickCount, IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 846
+   at async ValueTask<ServerSession> MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, int startTickCount, IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 868
+   at TResult System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable<TResult>+ConfiguredValueTaskAwaiter.GetResult()
+   at async Task MySqlConnector.MySqlConnection.OpenAsync(IOBehavior? ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 410
+   at void MySqlConnector.MySqlConnection.Open() in /_/src/MySqlConnector/MySqlConnection.cs:line 376
+   at DataTable Server.MySql.QueryRead(MySqlCommand command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 153
+   at DataTable Server.MySql.QueryRead(string command) in E:/RageMp/Drift/dotnet/resources/Server/MySql.cs:line 174
+   at void Server.vehicle.Store.LoadVehicleStore() in E:/RageMp/Drift/dotnet/resources/Server/vehicle/Store.cs:line 18
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at GTANetworkInternals.ScriptingEngine.InvokeVoidMethod(String method, Object[] args)
+   at GTANetworkInternals.EventParser.Parse(Event _event, Object[] arguments)
+   at GTANetworkInternals.EventCollection.<>c__DisplayClass4_0.<ParseEx>b__1(EventParser x)
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at GTANetworkInternals.EventCollection.ParseEx(Event _event, ScriptingEngine engine, Object[] arguments)
+   at GTANetworkInternals.EventHandler.ParseEx(Event _event, ScriptingEngine engine, Object[] arguments)
+   at GTANeInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 22:30:02
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remotInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 22:36:54
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remot-> SERVER STARTED AT 24.07.2021 22:38:00
+Initializing Bootstrapper.dll (1.1.0.0)..
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remotInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 22:39:38
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remotInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 22:41:31
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remot-> SERVER STARTED AT 24.07.2021 22:45:42
+Initializing Bootstrapper.dll (1.1.0.0)..
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remotInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 22:46:52
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remotInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 22:48:06
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remotInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 22:48:54
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remot-> SERVER STARTED AT 24.07.2021 22:51:16
+Initializing Bootstrapper.dll (1.1.0.0)..
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.SomeClass..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading Initializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 22:54:44
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[MySql]Unable to connect to any of the specified MySQL hosts
+Server: instantiating Server.SomeClass..
+--------------------
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. fInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 22:57:45
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.SomeClass..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading Initializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 22:58:47
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.SomeClass..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 4 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loaded 33 remote event(s)
+Server: loading remote procedures.. found 1 remote procedure(s)
+Server: loading remote procedures.. found 1 remote procedure(s)
+Server: loaded 2 remote procedure(s)
+Всё ок!
+[MySql QueryR] select * from vehiclestore
+[MySql QueryR] SELECT * FROM `vehicletuningcost`
+[MySql QueryR] SELECT * FROM `teleport`
+Teleports load
+[MySql QueryR] SELECT house.*, character.Name FROM `house` Left join `character` on house.CharacterId = character.Id
+[MySql QueryR] SELECT garage.*, character.Name FROM `garage` Left join `character` on garage.CharacterId = character.Id
+[MySql QueryR] SELECT * FROM `traks`
+169,123
+[MySql QueryR] SELECT clan.*, clanrank.* FROM `clan` Left join `clanrank` on clan.Id = clanrank.ClanId
+[MySql QueryR] SELECT * FROM `titles`
+[MySql QueryR] select * from business
+[MySql QueryR] SELECT admin. * , character.Name FROM `admin` JOIN `character` ON admin.AccountId = `character`.AccountId
+[MySql QueryR] select SocialClubId from account where RememberMe = 1
+-> Resource Server started!
+Started! Waiting for connections..
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql Query] update `account` set `LastIp` = @LastIp where id = 1
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryR] select * from customization where `CharacterId` = 2
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryReadAsync] MySqlConnector.MySqlCommand
+[MySql QueryAsync] update account set RememberMe = 0 where SocialClubId = 25224641 and RememberMe = 1; update account set RememberMe = 1 where id = 1
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void Server.Main.Remote_OnPlayerPressAltKey(Player player) in E:/RageMp/Drift/dotnet/resources/Server/Main.cs:line 75
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventHandler.Parse(Player sender, ulong eventNameHash, params object[] arguments)
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at void Server.Main.Remote_OnPlayerPressAltKey(Player player) in E:/RageMp/Drift/dotnet/resources/Server/Main.cs:line 75
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+   at void GTANetworkInternals.RemoteEventParser.Parse(Player sender, ulong eventNameHash, params object[] args)
+   at void GTANetworkInternals.RemoteEventInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 23:01:05
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.SomeClass..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading Initializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 23:07:04
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.SomeClass..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading Initializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 23:07:41
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.SomeClass..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading Initializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 23:11:15
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remotInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 23:15:33
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.SomeClass..
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+SerInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 23:17:11
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.SomeClass..
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+SerInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 23:17:50
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.SomeClass..
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+SerInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 23:20:52
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Events..
+Server: instantiating Server.SomeClass..
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remotInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 23:21:37
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Events..
+Server: instantiating Server.SomeClass..
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remotInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 23:32:00
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Events..
+Server: instantiating Server.SomeClass..
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remotInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 23:33:53
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Events..
+Server: instantiating Server.SomeClass..
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remotInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 23:35:15
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Events..
+Server: instantiating Server.SomeClass..
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remotInitializing Bootstrapper.dll (1.1.0.0)..
+-> SERVER STARTED AT 24.07.2021 23:53:17
+Loaded 667 entries from vehicleData.json
+Loading resources..
+-> Starting Server resource..
+Server: loading scripts.. found 1 script(s)
+Server: instantiating Server.Events..
+Server: instantiating Server.Main..
+[Mysql]Подключено успешно
+Server: instantiating Server.MySql..
+Server: instantiating Server.Test..
+Server: instantiating Server.vehicle.Api..
+Server: instantiating Server.vehicle.Handling..
+Server: instantiating Server.vehicle.Store..
+Server: instantiating Server.vehicle.Tuning..
+Server: instantiating Server.vehicle.TuningCost..
+Server: instantiating Server.utils.Check..
+Server: instantiating Server.utils.Other..
+Server: instantiating Server.utils.Trigger..
+Server: instantiating Server.utils._DebugUtils..
+Server: instantiating Server.teleport.Api..
+Server: instantiating Server.Interface.MainMenu..
+Server: instantiating Server.Interface.Vui..
+Server: instantiating Server.house.Api..
+Server: instantiating Server.garage.Api..
+Server: instantiating Server.game.DriftEvent..
+Server: instantiating Server.game.GameEvents.Api..
+Server: instantiating Server.customization.Api..
+Server: instantiating Server.clan.Api..
+Server: instantiating Server.character.Api..
+Server: instantiating Server.character.Record..
+Server: instantiating Server.character.Title..
+Server: instantiating Server.character.clothes.Api..
+Server: instantiating Server.business.Api..
+Server: instantiating Server.admin.Api..
+Server: instantiating Server.admin.Ban..
+Server: instantiating Server.admin.Commands..
+Server: instantiating Server.admin.Mute..
+Server: instantiating Server.admin.Report..
+Server: instantiating Server.admin.Spectate..
+Server: instantiating Server.account.Api..
+Server: instantiating Server.account.Auth..
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 2 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 1 server event(s)
+Server: loading server events.. found 3 server event(s)
+Server: loaded 21 server events(s)
+Server: loading commands.. found 19 command(s)
+Server: loading commands.. found 6 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 2 command(s)
+Server: loading commands.. found 5 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 3 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 8 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loading commands.. found 4 command(s)
+Server: loading commands.. found 1 command(s)
+Server: loaded 60 commands(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server: loading remote events.. found 2 remote event(s)
+Server: loading remote events.. found 1 remote event(s)
+Server: loading remote events.. found 3 remote event(s)
+Server
