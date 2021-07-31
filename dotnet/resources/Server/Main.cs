@@ -10,6 +10,11 @@ namespace Server
 {
     class Main : Script
     {
+        public Main()
+        {
+            MySql.MySqlConnect();//Подключение к бд
+            NAPI.Server.SetGlobalServerChat(false);
+        }
         public static Dictionary<Player, Account> Players = new Dictionary<Player, Account>();
         public static Dictionary<Player, PlayerModel> Players1 = new Dictionary<Player, PlayerModel>();
         public static Dictionary<int, Vehicles> Veh = new Dictionary<int, Vehicles>();
@@ -24,6 +29,7 @@ namespace Server
 
         public static Dictionary<int, House> Houses = new Dictionary<int, House>();
         public static Dictionary<int, Garage> Garage = new Dictionary<int, Garage>();
+        public static Dictionary<int, Business> Biz = new Dictionary<int, Business>();
 
         public static Dictionary<int, Clan> Clans = new Dictionary<int, Clan>();
         public static Dictionary<int, ClanRank> ClanRanks = new Dictionary<int, ClanRank>();
@@ -52,30 +58,6 @@ namespace Server
                 }) 
             }
         };
-
         public static List<Traks> Traks = new List<Traks>();
-        public Main()
-        {
-            MySql.MySqlConnect();//Подключение к бд
-            NAPI.Server.SetGlobalServerChat(false);
-        }
-        [ServerEvent(Event.ChatMessage)]
-        public void ASQWEASD(Player player, string message)
-        {
-
-        }
-
-        [RemoteEvent("remote_PressEKey")]
-        public void Remote_OnPlayerPressEKey(Player player)
-        {
-            garage.Api.OnPlayerPressEKey(player);
-        }
-
-        [RemoteEvent("remote_PressAlt")]
-        public void Remote_OnPlayerPressAltKey(Player player)
-        {
-            house.Api.OnPlayerPressAltKey(player);
-            garage.Api.OnPlayerPressAltKey(player);
-        }        
     }
 }

@@ -57,52 +57,10 @@ namespace Server.vehicle
                 Main.Veh[carid]._HandlingData.Add(model);
             }
         }
-        [Command("hando", GreedyArg = true)]
-        public void Start(Player player)
+        public static void FillAllHandlingSlots(int carid)
         {
-            LoadVehicleHandling(1, true);
-        }
-        public static void LoadVehicleHandling(int carid, bool IsVip = false)
-        {
-            DataTable dt = MySql.QueryRead($"SELECT * FROM `vehiclehandling` WHERE CarId = '{carid}'");
-            int slots = IsVip ? 5 : 2;
-            if (dt != null || dt.Rows.Count != 0)
-            {
-                foreach (DataRow row in dt.Rows)
-                {
-                    VehicleHandling model = new VehicleHandling();
-                    model.Id = Convert.ToInt32(row["Id"]);
-                    model.CarId = Convert.ToInt32(row["CarId"]);
-                    model.Slot = Convert.ToInt32(row["Slot"]);
-                    model.fInitialDragCoeff = Convert.ToSingle(row["fInitialDragCoeff"]);
-                    model.vecCentreOfMassOffset = JsonConvert.DeserializeObject<Vector3>(row["vecCentreOfMassOffset"].ToString());
-                    model.vecInertiaMultiplier = JsonConvert.DeserializeObject<Vector3>(row["vecInertiaMultiplier"].ToString());
-                    model.fDriveBiasFront = Convert.ToSingle(row["fDriveBiasFront"]);
-                    model.nInitialDriveGears = Convert.ToInt32(row["nInitialDriveGears"]);
-                    model.fInitialDriveForce = Convert.ToSingle(row["fInitialDriveForce"]);
-                    model.fDriveInertia = Convert.ToSingle(row["fDriveInertia"]);
-                    model.fClutchChangeRateScaleUpShift = Convert.ToSingle(row["fClutchChangeRateScaleUpShift"]);
-                    model.fClutchChangeRateScaleDownShift = Convert.ToSingle(row["fClutchChangeRateScaleDownShift"]);
-                    model.fInitialDriveMaxFlatVel = Convert.ToSingle(row["fInitialDriveMaxFlatVel"]);
-                    model.fBrakeForce = Convert.ToSingle(row["fBrakeForce"]);
-                    model.fBrakeBiasFront = Convert.ToSingle(row["fBrakeBiasFront"]);
-                    model.fHandBrakeForce = Convert.ToSingle(row["fHandBrakeForce"]);
-                    model.fSteeringLock = Convert.ToSingle(row["fSteeringLock"]);
-                    model.fTractionCurveMax = Convert.ToSingle(row["fTractionCurveMax"]);
-                    model.fTractionCurveMin = Convert.ToSingle(row["fTractionCurveMin"]);
-                    model.fTractionCurveLateral = Convert.ToSingle(row["fTractionCurveLateral"]);
-                    model.fTractionSpringDeltaMax = Convert.ToSingle(row["fTractionSpringDeltaMax"]);
-                    model.fLowSpeedTractionLossMult = Convert.ToSingle(row["fLowSpeedTractionLossMult"]);
-                    model.fTractionBiasFront = Convert.ToSingle(row["fTractionBiasFront"]);
-                    model.fTractionLossMult = Convert.ToSingle(row["fTractionLossMult"]);
-                    model.fSuspensionForce = Convert.ToSingle(row["fSuspensionForce"]);
-                    model.fSuspensionCompDamp = Convert.ToSingle(row["fSuspensionCompDamp"]);
-                    model.fSuspensionReboundDamp = Convert.ToSingle(row["fSuspensionReboundDamp"]);
-                    model.fSuspensionRaise = Convert.ToSingle(row["fSuspensionRaise"]);
-                    model.fSuspensionBiasFront = Convert.ToSingle(row["fSuspensionBiasFront"]);
-                }
-            }
-            for (int i = 0; i < slots; i++)
+            if (!Main.Veh.ContainsKey(carid)) return;
+            for (int i = 0; i < 2; i++)
             {
                 if (Main.Veh[carid]._HandlingData.Find(c => c.Slot == i) != null) continue;
                 VehicleHandling model = new VehicleHandling();

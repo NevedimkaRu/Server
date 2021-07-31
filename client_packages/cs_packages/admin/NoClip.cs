@@ -107,7 +107,7 @@ namespace cs_packages.admin
             float leftAxisY = Pad.GetDisabledControlNormal(0, (int)Control.ScriptLeftAxisY);//up/down
             Vector3 rot = Cam.GetCamRot(camHandle,2);
             Vector3 pos = Cam.GetCamCoord(camHandle);
-            Vector3 rr = GetDirectionByRotation(Cam.GetCamRot(camHandle,2));
+            Vector3 rr = utils.Utils.GetDirectionByRotation(Cam.GetCamRot(camHandle,2));
 
             float fastMult = 1;
             float slowMult = 1;
@@ -130,9 +130,9 @@ namespace cs_packages.admin
             vector.Y = rr.Y * leftAxisY * fastMult * slowMult * superSlowMult;
             vector.Z = rr.Z * leftAxisY * fastMult * slowMult * superSlowMult;
             Vector3 upVector = new Vector3(0, 0, 1);
-            Vector3 rightVector = GetCrossProduct(
-              GetNormalizedVector(rr),
-              GetNormalizedVector(upVector)
+            Vector3 rightVector = utils.Utils.GetCrossProduct(
+              utils.Utils.GetNormalizedVector(rr),
+              utils.Utils.GetNormalizedVector(upVector)
             );
 
             RAGE.Elements.Player.LocalPlayer.Position = new Vector3(
@@ -170,35 +170,6 @@ namespace cs_packages.admin
                 rot.Z + rightAxisX * -5.0f,
                 2
             );
-        }
-
-        public Vector3 GetNormalizedVector(Vector3 vector) 
-        {
-            
-            float mag = (float)Math.Sqrt(
-                vector.X * vector.X + vector.Y * vector.Y + vector.Z * vector.Z
-                );
-
-            vector.X = vector.X / mag;
-            vector.Y = vector.Y / mag;
-            vector.Z = vector.Z / mag;
-            return vector;
-        }
-
-        public Vector3 GetCrossProduct(Vector3 v1, Vector3 v2) 
-        {
-            Vector3 vector = new Vector3(0, 0, 0);
-            vector.X = v1.Y * v2.Z - v1.Z * v2.Y;
-            vector.Y = v1.Z * v2.X - v1.X * v2.Z;
-            vector.Z = v1.X * v2.Y - v1.Y * v2.X;
-            return vector;
-        }
-        public static Vector3 GetDirectionByRotation(Vector3 rotation)
-        {
-            float num = rotation.Z * 0.0174532924f;
-            float num2 = rotation.X * 0.0174532924f;
-            float num3 = MathF.Abs(MathF.Cos(num2));
-            return new Vector3 { X = -MathF.Sin(num) * num3, Y = MathF.Cos(num) * num3, Z = MathF.Sin(num2) };
         }
     }
 }

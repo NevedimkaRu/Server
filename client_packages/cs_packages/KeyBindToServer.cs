@@ -16,10 +16,10 @@ namespace cs_packages
 
         private void PressedE()
         {
-            if (Player.LocalPlayer.Vehicle == null) return;
             if (!freezeinput)
             {
                 Events.CallRemote("remote_PressEKey");
+                Events.CallRemote("remote_OnPressActionKey", 1);
                 freezeinput = true;
                 Task.Run(FreezeKey, 3000);
             }
@@ -30,6 +30,7 @@ namespace cs_packages
             if (!freezeinput)
             {
                 Events.CallRemote("remote_PressAlt");
+                Events.CallRemote("remote_OnPressActionKey", 0);
                 freezeinput = true;
                 Task.Run(FreezeKey, 3000);
             }
