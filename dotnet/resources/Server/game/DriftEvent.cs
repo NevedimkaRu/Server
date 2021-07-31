@@ -75,26 +75,20 @@ namespace Server.game
                         Main.Players1[player].CurrentTrackIndex = 0;
                         NAPI.Task.Run(() =>
                         {
-                            player.TriggerEvent("trigger_SetTrackRoute", Main.Players1[player].Track.Positions[1], 
+                            player.TriggerEvent("trigger_SetTrackRoute", Main.Players1[player].Track.Positions[1],
                                 1, 
                                 Main.Players1[player].Track.TimeLimit, 
-                                Main.Players1[player].Track.Positions[2]);
-                            
-                        });
-                        NAPI.Task.Run(() =>
-                        {
-                            player.TriggerEvent("trigger_ResetDriftScore");//todo сделать оттельный счётчик
+                                Main.Players1[player].Track.Positions[2],
+                                1);
                         });
 
-                        player.SendChatMessage("ПОГНАЛИ НАХУЙ!");
-
-                        if (utils.Track.GetPlayerTrackRecordByTrackId(player, Main.Players1[player].Track.Id) == -1)
+                        if (Track.GetPlayerTrackRecordByTrackId(player, Main.Players1[player].Track.Id) == -1)
                         {
-                            utils.Track.InsertTrackRecordByTrackId(player, traks.Id);
+                            Track.InsertTrackRecordByTrackId(player, traks.Id);
                         }
 
                         TracksRecords track;
-                        track = utils.Track.GetTrackRecordsByTrackId(player, traks.Id);
+                        track = Track.GetTrackRecordsByTrackId(player, traks.Id);
 
                         
                         player.SendChatMessage($"Ваш рекорд на страссе {traks.Name}:" +
@@ -113,7 +107,8 @@ namespace Server.game
                         Main.Players1[player].Track.Positions[Main.Players1[player].Track._ColShapes.Count - 1], 
                         999, 
                         -1,
-                        Main.Players1[player].Track.Positions[Main.Players1[player].Track._ColShapes.Count - 1]);
+                        Main.Players1[player].Track.Positions[Main.Players1[player].Track._ColShapes.Count - 1],
+                        2);
 
                     NAPI.Task.Run(() =>
                     {
@@ -121,7 +116,6 @@ namespace Server.game
                     });
                     
                     player.SendChatMessage("OMEDOTO KUZAIMASU!");
-                    
                 }
                 else if(colShape == Main.Players1[player].Track._ColShapes[Main.Players1[player].CurrentTrackIndex + 1])
                 {
@@ -133,9 +127,10 @@ namespace Server.game
                         {
                             player.TriggerEvent("trigger_SetTrackRoute", 
                                 Main.Players1[player].Track.Positions[Main.Players1[player].CurrentTrackIndex + 1], 
-                                38, 
+                                38,
                                 0,
-                                Main.Players1[player].Track.Positions[Main.Players1[player].CurrentTrackIndex + 1]);
+                                Main.Players1[player].Track.Positions[Main.Players1[player].CurrentTrackIndex + 1],
+                                0);
                         });
                         
                     }
@@ -145,9 +140,10 @@ namespace Server.game
                         {
                             player.TriggerEvent("trigger_SetTrackRoute", 
                                 Main.Players1[player].Track.Positions[Main.Players1[player].CurrentTrackIndex + 1], 
-                                1, 
+                                1,
                                 0,
-                                Main.Players1[player].Track.Positions[Main.Players1[player].CurrentTrackIndex + 2]);
+                                Main.Players1[player].Track.Positions[Main.Players1[player].CurrentTrackIndex + 2],
+                                0);
                         });
                             
                     }
@@ -158,7 +154,7 @@ namespace Server.game
         [RemoteEvent("remote_GetPlayerScore")]
         public void Remote_GetPlayerScore(Player player, int score)
         {
-            int playerscore = utils.Track.GetPlayerTrackRecordByTrackId(player, Main.Players1[player].Track.Id);
+            int playerscore = Track.GetPlayerTrackRecordByTrackId(player, Main.Players1[player].Track.Id);
             if (Main.Players1.ContainsKey(player))
             {
                 if(playerscore == -1)
@@ -171,7 +167,7 @@ namespace Server.game
                     Main.Players1[player].CurrentTrackIndex = -1;
                 }
                 else{
-                    utils.Track.UpdateTrackRecordByTrackId(player, Main.Players1[player].Track.Id, score);
+                    Track.UpdateTrackRecordByTrackId(player, Main.Players1[player].Track.Id, score);
                     Main.Players1[player].Track = null;
                     Main.Players1[player].CurrentTrackIndex = -1;
                 }

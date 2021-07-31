@@ -17,7 +17,6 @@ namespace Server
         [RemoteEvent("remote_OnPressActionKey")]
         public void PressActionKey(Player player, int key)
         {
-            player.SendChatMessage("LOX");
             if((Keys)key == Keys.Alt)
             {
                 OnPlayerPressAltKey.Invoke(player);
@@ -36,13 +35,8 @@ namespace Server
         [RemoteEvent("remote_PressAlt")]
         public void Remote_OnPlayerPressAltKey(Player player)
         {
-            
             house.Api.OnPlayerPressAltKey(player);
             business.Api.OnPlayerPressAltKey(player);
-        }
-        public void PressKey(Player player)
-        {
-            player.SendChatMessage("AYE");
         }
     }
 }
