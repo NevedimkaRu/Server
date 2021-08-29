@@ -53,12 +53,10 @@ namespace cs_packages.game
             if(firstcp == 1)
             {
                 vehicle.DriftCounter.OnPlayerDrifting += PlayerDrifting;
-                Chat.Output("Подписка");
             }
             if (firstcp == 2 && Player.LocalPlayer.Vehicle != null)
             {
                 vehicle.DriftCounter.OnPlayerDrifting -= PlayerDrifting;
-                Chat.Output("Отписка");
             }
             if (time != 0)
             {
@@ -109,9 +107,7 @@ namespace cs_packages.game
             if(isCalled == false)
             {
                 vehicle.DriftCounter.OnPlayerDrifting -= PlayerDrifting;
-                Chat.Output("Отписка");
             }
-            Chat.Output(angle.ToString());
         }
     }
 }

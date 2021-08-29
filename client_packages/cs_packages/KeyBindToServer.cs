@@ -21,7 +21,7 @@ namespace cs_packages
                 Events.CallRemote("remote_PressEKey");
                 Events.CallRemote("remote_OnPressActionKey", 1);
                 freezeinput = true;
-                Task.Run(FreezeKey, 1000);
+                Task.Run(FreezeKey, 3000);
             }
         }
 
@@ -32,7 +32,7 @@ namespace cs_packages
                 Events.CallRemote("remote_PressAlt");
                 Events.CallRemote("remote_OnPressActionKey", 0);
                 freezeinput = true;
-                Task.Run(FreezeKey, 1000);
+                Task.Run(FreezeKey, 3000);
             }
         }
 

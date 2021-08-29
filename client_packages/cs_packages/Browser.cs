@@ -27,7 +27,6 @@ namespace cs_packages
 
         public static void Close(HtmlWindow htmlwindow)
         {
-            RAGE.Chat.Output("метод close");
             htmlwindow.Active = false;
             Cursor.Visible = false;
 

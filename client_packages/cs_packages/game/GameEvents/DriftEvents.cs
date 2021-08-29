@@ -16,7 +16,6 @@ namespace cs_packages.game.GameEvents
 
         private DriftEvents()
         {
-            Events.OnPlayerEnterVehicle += OnPlayerEnterVehicle;
             Events.OnPlayerCommand += OnPlayerCommand;
             Events.Add("startWarmUp", StartWarmUp);
             Events.Add("startDriftBattle", StartDriftBattle);
@@ -25,11 +24,6 @@ namespace cs_packages.game.GameEvents
         private static Vector3 StartPostiton;
         private static Vehicle Veh;
         private static Vector3 StartRotation;
-
-        private void OnPlayerEnterVehicle(Vehicle vehicle, int seatId)
-        {
-            Chat.Output(Player.LocalPlayer.Vehicle.Handle.ToString());
-        }
 
         private void OnPlayerCommand(string cmd, Events.CancelEventArgs cancel)
         {
@@ -54,7 +48,7 @@ namespace cs_packages.game.GameEvents
             Player.LocalPlayer.Position = pos;
             if (veh != null)
             {
-                if (Player.LocalPlayer.Position.DistanceTo(veh.Position) < 5) 
+                if (Player.LocalPlayer.Position.DistanceTo(veh.Position) < 5)
                 {
                     StartPostiton = veh.Position;
                     StartRotation = veh.GetRotation(1);

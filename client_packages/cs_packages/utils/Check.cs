@@ -12,6 +12,7 @@ namespace cs_packages.utils
             Spawn = 1,
             OpenChat = 2,
             OnEvent = 3,
+
         };
         public static bool GetPlayerStatus(PlayerStatus status)
         {
@@ -27,7 +28,6 @@ namespace cs_packages.utils
                         return false;
                     }
             }
-
             return true;
         }
     }

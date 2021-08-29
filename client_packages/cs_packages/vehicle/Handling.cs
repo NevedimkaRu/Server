@@ -26,8 +26,6 @@ namespace cs_packages.vehicle
         }
         private void EnterVehicle(Vehicle vehicle, int seatId)
         {
-            Chat.Output("test");
-            Chat.Output("test2");
             if (vehicle.GetSharedData("sd_Handling1") == null || vehicle._GetSharedData<int>("sd_EngineMod") == null) return;//todo протестировать
             int engine = (int)vehicle._GetSharedData<int>("sd_EngineMod");
             model.VehicleHandling model = RAGE.Util.Json.Deserialize<model.VehicleHandling>(vehicle.GetSharedData("sd_Handling1").ToString());

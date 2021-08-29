@@ -15,6 +15,7 @@ namespace cs_packages.vehicle
         public delegate void OnPlayerDriftingDelegate(float angle, bool isCalled);
         public static event OnPlayerDriftingDelegate OnPlayerDrifting;
 
+        private bool IsHandlerAttached = false;
         private bool IsPlayerDrifting = false;
         private float Multiplier = 1.0f;
         private DateTime LastTickTime;
@@ -37,10 +38,18 @@ namespace cs_packages.vehicle
 
         private void OnPlayerEnterVehicle(Vehicle vehicle, int seatId)
         {
+            Chat.Output("Enter");
             if (Check.GetPlayerStatus(Check.PlayerStatus.Spawn))
             {
-                Events.Tick += UpdateSpeedometer;
-                OnPlayerDrifting += PlayerDrifting;
+                if(!IsHandlerAttached)
+                {
+                    Chat.Output("ХОБА");
+                    OnPlayerDrifting += PlayerDrifting;
+
+                    Events.Tick += UpdateSpeedometer;
+                    IsHandlerAttached = true;
+                }
+                ThisPlayer.CurrentVehicle = vehicle;
                 vehicle.SetRadioEnabled(false);
                 LastVehHealth = vehicle.GetHealth();
                 if(driftHTML == null)
@@ -52,23 +61,29 @@ namespace cs_packages.vehicle
         }
         public void OnPlayerLeaveVehicle(Vehicle vehicle, int seatId)
         {
+            Chat.Output("leave");
             if (Check.GetPlayerStatus(Check.PlayerStatus.Spawn))
             {
                 Events.Tick -= UpdateSpeedometer;
                 OnPlayerDrifting -= PlayerDrifting;
+                IsHandlerAttached = false;
                 Multiplier = 1;
                 Score = 0;
                 IsPlayerDrifting = false;
                 driftHTML.Active = false;
+                ThisPlayer.CurrentVehicle = null;
             }
         }
 
         public void UpdateSpeedometer(List<Events.TickNametagData> nametags)
         {
             if (Player.LocalPlayer.Vehicle == null) {
-                Events.Tick -= UpdateSpeedometer;
-                driftHTML.Active = false;
+                ThisPlayer.CurrentVehicle = null;
                 OnPlayerDrifting.Invoke(0, false);
+                Events.Tick -= UpdateSpeedometer;
+                OnPlayerDrifting -= PlayerDrifting;
+                IsHandlerAttached = false;
+                driftHTML.Active = false;
                 return;
             }
             float angle = Angle(Player.LocalPlayer.Vehicle);
