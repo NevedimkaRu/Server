@@ -89,7 +89,6 @@ namespace cs_packages.game.GameEvents
         private void StartDriftBattle(object[] args)
         {
             Chat.Output("Start on CLient");
-            vehicle.DriftCounter.StopDrift(0);
             ThisPlayer.Score = 0;
             Player.LocalPlayer.SetCoordsKeepVehicle(StartPostiton.X, StartPostiton.Y, StartPostiton.Z);
             Player.LocalPlayer.Vehicle.SetRotation(StartRotation.X, StartRotation.Y, StartRotation.Z, 1, true);
@@ -102,7 +101,6 @@ namespace cs_packages.game.GameEvents
 
             //Player.LocalPlayer.FreezePosition(true);
             //if (Player.LocalPlayer.Vehicle != null) Player.LocalPlayer.Vehicle.FreezePosition(true);
-            vehicle.DriftCounter.StopDrift(0);
             Events.CallRemote("remote_sendScore", ThisPlayer.Score);
         }
     }

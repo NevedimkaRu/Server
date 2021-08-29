@@ -9,18 +9,18 @@ namespace cs_packages.game
 {
     class Track : Events.Script
     {
-        Blip blip;
-        private int totaltime = -1;
-        private bool activeTimer = false;
+        private static Blip blip;
+        private static int totaltime = -1;
+        private static bool activeTimer = false;
 
-        Checkpoint checkpoint;
+        private static Checkpoint checkpoint;
         private Track()
         {
             Events.Add("trigger_SetTrackRoute", SetTrackRoute);
             
         }
 
-        private void TimeLost()
+        private static void TimeLost()
         {
             if(activeTimer != false)
             {
@@ -36,17 +36,31 @@ namespace cs_packages.game
                     blip.Destroy();
                     checkpoint.Destroy();
                     Chat.Output("Время вышло");
+
+                    vehicle.DriftCounter.OnPlayerDrifting -= PlayerDrifting;
+                    Chat.Output("Отписка");
                 }
             }
         }
 
-        public void SetTrackRoute(object[] args)
+        public static void SetTrackRoute(object[] args)
         {
             Vector3 Position = (Vector3)args[0];
             Vector3 NextPosition = (Vector3)args[3];
             uint id = Convert.ToUInt32(args[1]);
             int time = Convert.ToInt32(args[2]);
-            if(time != 0)
+            int firstcp = Convert.ToInt32(args[4]);
+            if(firstcp == 1)
+            {
+                vehicle.DriftCounter.OnPlayerDrifting += PlayerDrifting;
+                Chat.Output("Подписка");
+            }
+            if (firstcp == 2 && Player.LocalPlayer.Vehicle != null)
+            {
+                vehicle.DriftCounter.OnPlayerDrifting -= PlayerDrifting;
+                Chat.Output("Отписка");
+            }
+            if (time != 0)
             {
                 activeTimer = true;
                 totaltime = time;
@@ -88,6 +102,16 @@ namespace cs_packages.game
                 blip = new Blip(id, Position);
                 blip.SetRoute(true);
             }
+        }
+
+        private static void PlayerDrifting(float angle, bool isCalled)
+        {
+            if(isCalled == false)
+            {
+                vehicle.DriftCounter.OnPlayerDrifting -= PlayerDrifting;
+                Chat.Output("Отписка");
+            }
+            Chat.Output(angle.ToString());
         }
     }
 }
