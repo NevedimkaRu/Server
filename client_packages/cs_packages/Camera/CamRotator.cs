@@ -227,7 +227,7 @@ namespace cs_packages.Camera
 
         }
 
-        private static void OnMouseMove(float dX, float dY)
+        public static void OnMouseMove(float dX, float dY)
         {
             Heading = NormilizeHeading(Heading + dX * 100);
 
