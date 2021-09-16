@@ -75,7 +75,7 @@ namespace cs_packages.Interface
         }
 
 
-        public async void OpenVSMenu()
+        public static async void OpenVSMenu()
         {
             var json = (string)await Events.CallRemoteProc("remote_GetVehStoreData");
             if (json.Length > 0)

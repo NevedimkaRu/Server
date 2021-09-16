@@ -40,7 +40,7 @@ namespace cs_packages.Interface
             CurrMods[CurComponentId] = CurItemId;
         }
 
-        public async void OpenVTMenu()
+        public static async void OpenVTMenu()
         {
             if (Player.LocalPlayer.Vehicle == null) return;
             var json = (string) await Events.CallRemoteProc("remote_GetVehTuningStoreData");
@@ -82,7 +82,7 @@ namespace cs_packages.Interface
             }
         }
 
-        private void SetCurrentMods()
+        private static void SetCurrentMods()
         {
             Vehicle veh = Player.LocalPlayer.Vehicle;
             if (veh != null) 

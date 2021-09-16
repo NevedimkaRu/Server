@@ -16,6 +16,7 @@ namespace Server.character
             Character model = new Character(Main.Players1[player].Account.Id, name);
             model.Insert();
             await LoadCharacter(player, Main.Players1[player].Account.Id);
+            Main.Players1[player].IsSpawn = true;
         }
 
         public static async Task LoadCharacter(Player player, int accountId)
@@ -24,7 +25,6 @@ namespace Server.character
             if (await character.LoadByOtherFieldAsync("AccountId", $"{accountId}"))
             {
                 Main.Players1[player].Character = character;
-                Main.Players1[player].IsSpawn = true;
 
                 player.Name = character.Name + "[" + player.Id + "]";
                 game.DriftEvent.LoadPlayerTrackScore(player);

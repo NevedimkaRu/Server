@@ -22,8 +22,24 @@ namespace cs_packages.vehicle
 
         public Handling()
         {
-            Events.OnPlayerEnterVehicle += EnterVehicle;
+            //Events.OnPlayerEnterVehicle += EnterVehicle;
+            Events.OnEntityStreamIn += EntityStreamIn;
         }
+
+        private void EntityStreamIn(Entity entity)
+        {
+            if(entity.Type == RAGE.Elements.Type.Vehicle)
+            {
+                Vehicle vehicle = (Vehicle)entity;
+                if (vehicle.GetSharedData("sd_Handling1") == null || vehicle._GetSharedData<int>("sd_EngineMod") == null) return;//todo протестировать
+                int engine = (int)vehicle._GetSharedData<int>("sd_EngineMod");
+                model.VehicleHandling model = RAGE.Util.Json.Deserialize<model.VehicleHandling>(vehicle.GetSharedData("sd_Handling1").ToString());
+                SetVehicleHandling(vehicle, model);
+                vehicle.SetMod(11, engine, true);
+                Chat.Output(entity._GetSharedData<int>("CarId1").ToString());
+            }
+        }
+
         private void EnterVehicle(Vehicle vehicle, int seatId)
         {
             if (vehicle.GetSharedData("sd_Handling1") == null || vehicle._GetSharedData<int>("sd_EngineMod") == null) return;//todo протестировать

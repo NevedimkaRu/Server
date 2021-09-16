@@ -26,17 +26,11 @@ namespace Server
                 OnPlayerPressEKey.Invoke(player);
             }
         }
-        [RemoteEvent("remote_PressEKey")]
-        public void Remote_OnPlayerPressEKey(Player player)
-        {
-            business.Api.OnPlayerPressEKey(player);
-        }
         
         [RemoteEvent("remote_PressAlt")]
         public void Remote_OnPlayerPressAltKey(Player player)
         {
             house.Api.OnPlayerPressAltKey(player);
-            business.Api.OnPlayerPressAltKey(player);
         }
     }
 }

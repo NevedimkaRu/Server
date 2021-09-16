@@ -235,6 +235,7 @@ namespace Server.vehicle
                     if (Main.Veh[carid]._Tuning == null) Tuning.LoadTunning(Main.Veh[carid].Id);
                     Tuning.ApplyTuning(Main.Veh[carid]._Veh, carid);
                     Main.Veh[carid]._Veh.SetData<int>("CarId", carid);
+                    Main.Veh[carid]._Veh.SetSharedData("CarId1", carid);
                     if (Main.Veh[carid]._HandlingData.Count == 0 || Main.Veh[carid]._HandlingData == null)
                     {
                         Handling.FillAllHandlingSlots(carid);//todo затестить
@@ -286,7 +287,6 @@ namespace Server.vehicle
                     }
                     if (player.Vehicle != null)
                     {
-
                         int caridd = player.Vehicle.GetData<int>("CarId");
                         if (caridd == carid) return;
                         player.WarpOutOfVehicle();
@@ -487,6 +487,26 @@ namespace Server.vehicle
             LoadVehicle(player, carid);
         }
 
+        private class CarSlotModel
+        {
+            public int carId;
+            public int slotId;
+            public int garageId;
+        }
+
+
+        [RemoteEvent("remote_ChangeCarsSlots")]
+        public void Remote_ChangeCarsSlots(Player player, string data)
+        {
+            List<CarSlotModel> carList = new List<CarSlotModel>();
+
+            carList = JsonConvert.DeserializeObject<List<CarSlotModel>>(data);
+
+
+
+        }
+
+
         //Тестовые команды
         [Command("car",GreedyArg = true)]
         public void cmd_Car(Player player, string caridd)
@@ -512,5 +532,8 @@ namespace Server.vehicle
         {
             SetVehicleInGarage(player, Convert.ToInt32(carid), Convert.ToInt32(garageid));
         }
+
+
+
     }
 }
