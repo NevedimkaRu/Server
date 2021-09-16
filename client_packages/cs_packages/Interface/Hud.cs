@@ -54,6 +54,7 @@ namespace cs_packages.Interface
         private void ShowHud(bool v)
         {
             ChangeData("setShowHud", v.ToString().ToLower());
+            Chat.Show(v);
         }
 
         private void ChangeShowHud(object[] args)

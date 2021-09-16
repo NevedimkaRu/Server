@@ -43,6 +43,7 @@ namespace cs_packages.Interface
 
         private void SelectGarage(object[] args)
         {
+            Chat.Output("Селект гараж");
             int garageId = Convert.ToInt32(args[0]);
             Events.CallRemote("remote_BuyVehicle", selectedVSid, garageId);
             Vui.CloseModals();

@@ -29,6 +29,16 @@ namespace cs_packages.admin
                 if (isNoclip) StartNoclip();
                 else StopNoclip();
             });
+            Events.Add("trigger_pointCamAtVeh", PointCamAtVeh);
+        }
+
+        private void PointCamAtVeh(object[] args)
+        {
+            Chat.Output("Дошёл");
+            Chat.Output(args[0].ToString());
+            RAGE.Elements.Vehicle v = (RAGE.Elements.Vehicle) args[0];
+            
+            PointCamAtVeh(v.Handle);
         }
 
         private void Cmd(string cmd, Events.CancelEventArgs cancel)
@@ -52,6 +62,12 @@ namespace cs_packages.admin
             {
                 Vector3 pos = RAGE.Elements.Player.LocalPlayer.Position;
                 Chat.Output(Interior.GetInteriorAtCoords(pos.X, pos.Y, pos.Z).ToString());
+            }
+            if (commandName == "setcam") 
+            {
+                Events.Tick -= CamRender;
+                Cam.SetCamCoord(camHandle, -2036.722f, -366.7631f, 48.32808f);
+                Cam.SetCamRot(camHandle, -13.28009f, 0f, 144.4374f, 2);
             }
         }
 
@@ -170,6 +186,15 @@ namespace cs_packages.admin
                 rot.Z + rightAxisX * -5.0f,
                 2
             );
+        }
+
+        private void PointCamAtVeh(int veh)
+        {
+            Chat.Output(veh.ToString());
+            //Events.Tick -= CamRender;
+            Cam.PointCamAtEntity(camHandle, veh, 0.1f, 0.1f, 0.1f, true);
+            //Cam.AttachCamToEntity(camHandle, veh, 2f, 3f, 0.5f, true);
+            Chat.Output("Норм");
         }
     }
 }

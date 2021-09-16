@@ -60,5 +60,15 @@ namespace Server.teleport
             }
             NAPI.Util.ConsoleOutput("Teleports load");
         }
+
+        [RemoteEvent("remote_TeleportTo")]
+        public void TeleportTo(Player player, int tpId)
+        {
+            model.Teleport teleport = Main.Teleports.Find(c => c.Id == tpId);
+            if (teleport != null)
+            {
+                player.Position = teleport.Position;
+            }
+        }
     }
 }

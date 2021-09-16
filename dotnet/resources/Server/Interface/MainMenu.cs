@@ -36,6 +36,9 @@ namespace Server.Interface
                     carsData.carId = car.Value.Id;
                     var name = Main.VehicleStore.Find(c => c.Hash == car.Value.ModelHash);
                     carsData.carName = name == null ? NAPI.Vehicle.GetVehicleDisplayName((VehicleHash)NAPI.Util.GetHashKey(car.Value.ModelHash)) : name.Title;
+                    carsData.carHash = car.Value.ModelHash;
+                    carsData.garageId = car.Value._Garage.GarageId;
+                    carsData.slotId = car.Value._Garage.GarageSlot;
                     FinalData.cars.Add(carsData);
                 }
             }

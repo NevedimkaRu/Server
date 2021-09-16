@@ -206,6 +206,7 @@ namespace Server.admin
         [Command("givescore")]
         public void cmd_GiveScore(Player player, int id, int score)
         {
+
             if (!Api.GetAccess(player, 1)) return;
             character.Api.GivePlayerExp(utils.Check.GetPlayerByID(id), score);
             Api.SendAdminMessage($"Администратор {Main.Players1[player].Character.Name} выдал игроку {Main.Players1[utils.Check.GetPlayerByID(id)].Character.Name}[{utils.Check.GetPlayerByID(id).Value}] {score} Exp");

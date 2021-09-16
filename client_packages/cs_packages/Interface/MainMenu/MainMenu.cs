@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Text;
 using cs_packages.model;
 
-namespace cs_packages.Interface
+namespace cs_packages.Interface.MainMenu
 {
     class MainMenu : Events.Script
     {

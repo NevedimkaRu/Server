@@ -13,7 +13,8 @@ namespace cs_packages.admin
         {
             Events.Add("trigger_Spectate", SpectateMode);
             //Events.OnEntityStreamIn += OnEntityStreamIn;
-            Events.Tick += Tick;
+            //Events.Tick += Tick;
+            RAGE.Nametags.Enabled = false;
         }
 
         private void Tick(List<Events.TickNametagData> nametags)

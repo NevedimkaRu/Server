@@ -11,6 +11,7 @@ namespace Server
     public class Test : Script
     {
         public const bool Debug = true;
+        Vehicle curVeh = null;
 
         [ServerEvent(Event.ResourceStart)]
         public void OnResourceStart()
@@ -57,9 +58,16 @@ namespace Server
         [Command("vehhh", GreedyArg = true)]
         public void cmd_CreateVehicle1(Player player, string hasn)
         {
+            if(curVeh != null)
+            {
+                curVeh.Delete();
+            }
             var hash = NAPI.Util.GetHashKey(hasn);
-            Vector3 player_pos = player.Position;
-            player.SetIntoVehicle(NAPI.Vehicle.CreateVehicle(hash, player_pos, 2f, 0, 0), 0);
+            Vector3 player_pos = new Vector3(-2039.3885f, -369.91492f, 47.552048f);
+            curVeh = NAPI.Vehicle.CreateVehicle(hash, player_pos, -67.184616f, 0, 0);
+            curVeh.PrimaryColor = 13;
+            curVeh.SecondaryColor = 13;
+            //player.SetIntoVehicle(NAPI.Vehicle.CreateVehicle(hash, player_pos, 2f, 0, 0), 0);
         }
         [Command("vehhash")]
         public void cmd_Vehhash(Player player)
@@ -150,6 +158,14 @@ namespace Server
             if (!Debug) return;
             NAPI.World.SetWeather("CLEAR");
         }
+
+        [Command("weather")]
+        public static void CMD_setWeatherCustom(Player player, string weather)
+        {
+            if (!Debug) return;
+            NAPI.World.SetWeather(weather);
+        }
+
         [Command("mod", GreedyArg = true)]
         public static void cmd_SetMod(Player player, string modeType, string modeIndex)
         {
@@ -203,6 +219,39 @@ namespace Server
                 stream.WriteLine($"Pos: {pos} - Rot: {rot}");
                 stream.Close();
             }
+        }
+
+        [Command("point")]
+        public void cmd_SetVelocytyX(Player player, int playerId)
+        {
+            Player p = utils.Check.GetPlayerByID(playerId);
+            if (p.Vehicle != null)
+            {
+                player.TriggerEvent("trigger_pointCamAtVeh", p.Vehicle.Handle);
+            }
+        }
+
+        [Command("tpc")]
+        public void cmd_TPC(Player player)
+        {
+            if (Main.Players1[player].CarId != 0 && Main.Veh.ContainsKey(Main.Players1[player].CarId))
+            {
+                player.SetIntoVehicle(Main.Veh[Main.Players1[player].CarId]._Veh, 0);
+            }
+        }
+
+
+        [Command("goto")]
+        public void cmd_Goto(Player player, int playerId)
+        {
+            Player p = utils.Check.GetPlayerByID(playerId);
+            player.Position = p.Position;
+        }
+
+        [Command("")]
+        public void cmd_TakePhoto(Player player, string vehHash)
+        {
+
         }
 
     }

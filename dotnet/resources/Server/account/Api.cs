@@ -35,11 +35,8 @@ namespace Server.account
                     player.TriggerEvent("trigger_FillLoginData", acc.Username, acc.Password);
                     return;
                 }
-                else 
-                {
-                    player.TriggerEvent("trigger_StartAuth");
-                }
             }
+            player.TriggerEvent("trigger_StartAuth");
 
         }
         public static async Task CreateAccount(Player player, string name, string password, string characterName)
