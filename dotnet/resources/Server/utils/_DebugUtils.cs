@@ -7,13 +7,6 @@ namespace Server.utils
 {
     class _DebugUtils : Script
     {
-
-        [RemoteEvent("remote_login_debug")]
-        public void remoteLogin(Player player, String login, string password, bool rememberMe)
-        {
-            account.Api.LoginAccount(player, login, password, rememberMe);
-        }
-
         [RemoteEvent("remote_initDriftevent")]
         public void remoteInitDriftevent(Player player)
         {

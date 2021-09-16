@@ -70,16 +70,12 @@ namespace Server
                 player.SendChatMessage($"{names}");
             }
         }
-        [Command("sv1", GreedyArg = true)]
-        public void cmd_SetVelocytyX(Player player, string vlX, string vlY, string vlZ)
+        [Command("sv1")]
+        public void cmd_SetVelocytyX(Player player, int vlX, int vlY)
         {
             if (!Debug) return;
-            object[] vl = new object[3];
-            vl[0] = vlX;
-            vl[1] = vlY;
-            vl[2] = vlZ;
 
-            player.TriggerEvent("setVelocity", vl);
+            player.TriggerEvent("trigger_SetVelocity", vlX, vlY);
         }
 
         [Command("save", "Use /save [Position Name]", GreedyArg = true)]
@@ -123,7 +119,7 @@ namespace Server
             model.Teleport teleport = Main.Teleports.Find(c => c.Id == id);
             if (teleport != null)
             {
-                player.Position = teleport.Position;
+                utils.Trigger.ClientEvent(player, "trigger_Teleport", teleport.Position);
             }
         }
         [Command("settime")]
@@ -204,6 +200,5 @@ namespace Server
                 stream.Close();
             }
         }
-
     }
 }

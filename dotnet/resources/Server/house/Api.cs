@@ -52,6 +52,7 @@ namespace Server.house
                        1.0f,
                        new Color(207, 207, 207));
                     model._Blip = NAPI.Blip.CreateBlip(411,model.Position,1.0f,6, name:"Занятый дом");
+                    NAPI.Blip.SetBlipShortRange(model._Blip, true);
                 }
                 else
                 {
@@ -63,6 +64,7 @@ namespace Server.house
                        1.0f,
                        new Color(207, 207, 207));
                     model._Blip = NAPI.Blip.CreateBlip(374, model.Position, 1.0f, 43, name:"Дом на продажу");
+                    NAPI.Blip.SetBlipShortRange(model._Blip, true);
                 }
 
                 model._TextLabel = NAPI.TextLabel.CreateTextLabel(textlable, model.Position, 10.0f, 2.0f, 0, new Color(250,250,250));

@@ -71,5 +71,48 @@ namespace cs_packages.utils
             float num3 = MathF.Abs(MathF.Cos(num2));
             return new Vector3 { X = -MathF.Sin(num) * num3, Y = MathF.Cos(num) * num3, Z = MathF.Sin(num2) };
         }
+
+        public static async void SmoothTeleport(Vector3 position, float rot, int duration, bool drive)
+        {
+            RAGE.Game.Streaming.SwitchOutPlayer(RAGE.Elements.Player.LocalPlayer.Handle, 0, 1);
+            
+            RAGE.Task.Run(async () =>
+            {
+                if((bool)await Events.CallRemoteProc("remote_SmoothTeleport", position.X, position.Y, position.Z, rot))
+                {
+                    if(drive && RAGE.Elements.Player.LocalPlayer.Vehicle != null)
+                    {
+                        RAGE.Elements.Player.LocalPlayer.Vehicle.FreezePosition(true);
+                        RAGE.Task.Run(() => { RAGE.Elements.Player.LocalPlayer.Vehicle.FreezePosition(false); }, delayTime: 200);
+                        RAGE.Elements.Player.LocalPlayer.TaskVehicleDriveWander(RAGE.Elements.Player.LocalPlayer.Vehicle.Handle, 30, 0);
+                        Events.Tick += Tick;
+                    }
+                    RAGE.Game.Streaming.Unknown._0xD8295AF639FD9CB8(RAGE.Elements.Player.LocalPlayer.Handle);
+
+                }
+                /*if(RAGE.Elements.Player.LocalPlayer.Vehicle != null)
+                {
+                    RAGE.Elements.Vehicle veh = RAGE.Elements.Player.LocalPlayer.Vehicle;
+                    veh.Position = position;
+                    veh.Position.Z = veh.Position.Z + 1;
+                    RAGE.Elements.Player.LocalPlayer.Position = position;
+                    RAGE.Task.Run(() => { RAGE.Elements.Player.LocalPlayer.SetIntoVehicle(veh.Handle, -1); });
+                }
+                else
+                {
+                    RAGE.Elements.Player.LocalPlayer.Position = position;
+
+                }*/
+               
+            }, delayTime: duration);
+        }
+        private static void Tick(List<Events.TickNametagData> nametags)
+        {
+            if (!RAGE.Game.Streaming.IsPlayerSwitchInProgress())
+            {
+                RAGE.Elements.Player.LocalPlayer.ClearTasks();
+                Events.Tick -= Tick;
+            }
+        }
     }
 }

@@ -29,15 +29,15 @@ namespace Server.model
             List<string> Types = new List<string>()
             {
                 {"Магазин одежды" },
-                {"Автосалон" },
-                {"Тюнинг" }
+                {"Тюнинг" },
+                {"Автосалон" }
             };
 
             List<int> Blips = new List<int>()
             {
                 {73},
-                {523},
-                {446}
+                {446},
+                {523}
             };
 
             _Marker = NAPI.Marker.CreateMarker(1,
@@ -46,8 +46,7 @@ namespace Server.model
                new Vector3(0, 0, 0),
                1.0f,
                new Color(207, 207, 207));
-            string key = (int)Type == 1 ? "E" : "alt";
-            _TextLabel = NAPI.TextLabel.CreateTextLabel($"{Types[(int)Type]}\nНажмите \'{key}\'", Position, 10.0f, 2.0f, 0, new Color(250, 250, 250));
+            _TextLabel = NAPI.TextLabel.CreateTextLabel($"{Types[(int)Type]}\nНажмите \'E\'", Position, 10.0f, 2.0f, 0, new Color(250, 250, 250));
 
             _Blip = NAPI.Blip.CreateBlip(Blips[(int)Type], Position, 1.0f, 0,name: Types[(int)Type]);
         }

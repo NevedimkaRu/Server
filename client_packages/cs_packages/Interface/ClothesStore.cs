@@ -73,7 +73,7 @@ namespace cs_packages.Interface
             //}
         }
 
-        public void OpenCSMenu()
+        public static void OpenCSMenu()
         {
             Vui.VuiModals("openClothesStoreMenu()");
             Vui.VuiModals($"ClothesStore.fillData({ clothesStoreData });");

@@ -65,7 +65,8 @@ namespace Server.garage
                             $"Гараж {model.Id}" +
                             $"\nВладелец \"{model._Owner}\" ",
                             model.Position, 10.0f, 2.0f, 0, new Color(250, 250, 250));
-                        model._Blip = NAPI.Blip.CreateBlip(357, model.Position, 1.0f, 6);
+                        model._Blip = NAPI.Blip.CreateBlip(357, model.Position, 1.0f, 6, name: "Занятый гараж");
+                        NAPI.Blip.SetBlipShortRange(model._Blip, true);
                     }
                     else if (model.HouseId == -1 && model.CharacterId == -1)
                     {
@@ -74,9 +75,11 @@ namespace Server.garage
                             $"\nМест для транспорта - {Main.GarageTypes[model.GarageType].VehiclePosition.Count}" +
                             $"\nСтоимость \"{model.Cost}\" ",
                             model.Position, 10.0f, 2.0f, 0, new Color(250, 250, 250));
-                        model._Blip = NAPI.Blip.CreateBlip(357, model.Position, 1.0f, 43);
+                        model._Blip = NAPI.Blip.CreateBlip(357, model.Position, 1.0f, 43, name:"Гараж на продажу");
+                        NAPI.Blip.SetBlipShortRange(model._Blip, true);
                     }
                 }
+                
                 Main.Garage.Add(model.Id, model);
             }
             foreach(var standartGarage in StandartGarage)
@@ -436,20 +439,21 @@ namespace Server.garage
             player.SendChatMessage($"Вы купили гараж[{garageid}] за {Main.Garage[garageid].Cost}");
             PlayerBuyGarage(player, garageid);
         }
-        [Command("sellgarage", GreedyArg = true)]
-        public void cmd_SellGarage(Player player, string garageid)
+        [Command("sellgarage")]
+        public void cmd_SellGarage(Player player, int garageid)
         {
             if (!Check.GetPlayerStatus(player, Check.PlayerStatus.Spawn)) return;
-            if (!Main.Garage.ContainsKey(Convert.ToInt32(garageid)))
+            if (!Main.Garage.ContainsKey(garageid))
             {
                 player.SendChatMessage("Гараж с таким id не существует.");
             }
-            if (Main.Garage[Convert.ToInt32(garageid)].HouseId != -1)
+            if (Main.Garage[garageid].HouseId != -1)
             {
                 player.SendChatMessage("Нельзя продать гараж, который привязан к дому");
             }
-            SellGarage(Convert.ToInt32(garageid));
-            player.SendChatMessage($"Вы продали гараж {garageid}");
+            character.Api.GivePlayerMoney(player, Convert.ToInt32(Main.Garage[garageid].Cost / 100 * 80) );
+            player.SendChatMessage($"Вы продали гараж {garageid} и получили 80% от его стоимости");
+            SellGarage(garageid);
         }
         [Command("creategarage")]
         public void cmd_CreateGarage(Player player, int type)

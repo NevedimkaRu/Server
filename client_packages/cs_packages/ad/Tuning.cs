@@ -44,9 +44,7 @@ namespace cs_packages.ad
                 }
                 LastSpoiler = spoiler;
             }
-            vehicle.SetMod(0, spoiler, false);
-
-            vehicle.SetMod(1, bump, false);
+            RAGE.Task.Run(() => { vehicle.SetMod(0, spoiler, false); }); 
             if (bump == LastBump)
             {
                 while (bump == LastBump)
@@ -55,8 +53,8 @@ namespace cs_packages.ad
                 }
                 LastBump = bump;
             }
+            RAGE.Task.Run(() => { vehicle.SetMod(1, bump, false); });
 
-            vehicle.SetMod(2, rearbump, false);
             if (rearbump == LastRearBump)
             {
                 while (rearbump == LastRearBump)
@@ -65,16 +63,17 @@ namespace cs_packages.ad
                 }
                 LastRearBump = rearbump;
             }
-            vehicle.SetMod(3,rand.Next(0, vehicle.GetNumMods(3)), false);
-            vehicle.SetMod(4,rand.Next(0, vehicle.GetNumMods(4)), false);
-            vehicle.SetMod(5,rand.Next(0, vehicle.GetNumMods(5)), false);
-            vehicle.SetMod(6,rand.Next(0, vehicle.GetNumMods(6)), false);
-            vehicle.SetMod(7,rand.Next(0, vehicle.GetNumMods(7)), false);
-            vehicle.SetMod(9,rand.Next(0, vehicle.GetNumMods(9)), false);
-            vehicle.SetMod(10,rand.Next(0, vehicle.GetNumMods(10)), false);
-            vehicle.SetMod(23,rand.Next(0, vehicle.GetNumMods(23)), false);
-            vehicle.SetMod(53,rand.Next(0, vehicle.GetNumMods(53)), false);
-            vehicle.SetMod(33,rand.Next(0, vehicle.GetNumMods(33)), false);
+            RAGE.Task.Run(() => {vehicle.SetMod(2, rearbump, false); });
+            RAGE.Task.Run(() => {vehicle.SetMod(3,rand.Next(0, vehicle.GetNumMods(3)), false); }); 
+            RAGE.Task.Run(() => {vehicle.SetMod(4,rand.Next(0, vehicle.GetNumMods(4)), false); }); 
+            RAGE.Task.Run(() => {vehicle.SetMod(5,rand.Next(0, vehicle.GetNumMods(5)), false); }); 
+            RAGE.Task.Run(() => {vehicle.SetMod(6,rand.Next(0, vehicle.GetNumMods(6)), false); }); 
+            RAGE.Task.Run(() => {vehicle.SetMod(7,rand.Next(0, vehicle.GetNumMods(7)), false); }); 
+            RAGE.Task.Run(() => {vehicle.SetMod(9,rand.Next(0, vehicle.GetNumMods(9)), false); });
+            RAGE.Task.Run(() => {vehicle.SetMod(10,rand.Next(0, vehicle.GetNumMods(10)), false); }); 
+            RAGE.Task.Run(() => {vehicle.SetMod(23,rand.Next(0, vehicle.GetNumMods(23)), false); }); 
+            RAGE.Task.Run(() => {vehicle.SetMod(53,rand.Next(0, vehicle.GetNumMods(53)), false); }); 
+            RAGE.Task.Run(() => {vehicle.SetMod(33,rand.Next(0, vehicle.GetNumMods(33)), false); });
 
             vehicle.SetColours(rand.Next(0, 159), rand.Next(0, 159));
             if(IsStart) RAGE.Task.Run(() => { ChangeTuning(Player.LocalPlayer.Vehicle); }, delayTime: 1000);

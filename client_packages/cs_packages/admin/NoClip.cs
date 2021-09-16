@@ -29,6 +29,12 @@ namespace cs_packages.admin
                 if (isNoclip) StartNoclip();
                 else StopNoclip();
             });
+            Events.Add("trigger_SetVelocity", SetVelocity);
+        }
+
+        private void SetVelocity(object[] args)
+        {
+            RAGE.Elements.Player.LocalPlayer.Vehicle.SetVelocity(Convert.ToSingle(args[0]), Convert.ToSingle(args[1]), 0);
         }
 
         private void Cmd(string cmd, Events.CancelEventArgs cancel)
@@ -43,7 +49,7 @@ namespace cs_packages.admin
                 Vector3 pos = Cam.GetCamCoord(camHandle);
                 Events.CallRemote("SaveCam", Convert.ToString(pos), Convert.ToString(rot));
             }
-            if(commandName == "fl")
+            if (commandName == "fl")
             {
                 RAGE.Game.Interior.EnableInteriorProp(252673, "basic_style_set");
                 RAGE.Game.Interior.RefreshInterior(252673);
@@ -53,6 +59,24 @@ namespace cs_packages.admin
                 Vector3 pos = RAGE.Elements.Player.LocalPlayer.Position;
                 Chat.Output(Interior.GetInteriorAtCoords(pos.X, pos.Y, pos.Z).ToString());
             }
+            /*if (commandName == "switch")
+            {
+                utils.Utils.SmoothTeleport(new Vector3(0, 0, 0),0, 2000);
+            }
+            if (commandName == "switchs")
+            {
+                RAGE.Game.Streaming.StopPlayerSwitch();
+            }
+            if (commandName == "go")
+            {
+                //RAGE.Elements.Player.LocalPlayer.Vehicle.
+                //RAGE.Elements.Player.LocalPlayer.TaskVehicleGotoNavmesh(RAGE.Elements.Player.LocalPlayer.Vehicle.Handle, 0, 0, 10, 30, 0, 10f);
+                RAGE.Elements.Player.LocalPlayer.TaskVehicleDriveWander(RAGE.Elements.Player.LocalPlayer.Vehicle.Handle, 30, 0);
+            }
+            if (commandName == "gos")
+            {
+                RAGE.Elements.Player.LocalPlayer.ClearTasks();
+            }*/
         }
 
         private void CameraTest()

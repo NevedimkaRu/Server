@@ -36,7 +36,7 @@ namespace cs_packages.utils
 
         private static void onTck(List<Events.TickNametagData> nametags)
         {
-            CamRotator.OnMouseMove(0.01f, 0f);
+            CamRotator.OnMouseMove(0.005f, 0f);
         }
 
     private void cmd(string cmd, Events.CancelEventArgs cancel)

@@ -60,5 +60,27 @@ namespace Server.teleport
             }
             NAPI.Util.ConsoleOutput("Teleports load");
         }
+
+        [RemoteProc("remote_SmoothTeleport")]
+        public bool SmoothTeleport(Player player, float x, float y, float z, float rot)
+        {
+            Vector3 position = new Vector3(x, y, z);
+            if(player.Vehicle != null)
+            {
+                
+                Vehicle veh = player.Vehicle;
+                player.Vehicle.Rotation = new Vector3(player.Vehicle.Rotation.X, player.Vehicle.Rotation.Y, rot);
+                player.Vehicle.Position = new Vector3( position.X, position.Y, position.Z + 1);
+                /*player.Position = position;
+                player.Rotation = new Vector3(player.Rotation.X, player.Rotation.Y, rot);
+                player.SetIntoVehicle(veh, 0);*/
+            }
+            else
+            {
+                player.Position = position;
+                player.Rotation = new Vector3(player.Rotation.X, player.Rotation.Y, rot);
+            }
+            return true;
+        }
     }
 }

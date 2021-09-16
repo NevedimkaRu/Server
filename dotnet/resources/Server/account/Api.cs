@@ -79,6 +79,13 @@ namespace Server.account
                     player.TriggerEvent("trigger_AuthError", "Неправильный логин/пароль");
                     return;
                 }
+                foreach (var acc in Main.Players1)
+                {
+                    if (acc.Value.Account.Id == account.Id)
+                    {
+                        player.TriggerEvent("trigger_AuthError", "Аккаунт с таким логином уже авторизирован");
+                    }
+                }
                 Ban banModel = new Ban();
                 banModel = await admin.Ban.CheckBanStatus(account.Id);
                 if(banModel != null)
@@ -94,7 +101,7 @@ namespace Server.account
                 playerModel.Account = account;
                 Main.Players1.Add(player, playerModel);
                 await character.Api.LoadCharacter(player, account.Id);
-
+                Main.Players1[player].IsSpawn = true;
                 utils.Trigger.ClientEvent(player, "trigger_FinishAuth");
                 player.SendChatMessage($"Вы успешно авторизировались как {name}");
                 //player.TriggerEvent("trigger_FinishAuth");
@@ -139,7 +146,8 @@ namespace Server.account
         [ServerEvent(Event.PlayerDisconnected)]
         public void OnPlayerDisconnected(Player player, DisconnectionType type, string reason)
         {
-            if (!Main.Players1.ContainsKey(player)) return;
+            if (!Main.Players1.ContainsKey(player) || !Main.Players1[player].IsSpawn) return;
+            
             SaveAccount(player);
             if(Main.Players1[player].Mute != null)
             {
