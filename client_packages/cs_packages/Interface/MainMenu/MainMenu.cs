@@ -22,6 +22,13 @@ namespace cs_packages.Interface.MainMenu
             Events.Add("trigger_OpenMenuData", OpenMenuData);
             Events.Add("vui_spawnCar", SpawnCar);
             Events.Add("vui_isMenuOpen", ChangeMenuOpenStatus);
+            Events.Add("vui_changeCarsSlots", ChangeCarSlots);
+        }
+
+        private void ChangeCarSlots(object[] args)
+        {
+            Chat.Output(args[0].ToString());
+            Events.CallRemote("remote_ChangeCarsSlots", args[0]);
         }
 
         private void CloseMenu()

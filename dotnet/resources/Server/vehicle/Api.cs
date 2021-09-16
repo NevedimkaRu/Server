@@ -502,8 +502,33 @@ namespace Server.vehicle
 
             carList = JsonConvert.DeserializeObject<List<CarSlotModel>>(data);
 
+            foreach (var car in carList)
+            {
+                if (Main.Veh[car.carId]._Garage.GarageId == car.garageId && Main.Veh[car.carId]._Garage.GarageSlot == car.slotId) continue;
+                Main.Veh[car.carId]._Garage.GarageId = car.garageId;
+                Main.Veh[car.carId]._Garage.GarageSlot = car.slotId;
+                Main.Veh[car.carId]._Garage.Update();
 
+                SpawnVehicleInGarage(car.carId);
+            }
+        }
 
+        public void SpawnVehicleInGarage(int carid)
+        {
+            if (!Main.Veh.ContainsKey(carid)) return;
+            var vehpos = Main.GarageTypes[Main.Garage[Main.Veh[carid]._Garage.GarageId].GarageType].VehiclePosition;
+            SpawnPlayerVehicle
+            (
+                Main.Veh[carid].Id,
+                new Vector3
+                (
+                    vehpos[Main.Veh[carid]._Garage.GarageSlot].Position.X,
+                    vehpos[Main.Veh[carid]._Garage.GarageSlot].Position.Y,
+                    vehpos[Main.Veh[carid]._Garage.GarageSlot].Position.Z
+                ),
+                vehpos[Main.Veh[carid]._Garage.GarageSlot].Rotation,
+                (uint)Main.Veh[carid]._Garage.GarageId
+            );
         }
 
 

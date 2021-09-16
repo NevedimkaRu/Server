@@ -87,7 +87,6 @@ namespace cs_packages.admin
             {
                 RAGE.Elements.Player.LocalPlayer.ClearTasks();
             }*/
-        }
             if (commandName == "setcam") 
             {
                 Events.Tick -= CamRender;

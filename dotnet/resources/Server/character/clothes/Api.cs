@@ -259,6 +259,7 @@ namespace Server.character.clothes
 
         public static void SendClothesStoreData(Player player)
         {
+            int chunkSize = 26000;
             //int testi = 0;
             if (Main.Players1[player].Customization.gender)
             {
@@ -267,8 +268,8 @@ namespace Server.character.clothes
                 while (i < MaleClothesJson.Length)
                 {
                     //player.SendChatMessage($"Передаётся порция {++testi}");
-                    player.TriggerEvent("trigger_bigPortionClothesData", MaleClothesJson.Substring(i, i + 26649 < MaleClothesJson.Length ? 26649 : MaleClothesJson.Length - i));
-                    i += 26650;
+                    player.TriggerEvent("trigger_bigPortionClothesData", MaleClothesJson.Substring(i, i + chunkSize - 1 < MaleClothesJson.Length ? chunkSize - 1: MaleClothesJson.Length - i));
+                    i += chunkSize;
                 }
             }
             else
@@ -276,8 +277,8 @@ namespace Server.character.clothes
                 int i = 0;
                 while (i < FemaleClothesJson.Length)
                 {
-                    player.TriggerEvent("trigger_bigPortionClothesData", FemaleClothesJson.Substring(i, i + 26649 < FemaleClothesJson.Length ? 26649 : FemaleClothesJson.Length - i));
-                    i += 26650;
+                    player.TriggerEvent("trigger_bigPortionClothesData", FemaleClothesJson.Substring(i, i + chunkSize - 1 < FemaleClothesJson.Length ? chunkSize - 1: FemaleClothesJson.Length - i));
+                    i += chunkSize;
                 }
             }
         }
