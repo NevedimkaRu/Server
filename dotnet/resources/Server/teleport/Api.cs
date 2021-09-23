@@ -70,7 +70,7 @@ namespace Server.teleport
                 
                 Vehicle veh = player.Vehicle;
                 player.Vehicle.Rotation = new Vector3(player.Vehicle.Rotation.X, player.Vehicle.Rotation.Y, rot);
-                player.Vehicle.Position = new Vector3( position.X, position.Y, position.Z + 1);
+                player.Vehicle.Position = new Vector3( position.X, position.Y, position.Z + 1.5f);
                 /*player.Position = position;
                 player.Rotation = new Vector3(player.Rotation.X, player.Rotation.Y, rot);
                 player.SetIntoVehicle(veh, 0);*/
@@ -89,7 +89,7 @@ namespace Server.teleport
             model.Teleport teleport = Main.Teleports.Find(c => c.Id == tpId);
             if (teleport != null)
             {
-                player.Position = teleport.Position;
+                utils.Trigger.ClientEvent(player, "trigger_Teleport", teleport.Position);
             }
         }
     }

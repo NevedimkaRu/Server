@@ -243,6 +243,19 @@ namespace Server
             Player p = utils.Check.GetPlayerByID(playerId);
             player.Position = p.Position;
         }
+        [Command("scol")]
+        public void cmd_SetVehicleColor(Player player, int r, int g, int b)
+        {
+            if (player.Vehicle == null) return;
+            player.Vehicle.CustomPrimaryColor = new Color(r, g, b);
+        }
+
+        [Command("scolt")]
+        public void cmd_SetVehicleColorType(Player player, int type)
+        {
+            //int a = Convert.ToInt32(new Color(10, 10, 10));
+            player.Vehicle.PrimaryPaint = new VehiclePaint(type);
+        }
 
         [Command("")]
         public void cmd_TakePhoto(Player player, string vehHash)

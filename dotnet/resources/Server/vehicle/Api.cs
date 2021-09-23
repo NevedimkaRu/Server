@@ -287,27 +287,35 @@ namespace Server.vehicle
                     }
                     if (player.Vehicle != null)
                     {
-                        int caridd = player.Vehicle.GetData<int>("CarId");
-                        if (caridd == carid) return;
+                        /*int caridd = player.Vehicle.GetData<int>("CarId");
+                        if (caridd == carid) return;*/
+                        
+                        int playCarId = Main.Players1[player].CarId;
+                        if (carid == playCarId) return;
+                        uint playerDim = player.Dimension;
                         player.WarpOutOfVehicle();
-                        if(Main.Veh.ContainsKey(caridd))
+                        if(Main.Veh.ContainsKey(playCarId))
                         {
                             if (Main.Veh[carid].OwnerId == Main.Players1[player].Character.Id)
                             {
-                                var vehpos = Main.GarageTypes[Main.Garage[Main.Veh[caridd]._Garage.GarageId].GarageType].VehiclePosition;
-                                Main.Veh[caridd]._Veh.Delete();
-                                Main.Veh[caridd]._Veh = null;
+                                if(Main.Veh[playCarId]._Veh != player.Vehicle)
+                                {
+                                    player.SendChatMessage("Нельзя заспавнить свой транспорт в чужом транспорте.");
+                                }
+                                var vehpos = Main.GarageTypes[Main.Garage[Main.Veh[playCarId]._Garage.GarageId].GarageType].VehiclePosition;
+                                Main.Veh[playCarId]._Veh.Delete();
+                                Main.Veh[playCarId]._Veh = null;
                                 SpawnPlayerVehicle
                                     (
-                                        Main.Veh[caridd].Id,
+                                        Main.Veh[playCarId].Id,
                                         new Vector3
                                         (
-                                            vehpos[Main.Veh[caridd]._Garage.GarageSlot].Position.X,
-                                            vehpos[Main.Veh[caridd]._Garage.GarageSlot].Position.Y,
-                                            vehpos[Main.Veh[caridd]._Garage.GarageSlot].Position.Z
+                                            vehpos[Main.Veh[playCarId]._Garage.GarageSlot].Position.X,
+                                            vehpos[Main.Veh[playCarId]._Garage.GarageSlot].Position.Y,
+                                            vehpos[Main.Veh[playCarId]._Garage.GarageSlot].Position.Z
                                         ),
-                                        vehpos[Main.Veh[caridd]._Garage.GarageSlot].Rotation,
-                                        (uint)Main.Veh[caridd]._Garage.GarageId
+                                        vehpos[Main.Veh[playCarId]._Garage.GarageSlot].Rotation,
+                                        (uint)Main.Veh[playCarId]._Garage.GarageId
                                     );
                             }
                         }
@@ -315,6 +323,7 @@ namespace Server.vehicle
                     SpawnPlayerVehicle(carid, player.Position, player.Rotation.Z, player.Dimension);
                     Main.Players1[player].CarId = carid;
                     player.SetIntoVehicle(Main.Veh[carid]._Veh, 0);
+
                 }
             }
         }
@@ -496,21 +505,23 @@ namespace Server.vehicle
 
 
         [RemoteEvent("remote_ChangeCarsSlots")]
-        public void Remote_ChangeCarsSlots(Player player, string data)
+        public async void Remote_ChangeCarsSlots(Player player, string data)
         {
             List<CarSlotModel> carList = new List<CarSlotModel>();
 
             carList = JsonConvert.DeserializeObject<List<CarSlotModel>>(data);
-
+            MySqlConnection conn = new MySqlConnection(MySql.connStr);
+            StringBuilder command = new StringBuilder();
             foreach (var car in carList)
             {
                 if (Main.Veh[car.carId]._Garage.GarageId == car.garageId && Main.Veh[car.carId]._Garage.GarageSlot == car.slotId) continue;
                 Main.Veh[car.carId]._Garage.GarageId = car.garageId;
                 Main.Veh[car.carId]._Garage.GarageSlot = car.slotId;
-                Main.Veh[car.carId]._Garage.Update();
-
-                SpawnVehicleInGarage(car.carId);
+                command.Append($"UPDATE `vehiclesgarage` SET GarageId = {car.garageId}, GarageSlot = {car.slotId} WHERE VehicleId = {car.carId};");
+                //Main.Veh[car.carId]._Garage.Update();
+                if(Main.Players1[player].CarId != car.carId) SpawnVehicleInGarage(car.carId);
             }
+            await MySql.QueryAsync(command.ToString());
         }
 
         public void SpawnVehicleInGarage(int carid)

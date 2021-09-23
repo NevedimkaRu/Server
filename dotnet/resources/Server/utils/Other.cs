@@ -22,5 +22,10 @@ namespace Server.utils
             });
         }
 
+        public static void PlayerFadeScreen(Player player, int durationOut, int durationIn, int delay)
+        {
+            if (!Main.Players1.ContainsKey(player)) return;
+            Trigger.ClientEvent(player, "trigger_FadeScreen", durationOut, durationIn, delay);
+        }
     }
 }

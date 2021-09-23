@@ -59,6 +59,12 @@ namespace cs_packages.admin
                 Vector3 pos = Cam.GetCamCoord(camHandle);
                 Events.CallRemote("SaveCam", Convert.ToString(pos), Convert.ToString(rot));
             }
+            if(commandName == "fov")
+            {
+                if (camHandle == 0) return;
+                float fov = Convert.ToSingle(args[1]);
+                Cam.SetCamFov(camHandle, fov);
+            }
             if (commandName == "fl")
             {
                 RAGE.Game.Interior.EnableInteriorProp(252673, "basic_style_set");

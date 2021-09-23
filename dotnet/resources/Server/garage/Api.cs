@@ -141,12 +141,12 @@ namespace Server.garage
 
         }
 
-        public static void CreateGarage(Vector3 position, float rotation,int type, uint cost = 100000)
+        public static void CreateGarage(Vector3 position, float rotation, int type,int garageType = 0, uint cost = 100000)
         {
             Garage garage = new Garage();
             garage.HouseId = -1;
             garage.CharacterId = -1;
-            garage.GarageType = 0;
+            garage.GarageType = garageType;
             if(type != 0)
             {
                 garage.Position = StandartGarage[type];
@@ -226,9 +226,9 @@ namespace Server.garage
                         }
                         if (veh.Value.OwnerId == Main.Players1[player].Character.Id && player.Vehicle.Handle == veh.Value._Veh.Handle)
                         {
-                            if (Main.Players1[player].CarId != -1)
+                            if (Main.Players1[player].CarId != -1 && Main.Veh.ContainsKey(Main.Players1[player].CarId))
                             {
-                                if (Main.Veh.ContainsKey(Main.Players1[player].CarId))
+                                if (Main.Veh[Main.Players1[player].CarId]._Veh != player.Vehicle)
                                 {
                                     var vehpos = Main.GarageTypes[Main.Garage[Main.Veh[Main.Players1[player].CarId]._Garage.GarageId].GarageType].VehiclePosition;
                                     vehicle.Api.SpawnPlayerVehicle
@@ -246,19 +246,23 @@ namespace Server.garage
 
                                 }
                             }
-                            veh.Value._Veh.Position = Main.Garage[Main.Players1[player].GarageId].Position;
-                            veh.Value._Veh.Rotation = new Vector3(veh.Value._Veh.Rotation.X, veh.Value._Veh.Rotation.Y, Main.Garage[Main.Players1[player].GarageId].Rotation);
-                            veh.Value._Veh.Dimension = 0;
-
-                            player.Dimension = 0;
-                            player.Position = Main.Garage[Main.Players1[player].GarageId].Position;
+                            Other.PlayerFadeScreen(player, 500, 500, 2000);
                             NAPI.Task.Run(() =>
                             {
-                                player.SetIntoVehicle(veh.Value._Veh, 0);
-                            });
-                            Main.Players1[player].HouseId = -1;
-                            Main.Players1[player].GarageId = -1;
-                            Main.Players1[player].CarId = veh.Value.Id;
+                                veh.Value._Veh.Position = Main.Garage[Main.Players1[player].GarageId].Position;
+                                veh.Value._Veh.Rotation = new Vector3(veh.Value._Veh.Rotation.X, veh.Value._Veh.Rotation.Y, Main.Garage[Main.Players1[player].GarageId].Rotation);
+                                veh.Value._Veh.Dimension = 0;
+
+                                player.Dimension = 0;
+                                //player.Position = Main.Garage[Main.Players1[player].GarageId].Position;
+                                //player.SetIntoVehicle(veh.Value._Veh, 0);
+   
+                                Main.Players1[player].HouseId = -1;
+                                Main.Players1[player].GarageId = -1;
+                                Main.Players1[player].CarId = veh.Value.Id;
+                            },delayTime:500);
+                            
+
                             return;
                         }
                     }
@@ -282,11 +286,12 @@ namespace Server.garage
                             {
                                 utils.Other.RequestPlayerIpl(player, Main.GarageTypes[garage.Value.GarageType].Ipl);
                             }
-                            player.Position = Main.GarageTypes[garage.Value.GarageType].ExitPosition;
-                            player.Dimension = (uint)garage.Value.Id;
+                            TeleportInGarage(player, garage.Value.Id);
+                            /*player.Position = Main.GarageTypes[garage.Value.GarageType].ExitPosition;
+                            player.Dimension = (uint)garage.Value.Id;*/
                             Main.Players1[player].GarageId = garage.Value.Id;
                             if(garage.Value.HouseId != -1) Main.Players1[player].HouseId = garage.Value.HouseId;
-                            RespawnPlayerVehicle(veh.Value.Id);
+                            NAPI.Task.Run(() => { RespawnPlayerVehicle(veh.Value.Id); }, delayTime: 500);
                             return;
                         }
                     }
@@ -313,8 +318,13 @@ namespace Server.garage
                 {
                     if (garage.Value.HouseId != -1)
                     {
-                        player.Position = Main.HousesInteriors[Main.Houses[Main.Players1[player].HouseId].InteriorId].Position;
-                        player.Dimension = (uint)Main.Players1[player].HouseId;
+                        Other.PlayerFadeScreen(player, 500, 500, 2000);
+                        NAPI.Task.Run(() =>
+                        {
+                            player.Position = Main.HousesInteriors[Main.Houses[Main.Players1[player].HouseId].InteriorId].Position;
+                            player.Dimension = (uint)Main.Players1[player].HouseId;
+                        }, delayTime: 500);
+
                         Main.Players1[player].GarageId = -1;
                         if (Main.HousesInteriors[Main.Houses[Main.Players1[player].HouseId].InteriorId].InteriorIpl != null)
                         {
@@ -324,8 +334,7 @@ namespace Server.garage
                     }
                     else
                     {
-                        player.Position = garage.Value.Position;
-                        player.Dimension = 0;
+                        TeleportOutGarage(player, garage.Value.Id);
                         Main.Players1[player].GarageId = -1;
                         if(Main.GarageTypes[garage.Value.GarageType].Ipl != null)
                         {
@@ -341,8 +350,7 @@ namespace Server.garage
                         if(garage.Value.Type != 0)
                         {
                             if (garage.Value.CharacterId != Main.Players1[player].Character.Id) return;
-                            player.Position = Main.GarageTypes[Main.Garage[garage.Value.Id].GarageType].Position;
-                            player.Dimension = (uint)Main.Garage[garage.Value.Id].Id;
+                            TeleportInGarage(player, garage.Value.Id);
                             Main.Players1[player].GarageId = Main.Garage[garage.Value.Id].Id;
                             if (Main.GarageTypes[Main.Garage[garage.Value.Id].GarageType].Ipl != null)
                             {
@@ -385,8 +393,7 @@ namespace Server.garage
                     {
                         if (garage.Value.HouseId == houseid)
                         {
-                            player.Position = Main.GarageTypes[garage.Value.GarageType].Position;
-                            player.Dimension = (uint)garage.Value.Id;
+                            TeleportInGarage(player, garage.Value.Id);
                             Main.Players1[player].HouseId = houseid;
                             Main.Players1[player].GarageId = garage.Value.Id;
                             if (Main.GarageTypes[garage.Value.GarageType].Ipl != null)
@@ -397,14 +404,13 @@ namespace Server.garage
                     }
                 }
             }
-            if (type == 1)//Вход из дома в гараж
+            else if (type == 1)//Вход из дома в гараж
             {
                 foreach (var garage in Main.Garage)
                 {
                     if (garage.Value.HouseId == houseid)
                     {
-                        player.Position = Main.GarageTypes[garage.Value.GarageType].Position;
-                        player.Dimension = (uint)garage.Value.Id;
+                        TeleportInGarage(player, garage.Value.Id);
                         Main.Players1[player].HouseId = houseid;
                         Main.Players1[player].GarageId = garage.Value.Id;
                         if (Main.GarageTypes[garage.Value.GarageType].Ipl != null)
@@ -412,14 +418,14 @@ namespace Server.garage
                             utils.Other.RequestPlayerIpl(player, Main.GarageTypes[garage.Value.GarageType].Ipl);
                         }
                     }
+                    break;
                 }
             }
-            if(type == 2)
+            else if(type == 2)//Вход в дом из гаража
             {
                 if(Main.Garage.ContainsKey(houseid))
                 {
-                    player.Position = Main.GarageTypes[Main.Garage[houseid].GarageType].Position;
-                    player.Dimension = (uint)Main.Garage[houseid].Id;
+                    TeleportInGarage(player, houseid);
                     Main.Players1[player].GarageId = Main.Garage[houseid].Id;
                     if (Main.GarageTypes[Main.Garage[houseid].GarageType].Ipl != null)
                     {
@@ -428,6 +434,25 @@ namespace Server.garage
                 }
             }
         }
+        public static void TeleportInGarage(Player player, int garageid)
+        {
+            Other.PlayerFadeScreen(player, 500, 500, 2000);
+            NAPI.Task.Run(() => {
+                player.Position = Main.GarageTypes[Main.Garage[garageid].GarageType].Position;
+                player.Dimension = (uint)Main.Garage[garageid].Id;
+            }, delayTime: 500);
+            
+        }
+        public static void TeleportOutGarage(Player player, int garageid)
+        {
+            Other.PlayerFadeScreen(player, 500, 500, 2000);
+            NAPI.Task.Run(() => {
+                player.Position = Main.Garage[garageid].Position;
+                player.Dimension = 0;
+            }, delayTime: 500);
+
+        }
+
         [RemoteEvent("remote_CloseGarage")]
         public void Remote_CloseHouse(Player player, int garageid, bool IsClosed)
         {
@@ -458,22 +483,14 @@ namespace Server.garage
         [Command("creategarage")]
         public void cmd_CreateGarage(Player player, int type)
         {
-            if(type == 0)
+            if (player.Vehicle == null)
             {
-                if (player.Vehicle == null && type == 0)
-                {
-                    player.SendChatMessage("Вы должны находиться в машине");
-                    return;
-                }
-                Vehicle vehicle = player.Vehicle;
-
-                CreateGarage(vehicle.Position, vehicle.Rotation.Z, 0);
-
+                player.SendChatMessage("Вы должны находиться в машине");
+                return;
             }
-            else
-            {
-                CreateGarage(null, 0, type);
-            }
+            Vehicle vehicle = player.Vehicle;
+
+            CreateGarage(vehicle.Position, vehicle.Rotation.Z, 0, type);
         }
     }
 }
