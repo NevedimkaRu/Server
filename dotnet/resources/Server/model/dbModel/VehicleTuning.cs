@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using GTANetworkAPI;
 
 namespace Server.model
 {
@@ -8,6 +6,9 @@ namespace Server.model
     {
         public int CarId { get; set; }
 
+        public Color PrimaryColor { get; set; } = new Color(0, 0, 0);
+        public Color SecondaryColor { get; set; } = new Color(0, 0, 0);
+        public int ColorType { get; set; } = 0;
         public int Spoiler { get; set; } = -1; // 0
         public int FrontBumper { get; set; } = -1; // 1
         public int RearBumper { get; set; } = -1;// 2
@@ -43,12 +44,5 @@ namespace Server.model
         public int Livery { get; set; } = -1;//48
         public int Plate { get; set; } = 0;//53
         public int WindowTint { get; set; } = -1;//55
-        
-
-        enum VehicleId
-        {
-            CarId = 0,
-            Spoiler = 10,
-        }
     }
 }

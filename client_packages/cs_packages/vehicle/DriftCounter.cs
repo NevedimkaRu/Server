@@ -43,7 +43,6 @@ namespace cs_packages.vehicle
             {
                 if(!IsHandlerAttached)
                 {
-                    Chat.Output("ХОБА");
                     OnPlayerDrifting += PlayerDrifting;
 
                     Events.Tick += UpdateSpeedometer;

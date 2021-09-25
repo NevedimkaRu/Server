@@ -26,7 +26,13 @@ namespace Server.vehicle
 
             foreach (DataRow row in result.Rows)
             {
+                //tuning.LoadByDataRow(row);
                 tuning.Id = Convert.ToInt32(row["Id"]);
+                tuning.CarId = Convert.ToInt32(row["CarId"]);
+
+                tuning.PrimaryColor = JsonConvert.DeserializeObject<Color>(row["PrimaryColor"].ToString());
+                tuning.SecondaryColor = JsonConvert.DeserializeObject<Color>(row["SecondaryColor"].ToString());
+                tuning.ColorType = Convert.ToInt32(row["ColorType"]);
                 tuning.Spoiler = Convert.ToInt32(row["Spoiler"]);
                 tuning.FrontBumper = Convert.ToInt32(row["FrontBumper"]);
                 tuning.RearBumper = Convert.ToInt32(row["RearBumper"]);
@@ -208,6 +214,10 @@ namespace Server.vehicle
 
         public static void ApplyTuning(Vehicle vehicle, int vehicleId)
         {
+            vehicle.SetSharedData(Sync.VEHICLE_PRIMARY_COLOR, Main.Veh[vehicleId]._Tuning.PrimaryColor);
+            vehicle.SetSharedData(Sync.VEHICLE_SECONDARY_COLOR, Main.Veh[vehicleId]._Tuning.SecondaryColor);
+            vehicle.SetSharedData(Sync.VEHICLE_COLOR_TYPE, Main.Veh[vehicleId]._Tuning.ColorType);
+
             vehicle.SetMod(0, Main.Veh[vehicleId]._Tuning.Spoiler);
             vehicle.SetMod(1, Main.Veh[vehicleId]._Tuning.FrontBumper);
             vehicle.SetMod(2, Main.Veh[vehicleId]._Tuning.RearBumper);

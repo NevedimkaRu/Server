@@ -9,13 +9,14 @@ namespace cs_packages.vehicle
     public class Sync : Events.Script
     {
 
-        public const string VEHICLE_COLOR = "vehicle_color";
+        public const string VEHICLE_PRIMARY_COLOR = "vehicle_primary_color";
+        public const string VEHICLE_SECONDARY_COLOR = "vehicle_secondary_color";
         public const string VEHICLE_COLOR_TYPE = "vehicle_color_type";
         public Sync()
         {
             Events.OnEntityStreamIn += EntityStreamIn;
             Events.Add("trigger_ApplyVehicleSync", TriggerSync);
-            Events.AddDataHandler(VEHICLE_COLOR, aaa);
+            Events.AddDataHandler(VEHICLE_PRIMARY_COLOR, aaa);
             Events.AddDataHandler(VEHICLE_COLOR_TYPE, aaa);
         }
 
@@ -48,7 +49,7 @@ namespace cs_packages.vehicle
         public void ApplyVehicleSync(Vehicle vehicle)
         {
             //Chat.Output(vehicle.GetSharedData(VEHICLE_COLOR).ToString());
-            Color color = RAGE.Util.Json.Deserialize<Color>(vehicle.GetSharedData(VEHICLE_COLOR).ToString());
+            Color color = RAGE.Util.Json.Deserialize<Color>(vehicle.GetSharedData(VEHICLE_PRIMARY_COLOR).ToString());
             //Chat.Output($"{color.Red} - {color.Green} - {color.Blue}");
             
             //Chat.Output(color.ToString());

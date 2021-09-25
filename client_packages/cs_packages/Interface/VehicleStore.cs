@@ -43,7 +43,6 @@ namespace cs_packages.Interface
 
         private void SelectGarage(object[] args)
         {
-            Chat.Output("Селект гараж");
             int garageId = Convert.ToInt32(args[0]);
             Events.CallRemote("remote_BuyVehicle", selectedVSid, garageId);
             Vui.CloseModals();
@@ -88,8 +87,6 @@ namespace cs_packages.Interface
         private void ChangeMenuOpenStatus(object[] args)
         {
             isMenuOpen = Convert.ToBoolean(args[0]);
-            Chat.Output("Должен быть крусор");
-            Chat.Output(isMenuOpen.ToString());
 
             if (isMenuOpen)
             {

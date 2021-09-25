@@ -22,7 +22,7 @@ namespace Server.vehicle
             Vehicles veh = new Vehicles();
             veh.ModelHash = vehhash;
             veh.OwnerId = charid;
-            veh.Handling = 4;
+            veh.Handling = 0;
             int id = veh.Insert();
             veh.Id = id;
             int carid = veh.Id;
@@ -43,6 +43,7 @@ namespace Server.vehicle
 
             Main.Veh.Add(id, veh);
             Main.Veh[id]._Tuning = tuning;
+            //vehicle.Handling.FillAllHandlingSlots(id);
             //Tuning.LoadTunning(veh.Id);
             return carid;
         }
@@ -87,6 +88,10 @@ namespace Server.vehicle
                 VehicleTuning tuning = new VehicleTuning();
 
                 tuning.Id = Convert.ToInt32(row["Id2"]);
+                tuning.CarId = model.Id;
+                tuning.PrimaryColor = JsonConvert.DeserializeObject<Color>(row["PrimaryColor"].ToString());
+                tuning.SecondaryColor = JsonConvert.DeserializeObject<Color>(row["SecondaryColor"].ToString());
+                tuning.ColorType = Convert.ToInt32(row["ColorType"]);
                 tuning.Spoiler = Convert.ToInt32(row["Spoiler"]);
                 tuning.FrontBumper = Convert.ToInt32(row["FrontBumper"]);
                 tuning.RearBumper = Convert.ToInt32(row["RearBumper"]);
@@ -216,6 +221,17 @@ namespace Server.vehicle
                 Main.Veh[carid]._Veh.Position = position;
                 Main.Veh[carid]._Veh.Rotation = new Vector3(Main.Veh[carid]._Veh.Rotation.X, Main.Veh[carid]._Veh.Rotation.Y, rotation);
                 Main.Veh[carid]._Veh.Dimension = dimension;
+
+                if (Main.Veh[carid]._Tuning == null) Tuning.LoadTunning(Main.Veh[carid].Id);
+                Tuning.ApplyTuning(Main.Veh[carid]._Veh, carid);
+                Main.Veh[carid]._Veh.SetData<int>("CarId", carid);
+                Main.Veh[carid]._Veh.SetSharedData("CarId1", carid);
+                if (Main.Veh[carid]._HandlingData.Count == 0 || Main.Veh[carid]._HandlingData == null)
+                {
+                    Handling.FillAllHandlingSlots(carid);//todo затестить
+                }
+                Main.Veh[carid]._Veh.SetSharedData("sd_Handling1", Main.Veh[carid]._HandlingData.Find(c => c.Slot == Main.Veh[carid].Handling));
+                Main.Veh[carid]._Veh.SetSharedData("sd_EngineMod", Main.Veh[carid]._Tuning.Engine);
             }
             else
             {
@@ -291,6 +307,7 @@ namespace Server.vehicle
                         if (caridd == carid) return;*/
                         
                         int playCarId = Main.Players1[player].CarId;
+                        //player.SendChatMessage(playCarId.ToString());
                         if (carid == playCarId) return;
                         uint playerDim = player.Dimension;
                         player.WarpOutOfVehicle();
@@ -298,10 +315,10 @@ namespace Server.vehicle
                         {
                             if (Main.Veh[carid].OwnerId == Main.Players1[player].Character.Id)
                             {
-                                if(Main.Veh[playCarId]._Veh != player.Vehicle)
+                                /*if(Main.Veh[playCarId]._Veh != player.Vehicle)
                                 {
                                     player.SendChatMessage("Нельзя заспавнить свой транспорт в чужом транспорте.");
-                                }
+                                }*/
                                 var vehpos = Main.GarageTypes[Main.Garage[Main.Veh[playCarId]._Garage.GarageId].GarageType].VehiclePosition;
                                 Main.Veh[playCarId]._Veh.Delete();
                                 Main.Veh[playCarId]._Veh = null;

@@ -27,7 +27,6 @@ namespace cs_packages.Interface.MainMenu
 
         private void ChangeCarSlots(object[] args)
         {
-            Chat.Output(args[0].ToString());
             Events.CallRemote("remote_ChangeCarsSlots", args[0]);
         }
 

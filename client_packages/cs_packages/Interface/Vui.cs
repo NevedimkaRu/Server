@@ -50,7 +50,6 @@ namespace cs_packages.Interface
 
             if (commandName == "VUI")
             {
-                Chat.Output("1");
                 index.ExecuteJs("console.log(mp)");
             }
             if (commandName == "unblur")
@@ -67,7 +66,6 @@ namespace cs_packages.Interface
             }
             if (commandName == "VUI0")
             {
-                Chat.Output("2");
                 //index.ExecuteJs("alert('asdasdasd')");
                 index.ExecuteJs("VUI.$store.dispatch('playerData/initCars', [{title:'Sultan', number: '228'}])");
             }
