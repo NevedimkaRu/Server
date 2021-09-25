@@ -3,7 +3,9 @@ using RAGE.Ui;
 using RAGE.Util;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace cs_packages.Interface
 {
@@ -16,6 +18,39 @@ namespace cs_packages.Interface
             index.Active = true;
             Events.OnPlayerCommand += cmd;
             Events.Add("trigger_ErrorNotify", ErrorNotify);
+            Events.Add("vui_RemoteEvent", VuiCallRemote);
+            Events.AddProc("vui_RemoteProc", VuiCallRemoteProc);
+        }
+
+        private async Task<object> VuiCallRemoteProc(object[] args)
+        {
+            Chat.Output("Пришло");
+            string eventName = args[0].ToString();
+            object[] p = args.Skip(1).ToArray();
+            if (p.Length > 0)
+            {
+                return await Events.CallRemoteProc(eventName, p);
+            }
+            else 
+            { 
+                return await Events.CallRemoteProc(eventName);
+            }
+        }
+
+        private void VuiCallRemote(object[] args)
+        {
+            Chat.Output("Пришло");
+            string eventName = args[0].ToString();
+            object[] p = args.Skip(1).ToArray();
+
+            if (p.Length > 0)
+            {
+                Events.CallRemote(eventName, p);
+            }
+            else 
+            { 
+                Events.CallRemote(eventName, p);
+            }
         }
 
         public static void CloseModals()
@@ -70,6 +105,9 @@ namespace cs_packages.Interface
                 Chat.Output("2");
                 //index.ExecuteJs("alert('asdasdasd')");
                 index.ExecuteJs("VUI.$store.dispatch('playerData/initCars', [{title:'Sultan', number: '228'}])");
+            }
+            if (commandName == "proc") 
+            {
             }
         }
     }

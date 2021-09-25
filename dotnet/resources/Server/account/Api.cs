@@ -32,11 +32,11 @@ namespace Server.account
                 {
                     Account acc = new Account();
                     acc.LoadByDataRow(dt.Rows[0]);
-                    player.TriggerEvent("trigger_FillLoginData", acc.Username, acc.Password);
+                    utils.Trigger.ClientEvent(player, "trigger_FillLoginData", acc.Username, acc.Password);
                     return;
                 }
             }
-            player.TriggerEvent("trigger_StartAuth");
+            utils.Trigger.ClientEvent(player, "trigger_StartAuth");
 
         }
         public static async Task CreateAccount(Player player, string name, string password, string characterName)
