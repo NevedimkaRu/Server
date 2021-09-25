@@ -202,6 +202,10 @@ namespace Server.model
                     {
                         obj.SetValue(this, JsonConvert.DeserializeObject<Vector3>(row[obj.Name].ToString()));
                     }
+                    else if (obj.PropertyType.Name == "Color")
+                    {
+                        obj.SetValue(this, JsonConvert.DeserializeObject<Color>(row[obj.Name].ToString()));
+                    }
                     else if (obj.PropertyType.Name == "List`1")
                     {
                         obj.SetValue(this, utils.Parser.ParseToListVector3(row[obj.Name].ToString()));
@@ -247,7 +251,7 @@ namespace Server.model
                         List<Vector3> val = (List<Vector3>)value;
                         props.Add(fldName, utils.Parser.ParseFromListVector3(val));
                     }
-                    else if (obj.PropertyType.Name == "Vector3")
+                    else if (obj.PropertyType.Name == "Vector3" || obj.PropertyType.Name == "Color")
                     {
                         props.Add(fldName, JsonConvert.SerializeObject(value));
                     }

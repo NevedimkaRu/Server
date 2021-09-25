@@ -75,7 +75,9 @@ namespace cs_packages.ad
             RAGE.Task.Run(() => {vehicle.SetMod(53,rand.Next(0, vehicle.GetNumMods(53)), false); }); 
             RAGE.Task.Run(() => {vehicle.SetMod(33,rand.Next(0, vehicle.GetNumMods(33)), false); });
 
-            vehicle.SetColours(rand.Next(0, 159), rand.Next(0, 159));
+            //vehicle.SetColours(rand.Next(0, 159), rand.Next(0, 159));
+            vehicle.SetModColor1(rand.Next(0, 5), 0, 0);
+            vehicle.SetCustomPrimaryColour(rand.Next(0, 250), rand.Next(0, 250), rand.Next(0, 250));
             if(IsStart) RAGE.Task.Run(() => { ChangeTuning(Player.LocalPlayer.Vehicle); }, delayTime: 1000);
         }
 

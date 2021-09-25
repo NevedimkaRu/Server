@@ -36,7 +36,7 @@ namespace cs_packages.vehicle
                 model.VehicleHandling model = RAGE.Util.Json.Deserialize<model.VehicleHandling>(vehicle.GetSharedData("sd_Handling1").ToString());
                 SetVehicleHandling(vehicle, model);
                 vehicle.SetMod(11, engine, true);
-                Chat.Output(entity._GetSharedData<int>("CarId1").ToString());
+                //Chat.Output(entity._GetSharedData<int>("CarId1").ToString());
             }
         }
 

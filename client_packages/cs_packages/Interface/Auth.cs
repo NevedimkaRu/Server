@@ -149,7 +149,6 @@ namespace cs_packages.Interface
             {
                 RAGE.Task.Run(() =>
                {
-                   Chat.Output("Погнали");
                    Vector3 playerPos = RAGE.Elements.Player.LocalPlayer.Position;
                    int cam  = Cam.GetRenderingCam();
                    Cam.SetCamActive(cam, true);

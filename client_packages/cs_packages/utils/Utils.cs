@@ -6,8 +6,22 @@ using System.Text;
 
 namespace cs_packages.utils
 {
-    public class Utils
+    public class Utils : Events.Script
     {
+        public Utils()
+        {
+            Events.Add("trigger_FadeScreen", FadeScreen);
+        }
+
+        private void FadeScreen(object[] args)
+        {
+            int durationOut = Convert.ToInt32(args[0]);
+            int durationIn = Convert.ToInt32(args[1]);
+            int delayTime = Convert.ToInt32(args[2]);
+            Cam.DoScreenFadeOut(durationOut);
+            RAGE.Task.Run(() => { Cam.DoScreenFadeIn(durationIn); }, delayTime: delayTime);
+        }
+
         public static List<object> GetFloatList(float begin, float end, float step)
         {
             List<object> floatList = new List<object>();
@@ -27,21 +41,6 @@ namespace cs_packages.utils
             }
             return list;
         }
-        /*internal static bool PointingAT(float distance, out int hit, out int entity, out Vector3 endPos, out int materialHash)
-        {
-            hit = 0;
-            entity = -1;
-            materialHash = -1;
-            Vector3 _pos = Cam.GetGameplayCamCoord();
-            Vector3 _dir = admin.NoClip.GetDirectionByRotation(Cam.GetGameplayCamRot(0));
-            Vector3 _farAway = new Vector3((_dir.X * distance) + (_pos.X), (_dir.Y * distance) + (_pos.Y), (_dir.Z * distance) + (_pos.Z));
-            int _result = Shapetest.StartShapeTestRay(_pos.X, _pos.Y, _pos.Z, _farAway.X, _farAway.Y, _farAway.Z, -1, 0, 7);
-            endPos = new Vector3();
-            Vector3 surfaceNormal = new Vector3();
-            Shapetest.GetShapeTestResultEx(_result, ref hit, endPos, surfaceNormal, ref materialHash, ref entity);
-            if (hit != 0) return true;
-            return false;
-        }*/
 
         public static Vector3 GetNormalizedVector(Vector3 vector)
         {
@@ -83,26 +82,18 @@ namespace cs_packages.utils
                     if(drive && RAGE.Elements.Player.LocalPlayer.Vehicle != null)
                     {
                         RAGE.Elements.Player.LocalPlayer.Vehicle.FreezePosition(true);
-                        RAGE.Task.Run(() => { RAGE.Elements.Player.LocalPlayer.Vehicle.FreezePosition(false); }, delayTime: 200);
+                        RAGE.Task.Run(() => { RAGE.Elements.Player.LocalPlayer.Vehicle.FreezePosition(false); }, delayTime: 400);
                         RAGE.Elements.Player.LocalPlayer.TaskVehicleDriveWander(RAGE.Elements.Player.LocalPlayer.Vehicle.Handle, 30, 0);
                         Events.Tick += Tick;
+                    }
+                    else
+                    {
+                        RAGE.Elements.Player.LocalPlayer.FreezePosition(true);
+                        RAGE.Task.Run(() => { RAGE.Elements.Player.LocalPlayer.FreezePosition(false); }, delayTime: 400);
                     }
                     RAGE.Game.Streaming.Unknown._0xD8295AF639FD9CB8(RAGE.Elements.Player.LocalPlayer.Handle);
 
                 }
-                /*if(RAGE.Elements.Player.LocalPlayer.Vehicle != null)
-                {
-                    RAGE.Elements.Vehicle veh = RAGE.Elements.Player.LocalPlayer.Vehicle;
-                    veh.Position = position;
-                    veh.Position.Z = veh.Position.Z + 1;
-                    RAGE.Elements.Player.LocalPlayer.Position = position;
-                    RAGE.Task.Run(() => { RAGE.Elements.Player.LocalPlayer.SetIntoVehicle(veh.Handle, -1); });
-                }
-                else
-                {
-                    RAGE.Elements.Player.LocalPlayer.Position = position;
-
-                }*/
                
             }, delayTime: duration);
         }
