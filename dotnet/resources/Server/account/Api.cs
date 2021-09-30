@@ -33,13 +33,10 @@ namespace Server.account
                     Account acc = new Account();
                     acc.LoadByDataRow(dt.Rows[0]);
                     utils.Trigger.ClientEvent(player, "trigger_FillLoginData", acc.Username, acc.Password);
-                    //player.TriggerEvent("trigger_FillLoginData", acc.Username, acc.Password);
                     return;
                 }
             }
             utils.Trigger.ClientEvent(player, "trigger_StartAuth");
-
-           //player.TriggerEvent("trigger_StartAuth");
 
         }
         public static async Task CreateAccount(Player player, string name, string password, string characterName)

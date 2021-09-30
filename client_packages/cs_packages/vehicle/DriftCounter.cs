@@ -39,7 +39,7 @@ namespace cs_packages.vehicle
         private void OnPlayerEnterVehicle(Vehicle vehicle, int seatId)
         {
             Chat.Output("Enter");
-            if (Check.GetPlayerStatus(Check.PlayerStatus.Spawn))
+            if (Check.GetPlayerStatus(Check.PlayerStatus.Spawn) && seatId == -1)
             {
                 if(!IsHandlerAttached)
                 {
