@@ -41,10 +41,17 @@ namespace Server.garage
                 model.CharacterId = Convert.ToInt32(row["CharacterId"]);
                 model.GarageType = Convert.ToInt32(row["GarageType"]);
                 model.Cost = Convert.ToUInt32(row["Cost"]);
-                model.Position = JsonConvert.DeserializeObject<Vector3>(row["Position"].ToString());
+                model.Type = Convert.ToInt32(row["Type"]);
+                if(model.Type != 0)//Если стандартный гараж
+                {
+                    model.Position = StandartGarage[model.Type];
+                }
+                else
+                {
+                    model.Position = JsonConvert.DeserializeObject<Vector3>(row["Position"].ToString());
+                }
                 model.Rotation = Convert.ToSingle(row["Rotation"]);
                 model.Closed = Convert.ToBoolean(row["Closed"]);
-                model.Type = Convert.ToInt32(row["Type"]);
                 model._Owner = Convert.ToString(row["Name"]);
 
                 model._Marker = NAPI.Marker.CreateMarker(36,
@@ -91,11 +98,32 @@ namespace Server.garage
                        1.0f,
                        new Color(207, 207, 207));
                 NAPI.TextLabel.CreateTextLabel($"Стандартный гараж.", standartGarage.Value, 10.0f, 2.0f, 0, new Color(250, 250, 250));
-                NAPI.Blip.CreateBlip(357, standartGarage.Value, 1.0f, 43);
+                NAPI.Blip.SetBlipShortRange(NAPI.Blip.CreateBlip(357, standartGarage.Value, 1.0f, 43), true);
             }
         }
 
-
+        public static void GivePlayerStandartGarage(Player player, int garageType)
+        {
+            if (!Main.Players1.ContainsKey(player)) return;
+            if (garageType < 1 || garageType > 3) return;
+            Garage model = new Garage();
+            model.CharacterId = Main.Players1[player].Character.Id;
+            model.HouseId = -1;
+            model.GarageType = 0;
+            model.Cost = 0;
+            model.Type = garageType;
+            model.Position = null;
+            model.Rotation = 0;
+            model.Closed = false;
+            model.Id = model.Insert();
+            model.Position = StandartGarage[garageType];
+            Main.Garage.Add(model.Id, model);
+        }
+        [Command("givegarage")]
+        public void CMD_GiveGarage(Player player, int garageType)
+        {
+            GivePlayerStandartGarage(player, garageType);
+        }
         public static void RefreshGarage(int id)
         {
             if (Main.Garage[id]._Blip != null) Main.Garage[id]._Blip.Delete();
@@ -109,7 +137,7 @@ namespace Server.garage
             }
             else if (Main.Garage[id].HouseId == -1 && Main.Garage[id].CharacterId != -1)
             {
-                DataTable dtt = MySql.QueryRead("SELECT `Name` FROM `character` WHERE `Id` = '1'");
+                DataTable dtt = MySql.QueryRead($"SELECT `Name` FROM `character` WHERE `Id` = '{Main.Garage[id].CharacterId}'");
                 Main.Garage[id]._Owner = Convert.ToString(dtt.Rows[0]["Name"]);
                 Main.Garage[id]._TextLabel = NAPI.TextLabel.CreateTextLabel(
                     $"Гараж {id}" +
@@ -291,7 +319,7 @@ namespace Server.garage
                             player.Dimension = (uint)garage.Value.Id;*/
                             Main.Players1[player].GarageId = garage.Value.Id;
                             if(garage.Value.HouseId != -1) Main.Players1[player].HouseId = garage.Value.HouseId;
-                            NAPI.Task.Run(() => { RespawnPlayerVehicle(veh.Value.Id); }, delayTime: 500);
+                            NAPI.Task.Run(() => { RespawnPlayerVehicle(veh.Value.Id); }, delayTime: 500);//todo Переделать под новый метод
                             return;
                         }
                     }

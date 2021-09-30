@@ -32,6 +32,16 @@ namespace Server.model
 
         public int CarId { get; set; } = -1;//Заспавненый личный транспорт
 
+        public States State { get; set; } = States.Auth;
+        public enum States : int
+        {
+            Auth = -1,
+            Default = 0,
+            Garage = 1,
+            House = 2,
+            Teleporting = 3
+        }
+
 
     }
 }

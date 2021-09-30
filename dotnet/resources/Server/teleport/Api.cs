@@ -64,6 +64,8 @@ namespace Server.teleport
         [RemoteProc("remote_SmoothTeleport")]
         public bool SmoothTeleport(Player player, float x, float y, float z, float rot)
         {
+            Main.Players1[player].State = PlayerModel.States.Teleporting;
+            player.SendChatMessage("teleporting");
             Vector3 position = new Vector3(x, y, z);
             if(player.Vehicle != null)
             {
@@ -82,15 +84,12 @@ namespace Server.teleport
             }
             return true;
         }
-
-        [RemoteEvent("remote_TeleportTo")]
-        public void TeleportTo(Player player, int tpId)
+        [RemoteEvent("remote_PlayerTeleported")]
+        public void PlayerTeleported(Player player)
         {
-            model.Teleport teleport = Main.Teleports.Find(c => c.Id == tpId);
-            if (teleport != null)
-            {
-                utils.Trigger.ClientEvent(player, "trigger_Teleport", teleport.Position);
-            }
+            if (!Main.Players1.ContainsKey(player)) return;
+            Main.Players1[player].State = PlayerModel.States.Default;
+            player.SendChatMessage("default");
         }
     }
 }

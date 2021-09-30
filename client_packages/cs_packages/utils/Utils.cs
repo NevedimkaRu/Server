@@ -90,6 +90,7 @@ namespace cs_packages.utils
                     {
                         RAGE.Elements.Player.LocalPlayer.FreezePosition(true);
                         RAGE.Task.Run(() => { RAGE.Elements.Player.LocalPlayer.FreezePosition(false); }, delayTime: 400);
+                        Events.Tick += Tick;
                     }
                     RAGE.Game.Streaming.Unknown._0xD8295AF639FD9CB8(RAGE.Elements.Player.LocalPlayer.Handle);
 
@@ -101,6 +102,7 @@ namespace cs_packages.utils
         {
             if (!RAGE.Game.Streaming.IsPlayerSwitchInProgress())
             {
+                Events.CallRemote("remote_PlayerTeleported");
                 RAGE.Elements.Player.LocalPlayer.ClearTasks();
                 Events.Tick -= Tick;
             }
