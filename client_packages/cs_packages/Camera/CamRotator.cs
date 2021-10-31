@@ -197,14 +197,14 @@ namespace cs_packages.Camera
                 OnMove = false;
             }
 
-            if (RAGE.Game.Pad.IsDisabledControlJustPressed(2, (int)RAGE.Game.Control.CursorScrollDown))
-            {
-                ChangeScale(false);
-            }
-            if (RAGE.Game.Pad.IsDisabledControlJustPressed(2, (int)RAGE.Game.Control.CursorScrollUp))
-            {
-                ChangeScale(true);
-            }
+            //if (RAGE.Game.Pad.IsDisabledControlJustPressed(2, (int)RAGE.Game.Control.CursorScrollDown))
+            //{
+            //    ChangeScale(false);
+            //}
+            //if (RAGE.Game.Pad.IsDisabledControlJustPressed(2, (int)RAGE.Game.Control.CursorScrollUp))
+            //{
+            //    ChangeScale(true);
+            //}
         }
 
         private static void ChangeScale(bool side)

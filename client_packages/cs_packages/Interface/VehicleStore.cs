@@ -57,9 +57,7 @@ namespace cs_packages.Interface
 
         private void SelectVehicle(object[] args)
         {
-            Api.Notify("Приходит");
             string hash = args[0].ToString();
-            Api.Notify("Выбрана " + hash);
 
 
             RAGE.Task.Run(() =>
@@ -92,6 +90,8 @@ namespace cs_packages.Interface
             {
                 RAGE.Ui.Cursor.Visible = true;
                 SetCam();
+                Events.Tick += onTick;
+
             }
             else
             {
@@ -102,6 +102,16 @@ namespace cs_packages.Interface
                 {
                     SelectedVeh.Destroy();
                 }
+                Events.Tick -= onTick;
+
+            }
+        }
+
+        private void onTick(List<Events.TickNametagData> nametags)
+        {
+            if (SelectedVeh != null)
+            {
+                SelectedVeh.SetDirtLevel(0f);
             }
         }
 
@@ -147,6 +157,13 @@ namespace cs_packages.Interface
             if (commandName == "vs")
             {
                 OpenVSMenu();
+            }
+            if (commandName == "clearveh")
+            {
+                if (RAGE.Elements.Player.LocalPlayer.Vehicle != null)
+                {
+                    RAGE.Elements.Player.LocalPlayer.Vehicle.SetDirtLevel(0f);
+                }
             }
         }
     }

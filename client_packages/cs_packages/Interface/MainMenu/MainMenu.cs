@@ -44,7 +44,6 @@ namespace cs_packages.Interface.MainMenu
             if (!Check.GetPlayerStatus(Check.PlayerStatus.OpenChat))
             if (isMenuOpen)
             {
-                    Api.Notify("method: ToggleMenu()");
                     Vui.CloseModals();
             }
             else
@@ -57,7 +56,6 @@ namespace cs_packages.Interface.MainMenu
         {
             if(isMenuOpen)
             {
-                Api.Notify("method: BackRouter()");
                 Vui.VuiExec("back()");
             }
         }
@@ -86,7 +84,6 @@ namespace cs_packages.Interface.MainMenu
 
         private void ChangeMenuOpenStatus(object[] args)
         {
-            Api.Notify("method: ChangeMenuOpenStatus()");
             bool status = Convert.ToBoolean(args[0]);
             isMenuOpen = status;
             if (isMenuOpen)

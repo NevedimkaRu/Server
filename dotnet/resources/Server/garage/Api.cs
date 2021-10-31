@@ -216,7 +216,7 @@ namespace Server.garage
 
             foreach (var garage in Main.GarageTypes)
             {
-                if (player.Position.DistanceTo(garage.Value.ExitPosition) < 2.0f && Main.Players1[player].GarageId != -1)//Выход из гаража на улицу(в транспорте)
+                if (player.Position.DistanceTo(garage.Value.ExitPosition) < 15.0f && Main.Players1[player].GarageId != -1)//Выход из гаража на улицу(в транспорте)
                 {
                     foreach (var veh in Main.Veh)
                     {

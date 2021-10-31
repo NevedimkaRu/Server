@@ -63,8 +63,11 @@ namespace Server
                 curVeh.Delete();
             }
             var hash = NAPI.Util.GetHashKey(hasn);
-            Vector3 player_pos = new Vector3(-2039.3885f, -369.91492f, 47.552048f);
-            curVeh = NAPI.Vehicle.CreateVehicle(hash, player_pos, -67.184616f, 0, 0);
+            //Vector3 player_pos = new Vector3(-2039.3885f, -369.91492f, 47.552048f);
+            //float rot = -67.184616f;
+            Vector3 player_pos = new Vector3(-375.3224f, -126.40259f, 37.954063f);
+            float rot = 62.35309f;
+            curVeh = NAPI.Vehicle.CreateVehicle(hash, player_pos, rot, 0, 0);
             curVeh.PrimaryColor = 13;
             curVeh.SecondaryColor = 13;
             //player.SetIntoVehicle(NAPI.Vehicle.CreateVehicle(hash, player_pos, 2f, 0, 0), 0);

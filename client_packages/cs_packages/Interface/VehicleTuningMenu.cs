@@ -34,7 +34,6 @@ namespace cs_packages.Interface
 
         private void BuySuccess(object[] args)
         {
-            Api.Notify("Покупка успешна");
             Vui.VuiModals("VehicleTuning.buySuccess()");
             CurrMods[CurComponentId] = CurItemId;
         }

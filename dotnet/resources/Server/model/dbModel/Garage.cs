@@ -43,8 +43,8 @@ namespace Server.model
                        1.0f,
                        new Color(207, 207, 207));
 
-            /*TextLabel = */NAPI.TextLabel.CreateTextLabel("Нажмите \"Alt\" ", Position, 10.0f, 2.0f, 0, new Color(250, 250, 250));
-            NAPI.TextLabel.CreateTextLabel("Нажмите \"E\"(в авто) ", ExitPosition, 10.0f, 2.0f, 0, new Color(250, 250, 250));
+            ///*TextLabel = */NAPI.TextLabel.CreateTextLabel("Нажмите \"Alt\" ", Position, 10.0f, 2.0f, 0, new Color(250, 250, 250));
+            //NAPI.TextLabel.CreateTextLabel("Нажмите \"E\"(в авто) ", ExitPosition, 10.0f, 2.0f, 0, new Color(250, 250, 250));
         }
     }
 
