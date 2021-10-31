@@ -187,6 +187,10 @@ namespace Server.model
                     {
                         obj.SetValue(this, Convert.ToDateTime(row[obj.Name]));
                     }
+                    else if (obj.PropertyType == typeof(Dictionary<int, int>))
+                    {
+                        obj.SetValue(this, JsonConvert.DeserializeObject<Dictionary<int, int>>(row[obj.Name].ToString()));
+                    }
                     else
                     {
                         obj.SetValue(this, row[obj.Name]);
@@ -212,7 +216,7 @@ namespace Server.model
                         List<Vector3> val = (List<Vector3>)value;
                         props.Add(fldName, utils.Parser.ParseFromListVector3(val));
                     }
-                    else if (obj.PropertyType == typeof(Vector3) || obj.PropertyType == typeof(Color))
+                    else if (obj.PropertyType == typeof(Vector3) || obj.PropertyType == typeof(Color) || obj.PropertyType == typeof(Dictionary<int, int>))
                     {
                         props.Add(fldName, JsonConvert.SerializeObject(value));
                     }
