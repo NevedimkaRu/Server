@@ -39,17 +39,18 @@ namespace Server.game
 
             foreach (DataRow row in dt.Rows)
             {
-                model.Id = Convert.ToInt32(row["Id"]);
+                model.LoadByDataRow(row);
+                /*model.Id = Convert.ToInt32(row["Id"]);
                 model.Name = Convert.ToString(row["Name"]);
                 model.Positions = utils.Parser.ParseToListVector3(Convert.ToString(row["Positions"]));
-                //NAPI.Util.ConsoleOutput(model.Positions[0].ToString());
                 model.Reward = Convert.ToInt32(row["Reward"]);
                 model.RewardScore = Convert.ToInt32(row["RewardScore"]);
                 model.TimeLimit = Convert.ToInt32(row["TimeLimit"]);
-                model.Rotation = Convert.ToSingle(row["Rotation"]);
+                model.Rotation = Convert.ToSingle(row["Rotation"]);*/
 
-                NAPI.Util.ConsoleOutput(model.Rotation.ToString());
-
+                //NAPI.Util.ConsoleOutput(model.Rotation.ToString());
+                model._Blip = NAPI.Blip.CreateBlip(611, model.Positions[0], 1.0f, 0, name: $"Дрифт зона: {model.Name}");
+                NAPI.Blip.SetBlipShortRange(model._Blip, true);
                 ColShape colShape;
                 for (int i = 0; i < model.Positions.Count; i++ )
                 {

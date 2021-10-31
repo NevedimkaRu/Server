@@ -22,6 +22,8 @@ namespace Server.model
 
         public ClanMember Clan { get; set; } = null;
 
+        public Dictionary<int, Achievement> Achievement = new Dictionary<int, Achievement>();
+
         public bool IsSpawn { get; set; } = false;
 
         public Traks Track { get; set; }
