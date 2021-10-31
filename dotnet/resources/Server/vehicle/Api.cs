@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Server.model;
+using Server.character;
 using GTANetworkAPI;
 using System.Data;
 using MySqlConnector;
@@ -180,7 +181,7 @@ namespace Server.vehicle
                 if (veh.Value.OwnerId == Main.Players1[player].Character.Id)
                 {
                     if (veh.Value._Garage.GarageId == -1) continue;
-                    if (veh.Value._Garage.GarageSlot <= Main.GarageTypes[Main.Garage[veh.Value._Garage.GarageId].GarageType].VehiclePosition.Count - 1)
+                    if (veh.Value._Garage.GarageSlot <= Main.GarageTypes[Main.Garage[veh.Value._Garage.GarageId].GarageType].VehiclePosition.Count - 1 && Main.Garage.ContainsKey(veh.Value._Garage.GarageId))
                     {//todo Сделать проверку на занятый слот
                         var vehpos = Main.GarageTypes[Main.Garage[veh.Value._Garage.GarageId].GarageType].VehiclePosition;
                         SpawnPlayerVehicle(
@@ -496,6 +497,8 @@ namespace Server.vehicle
                     character.Record.CheckPlayerMapRecord(player, Main.Players1[player].TeleportId, score);
                 }
                 Main.Players1[player].Character.Update("Level,Exp,Money");
+                character.achievements.Api.GivePlayerAchProgress(player, 0, 0, score);
+                
             }
         }
         [RemoteEvent("remote_RepairCar")]

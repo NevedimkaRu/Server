@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using RAGE;
 using RAGE.Game;
-using System.Text;
 
 namespace cs_packages.utils
 {
@@ -73,7 +72,7 @@ namespace cs_packages.utils
 
         public static async void SmoothTeleport(Vector3 position, float rot, int duration, bool drive)
         {
-            RAGE.Game.Streaming.SwitchOutPlayer(RAGE.Elements.Player.LocalPlayer.Handle, 0, 1);
+            Streaming.SwitchOutPlayer(RAGE.Elements.Player.LocalPlayer.Handle, 0, 1);
             
             RAGE.Task.Run(async () =>
             {
@@ -90,8 +89,9 @@ namespace cs_packages.utils
                     {
                         RAGE.Elements.Player.LocalPlayer.FreezePosition(true);
                         RAGE.Task.Run(() => { RAGE.Elements.Player.LocalPlayer.FreezePosition(false); }, delayTime: 400);
+                        Events.Tick += Tick;
                     }
-                    RAGE.Game.Streaming.Unknown._0xD8295AF639FD9CB8(RAGE.Elements.Player.LocalPlayer.Handle);
+                    Streaming.Unknown._0xD8295AF639FD9CB8(RAGE.Elements.Player.LocalPlayer.Handle);
 
                 }
                
@@ -99,8 +99,9 @@ namespace cs_packages.utils
         }
         private static void Tick(List<Events.TickNametagData> nametags)
         {
-            if (!RAGE.Game.Streaming.IsPlayerSwitchInProgress())
+            if (!Streaming.IsPlayerSwitchInProgress())
             {
+                Events.CallRemote("remote_PlayerTeleported");
                 RAGE.Elements.Player.LocalPlayer.ClearTasks();
                 Events.Tick -= Tick;
             }

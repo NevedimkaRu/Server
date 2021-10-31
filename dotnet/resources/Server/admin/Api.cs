@@ -57,8 +57,8 @@ namespace Server.admin
 
         public static bool GetAccess(Player player, int lvl)
         {
-            if(!utils.Check.GetPlayerStatus(player, utils.Check.PlayerStatus.Spawn)) return false;
-            if(Main.Players1[player].Admin == null) return false;
+            if (!Main.Players1.ContainsKey(player)) return false;
+            if (Main.Players1[player].Admin == null) return false;
             if(!Main.Players1[player].Admin._IsLogin) return false;
             if(Main.Players1[player].Admin.Lvl < lvl) return false;
 

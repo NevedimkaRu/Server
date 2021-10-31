@@ -44,7 +44,14 @@ namespace Server.character
             }
             return list;
         }
-
+        public static void GivePlayerTitle(Player player, int titleId)
+        {
+            CharacterTitle title = new CharacterTitle();
+            title.CharacterId = Main.Players1[player].Character.Id;
+            title.TitleId = titleId;
+            title.Id = title.Insert();
+            Main.Players1[player].Titles.Add(title);
+        }
         public static void AddTitle(string title)
         {
             Titles model = new Titles();

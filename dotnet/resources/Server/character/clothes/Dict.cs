@@ -80,6 +80,7 @@ namespace Server.character.clothes
                 {
                     {true, new List<ClothesList>()
                         {
+                            new ClothesList(-1, new List<int>() { }, 0),
                             new ClothesList(1, new List<int>() { 0,1,2,3 }, 0),
                             new ClothesList(2, new List<int>() { 0,1,2,3 }, 0),
                             new ClothesList(3, new List<int>() { 0 }, 0),
@@ -498,6 +499,7 @@ namespace Server.character.clothes
                 {
                     {true, new List<ClothesList>()
                         {
+                            new ClothesList(-1, new List<int>() { }, 0),
                             new ClothesList(1, new List<int>() {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}, 0),
                             new ClothesList(-1, new List<int>() { }, 0),
                             new ClothesList(3, new List<int>() {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}, 0),

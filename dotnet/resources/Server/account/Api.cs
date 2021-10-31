@@ -99,6 +99,7 @@ namespace Server.account
                 Main.Players1.Add(player, playerModel);
                 await character.Api.LoadCharacter(player, account.Id);
                 Main.Players1[player].IsSpawn = true;
+                Main.Players1[player].State = PlayerModel.States.Default;
                 utils.Trigger.ClientEvent(player, "trigger_FinishAuth");
                 player.SendChatMessage($"Вы успешно авторизировались как {name}");
                 //player.TriggerEvent("trigger_FinishAuth");
@@ -143,8 +144,8 @@ namespace Server.account
         [ServerEvent(Event.PlayerDisconnected)]
         public void OnPlayerDisconnected(Player player, DisconnectionType type, string reason)
         {
-            if (!Main.Players1.ContainsKey(player) || !Main.Players1[player].IsSpawn) return;
-            
+            if (!Main.Players1.ContainsKey(player)) return;
+            if (Main.Players1[player].State == PlayerModel.States.Auth) return;
             SaveAccount(player);
             if(Main.Players1[player].Mute != null)
             {

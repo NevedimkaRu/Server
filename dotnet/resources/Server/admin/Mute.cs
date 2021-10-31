@@ -69,7 +69,7 @@ namespace Server.admin
             {
                 if (target.Value == _id)
                 {
-                    if (!utils.Check.GetPlayerStatus(target, utils.Check.PlayerStatus.Spawn))
+                    if (!Main.Players1.ContainsKey(target))
                     {
                         player.SendChatMessage("Игрок не авторизировался");
                         return;
@@ -89,7 +89,7 @@ namespace Server.admin
         [ServerEvent(Event.ChatMessage)]
         public void OnPlayerChatMessage(Player player, string message)
         {
-            if (!utils.Check.GetPlayerStatus(player, utils.Check.PlayerStatus.Spawn)) return;
+            if (!Main.Players1.ContainsKey(player)) return;
             if(Main.Players1[player].Mute != null)
             {
                 model.Mute muteModel = Main.Players1[player].Mute.Find(c => c.Type == model.Mute.CHAT);
@@ -108,8 +108,8 @@ namespace Server.admin
         private static void MuteTimerCallback(object state)
         {
             Player player = (Player)state;
-            if (!utils.Check.GetPlayerStatus(player, utils.Check.PlayerStatus.Spawn)) return;
-            if(Main.Players1[player].Mute == null || Main.Players1[player].Mute.Count == 0)
+            if (!Main.Players1.ContainsKey(player)) return;
+            if (Main.Players1[player].Mute == null || Main.Players1[player].Mute.Count == 0)
             {
                 Main.Players1[player].MuteTimer.Dispose();
                 Main.Players1[player].MuteTimer = null;
@@ -120,7 +120,6 @@ namespace Server.admin
                 muteList.TimeLeft--;
                 if (muteList.TimeLeft <= 0)
                 {
-                    
                     Main.Players1[player].Mute.Remove(muteList);
                     muteList.Delete();
                     string reason;

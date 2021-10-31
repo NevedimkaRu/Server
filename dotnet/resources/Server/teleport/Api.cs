@@ -82,10 +82,19 @@ namespace Server.teleport
             }
             return true;
         }
-
+        [RemoteEvent("remote_PlayerTeleported")]
+        public void PlayerTeleported(Player player)
+        {
+            if (!Main.Players1.ContainsKey(player)) return;
+            Main.Players1[player].State = PlayerModel.States.Default;
+            player.SendChatMessage("default");
+        }
         [RemoteEvent("remote_TeleportTo")]
         public void TeleportTo(Player player, int tpId)
         {
+            if (Main.Players1[player].State == PlayerModel.States.Teleporting) return;
+            Main.Players1[player].State = PlayerModel.States.Teleporting;
+            player.SendChatMessage("teleporting");
             model.Teleport teleport = Main.Teleports.Find(c => c.Id == tpId);
             if (teleport != null)
             {

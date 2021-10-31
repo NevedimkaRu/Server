@@ -22,6 +22,8 @@ namespace Server.model
 
         public ClanMember Clan { get; set; } = null;
 
+        public Dictionary<int, Achievement> Achievement = new Dictionary<int, Achievement>();
+
         public bool IsSpawn { get; set; } = false;
 
         public Traks Track { get; set; }
@@ -31,6 +33,16 @@ namespace Server.model
         public int GarageId { get; set; } = -1;
 
         public int CarId { get; set; } = -1;//Заспавненый личный транспорт
+
+        public States State { get; set; } = States.Auth;
+        public enum States : int
+        {
+            Auth = -1,
+            Default = 0,
+            Garage = 1,
+            House = 2,
+            Teleporting = 3
+        }
 
 
     }

@@ -168,10 +168,18 @@ namespace Server
         [Command("mod", GreedyArg = true)]
         public static void cmd_SetMod(Player player, string modeType, string modeIndex)
         {
-            if (player.Vehicle != null)
+            try
             {
-                player.Vehicle.SetMod(Convert.ToInt32(modeType), Convert.ToInt32(modeIndex));
-                player.SendChatMessage($"{modeType} - {modeIndex}");
+                if (player.Vehicle != null)
+                {
+                    player.Vehicle.SetMod(Convert.ToInt32(modeType), Convert.ToInt32(modeIndex));
+                    player.SendChatMessage($"{modeType} - {modeIndex}");
+                }
+
+            }
+            catch(Exception ex)
+            {
+
             }
         }
 

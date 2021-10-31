@@ -4,6 +4,8 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -106,47 +108,6 @@ namespace Server.model
             $" where id = {this.Id}";
             await MySql.QueryAsync(sql, props);
         }
-        /*public async Task UpdateAsync(string fields)
-        {
-            string tbname = this.GetType().Name;
-
-            Dictionary<string, object> props = new Dictionary<string, object>();
-
-            foreach (var obj in this.GetType().GetProperties())
-            {
-                string fldName = obj.Name;
-                object value = obj.GetValue(this, null);
-                if (fldName != "Id" && value != null && IsDbTable(fldName))
-                {
-                    if (obj.PropertyType.Name == "List`1")
-                    {
-                        List<Vector3> val = (List<Vector3>)value;
-                        props.Add(fldName, utils.Parser.ParseFromListVector3(val));
-                    }
-                    else
-                    {
-                        props.Add(fldName, value);
-                    }
-                }
-            }
-            string[] flds = fields.Split(",");
-
-            string valuesParamStr = "";
-
-            foreach (string f in flds)
-            {
-                valuesParamStr += "`" + f + "` = @" + f + ",";
-            }
-            valuesParamStr = valuesParamStr.Remove(valuesParamStr.Length - 1, 1);
-
-
-
-            string sql = $"update `{tbname.ToLower()}` " +
-            $"set {valuesParamStr}" +
-            $" where id = {this.Id}";
-            MySql.QueryAsync(sql, props);
-
-        }*/
 
         public bool LoadByOtherId(string field, int fldId) 
         {
@@ -198,33 +159,33 @@ namespace Server.model
                 if (!row.Table.Columns.Contains(obj.Name)) continue;
                 if (row.Table.Columns.Contains(obj.Name))
                 {
-                    if (obj.PropertyType.Name == "Vector3")
+                    if (obj.PropertyType == typeof(Vector3))
                     {
                         obj.SetValue(this, JsonConvert.DeserializeObject<Vector3>(row[obj.Name].ToString()));
                     }
-                    else if (obj.PropertyType.Name == "Color")
+                    else if (obj.PropertyType == typeof(Color))
                     {
                         obj.SetValue(this, JsonConvert.DeserializeObject<Color>(row[obj.Name].ToString()));
                     }
-                    else if (obj.PropertyType.Name == "List`1")
+                    else if (obj.PropertyType == typeof(List<Vector3>))
                     {
                         obj.SetValue(this, utils.Parser.ParseToListVector3(row[obj.Name].ToString()));
                     }
-                    else if (obj.PropertyType.Name == "Boolean")
+                    else if (obj.PropertyType == typeof(bool))
                     {
                         obj.SetValue(this, Convert.ToBoolean(row[obj.Name]));
                     }
-                    else if (obj.PropertyType.Name == "UInt64")
+                    else if (obj.PropertyType == typeof(UInt64))
                     {
                         obj.SetValue(this, Convert.ToUInt64(row[obj.Name]));
                     }
-                    else if (obj.PropertyType.Name == "DateTime")
-                    {
-                        obj.SetValue(this, Convert.ToDateTime(row[obj.Name]));
-                    }
-                    else if (obj.PropertyType.Name == "UInt32")
+                    else if (obj.PropertyType == typeof(UInt32))
                     {
                         obj.SetValue(this, Convert.ToUInt32(row[obj.Name]));
+                    }
+                    else if (obj.PropertyType == typeof(DateTime))
+                    {
+                        obj.SetValue(this, Convert.ToDateTime(row[obj.Name]));
                     }
                     else
                     {
@@ -233,7 +194,7 @@ namespace Server.model
                 }
             }
         }
-
+        //
         private Dictionary<string, object> GetParamsForQuery()
         {
             Dictionary<string, object> props = new Dictionary<string, object>();
@@ -246,12 +207,12 @@ namespace Server.model
                 if (fldName != "Id" && value != null)
                 {
                     valuesParamStr += "`" + fldName + "` = @" + fldName + ",";
-                    if (obj.PropertyType.Name == "List`1")
+                    if (obj.PropertyType == typeof(List<Vector3>))
                     {
                         List<Vector3> val = (List<Vector3>)value;
                         props.Add(fldName, utils.Parser.ParseFromListVector3(val));
                     }
-                    else if (obj.PropertyType.Name == "Vector3" || obj.PropertyType.Name == "Color")
+                    else if (obj.PropertyType == typeof(Vector3) || obj.PropertyType == typeof(Color))
                     {
                         props.Add(fldName, JsonConvert.SerializeObject(value));
                     }

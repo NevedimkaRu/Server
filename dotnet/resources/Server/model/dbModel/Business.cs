@@ -49,6 +49,7 @@ namespace Server.model
             _TextLabel = NAPI.TextLabel.CreateTextLabel($"{Types[(int)Type]}\nНажмите \'E\'", Position, 10.0f, 2.0f, 0, new Color(250, 250, 250));
 
             _Blip = NAPI.Blip.CreateBlip(Blips[(int)Type], Position, 1.0f, 0,name: Types[(int)Type]);
+            NAPI.Blip.SetBlipShortRange(_Blip, true);
         }
     }
 }

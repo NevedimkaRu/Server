@@ -81,7 +81,7 @@ namespace Server.vehicle
                     Main.Veh[vehicleId]._Tuning.FrontBumper = modeIndex;
                     Main.Veh[vehicleId]._Tuning.Update("FrontBumper");
                     break;
-                case 2: 
+                case 2:
                     Main.Veh[vehicleId]._Tuning.RearBumper = modeIndex;
                     Main.Veh[vehicleId]._Tuning.Update("RearBumper");
                     break;
