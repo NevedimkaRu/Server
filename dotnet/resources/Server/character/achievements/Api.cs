@@ -2,17 +2,37 @@
 using Server.model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Server.character.achievements
 {
     public class Api : Script
     {
+        public static async Task<Dictionary<int, Achievement>> LoadPlayerAchievementsAsync(Player player)
+        {
+            DataTable dt = await MySql.QueryReadAsync($"SELECT * FROM `achievement` WHERE `CharacterId` = {Main.Players1[player].Character.Id}");
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                return new Dictionary<int, Achievement>();
+            }
+
+            Dictionary<int, Achievement> ach = new Dictionary<int, Achievement>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                Achievement model = new Achievement();
+                model.LoadByDataRow(row);
+                ach.Add(model.AchievmentId, model);
+            }
+            return ach;
+        }
+
         public static void GivePlayerAchProgress(Player player, int achievement, int task, int progress)
         {
             if (!Main.Players1.ContainsKey(player)) return;
             if (!Main.Players1[player].IsSpawn) return;
-
             if (Main.Players1[player].Achievement.ContainsKey(achievement))
             {
                 if (Main.Players1[player].Achievement[achievement].IsCompleted) return;
@@ -23,6 +43,7 @@ namespace Server.character.achievements
                 if ((Main.Players1[player].Achievement[achievement].Progress[task] + progress) >= Main.Achievment[achievement].Tasks[task].Progress)
                 {
                     Main.Players1[player].Achievement[achievement].Progress[task] = Main.Achievment[achievement].Tasks[task].Progress;
+                    player.SendChatMessage($"Вы выполнили задачу: \"{Main.Achievment[achievement].Tasks[task].Name}\"");
                     if(Main.Achievment[achievement].Tasks.Count > 1)
                     {
                         int completedTasks = 0;
@@ -36,6 +57,7 @@ namespace Server.character.achievements
                         if(completedTasks == Main.Achievment[achievement].Tasks.Count)
                         {
                             Main.Players1[player].Achievement[achievement].IsCompleted = true;
+                            Main.Players1[player].Achievement[achievement].UpdateAsync();
                             player.SendChatMessage("Вы выполнили достижение: " + Main.Achievment[achievement].Name);//todo изменить на уведомление
                             GivePlayerAchReward(player, achievement);
                         }
@@ -43,6 +65,7 @@ namespace Server.character.achievements
                     else
                     {
                         Main.Players1[player].Achievement[achievement].IsCompleted = true;
+                        Main.Players1[player].Achievement[achievement].UpdateAsync();
                         player.SendChatMessage("Вы выполнили достижение: " + Main.Achievment[achievement].Name);
                         GivePlayerAchReward(player, achievement);
                     }
@@ -57,20 +80,20 @@ namespace Server.character.achievements
                 ach.AchievmentId = achievement;
                 if (progress >= Main.Achievment[achievement].Tasks[task].Progress)
                 {
+                    player.SendChatMessage($"Вы выполнили задачу: \"{Main.Achievment[achievement].Tasks[task].Name}\"");
                     ach.Progress[task] = Main.Achievment[achievement].Tasks[task].Progress;
                     if (Main.Achievment[achievement].Tasks.Count == 1)
                     {
                         ach.IsCompleted = true;
-                        ach.Id = ach.Insert();
-                        player.SendChatMessage("Вы выпорнили достижение: " + Main.Achievment[achievement].Name);
+                        player.SendChatMessage("Вы выполнили достижение: " + Main.Achievment[achievement].Name);
                         GivePlayerAchReward(player, achievement);
                     }
                 }
                 else
                 {
-                    ach.Id = ach.Insert();
                     ach.Progress.Add(task, progress);
                 }
+                ach.Id = ach.Insert();
                 Main.Players1[player].Achievement.Add(achievement, ach);
             }
         }

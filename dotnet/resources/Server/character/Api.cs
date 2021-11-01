@@ -42,7 +42,8 @@ namespace Server.character
                 }
                 Main.Players1[player].Records = await Record.LoadPlayerRecords(player);
                 Main.Players1[player].Titles = await Title.LoadCharacterTitle(player);
-                if(Main.Players1[player].Titles != null)
+                Main.Players1[player].Achievement = await achievements.Api.LoadPlayerAchievementsAsync(player);
+                if (Main.Players1[player].Titles != null)
                 {
                     if(Main.Players1[player].Titles.Find(c => c.TitleId == Main.Players1[player].Character.Title) != null)
                     {

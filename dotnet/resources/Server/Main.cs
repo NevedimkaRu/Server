@@ -65,7 +65,8 @@ namespace Server
             {0, new Achievements("ДОРИФУТО",
                 new List<AchievementsTasks>()
                 {
-                    new AchievementsTasks("Набери 1000 очков в дрифте", 1000)
+                    new AchievementsTasks("Набери 1000 очков в дрифте", 1000),
+                    new AchievementsTasks("Наберите 1500 очков в дрифте", 1500)
                 },
                 new List<AchievementsRewards>()
                 {
