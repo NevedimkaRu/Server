@@ -498,6 +498,7 @@ namespace Server.vehicle
                 }
                 Main.Players1[player].Character.Update("Level,Exp,Money");
                 character.achievements.Api.GivePlayerAchProgress(player, 0, 0, score);
+                character.achievements.Api.GivePlayerAchProgress(player, 0, 1, score);
                 
             }
         }
