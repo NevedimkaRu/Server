@@ -21,6 +21,13 @@ namespace cs_packages.player
 
         public PhotoMode()
         {
+            Events.Add("vui_pTime", SetTime);
+            Events.Add("vui_pFov", SetPov);
+            Events.Add("vui_pRotate", SetRotate);
+            //Events.Add("vui_pHideNickNames", HideNicNames);
+            //Events.Add("vui_pHidePlayers", HidePlayers);
+            //Events.Add("vui_pHidePlayer", HidePlayer);
+            Events.Add("vui_pSetWeather", SetWeather);
             Events.OnPlayerCommand += Cmd;
             //Input.Bind(RAGE.Ui.VirtualKeys.X, true, CameraTest);
             Input.Bind(RAGE.Ui.VirtualKeys.F5, true, () => {
@@ -29,6 +36,8 @@ namespace cs_packages.player
                 else StopPhotoMode();
             });
         }
+
+       
 
         public static List<string> ScreenEffect = new List<string>()
         {
@@ -107,6 +116,7 @@ namespace cs_packages.player
             player.FreezePosition(true);
             Pad.DisableAllControlActions(0);
             Events.Tick += CamRender;
+            Interface.PhotoEditor.OpenMenu();
         }
 
         public void StopPhotoMode()
@@ -119,10 +129,12 @@ namespace cs_packages.player
             CamHandle = 0;
             Cam.DestroyCam(CamHandle, true);
             Events.Tick -= CamRender;
+            Interface.PhotoEditor.CloseMenu();
         }
         public void CamRender(List<Events.TickNametagData> nametags)
         {
             if(!IsPhotoMode) Events.Tick -= CamRender;
+            if (RAGE.Ui.Cursor.Visible) return;
             if (CamHandle == 0 || utils.Check.GetPlayerStatus(utils.Check.PlayerStatus.OpenChat)) return;
             Pad.DisableAllControlActions(0);
             float rightAxisX = Pad.GetDisabledControlNormal(0, 220);
@@ -210,6 +222,30 @@ namespace cs_packages.player
             {
                 Cam.SetCamFov(CamHandle, nextFov);
             }
+        }
+
+        private void SetWeather(object[] args)
+        {
+            RAGE.Game.Misc.SetWeatherTypeNow(args[0].ToString());
+        }
+
+        private void SetRotate(object[] args)
+        {
+            //todo Доделать
+        }
+
+        private void SetPov(object[] args)
+        {
+            float fov = Convert.ToSingle(args[0]);
+            Cam.SetCamFov(CamHandle, fov);
+        }
+
+        private void SetTime(object[] args)
+        {
+            int hour = Convert.ToInt32(args[0]);
+            int min = Convert.ToInt32(args[1]);
+            int sec = Convert.ToInt32(args[2]);
+            RAGE.Game.Clock.SetClockTime(hour, min, sec);
         }
     }
 }
