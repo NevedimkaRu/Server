@@ -28,6 +28,15 @@ namespace cs_packages.ad
                 ChangeTuning(Player.LocalPlayer.Vehicle);
                 RAGE.Task.Run(() => { ChangeTuning(Player.LocalPlayer.Vehicle); }, delayTime: 1000);
             }
+            if (commandName == "ha")
+            {
+                Chat.Output(args[1] + args[2]);
+                Player.LocalPlayer.Vehicle.SetHandling($"{args[1]}", Convert.ToSingle(args[2]));
+            }
+            if (commandName == "had")
+            {
+                Chat.Output(Player.LocalPlayer.Vehicle.GetHandlingFloat($"{args[1]}").ToString());
+            }
         }
 
         public void ChangeTuning(Vehicle vehicle)

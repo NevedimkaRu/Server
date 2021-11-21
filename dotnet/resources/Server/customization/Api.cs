@@ -11,11 +11,9 @@ namespace Server.customization
 {
     class Api : Script
     {
-
-        [RemoteEvent("remote_SaveCustomization")]
-        public void SaveCustomization(Player player, object[] args)
+        public static void SaveCustomization(Player player, object[] args)
         {
-            String str = args[0].ToString();
+            string str = args[0].ToString();
             JObject obj = JObject.Parse(str);
             Customization model = new Customization();
             if (model.LoadByOtherId("CharacterId", Main.Players1[player].Character.Id))
@@ -23,8 +21,8 @@ namespace Server.customization
                 model.ParseClientData(obj);
                 model.Update();
             }
-            else 
-            { 
+            else
+            {
                 model.ParseClientData(obj);
                 model.characterId = Main.Players1[player].Character.Id;
                 model.Insert();
@@ -33,8 +31,8 @@ namespace Server.customization
             model.SetToPlayer(player);
         }
 
-        [RemoteEvent("remote_GetCharacterCostumize")]
-        public void GetCharacterCusumize(Player player) {
+        public static void GetCharacterCusumize(Player player)
+        {
             Customization model = new Customization();
             if (model.LoadByOtherId("CharacterId", Main.Players1[player].Character.Id))
             {

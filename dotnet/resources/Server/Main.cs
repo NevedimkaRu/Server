@@ -23,7 +23,7 @@ namespace Server
         public static List<VehicleStore> VehicleStore = new List<VehicleStore>();
         public static Dictionary<int, Titles> Titles = new Dictionary<int, Titles>();
         public static List<ulong> RememberAccounts = new List<ulong>();
-
+        public static Dictionary<Player, PlayerClothes> TempClothes = new Dictionary<Player, PlayerClothes>();
         public static List<Admin> Admins = new List<Admin>();
         public static List<Report> Reports = new List<Report>();
 

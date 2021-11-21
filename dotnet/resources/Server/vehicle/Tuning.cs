@@ -7,6 +7,7 @@ using System.Data;
 using Server.model;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Server.constants;
 
 namespace Server.vehicle
 {
@@ -214,9 +215,9 @@ namespace Server.vehicle
 
         public static void ApplyTuning(Vehicle vehicle, int vehicleId)
         {
-            vehicle.SetSharedData(Sync.VEHICLE_PRIMARY_COLOR, Main.Veh[vehicleId]._Tuning.PrimaryColor);
-            vehicle.SetSharedData(Sync.VEHICLE_SECONDARY_COLOR, Main.Veh[vehicleId]._Tuning.SecondaryColor);
-            vehicle.SetSharedData(Sync.VEHICLE_COLOR_TYPE, Main.Veh[vehicleId]._Tuning.ColorType);
+            vehicle.SetSharedData(SharedData.VEHICLE_PRIMARY_COLOR, Main.Veh[vehicleId]._Tuning.PrimaryColor);
+            vehicle.SetSharedData(SharedData.VEHICLE_SECONDARY_COLOR, Main.Veh[vehicleId]._Tuning.SecondaryColor);
+            vehicle.SetSharedData(SharedData.VEHICLE_COLOR_TYPE, Main.Veh[vehicleId]._Tuning.ColorType);
 
             vehicle.SetMod(0, Main.Veh[vehicleId]._Tuning.Spoiler);
             vehicle.SetMod(1, Main.Veh[vehicleId]._Tuning.FrontBumper);
@@ -311,9 +312,9 @@ namespace Server.vehicle
             Vehicle veh = player.Vehicle;
 
             veh.SetMod(modeType, modeIndex);
-            if(veh.HasSharedData("vehicleId"))
+            if(veh.HasSharedData(SharedData.CARID))
             {
-                SaveVehicleTuning(veh.GetSharedData<int>("vehicleId"), modeType, modeIndex);
+                SaveVehicleTuning(veh.GetSharedData<int>(SharedData.CARID), modeType, modeIndex);
             }
             if(Test.Debug)
             {

@@ -60,17 +60,14 @@ namespace Server.teleport
             }
             NAPI.Util.ConsoleOutput("Teleports load");
         }
-
-        [RemoteProc("remote_SmoothTeleport")]
-        public bool SmoothTeleport(Player player, float x, float y, float z, float rot)
+        public static bool SmoothTeleport(Player player, float x, float y, float z, float rot)
         {
             Vector3 position = new Vector3(x, y, z);
-            if(player.Vehicle != null)
+            if (player.Vehicle != null)
             {
-                
                 Vehicle veh = player.Vehicle;
                 player.Vehicle.Rotation = new Vector3(player.Vehicle.Rotation.X, player.Vehicle.Rotation.Y, rot);
-                player.Vehicle.Position = new Vector3( position.X, position.Y, position.Z + 1.5f);
+                player.Vehicle.Position = new Vector3(position.X, position.Y, position.Z + 1.5f);
                 /*player.Position = position;
                 player.Rotation = new Vector3(player.Rotation.X, player.Rotation.Y, rot);
                 player.SetIntoVehicle(veh, 0);*/
@@ -82,15 +79,14 @@ namespace Server.teleport
             }
             return true;
         }
-        [RemoteEvent("remote_PlayerTeleported")]
-        public void PlayerTeleported(Player player)
+        public static void PlayerTeleported(Player player)
         {
             if (!Main.Players1.ContainsKey(player)) return;
             Main.Players1[player].State = PlayerModel.States.Default;
             player.SendChatMessage("default");
         }
-        [RemoteEvent("remote_TeleportTo")]
-        public void TeleportTo(Player player, int tpId)
+
+        public static void TeleportTo(Player player, int tpId)
         {
             if (Main.Players1[player].State == PlayerModel.States.Teleporting) return;
             Main.Players1[player].State = PlayerModel.States.Teleporting;

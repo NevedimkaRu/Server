@@ -1,4 +1,5 @@
-﻿using RAGE;
+﻿using cs_packages.constants;
+using RAGE;
 using RAGE.Elements;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace cs_packages.admin
 
                 if (RAGE.Game.Graphics.GetScreenCoordFromWorldCoord(position.X, position.Y, position.Z + 0.60f, ref _screenX, ref _screenY))
                 {
-                    string title = Convert.ToString(player._GetSharedData<string>("sd_Title"));
+                    string title = Convert.ToString(player._GetSharedData<string>(SharedData.TITLE));
                     if(title != null)
                     {
                         RAGE.NUI.UIResText.Draw($"{title}",

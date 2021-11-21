@@ -11,7 +11,7 @@ namespace Server.house
 {
     public class Api : Script
     {
-        //todo сделать оплату дома, продажу игроку, выгонять всех игроков из дома при его продаже.
+        //todo сделать оплату дома, продажу игроку, выгонять всех игроков из дома при его продаже, проверку на деньги
         public Api()
         {
 
@@ -123,8 +123,7 @@ namespace Server.house
                 }
             }
         }
-        [RemoteEvent("remote_ExitHouse")]
-        public void Remote_ExitHouse(Player player)
+        public static void PlayerExitHouse(Player player)
         {
             foreach (var exit in Main.HousesInteriors)
             {
@@ -133,29 +132,14 @@ namespace Server.house
                     player.Position = Main.Houses[Main.Players1[player].HouseId].Position;
                     utils.Other.RemovePlayerIpl(player, exit.InteriorIpl);
                     Main.Players1[player].HouseId = -1;
-                    if(Main.Players1[player].GarageId != -1) Main.Players1[player].GarageId = -1;//На всякий случай
+                    if (Main.Players1[player].GarageId != -1) Main.Players1[player].GarageId = -1;//На всякий случай
                     player.Dimension = 0;
                 }
             }
         }
-
-
-        [RemoteEvent("remote_CloseHouse")]
-        public void Remote_CloseHouse(Player player, int houseid, bool IsClosed)
+        public static void PlayerEnterHouse(Player player, int houseid)
         {
-            Main.Houses[houseid].Closed = IsClosed;
-        }
-        [RemoteEvent("remote_BuyHouse")]
-        public void Remote_BuyHouse(Player player, int houseid)
-        {
-            player.SendChatMessage($"Вы купили дом[{houseid}] за {Main.Houses[houseid].Cost}");
-            PlayerBuyHouse(player, houseid);
-        }
-
-        [RemoteEvent("remote_EnterHouse")]
-        public void Remote_EnterHouse(Player player, int houseid)
-        {
-            if(Main.Houses[houseid].Closed)
+            if (Main.Houses[houseid].Closed)
             {
                 player.SendChatMessage("Дом закрыт");
             }
@@ -168,10 +152,10 @@ namespace Server.house
             }
         }
 
-        public void PlayerBuyHouse(Player player, int houseid)
+        public static void PlayerBuyHouse(Player player, int houseid)
         {
             if (!Main.Houses.ContainsKey(houseid) || Check.GetPlayerStatus(player, Check.PlayerStatus.Spawn)) return;
-
+            player.SendChatMessage($"Вы купили дом[{houseid}] за {Main.Houses[houseid].Cost}");
             Main.Houses[houseid].CharacterId = Main.Players1[player].Character.Id;
 
             string textlable = $"Дом[{Main.Houses[houseid].Id}]\nВладелец: {Main.Players1[player].Character.Name}";

@@ -1,5 +1,6 @@
 ﻿using GTANetworkAPI;
 using System;
+using Server.constants;
 using System.Collections.Generic;
 using System.Text;
 
@@ -18,10 +19,6 @@ namespace Server.vehicle
             door = 2
         }
 
-        public const string VEHICLE_PRIMARY_COLOR = "vehicle_primary_color";
-        public const string VEHICLE_SECONDARY_COLOR = "vehicle_secondary_color";
-        public const string VEHICLE_COLOR_TYPE = "vehicle_color_type";
-
         public void ApplyVehicleSync(Vehicle vehicle)
         {
             foreach(Player player in NAPI.Pools.GetAllPlayers())
@@ -35,7 +32,7 @@ namespace Server.vehicle
             //if (player.Vehicle == null) return;
             Color color = new Color(r, g, b);
             if (player.Vehicle == null) return;
-            player.Vehicle.SetSharedData(VEHICLE_PRIMARY_COLOR, color);
+            player.Vehicle.SetSharedData(SharedData.VEHICLE_PRIMARY_COLOR, color);
             player.SendChatMessage(color.ToString());
             Main.Veh[Main.Players1[player].CarId]._Tuning.PrimaryColor = color;
         }
@@ -49,7 +46,7 @@ namespace Server.vehicle
         public void CMD_SetVehicleColorType(Player player, int type)
         {
             if (player.Vehicle == null) return;
-            player.Vehicle.SetSharedData(VEHICLE_COLOR_TYPE, type);
+            player.Vehicle.SetSharedData(SharedData.VEHICLE_COLOR_TYPE, type);
             Main.Veh[Main.Players1[player].CarId]._Tuning.ColorType = type;
             //ApplyVehicleSync(player.Vehicle);
         }
@@ -58,8 +55,8 @@ namespace Server.vehicle
         {
             if(entity.Type == EntityType.Vehicle)
             {
-                entity.SetSharedData(VEHICLE_PRIMARY_COLOR, new Color(0, 0, 0));
-                entity.SetSharedData(VEHICLE_COLOR_TYPE, 0);
+                entity.SetSharedData(SharedData.VEHICLE_PRIMARY_COLOR, new Color(0, 0, 0));
+                entity.SetSharedData(SharedData.VEHICLE_COLOR_TYPE, 0);
             }
         }
     }
