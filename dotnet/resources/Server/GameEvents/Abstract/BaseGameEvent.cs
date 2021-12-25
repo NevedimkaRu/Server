@@ -2,34 +2,42 @@
 using Server.GameEvents.Interface;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Timers;
 
 namespace Server.GameEvents.Abstract
 {
-    abstract class BaseGameEvent : IGameEvent,
+    abstract class BaseGameEvent : IGameEvent
     {
-        private String _eventName = "BaseEvent";
+        public abstract String _eventName { get; set; }
         //Статус эвента (-1 - эвент не активен; 0 - В ожидании; 1 - раунд в процессе)
-        private int _gameEventStatus = -1;
+        public virtual int _gameEventStatus { get; set; } = -1;
         //количество милисекунд через которые происходит перепроверка условий для старта евента(на пример минимальное количество участников);
-        private int _rechekConditionToStartEvent = 5000;
+        public virtual int _rechekConditionToStartEvent { get; set; } = 1000;
         //Максимальное количество милисекунд отведённое на раунд;
-        private int _maxTimeForround = 120000;
+        public virtual int _maxTimeForRound { get; set; } = 2000;
         // Максимальное количество участников для эвента;
-        private int _maxPlayerForEvent = 5;
+        public virtual int _maxPlayerForEvent { get; set; } = 5;
         // Минимальное количество участников для эвента;
-        private int _minPlayerForEvent = 2;
+        public virtual int _minPlayerForEvent { get; set; } = 1;
         // перезапускать ли евент после окончания раунда;
-        private bool _needToReset = true;
+        public virtual bool _needToReset { get; set; } = true;
         //Время паузы после раунда
-        private int _timeAfterRound = 10000;
+        public virtual int _timeAfterRound { get; set; } = 1000;
+        private Timer _timerToFinishRound;
 
         private List<Player> _participants = new List<Player>();
+        Dictionary<Player, int> _participantsVehs = new Dictionary<Player, int>();
 
 
-        public void AddPlayer(Player player)
+        public void AddPlayer(Player player, int carId)
         {
-            _participants.Add(Player);
+            if (Main.Veh.ContainsKey(carId))
+            {
+                _participants.Add(player);
+                _participantsVehs.Add(player, carId);
+            }
+            
+            
         }
 
         public bool ContaintPlayer(Player player)
@@ -38,11 +46,17 @@ namespace Server.GameEvents.Abstract
         }
         public void FinishEventRound()
         {
+            NAPI.Util.ConsoleOutput($"FinishEventRound: {GetEventName()}");
+
             _gameEventStatus = 0;
+            _timerToFinishRound.Dispose();
+            _timerToFinishRound.Enabled = false;
+            _timerToFinishRound.Stop();
+            OnFinishRound();
             NAPI.Task.Run(ResetEvent, delayTime: _timeAfterRound);
         }
 
-        public bool GetEventName()
+        public string GetEventName()
         {
             return _eventName;
         }
@@ -54,12 +68,12 @@ namespace Server.GameEvents.Abstract
 
         public int GetMaxPlayers()
         {
-            return _maxPlayerForEvent
+            return _maxPlayerForEvent;
         }
 
         public int GetMinPlayers()
         {
-            return _minPlayerForEvent
+            return _minPlayerForEvent;
         }
 
         public List<Player> GetPlayerList()
@@ -69,7 +83,7 @@ namespace Server.GameEvents.Abstract
 
         public int GetPLayersCount()
         {
-            return _participants.Count();
+            return _participants.Count;
         }
 
         public bool IfResetEvent()
@@ -79,18 +93,31 @@ namespace Server.GameEvents.Abstract
 
         public void InitEvent()
         {
+            NAPI.Util.ConsoleOutput($"InitEvent: {GetEventName()}");
             _gameEventStatus = 0;
+            OnInitEvent();
+            CheckConditionalsToStart();
         }
 
         public bool RemovePlayer(Player player)
         {
+            _participantsVehs.Remove(player);
             return _participants.Remove(player);
+
         }
 
         public void ResetEvent()
         {
-            if (!IfResetEvent) return;
-            CheckConditionalsToStart()
+            NAPI.Util.ConsoleOutput($"ResetEvent: {GetEventName()}");
+
+            if (!IfResetEvent())
+            {
+                StopEvent();
+            }
+            else
+            {
+                CheckConditionalsToStart();
+            }
         }
 
         public void SetReset(bool needReset)
@@ -99,22 +126,64 @@ namespace Server.GameEvents.Abstract
         }
         public void StartEventRound()
         {
+            NAPI.Util.ConsoleOutput($"StartEventRound: {GetEventName()}");
             _gameEventStatus = 1;
+            OnStartRound();
+            _timerToFinishRound = new Timer(_maxTimeForRound);
+            _timerToFinishRound.Elapsed += this.TimerToFinishRoundElapsed;
+            _timerToFinishRound.AutoReset = false;
+            _timerToFinishRound.Enabled = true;
+            _timerToFinishRound.Start();
         }
 
         public void StopEvent()
         {
             _gameEventStatus = -1;
+            OnStopEvent();
         }
 
-        private void CheckConditionalsToStart() 
-        {
-            if (GetPLayersCount() >= GetMinPlayers()) 
-            {
-                StartEvent();
-            }
-            NAPI.Task.Run(CheckConditionalsToStart(), delayTime: _rechekConditionToStartEvent);
+        public abstract void OnFinishRound();
 
+        public abstract void OnStartRound();
+
+        public abstract void OnInitEvent();
+
+
+        public abstract void OnStopEvent();
+
+
+        private int GetPlayerVehId(Player player)
+        {
+            return _participantsVehs[player];
+        }
+        private Vehicle GetPlayerVeh(Player player)
+        {
+            if (Main.Veh.ContainsKey(GetPlayerVehId(player)))
+            {
+                return Main.Veh[GetPlayerVehId(player)]._Veh;
+            }
+            else 
+            {
+                return null;
+            }
+        }
+
+        private void TimerToFinishRoundElapsed(System.Object source, ElapsedEventArgs e)
+        {
+            FinishEventRound();
+        }
+
+        private void CheckConditionalsToStart()
+        {
+            NAPI.Util.ConsoleOutput($"CheckConditionalsToStart: {GetEventName()};\n_minPlayerToStartRound: {GetMinPlayers()}; _currentPlayerCount: {GetPLayersCount()};");
+            if (GetPLayersCount() >= GetMinPlayers())
+            {
+                StartEventRound();
+            }
+            else
+            {
+                NAPI.Task.Run(CheckConditionalsToStart, delayTime: _rechekConditionToStartEvent);
+            }
         }
     }
 }

@@ -8,13 +8,13 @@ namespace Server.GameEvents.Interface
     interface IGameEvent
     {
 
-        public bool GetEventName();
+        public string GetEventName();
         public void InitEvent();
         public void StartEventRound();
         public void FinishEventRound();
         public void ResetEvent();
-        public void StopEvent()
-        public void AddPlayer(Player player);
+        public void StopEvent();
+        public void AddPlayer(Player player, int carId);
         public bool RemovePlayer(Player player);
         public bool ContaintPlayer(Player player);
         public List<Player> GetPlayerList();
