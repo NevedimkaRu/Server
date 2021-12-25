@@ -1,4 +1,5 @@
-﻿using RAGE;
+﻿using cs_packages.constants;
+using RAGE;
 using RAGE.Elements;
 using System;
 using System.Collections.Generic;
@@ -48,13 +49,10 @@ namespace cs_packages.vehicle
         
         public void ApplyVehicleSync(Vehicle vehicle)
         {
-            //Chat.Output(vehicle.GetSharedData(VEHICLE_COLOR).ToString());
-            Color color = RAGE.Util.Json.Deserialize<Color>(vehicle.GetSharedData(VEHICLE_PRIMARY_COLOR).ToString());
-            //Chat.Output($"{color.Red} - {color.Green} - {color.Blue}");
-            
-            //Chat.Output(color.ToString());
-            int colortype = (int)vehicle._GetSharedData<int>(VEHICLE_COLOR_TYPE);
-            //Chat.Output(colortype.ToString());
+            Color color = RAGE.Util.Json.Deserialize<Color>(vehicle.GetSharedData(SharedData.VEHICLE_PRIMARY_COLOR).ToString());
+
+            int colortype = (int)vehicle._GetSharedData<int>(SharedData.VEHICLE_COLOR_TYPE);
+
             vehicle.SetModColor1(colortype, 0, 0);
             vehicle.SetCustomPrimaryColour(color.Red, color.Green, color.Blue);
         }

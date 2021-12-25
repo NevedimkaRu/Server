@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using Server.model;
+using Server.constants;
 
 namespace Server.business
 {
@@ -20,9 +21,9 @@ namespace Server.business
             {
                 if (player.Position.DistanceTo(biz.Position) <= 20 && biz.Type == (int)Business._BizType.Tuning)
                 {
-                    if (player.Vehicle != null && player.Vehicle.HasData("CarId"))
+                    if (player.Vehicle != null && player.Vehicle.HasSharedData(SharedData.CARID))
                     {
-                        if (player.Vehicle.GetData<int>("CarId") == Main.Players1[player].CarId)
+                        if (player.Vehicle.GetSharedData<int>(SharedData.CARID) == Main.Players1[player].CarId)
                         {
                             utils.Trigger.ClientEvent(player, "trigger_OpenBusinessMenu", 1);
                         }

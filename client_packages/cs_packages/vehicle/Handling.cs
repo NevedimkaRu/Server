@@ -5,6 +5,7 @@ using RAGE;
 using RAGE.Elements;
 using RAGE.Ui;
 using Newtonsoft.Json.Linq;
+using cs_packages.constants;
 
 namespace cs_packages.vehicle
 {
@@ -31,23 +32,23 @@ namespace cs_packages.vehicle
             if(entity.Type == RAGE.Elements.Type.Vehicle)
             {
                 Vehicle vehicle = (Vehicle)entity;
-                if (vehicle.GetSharedData("sd_Handling1") == null || vehicle._GetSharedData<int>("sd_EngineMod") == null) return;//todo протестировать
-                int engine = (int)vehicle._GetSharedData<int>("sd_EngineMod");
-                model.VehicleHandling model = RAGE.Util.Json.Deserialize<model.VehicleHandling>(vehicle.GetSharedData("sd_Handling1").ToString());
+                if (vehicle.GetSharedData(SharedData.HANDLING) == null || vehicle._GetSharedData<int>(SharedData.ENGINE) == null) return;//todo протестировать
+                int engine = (int)vehicle._GetSharedData<int>(SharedData.ENGINE);
+                model.VehicleHandling model = RAGE.Util.Json.Deserialize<model.VehicleHandling>(vehicle.GetSharedData(SharedData.HANDLING).ToString());
                 SetVehicleHandling(vehicle, model);
                 vehicle.SetMod(11, engine, true);
                 //Chat.Output(entity._GetSharedData<int>("CarId1").ToString());
             }
         }
 
-        private void EnterVehicle(Vehicle vehicle, int seatId)
+        /*private void EnterVehicle(Vehicle vehicle, int seatId)
         {
             if (vehicle.GetSharedData("sd_Handling1") == null || vehicle._GetSharedData<int>("sd_EngineMod") == null) return;//todo протестировать
             int engine = (int)vehicle._GetSharedData<int>("sd_EngineMod");
             model.VehicleHandling model = RAGE.Util.Json.Deserialize<model.VehicleHandling>(vehicle.GetSharedData("sd_Handling1").ToString());
             SetVehicleHandling(vehicle, model);
             vehicle.SetMod(11, engine, true);
-        }
+        }*/
 
         public static void SetVehicleHandling(Vehicle veh, model.VehicleHandling model)
         {

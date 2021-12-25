@@ -38,10 +38,11 @@ namespace Server.model
     public class Undershirts
     {
         public Dictionary<int,int> Drawables { get; set; }//key - type, value - drawable
-
-        public Undershirts(Dictionary<int, int> Drawables)
+        public bool IsUnderhirtOnly { get; set; }
+        public Undershirts(Dictionary<int, int> Drawables, bool IsUnderhirtOnly = false)
         {
             this.Drawables = Drawables;
+            this.IsUnderhirtOnly = IsUnderhirtOnly;
         }
     }
 

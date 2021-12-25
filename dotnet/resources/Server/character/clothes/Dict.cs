@@ -35,6 +35,7 @@ namespace Server.character.clothes
                 {47, new Undershirts(new Dictionary<int, int>() { { 0, 53 }, { 1, 54 } })},
                 {71, new Undershirts(new Dictionary<int, int>() { { 0, 67 }, { 1, 68 } })},
                 {73, new Undershirts(new Dictionary<int, int>() { { 0, 65 }, { 1, 66 } })},
+                {111, new Undershirts(new Dictionary<int, int>() { { 2, 75 } })},
                 {208, new Undershirts(new Dictionary<int, int>() { { 0, 120 }, { 1, 121 } })}
                 //{321, new Undershirts(new Dictionary<int, int>() { { 0, 150 } })}
             }},
@@ -736,7 +737,7 @@ namespace Server.character.clothes
                         new ClothesList(27,new List<int>(){0,1,2},0,1),
                         new ClothesList(28,new List<int>(){0,1,2},0,1),
                         new ClothesList(29,new List<int>(){0,1,2,3,4,5,6,7},0,0),
-                        new ClothesList(30,new List<int>(){0,1,2,3,4,5,6,7},0,1),
+                        new ClothesList(30,new List<int>(){0,1,2,3,4,5,6,7},0,2),
                         new ClothesList(31,new List<int>(){0,1,2,3,4,5,6,7},0,0),
                         new ClothesList(32,new List<int>(){0,1,2,3,4,5,6,7},0,1),
                         new ClothesList(33,new List<int>(){0},0),//+
@@ -817,7 +818,7 @@ namespace Server.character.clothes
                         new ClothesList(108,new List<int>(){0,1,2,3,4,5,6,7,8,9,10},0,1),
                         new ClothesList(109,new List<int>(){0},0),//+
                         new ClothesList(110,new List<int>(){0},0),//+
-                        new ClothesList(111,new List<int>(){0,1,2,3,4,5},0),
+                        new ClothesList(111,new List<int>(){0,1,2,3,4,5,6,7},0),
                         new ClothesList(112,new List<int>(){0},0,1),//+
                         new ClothesList(113,new List<int>(){0,1,2,3},0),
                         new ClothesList(114,new List<int>(){0,1,2,3,4,5,6,7},0,1),

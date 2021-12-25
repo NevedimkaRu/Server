@@ -1,4 +1,5 @@
 ﻿using GTANetworkAPI;
+using Server.constants;
 using Server.model;
 using System;
 using System.Collections.Generic;
@@ -86,7 +87,7 @@ namespace Server.character
                 if (Main.Players1[player].Titles.Find(c => c.TitleId == titleid) != null)
                 {
                     Main.Players1[player].Character.Title = titleid;
-                    player.SetSharedData("sd_Title", Main.Titles[Main.Players1[player].Character.Title].Title);
+                    player.SetSharedData(SharedData.TITLE, Main.Titles[Main.Players1[player].Character.Title].Title);
                 }
             }
         }

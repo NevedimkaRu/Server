@@ -41,27 +41,28 @@ namespace cs_packages.Interface
 
         private void BuyError(object[] args)
         {
-            throw new NotImplementedException();
+            Vui.VuiModals($"ClothesStore.buyError('{ args[0]}');");
         }
 
         private void BuySucces(object[] args)
         {
-            throw new NotImplementedException();
+            Vui.VuiModals("ClothesStore.buySuccess();");
+            Api.Notify("Вы купили одежду");
         }
 
         private void BuyCloth(object[] args)
         {
-            throw new NotImplementedException();
+            Events.CallRemote("remote_BuyCloth");
         }
 
         private void DiscardCloth(object[] args)
         {
-            throw new NotImplementedException();
+            Events.CallRemote("remote_DiscardCloth");
         }
 
         private void SetCloth(object[] args)
         {
-            Api.Notify("Одеваем");
+            
             int clothType = Convert.ToInt32(args[0]);
             int clothId = Convert.ToInt32(args[1]);
             int texture = Convert.ToInt32(args[2]);
@@ -94,6 +95,7 @@ namespace cs_packages.Interface
                 RAGE.Ui.Cursor.Visible = false;
                 //CurrMods.Clear();
                 RemoveCam();
+                Events.CallRemote("remote_CloseClothesStore");
             }
         }
 

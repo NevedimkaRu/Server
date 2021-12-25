@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using GTANetworkAPI;
 using Newtonsoft.Json.Linq;
 using Server.model;
+
 namespace Server.character.clothes
 {
     public class Api : Script
@@ -172,10 +173,10 @@ namespace Server.character.clothes
             {
                 if(clothes == 15 || clothes == -1)
                 {
-                    Main.Players1[player].Clothes.Top = -1;
+                    /*Main.Players1[player].Clothes.Top = -1;
                     Main.Players1[player].Clothes.TopTexture = 0;
                     Main.Players1[player].Clothes.Undershirt = -1;
-                    Main.Players1[player].Clothes.UndershirtTexture = 0;
+                    Main.Players1[player].Clothes.UndershirtTexture = 0;*/
                     player.SetClothes(11, 15, 0);
                     player.SetClothes(8, 15, 0);
                     player.SetClothes(3, Dict.CorrectTorso[gender][15], 0);
@@ -187,6 +188,19 @@ namespace Server.character.clothes
                     if (Dict.ClothesDict[Clothes.ClothesTypes.Tops].ClothesList[gender][clothes].Drawable == -1 ||
                             Dict.ClothesDict[Clothes.ClothesTypes.Tops].ClothesList[gender][clothes].Textures.Contains(texture) == false) return false;
 
+                    /*if(Main.Players1[player].Clothes.Undershirt == -1)
+                    {
+                        foreach(var cloth in Dict.UndershirtsDict[gender])
+                        {
+                            if (cloth.Value.Drawables.ContainsKey(toptype))
+                            {
+                                Main.Players1[player].Clothes.Undershirt = cloth.Key;
+                                Main.Players1[player].Clothes.UndershirtTexture = 0;
+                            }
+                        }
+                        
+                    }*/
+
                     if (Dict.UndershirtsDict[gender].ContainsKey(Main.Players1[player].Clothes.Undershirt) 
                         && Dict.UndershirtsDict[gender][Main.Players1[player].Clothes.Undershirt].Drawables.ContainsKey(toptype))
                     {
@@ -194,22 +208,37 @@ namespace Server.character.clothes
                         player.SetClothes(8, 15, 0);
                     
                         player.SetClothes(8, Dict.UndershirtsDict[gender][Main.Players1[player].Clothes.Undershirt].Drawables[toptype], Main.Players1[player].Clothes.UndershirtTexture);
-                        Main.Players1[player].Clothes.Top = clothes;
-                        Main.Players1[player].Clothes.TopTexture = texture;
+                        /*Main.Players1[player].Clothes.Top = clothes;
+                        Main.Players1[player].Clothes.TopTexture = texture;*/
                         player.SetClothes(11, clothes, texture);
                         player.SetClothes(3, Dict.CorrectTorso[gender][clothes], 0);
                         return true;
                     }
                     else
                     {
-                        player.SendChatMessage("Эта футболка/рубашка не подходит к данному топу");
-                        return false;
+                        player.SetClothes(11, 15, 0);
+                        player.SetClothes(8, 15, 0);
+                        foreach(var under in Dict.UndershirtsDict[gender])
+                        {
+                            if (under.Value.Drawables.ContainsKey(toptype))
+                            {
+                                player.SetClothes(8, Dict.UndershirtsDict[gender][under.Key].Drawables[toptype], 0);
+                                break;
+                            }
+                        }
+                        if (Main.TempClothes.ContainsKey(player))
+                        {
+                            Main.TempClothes[player].Top = clothes;
+                            Main.TempClothes[player].TopTexture = texture;
+                        }
+                        player.SetClothes(11, clothes, texture);
+                        player.SetClothes(3, Dict.CorrectTorso[gender][clothes], 0);
+                        return true;
                     }
                 }
                 else
                 {
-                    player.SetClothes(11, 15, 0);
-                    player.SetClothes(8, 15, 0);
+                    
                     if (Main.Players1[player].Clothes.Top != -1)
                     {
                         int toptype1 = Dict.ClothesDict[Clothes.ClothesTypes.Tops].ClothesList[gender][Main.Players1[player].Clothes.Top].Type;
@@ -217,44 +246,47 @@ namespace Server.character.clothes
                         {
                             if(Dict.UndershirtsDict[Main.Players1[player].Customization.gender][clothes].Drawables.ContainsKey(toptype1))
                             {
-                                Main.Players1[player].Clothes.Undershirt = clothes;
-                                Main.Players1[player].Clothes.UndershirtTexture = texture;
+                                if (Main.TempClothes.ContainsKey(player))
+                                {
+                                    Main.TempClothes[player].Undershirt = clothes;
+                                    Main.TempClothes[player].UndershirtTexture = texture;
+                                }
 
-                                player.SetClothes(8, Dict.UndershirtsDict[Main.Players1[player].Customization.gender][Main.Players1[player].Clothes.Undershirt].Drawables[toptype1], 
-                                    Main.Players1[player].Clothes.UndershirtTexture);
-                                player.SetClothes(11, Main.Players1[player].Clothes.Top, 0);
+                                player.SetClothes(8, Dict.UndershirtsDict[Main.Players1[player].Customization.gender][clothes].Drawables[toptype1], 
+                                    texture);
+                                player.SetClothes(11, Main.Players1[player].Clothes.Top, Main.Players1[player].Clothes.TopTexture);
                                 player.SetClothes(3, Dict.CorrectTorso[gender][Main.Players1[player].Clothes.Top], 0);
                                 return true;
                             }
+                            else
+                            {
+                                return false;
+                            }
                         }
                     }
-                    if (Dict.UndershirtsDict[Main.Players1[player].Customization.gender].ContainsKey(clothes))
+                    if (Main.TempClothes.ContainsKey(player))
                     {
-                        Main.Players1[player].Clothes.Undershirt = clothes;
-                        Main.Players1[player].Clothes.UndershirtTexture = texture;
+                        if (Dict.UndershirtsDict[Main.Players1[player].Customization.gender].ContainsKey(clothes))
+                        {
+                            Main.TempClothes[player].Undershirt = clothes;
+                            Main.TempClothes[player].UndershirtTexture = texture;
+                        }
+                        else
+                        {
+                            Main.TempClothes[player].Top = clothes;
+                            Main.TempClothes[player].TopTexture = texture;
+                            Main.TempClothes[player].Undershirt = -1;
+                            Main.TempClothes[player].UndershirtTexture = 0;
+                        }
                     }
-                    else
-                    {
-                        Main.Players1[player].Clothes.Top = clothes;
-                        Main.Players1[player].Clothes.TopTexture = texture;
-                        Main.Players1[player].Clothes.Undershirt = -1;
-                        Main.Players1[player].Clothes.UndershirtTexture = 0;
-                    }
+                    player.SetClothes(11, 15, 0);
+                    player.SetClothes(8, 15, 0);
                     player.SetClothes(11, clothes, texture);
                     player.SetClothes(3, Dict.CorrectTorso[gender][clothes], 0);
                     return true;
                 }
             }
             return false;
-        }
-
-        [RemoteEvent("remote_SetCloth")]
-        public void RemoteSetCloth(Player player, int clothType, int clothId, int texture)
-        {
-            if (!SetPlayerClothes(player, (Clothes.ClothesTypes)clothType, clothId, texture)) 
-            {
-                player.TriggerEvent("trigger_buyClothesError","Несовместимость одежды");
-            }
         }
 
         public static void SendClothesStoreData(Player player)
@@ -286,7 +318,8 @@ namespace Server.character.clothes
         [Command("sc")]
         public static void cmd_SetClothes(Player player,int clothestype, int drawable, int texture)
         {
-            SetPlayerClothes(player, (Clothes.ClothesTypes)clothestype, drawable, texture);
+            player.SetClothes(clothestype, drawable, texture);
+            //SetPlayerClothes(player, (Clothes.ClothesTypes)clothestype, drawable, texture);
         }
     }
 }

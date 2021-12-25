@@ -1,4 +1,5 @@
 ﻿using GTANetworkAPI;
+using Server.constants;
 using Server.model;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace Server.character
                 Main.Players1[player].Character = character;
 
                 player.Name = character.Name + "[" + player.Id + "]";
-                game.DriftEvent.LoadPlayerTrackScore(player);
+                game.DriftTrack.LoadPlayerTrackScore(player);
                 await vehicle.Api.LoadPlayerVehice(player);
                 customization.Api.LoadCustomization(player, character.Id);
                 Main.Players1[player].Clothes = await clothes.Api.LoadPlayerClothes(player);
@@ -47,7 +48,7 @@ namespace Server.character
                 {
                     if(Main.Players1[player].Titles.Find(c => c.TitleId == Main.Players1[player].Character.Title) != null)
                     {
-                        player.SetSharedData("sd_Title",Main.Titles[Main.Players1[player].Character.Title].Title);
+                        player.SetSharedData(SharedData.TITLE,Main.Titles[Main.Players1[player].Character.Title].Title);
                     }
                 }
                 Main.Players1[player].Mute = await admin.Mute.CheckMuteStatus(character.Id);
@@ -89,6 +90,12 @@ namespace Server.character
         {
             if (!utils.Check.GetPlayerStatus(player, utils.Check.PlayerStatus.Spawn)) return;
             Main.Players1[player].Character.Money += money;
+            player.TriggerEvent("trigger_SetMoney", Main.Players1[player].Character.Money);
+        }
+        public static void TakePlayerMoney(Player player, int money)
+        {
+            if (!utils.Check.GetPlayerStatus(player, utils.Check.PlayerStatus.Spawn)) return;
+            Main.Players1[player].Character.Money -= money;
             player.TriggerEvent("trigger_SetMoney", Main.Players1[player].Character.Money);
         }
         public static void GivePlayerDriftScore(Player player, int score)

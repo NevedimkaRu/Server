@@ -217,10 +217,12 @@ namespace Server.garage
             }        
             RefreshGarage(garageid);
         }
-        public void PlayerBuyGarage(Player player, int garageid)
+        public static void PlayerBuyGarage(Player player, int garageid)
         {
             if (!Main.Garage.ContainsKey(garageid) || !Check.GetPlayerStatus(player, Check.PlayerStatus.Spawn)) 
                 return;
+
+            player.SendChatMessage($"Вы купили гараж[{garageid}] за {Main.Garage[garageid].Cost}");
 
             Main.Garage[garageid].CharacterId = Main.Players1[player].Character.Id;
 
@@ -312,7 +314,7 @@ namespace Server.garage
                             }
                             if (Main.GarageTypes[garage.Value.GarageType].Ipl != null)
                             {
-                                utils.Other.RequestPlayerIpl(player, Main.GarageTypes[garage.Value.GarageType].Ipl);
+                                Other.RequestPlayerIpl(player, Main.GarageTypes[garage.Value.GarageType].Ipl);
                             }
                             TeleportInGarage(player, garage.Value.Id);
                             /*player.Position = Main.GarageTypes[garage.Value.GarageType].ExitPosition;
@@ -406,12 +408,11 @@ namespace Server.garage
             
         }
 
-        [RemoteEvent("remote_EnterGarage")]
-        public void Remote_EnterGarage(Player player, int houseid, int type)
+        public static void PlayerEnterGarage(Player player, int garageid, int type)
         {
             if (type == 0)//Вход из дома в гараж(с улицы)
             {
-                if (Main.Houses[houseid].Closed)
+                if (Main.Houses[garageid].Closed)
                 {
                     player.SendChatMessage("Дом закрыт");
                 }
@@ -419,10 +420,10 @@ namespace Server.garage
                 {
                     foreach (var garage in Main.Garage)
                     {
-                        if (garage.Value.HouseId == houseid)
+                        if (garage.Value.HouseId == garageid)
                         {
                             TeleportInGarage(player, garage.Value.Id);
-                            Main.Players1[player].HouseId = houseid;
+                            Main.Players1[player].HouseId = garageid;
                             Main.Players1[player].GarageId = garage.Value.Id;
                             if (Main.GarageTypes[garage.Value.GarageType].Ipl != null)
                             {
@@ -436,10 +437,10 @@ namespace Server.garage
             {
                 foreach (var garage in Main.Garage)
                 {
-                    if (garage.Value.HouseId == houseid)
+                    if (garage.Value.HouseId == garageid)
                     {
                         TeleportInGarage(player, garage.Value.Id);
-                        Main.Players1[player].HouseId = houseid;
+                        Main.Players1[player].HouseId = garageid;
                         Main.Players1[player].GarageId = garage.Value.Id;
                         if (Main.GarageTypes[garage.Value.GarageType].Ipl != null)
                         {
@@ -449,19 +450,21 @@ namespace Server.garage
                     break;
                 }
             }
-            else if(type == 2)//Вход в дом из гаража
+            else if (type == 2)//Вход в дом из гаража
             {
-                if(Main.Garage.ContainsKey(houseid))
+                if (Main.Garage.ContainsKey(garageid))
                 {
-                    TeleportInGarage(player, houseid);
-                    Main.Players1[player].GarageId = Main.Garage[houseid].Id;
-                    if (Main.GarageTypes[Main.Garage[houseid].GarageType].Ipl != null)
+                    TeleportInGarage(player, garageid);
+                    Main.Players1[player].GarageId = Main.Garage[garageid].Id;
+                    if (Main.GarageTypes[Main.Garage[garageid].GarageType].Ipl != null)
                     {
-                        utils.Other.RequestPlayerIpl(player, Main.GarageTypes[Main.Garage[houseid].GarageType].Ipl);
+                        utils.Other.RequestPlayerIpl(player, Main.GarageTypes[Main.Garage[garageid].GarageType].Ipl);
                     }
                 }
             }
         }
+
+
         public static void TeleportInGarage(Player player, int garageid)
         {
             Other.PlayerFadeScreen(player, 500, 500, 2000);
@@ -479,18 +482,6 @@ namespace Server.garage
                 player.Dimension = 0;
             }, delayTime: 500);
 
-        }
-
-        [RemoteEvent("remote_CloseGarage")]
-        public void Remote_CloseHouse(Player player, int garageid, bool IsClosed)
-        {
-            Main.Garage[garageid].Closed = IsClosed;
-        }
-        [RemoteEvent("remote_BuyGarage")]
-        public void Remote_BuyHouse(Player player, int garageid)
-        {
-            player.SendChatMessage($"Вы купили гараж[{garageid}] за {Main.Garage[garageid].Cost}");
-            PlayerBuyGarage(player, garageid);
         }
         [Command("sellgarage")]
         public void cmd_SellGarage(Player player, int garageid)

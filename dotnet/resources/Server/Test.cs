@@ -17,6 +17,19 @@ namespace Server
         public void OnResourceStart()
         {
             NAPI.Util.ConsoleOutput("Всё ок!");
+            /*ColShape colShape = NAPI.ColShape.Create3DColShape(
+                new Vector3(428.24582f, 1196.2463f, 300.75458f),
+                new Vector3(100, 100, 100));
+            
+            //ColShape colShape = NAPI.ColShape.Create2DColShape(-428.24582f, 1196.2463f, 100, 100);
+            colShape.OnEntityEnterColShape += (shape, player) =>
+            {
+                player.SendChatMessage("Enter");
+            };
+            colShape.OnEntityExitColShape += (shape, player) =>
+            {
+                player.SendChatMessage("Exit");
+            };*/
         }
         [Command("veh")]
         public void cmd_CreateVehicle(Player player)

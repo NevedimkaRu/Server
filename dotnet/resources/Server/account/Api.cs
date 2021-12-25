@@ -159,7 +159,8 @@ namespace Server.account
             {
                 if(veh.OwnerId == Main.Players1[player].Character.Id)
                 {
-                    veh._Veh.Delete();
+                    if(veh._Veh != null) veh._Veh.Delete();
+
                     Main.Veh.Remove(veh.Id);
                 }
             }

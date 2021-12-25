@@ -1,4 +1,5 @@
-﻿using cs_packages.model;
+﻿using cs_packages.constants;
+using cs_packages.model;
 using cs_packages.vehicle;
 using Newtonsoft.Json;
 using RAGE;
@@ -53,7 +54,7 @@ namespace cs_packages.Interface
             if (veh != null)
             {
                 Vui.VuiModals("openHandlingEditor()");
-                Vui.VuiModals($"HandlingEditor.fillData({ veh.GetSharedData("sd_Handling1") });");
+                Vui.VuiModals($"HandlingEditor.fillData({ veh.GetSharedData(SharedData.HANDLING) });");
             }
         }
 

@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Server.model;
 using System;
+using Server.constants;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
@@ -115,7 +116,7 @@ namespace Server.vehicle
         public void SetHandling(Player player, object[] args)
         {
             VehicleHandling model = JsonConvert.DeserializeObject<VehicleHandling>(args[0].ToString());
-            player.Vehicle.SetSharedData("sd_Handling1", model);
+            player.Vehicle.SetSharedData(SharedData.HANDLING, model);
         }
     }
 }
