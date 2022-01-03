@@ -7,16 +7,19 @@ namespace Server.utils
 {
     class _DebugUtils : Script
     {
+
+        GameEvents.DriftBattleGameEvent db = new GameEvents.DriftBattleGameEvent();
+
         [RemoteEvent("remote_initDriftevent")]
         public void remoteInitDriftevent(Player player)
         {
-            game.GameEvents.Api.initDrifEvent();
+            db.InitEvent();
         }
 
         [RemoteEvent("remote_driftEvent")]
         public void remoteDriftEvent(Player player, int carid)
         {
-            game.GameEvents.Api.ToDriftEvent(player, carid);
+            db.AddPlayer(player, carid);
         }
 
     }
