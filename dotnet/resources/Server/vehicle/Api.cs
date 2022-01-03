@@ -180,29 +180,31 @@ namespace Server.vehicle
                 if (veh.Value.OwnerId == Main.Players1[player].Character.Id)
                 {
                     if (veh.Value._Garage.GarageId == -1) continue;
-                    if (veh.Value._Garage.GarageSlot <= Main.GarageTypes[Main.Garage[veh.Value._Garage.GarageId].GarageType].VehiclePosition.Count - 1 && Main.Garage.ContainsKey(veh.Value._Garage.GarageId))
-                    {//todo Сделать проверку на занятый слот
-                        var vehpos = Main.GarageTypes[Main.Garage[veh.Value._Garage.GarageId].GarageType].VehiclePosition;
-                        SpawnPlayerVehicle(
-                            veh.Value.Id,
-                            new Vector3
-                            (
-                                vehpos[veh.Value._Garage.GarageSlot].Position.X,
-                                vehpos[veh.Value._Garage.GarageSlot].Position.Y,
-                                vehpos[veh.Value._Garage.GarageSlot].Position.Z
-                            ),
-                            vehpos[veh.Value._Garage.GarageSlot].Rotation,
-                            (uint)veh.Value._Garage.GarageId);
-                    }
-                    else//Если транспорт находиться на слоте, которого нету гараже
+                    if (Main.Garage.ContainsKey(veh.Value._Garage.GarageId))
                     {
-                        player.SendChatMessage($"Транспорт {veh.Value.ModelHash} отправился в резерв, т.к находился в занятом гараже [{veh.Value._Garage.GarageId}]");
-                        veh.Value._Garage.GarageId = -1;
-                        veh.Value._Garage.GarageSlot = -1;
-                        MySql.Query($"UPDATE `vehiclesgarage` SET `GarageId` = '-1', " +
-                                $"`GarageSlot` = '-1'" +
-                                $"WHERE `VehicleId` = '{veh.Value.Id}'");
+                        if (veh.Value._Garage.GarageSlot <= Main.GarageTypes[Main.Garage[veh.Value._Garage.GarageId].GarageType].VehiclePosition.Count - 1)
+                        {//todo Сделать проверку на занятый слот
+                            var vehpos = Main.GarageTypes[Main.Garage[veh.Value._Garage.GarageId].GarageType].VehiclePosition;
+                            SpawnPlayerVehicle(
+                                veh.Value.Id,
+                                new Vector3
+                                (
+                                    vehpos[veh.Value._Garage.GarageSlot].Position.X,
+                                    vehpos[veh.Value._Garage.GarageSlot].Position.Y,
+                                    vehpos[veh.Value._Garage.GarageSlot].Position.Z
+                                ),
+                                vehpos[veh.Value._Garage.GarageSlot].Rotation,
+                                (uint)veh.Value._Garage.GarageId);
+                            continue;
+                        }
+
                     }
+                    player.SendChatMessage($"Транспорт {veh.Value.ModelHash} отправился в резерв, т.к находился в занятом гараже [{veh.Value._Garage.GarageId}]");
+                    veh.Value._Garage.GarageId = -1;
+                    veh.Value._Garage.GarageSlot = -1;
+                    MySql.Query($"UPDATE `vehiclesgarage` SET `GarageId` = '-1', " +
+                            $"`GarageSlot` = '-1'" +
+                            $"WHERE `VehicleId` = '{veh.Value.Id}'");
                 }
             }
         }
@@ -535,7 +537,7 @@ namespace Server.vehicle
                 character.Api.GivePlayerDriftScore(player, score);
                 if (Main.Players1[player].TeleportId != -1)
                 {
-                    character.Record.CheckPlayerMapRecord(player, Main.Players1[player].TeleportId, score);
+                    character.Record.CheckPlayerMapRecord(player, Main.Players1[player].TeleportId,0, score);
                 }
                 Main.Players1[player].Character.Update("Level,Exp,Money");
                 character.achievements.Api.GivePlayerAchProgress(player, 0, 0, score);

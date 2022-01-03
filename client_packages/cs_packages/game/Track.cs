@@ -12,6 +12,7 @@ namespace cs_packages.game
         private static Blip blip;
         private static int totaltime = -1;
         private static bool activeTimer = false;
+        private static int Score;
 
         private static Checkpoint checkpoint;
         private Track()
@@ -28,17 +29,16 @@ namespace cs_packages.game
                 if (totaltime != 0)
                 {
                     Task.Run(TimeLost, 1000);
-                    Chat.Output(totaltime.ToString());
                 }
                 if (totaltime <= 0)
                 {
                     Events.CallRemote("remote_TimeLost");
                     blip.Destroy();
                     checkpoint.Destroy();
+                    Score = 0;
                     Chat.Output("Время вышло");
 
                     vehicle.DriftCounter.OnPlayerDrifting -= PlayerDrifting;
-                    Chat.Output("Отписка");
                 }
             }
         }
@@ -57,6 +57,8 @@ namespace cs_packages.game
             if (firstcp == 2 && Player.LocalPlayer.Vehicle != null)
             {
                 vehicle.DriftCounter.OnPlayerDrifting -= PlayerDrifting;
+                Events.CallRemote("remote_GetPlayerTrackScore", Score);//todo сделать валидацию
+                Score = 0;
             }
             if (time != 0)
             {
@@ -72,8 +74,10 @@ namespace cs_packages.game
 
             if (id == 999)
             {
+                
                 blip.Destroy();
                 checkpoint.Destroy();
+                Score = 0;
                 return;
             }
 
@@ -107,7 +111,11 @@ namespace cs_packages.game
             if(isCalled == false)
             {
                 vehicle.DriftCounter.OnPlayerDrifting -= PlayerDrifting;
+                Score = 0;
             }
+
+            Score += (int)Math.Floor(angle / 10);
+            Chat.Output(Score.ToString());
         }
     }
 }

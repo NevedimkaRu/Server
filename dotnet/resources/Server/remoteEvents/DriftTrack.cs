@@ -7,10 +7,10 @@ namespace Server.remoteEvents
     class DriftTrack : Script
     {
 
-        [RemoteEvent("remote_GetPlayerScore")]
+        [RemoteEvent("remote_GetPlayerTrackScore")]
         public void Remote_GetPlayerScore(Player player, int score)
         {
-            game.DriftTrack.SetPlayerTrackScore(player, score);
+            game.DriftTrack.SetPlayerTrackRecord(player, score);
         }
 
         [RemoteEvent("remote_TimeLost")]

@@ -28,13 +28,8 @@ namespace cs_packages.vehicle
             Events.OnPlayerEnterVehicle += OnPlayerEnterVehicle;
             Events.OnPlayerLeaveVehicle += OnPlayerLeaveVehicle;
             Events.Add("trigger_ResetDriftScore", ResetPlayerDriftScoreFromServer);
-            Events.Add("trigger_GetPlayerScore", GetPlayerScore);
         }
 
-        public void GetPlayerScore(object[] args)
-        {
-            Events.CallRemote("remote_GetPlayerScore", Score);
-        }
 
         private void OnPlayerEnterVehicle(Vehicle vehicle, int seatId)
         {

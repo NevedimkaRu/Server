@@ -39,15 +39,40 @@ namespace Server.character
                 }
             }
         }
-        public static void CheckPlayerMapRecord(Player player, int mapId, int score)
+
+        public static int GetPlayerMapRecord(Player player, int type, int mapId)
         {
+            if (Main.Players1[player].Records == null) return 0;
+            model.Record score = Main.Players1[player].Records.Find(c => c.MapId == mapId && c.Type == type);
+            if (score == null) return 0;
+            return score.Score;
+        }
+
+        public static void CheckPlayerMapRecord(Player player, int mapId, int type, int score)
+        {
+            string mapName = null;
+
+            switch (type)
+            {
+                case 0:
+                    {
+                        mapName = Main.Teleports.Find(c => c.Id == mapId).Name;
+                        break;
+                    }                
+                case 1:
+                    {
+                        mapName = Main.Traks.Find(c => c.Id == mapId).Name;
+                        break;
+                    }
+            }
+
             if(Main.Players1[player].Records == null)
             {
                 model.Record record = new model.Record();
                 record.CharacterId = Main.Players1[player].Character.Id;
                 record.MapId = mapId;
                 record.Score = score;
-                record.Type = 0;
+                record.Type = type;
                 if (Main.Veh.ContainsKey(Main.Players1[player].CarId))
                 {
                     record.VehicleHash = Main.Veh[Main.Players1[player].CarId].ModelHash;
@@ -55,25 +80,26 @@ namespace Server.character
                 record.Id = record.Insert();
                 Main.Players1[player].Records = new List<model.Record>();
                 Main.Players1[player].Records.Add(record);
-                player.SendChatMessage($"Вы установили новый личный рекорд {score} на трассе {Main.Teleports.Find(c => c.Id == mapId).Name}");
+                player.SendChatMessage($"Вы установили новый личный рекорд {score} на трассе {mapName}");
             }
             else
             {
-                model.Record record = Main.Players1[player].Records.Find(c => c.MapId == mapId);
+                model.Record record = Main.Players1[player].Records.Find(c => c.MapId == mapId && c.Type == type);
                 if(record == null)
                 {
                     record = new model.Record();
                     record.CharacterId = Main.Players1[player].Character.Id;
                     record.MapId = mapId;
                     record.Score = score;
-                    record.Type = 0;
+                    record.Type = type;
                     if (Main.Veh.ContainsKey(Main.Players1[player].CarId))
                     {
                         record.VehicleHash = Main.Veh[Main.Players1[player].CarId].ModelHash;
                     }
                     record.Id = record.Insert();
                     Main.Players1[player].Records.Add(record);
-                    player.SendChatMessage($"Вы установили новый личный рекорд {score} на трассе {Main.Teleports.Find(c => c.Id == mapId).Name}");
+
+                    player.SendChatMessage($"Вы установили новый личный рекорд {score} на трассе {mapName}");
                 }
                 else
                 {
@@ -85,7 +111,7 @@ namespace Server.character
                             record.VehicleHash = Main.Veh[Main.Players1[player].CarId].ModelHash;
                         }
                         record.Update("Score,VehicleHash");
-                        player.SendChatMessage($"Вы установили новый личный рекорд {score} на трассе {Main.Teleports.Find(c => c.Id == mapId).Name}"); 
+                        player.SendChatMessage($"Вы установили новый личный рекорд {score} на трассе {mapName}"); 
                     }
                 }
 

@@ -28,7 +28,6 @@ namespace Server.character
                 Main.Players1[player].Character = character;
 
                 player.Name = character.Name + "[" + player.Id + "]";
-                game.DriftTrack.LoadPlayerTrackScore(player);
                 await vehicle.Api.LoadPlayerVehice(player);
                 customization.Api.LoadCustomization(player, character.Id);
                 Main.Players1[player].Clothes = await clothes.Api.LoadPlayerClothes(player);

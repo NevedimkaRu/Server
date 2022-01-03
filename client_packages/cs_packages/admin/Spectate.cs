@@ -15,12 +15,17 @@ namespace cs_packages.admin
             Events.Add("trigger_Spectate", SpectateMode);
             //Events.OnEntityStreamIn += OnEntityStreamIn;
             RAGE.Nametags.Enabled = false;
-            //Events.Tick += Tick;
+            Events.Tick += Tick;
         }
 
         private void Tick(List<Events.TickNametagData> nametags)
         {
             if (!utils.Check.GetPlayerStatus(utils.Check.PlayerStatus.Spawn)) return;
+            //Отключение селектора оружия
+            RAGE.Game.Ui.HideHudComponentThisFrame(19);
+            RAGE.Game.Ui.HideHudComponentThisFrame(20);
+            RAGE.Game.Ui.HideHudComponentThisFrame(22);
+            //---------------------------
             foreach (Player player in Entities.Players.Streamed)
             {
                 /* Variables */

@@ -96,6 +96,13 @@ namespace Server.teleport
             {
                 utils.Trigger.ClientEvent(player, "trigger_Teleport", teleport.Position);
             }
+        }        
+        public static void TeleportToPosition(Player player, Vector3 position)
+        {
+            if (Main.Players1[player].State == PlayerModel.States.Teleporting) return;
+            Main.Players1[player].State = PlayerModel.States.Teleporting;
+            player.SendChatMessage("teleporting");
+            utils.Trigger.ClientEvent(player, "trigger_Teleport", position);
         }
     }
 }

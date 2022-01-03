@@ -6,26 +6,9 @@ using Server.utils;
 
 namespace Server.game
 {
-    //todo Интерфейс, на 0 чекпоинте сделать 3d текст и можно чекпоинт, который показывает направление
+    //todo Интерфейс, на 0 чекпоинте сделать 3d текст и можно чекпоинт, который показывает направление, проверка на выход из транспорта
     public class DriftTrack : Script
     {
-        public static async void LoadPlayerTrackScore(Player player)
-        {
-            DataTable dt = await MySql.QueryReadAsync($"SELECT * FROM `tracksrecords` WHERE `CharacterId` = {Main.Players1[player].Character.Id}");
-
-            if (dt != null || dt.Rows.Count != 0)
-            {
-                foreach (DataRow row in dt.Rows)
-                {
-                    TracksRecords model = new TracksRecords();
-                    model.Id = Convert.ToInt32(row["Id"]);
-                    model.CharacterId = Convert.ToInt32(row["CharacterId"]);
-                    model.Score = Convert.ToInt32(row["Score"]);
-                    model.TrackId = Convert.ToInt32(row["TrackId"]);
-                    Main.Players1[player].TracksRecords.Add(model);
-                }
-            }
-        }
         [ServerEvent(Event.ResourceStart)]
         public static void ResourceStart()
         {
@@ -73,18 +56,12 @@ namespace Server.game
                                 Main.Players1[player].Track.Positions[2],
                                 1);
                         });
-
-                        if (Track.GetPlayerTrackRecordByTrackId(player, Main.Players1[player].Track.Id) == -1)
+                        int score = character.Record.GetPlayerMapRecord(player, 1, traks.Id);
+                        if (score != 0)
                         {
-                            Track.InsertTrackRecordByTrackId(player, traks.Id);
-                        }
-
-                        TracksRecords track;
-                        track = Track.GetTrackRecordsByTrackId(player, traks.Id);
-
+                            player.SendChatMessage($"Ваш рекорд на трассе {traks.Name}: {score}");
+                        }                        
                         
-                        player.SendChatMessage($"Ваш рекорд на страссе {traks.Name}:" +
-                            $" {track.Score}");
                         break;
                     }
                 }
@@ -101,11 +78,6 @@ namespace Server.game
                         -1,
                         Main.Players1[player].Track.Positions[Main.Players1[player].Track._ColShapes.Count - 1],
                         2);
-
-                    NAPI.Task.Run(() =>
-                    {
-                        player.TriggerEvent("trigger_GetPlayerScore");//Получаем очков за дрифт
-                    });
                     
                     player.SendChatMessage("OMEDOTO KUZAIMASU!");
                 }
@@ -143,27 +115,11 @@ namespace Server.game
                 }
             }
         }
-        public static void SetPlayerTrackScore(Player player, int score)
+        public static void SetPlayerTrackRecord(Player player, int score)
         {
-            int playerscore = Track.GetPlayerTrackRecordByTrackId(player, Main.Players1[player].Track.Id);
-            if (Main.Players1.ContainsKey(player))
-            {
-                if (playerscore == -1)
-                {
-                    player.SendChatMessage("Если вы видите это сообщение, то всё пошло по пизде.");
-                }
-                else if (playerscore > score)//Если рекодр больше набранных очков
-                {
-                    Main.Players1[player].Track = null;
-                    Main.Players1[player].CurrentTrackIndex = -1;
-                }
-                else
-                {
-                    Track.UpdateTrackRecordByTrackId(player, Main.Players1[player].Track.Id, score);
-                    Main.Players1[player].Track = null;
-                    Main.Players1[player].CurrentTrackIndex = -1;
-                }
-            }
+            character.Record.CheckPlayerMapRecord(player, Main.Players1[player].Track.Id, 1, score);
+            Main.Players1[player].Track = null;
+            Main.Players1[player].CurrentTrackIndex = -1;
         }
 
         public static void TimeLost(Player player)

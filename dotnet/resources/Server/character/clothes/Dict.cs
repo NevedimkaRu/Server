@@ -6,6 +6,15 @@ namespace Server.character.clothes
 {
     public class Dict
     {
+        /*public static Dictionary<bool, Dictionary<int, Undershirts>> UndershirtsOnlyDict = new Dictionary<bool, Dictionary<int, Undershirts>>()
+        {
+            {true, new Dictionary<int, Undershirts>()
+            {
+                {255, new Undershirts(new Dictionary<int, int>(){ }) }
+            }}
+        }*/
+
+
         public static Dictionary<bool, Dictionary<int, Undershirts>> UndershirtsDict = new Dictionary<bool, Dictionary<int, Undershirts>>()
         {
             {true, new Dictionary<int, Undershirts>()
