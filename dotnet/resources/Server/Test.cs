@@ -280,11 +280,5 @@ namespace Server
             //int a = Convert.ToInt32(new Color(10, 10, 10));
             player.Vehicle.PrimaryPaint = new VehiclePaint(type);
         }
-
-        [Command("")]
-        public void cmd_TakePhoto(Player player, string vehHash)
-        {
-
-        }
     }
 }

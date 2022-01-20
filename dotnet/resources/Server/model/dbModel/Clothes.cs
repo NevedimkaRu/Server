@@ -12,35 +12,34 @@ namespace Server.model
             Legs = 4,
             Shoes = 6,
             Accessories = 7,
+            Undershirts = 8,
             Tops = 11
-        }
-
-        public Dictionary<bool, List<ClothesList>> ClothesList;
-        public Clothes(Dictionary<bool, List<ClothesList>> ClothesList)
-        {
-            this.ClothesList = ClothesList;
         }
     }
     public class ClothesList
     {
-        public int Drawable { get; set; }
-        public List<int> Textures { get; set; }
-        public int Palette { get; set; }
-        public int Type { get; set; } = -1;
-        public ClothesList(int Drawable, List<int> Textures, int Palette, int Type = -1)
+        public int Drawable { get; }
+        public List<int> Textures { get; }
+        public int SubUndershirtType { get; } = -1;
+        public int Palette { get; }
+        public int Type { get; } = -1;
+
+        public List<int> Undershirts { get; } = null;
+        public ClothesList(int Drawable, List<int> Textures, int Palette, List<int> Underhisrts = null)
         {
             this.Drawable = Drawable;
             this.Textures = Textures;
             this.Palette = Palette;
-            this.Type = Type;
+            this.Undershirts = Underhisrts;
         }
     }
-    public class Undershirts
+
+    public class UnderShirts
     {
-        public Dictionary<int,int> Drawables { get; set; }//key - type, value - drawable
-        public Undershirts(Dictionary<int, int> Drawables, bool IsUnderhirtOnly = false)
+        public List<int> Textures { get; set; }
+        public UnderShirts(List<int> Textures)
         {
-            this.Drawables = Drawables;
+            this.Textures = Textures;
         }
     }
 

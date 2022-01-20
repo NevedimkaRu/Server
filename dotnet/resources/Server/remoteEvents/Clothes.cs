@@ -40,7 +40,7 @@ namespace Server.remoteEvents
         [RemoteEvent("remote_CloseClothesStore")]
         public void Remote_CloseClothesStore(Player player)
         {
-            Api.SetDefaultPlayerClothes(player, Main.Players1[player].Clothes);
+            //Api.SetDefaultPlayerClothes(player, Main.Players1[player].Clothes);
             if (Main.TempClothes.ContainsKey(player)) Main.TempClothes.Remove(player);
         }
         [RemoteEvent("remote_BuyCloth")]

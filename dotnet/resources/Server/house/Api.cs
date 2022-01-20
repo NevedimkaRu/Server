@@ -39,7 +39,6 @@ namespace Server.house
                 model.Cost = Convert.ToInt32(row["Cost"]);
                 model.Closed = Convert.ToBoolean(row["Closed"]);
                 model._Owner = Convert.ToString(row["Name"]);
-                model._Dimension = (uint)model.Id;
                 string textlable;
 
                 if (model.CharacterId != -1)
@@ -139,6 +138,7 @@ namespace Server.house
         }
         public static void PlayerEnterHouse(Player player, int houseid)
         {
+            if (!Main.Houses.ContainsKey(houseid)) return;
             if (Main.Houses[houseid].Closed)
             {
                 player.SendChatMessage("Дом закрыт");
@@ -146,7 +146,7 @@ namespace Server.house
             else
             {
                 player.Position = Main.HousesInteriors[Main.Houses[houseid].InteriorId].Position;
-                player.Dimension = Main.Houses[houseid]._Dimension;
+                DimensionManager.SetPlayerDimension(player, DimensionManager.Type.House, houseid);
                 Main.Players1[player].HouseId = houseid;
                 utils.Other.RequestPlayerIpl(player, Main.HousesInteriors[Main.Houses[houseid].InteriorId].InteriorIpl);
             }
@@ -154,7 +154,7 @@ namespace Server.house
 
         public static void PlayerBuyHouse(Player player, int houseid)
         {
-            if (!Main.Houses.ContainsKey(houseid) || Check.GetPlayerStatus(player, Check.PlayerStatus.Spawn)) return;
+            if (!Main.Houses.ContainsKey(houseid) || !Check.GetPlayerStatus(player, Check.PlayerStatus.Spawn)) return;
             player.SendChatMessage($"Вы купили дом[{houseid}] за {Main.Houses[houseid].Cost}");
             Main.Houses[houseid].CharacterId = Main.Players1[player].Character.Id;
 
@@ -169,7 +169,15 @@ namespace Server.house
                new Vector3(0, 0, 0),
                1.0f,
                new Color(207, 207, 207));
-
+            foreach(var garage in Main.Garage)
+            {
+                if(garage.Value.HouseId == houseid)
+                {
+                    garage.Value.CharacterId = Main.Players1[player].Character.Id;
+                    garage.Value.Update("CharacterId");
+                    break;
+                }
+            }
             Main.Houses[houseid].Update("CharacterId");
         }
         public void ClearHouseInfo(int houseid)
@@ -188,7 +196,7 @@ namespace Server.house
                1.0f,
                new Color(207, 207, 207));
 
-            foreach(var garage in Main.Garage)
+            foreach(var garage in Main.Garage)//todo переделать
             {
                 if(garage.Value.HouseId == houseid)
                 {
@@ -211,7 +219,7 @@ namespace Server.house
             Main.Houses[houseid].Update("CharacterId");
             Main.Houses[houseid].Update("Closed");
         }
-
+        //todo убрать
         [Command("buyhouse", GreedyArg = true)]
         public void cmd_BuyHouse(Player player, string houseid)
         {

@@ -76,7 +76,7 @@ namespace cs_packages.player
                     menuactive = false;
                     Events.Tick -= DrawMenu;
 
-                    Events.CallRemote("remote_EnterGarage",Player.LocalPlayer.Dimension,1);
+                    Events.CallRemote("remote_EnterGarage",-1,1);
                 }
                 if(itemdata == 2)
                 {
@@ -212,29 +212,18 @@ namespace cs_packages.player
                 else if (itemdata == 0)
                 {
                     Events.CallRemote("remote_EnterHouse", houseid);
-                    Chat.Activate(true);
-                    Chat.Show(true);
-                    menuactive = false;
-                    menuPool.CloseAllMenus();
-                    Events.Tick -= DrawMenu;
                 }
                 else if (itemdata == 3)
                 {
                     Events.CallRemote("remote_EnterGarage", houseid, 0);
-                    Chat.Activate(true);
-                    Chat.Show(true);
-                    menuactive = false;
-                    menuPool.CloseAllMenus();
-                    Events.Tick -= DrawMenu;
+
                 }
-                else if(itemdata == 2)
-                {
-                    Chat.Activate(true);
-                    Chat.Show(true);
-                    menuactive = false;
-                    menuPool.CloseAllMenus();
-                    Events.Tick -= DrawMenu;
-                }
+                else if(itemdata == 2) { } //Закрыть
+                Chat.Activate(true);
+                Chat.Show(true);
+                menuactive = false;
+                menuPool.CloseAllMenus();
+                Events.Tick -= DrawMenu;
             };
 
             menuPool.RefreshIndex();

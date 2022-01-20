@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using GTANetworkAPI;
 using Server.account;
 
@@ -9,9 +10,9 @@ namespace Server.remoteEvents
     class Account : Script
     {
         [RemoteEvent("remote_login")]
-        public async void Remote_LoginAccount(Player player, string login, string password, bool rememberMe)
+        public async Task Remote_LoginAccount(Player player, string login, string password, bool rememberMe)
         {
-            await Api.LoginAccount(player, login, password, rememberMe);
+           await Api.LoginAccount(player, login, password, rememberMe);
         }
 
         [RemoteEvent("remote_register")]

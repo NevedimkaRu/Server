@@ -15,10 +15,6 @@ namespace cs_packages.Interface
                 RAGE.Ui.Cursor.Visible = !RAGE.Ui.Cursor.Visible;
             });
             Events.Add("vui_isPhotoModeMenuOpen", ChangeMenuOpenStatus);
-            Input.Bind(RAGE.Ui.VirtualKeys.O, true, () =>
-            {
-                RAGE.Game.Misc.SetTimeScale(0);
-            });
             Events.OnPlayerCommand += cmd;
         }
 
@@ -60,20 +56,6 @@ namespace cs_packages.Interface
             {
                 OpenMenu();
             }
-            if (commandName == "maxpane")
-            {
-                RAGE.Game.Misc.SetTimeScale(Convert.ToSingle(args[1]));
-            }
-            if (commandName == "maxpane1")
-            {
-                RAGE.Game.Misc.SetThisScriptCanBePaused(true);
-                RAGE.Game.Misc.SetGamePaused(true);
-            }
-            if (commandName == "maxpane2")
-            {
-                RAGE.Game.Misc.SetGamePaused(false);
-            }
-
         }
     }
 }

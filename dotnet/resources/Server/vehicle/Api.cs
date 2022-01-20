@@ -194,7 +194,7 @@ namespace Server.vehicle
                                     vehpos[veh.Value._Garage.GarageSlot].Position.Z
                                 ),
                                 vehpos[veh.Value._Garage.GarageSlot].Rotation,
-                                (uint)veh.Value._Garage.GarageId);
+                                DimensionManager.GetDimensionFromId(DimensionManager.Type.Garage, veh.Value._Garage.GarageId));
                             continue;
                         }
 
@@ -299,7 +299,7 @@ namespace Server.vehicle
                                     vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Position.Z
                                 ),
                                 vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Rotation,
-                                (uint)Main.Veh[Main.Players1[player].CarId]._Garage.GarageId
+                                DimensionManager.GetDimensionFromId(DimensionManager.Type.Garage, Main.Veh[Main.Players1[player].CarId]._Garage.GarageId)
                             );
                         }
                     }
@@ -311,7 +311,6 @@ namespace Server.vehicle
                         int playCarId = Main.Players1[player].CarId;
                         //player.SendChatMessage(playCarId.ToString());
                         if (carid == playCarId) return;
-                        uint playerDim = player.Dimension;
                         player.WarpOutOfVehicle();
                         if(Main.Veh.ContainsKey(playCarId))
                         {
@@ -334,7 +333,7 @@ namespace Server.vehicle
                                             vehpos[Main.Veh[playCarId]._Garage.GarageSlot].Position.Z
                                         ),
                                         vehpos[Main.Veh[playCarId]._Garage.GarageSlot].Rotation,
-                                        (uint)Main.Veh[playCarId]._Garage.GarageId
+                                        DimensionManager.GetDimensionFromId(DimensionManager.Type.Garage, Main.Veh[playCarId]._Garage.GarageId)
                                     );
                             }
                         }
@@ -484,7 +483,7 @@ namespace Server.vehicle
                         vehpos[Main.Veh[carid]._Garage.GarageSlot].Position.Z
                     ),
                     vehpos[Main.Veh[carid]._Garage.GarageSlot].Rotation,
-                    (uint)Main.Veh[carid]._Garage.GarageId
+                    DimensionManager.GetDimensionFromId(DimensionManager.Type.Garage, Main.Veh[carid]._Garage.GarageId)
                 );
             }
             else
@@ -518,7 +517,7 @@ namespace Server.vehicle
                             vehpos[Main.Veh[carid]._Garage.GarageSlot].Position.Z
                         ),
                         vehpos[Main.Veh[carid]._Garage.GarageSlot].Rotation,
-                        (uint)Main.Veh[carid]._Garage.GarageId
+                        DimensionManager.GetDimensionFromId(DimensionManager.Type.Garage, Main.Veh[carid]._Garage.GarageId)
                     );
                 }
             }
@@ -594,7 +593,7 @@ namespace Server.vehicle
                     vehpos[Main.Veh[carid]._Garage.GarageSlot].Position.Z
                 ),
                 vehpos[Main.Veh[carid]._Garage.GarageSlot].Rotation,
-                (uint)Main.Veh[carid]._Garage.GarageId
+                DimensionManager.GetDimensionFromId(DimensionManager.Type.Garage, Main.Veh[carid]._Garage.GarageId)
             );
         }
 
@@ -614,7 +613,7 @@ namespace Server.vehicle
             int carid = AddVehicle(Convert.ToInt32(charid), vehhash);
             player.SendChatMessage($"Вы создали транспорт {vehhash}[{carid}]");
         }
-        [Command("tc")]
+        [Command("tptocar")]
         public void cmd_TeleportToCar(Player player, string carid)
         {
             player.Position = Main.Veh[Convert.ToInt32(carid)]._Veh.Position;

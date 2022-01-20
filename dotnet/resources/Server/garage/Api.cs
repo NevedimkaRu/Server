@@ -271,7 +271,7 @@ namespace Server.garage
                                             vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Position.Z
                                         ),
                                         vehpos[Main.Veh[Main.Players1[player].CarId]._Garage.GarageSlot].Rotation,
-                                        (uint)Main.Veh[Main.Players1[player].CarId]._Garage.GarageId
+                                        DimensionManager.GetDimensionFromId(DimensionManager.Type.Garage, Main.Veh[Main.Players1[player].CarId]._Garage.GarageId)
                                     );
 
                                 }
@@ -317,10 +317,8 @@ namespace Server.garage
                                 Other.RequestPlayerIpl(player, Main.GarageTypes[garage.Value.GarageType].Ipl);
                             }
                             TeleportInGarage(player, garage.Value.Id);
-                            /*player.Position = Main.GarageTypes[garage.Value.GarageType].ExitPosition;
-                            player.Dimension = (uint)garage.Value.Id;*/
                             Main.Players1[player].GarageId = garage.Value.Id;
-                            if(garage.Value.HouseId != -1) Main.Players1[player].HouseId = garage.Value.HouseId;
+                            //if(garage.Value.HouseId != -1) Main.Players1[player].HouseId = garage.Value.HouseId;
                             NAPI.Task.Run(() => { RespawnPlayerVehicle(veh.Value.Id); }, delayTime: 500);//todo Переделать под новый метод
                             return;
                         }
@@ -344,21 +342,24 @@ namespace Server.garage
             if (!Check.GetPlayerStatus(player, Check.PlayerStatus.Spawn) || player.Vehicle != null) return;
             foreach (var garage in Main.Garage)
             {
-                if (player.Position.DistanceTo(Main.GarageTypes[garage.Value.GarageType].Position) < 1.3f && garage.Value.Id == player.Dimension)
+                if (player.Position.DistanceTo(Main.GarageTypes[garage.Value.GarageType].Position) < 1.3f && garage.Value.Id == Main.Players1[player].GarageId)
                 {
                     if (garage.Value.HouseId != -1)
                     {
+                        Main.Players1[player].GarageId = -1;
+                        Main.Players1[player].HouseId = garage.Value.HouseId;
                         Other.PlayerFadeScreen(player, 500, 500, 2000);
                         NAPI.Task.Run(() =>
                         {
-                            player.Position = Main.HousesInteriors[Main.Houses[Main.Players1[player].HouseId].InteriorId].Position;
-                            player.Dimension = (uint)Main.Players1[player].HouseId;
+                            player.Position = Main.HousesInteriors[Main.Houses[garage.Value.HouseId].InteriorId].Position;
+                            DimensionManager.SetPlayerDimension(player, DimensionManager.Type.House, Main.Players1[player].HouseId);
+                            //player.Dimension = (uint)Main.Players1[player].HouseId;
                         }, delayTime: 500);
 
-                        Main.Players1[player].GarageId = -1;
-                        if (Main.HousesInteriors[Main.Houses[Main.Players1[player].HouseId].InteriorId].InteriorIpl != null)
+
+                        if (Main.HousesInteriors[Main.Houses[garage.Value.HouseId].InteriorId].InteriorIpl != null)
                         {
-                            utils.Other.RequestPlayerIpl(player, Main.HousesInteriors[Main.Houses[(int)player.Dimension].InteriorId].InteriorIpl);
+                            utils.Other.RequestPlayerIpl(player, Main.HousesInteriors[Main.Houses[garage.Value.HouseId].InteriorId].InteriorIpl);
                         }
                         return;
                     }
@@ -420,10 +421,10 @@ namespace Server.garage
                 {
                     foreach (var garage in Main.Garage)
                     {
-                        if (garage.Value.HouseId == garageid)
+                        if (garage.Value.HouseId == garage.Value.Id)
                         {
                             TeleportInGarage(player, garage.Value.Id);
-                            Main.Players1[player].HouseId = garageid;
+                            Main.Players1[player].HouseId = -1;
                             Main.Players1[player].GarageId = garage.Value.Id;
                             if (Main.GarageTypes[garage.Value.GarageType].Ipl != null)
                             {
@@ -437,10 +438,10 @@ namespace Server.garage
             {
                 foreach (var garage in Main.Garage)
                 {
-                    if (garage.Value.HouseId == garageid)
+                    if (garage.Value.HouseId == garage.Value.Id)
                     {
                         TeleportInGarage(player, garage.Value.Id);
-                        Main.Players1[player].HouseId = garageid;
+                        Main.Players1[player].HouseId = -1;
                         Main.Players1[player].GarageId = garage.Value.Id;
                         if (Main.GarageTypes[garage.Value.GarageType].Ipl != null)
                         {
@@ -470,7 +471,8 @@ namespace Server.garage
             Other.PlayerFadeScreen(player, 500, 500, 2000);
             NAPI.Task.Run(() => {
                 player.Position = Main.GarageTypes[Main.Garage[garageid].GarageType].Position;
-                player.Dimension = (uint)Main.Garage[garageid].Id;
+                DimensionManager.SetPlayerDimension(player, DimensionManager.Type.Garage, Main.Garage[garageid].Id);
+                //player.Dimension = (uint)Main.Garage[garageid].Id;
             }, delayTime: 500);
             
         }
