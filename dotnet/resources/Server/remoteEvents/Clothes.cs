@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using GTANetworkAPI;
+using Newtonsoft.Json.Linq;
 using Server.character.clothes;
 using Server.model;
 
@@ -52,6 +53,16 @@ namespace Server.remoteEvents
                 Main.TempClothes.Remove(player);
                 utils.Trigger.ClientEvent(player, "trigger_buyClothesSuccess");
             }
+        }
+
+        [RemoteProc("remote_GetDownTops")]
+        public string Remote_GetDownTops(Player player) {
+            JObject json = new Api().CreateUndershirtClothesJson(player);
+            if (json == null) 
+            {
+                return "null";
+            }
+            return json.ToString();
         }
     }
 }

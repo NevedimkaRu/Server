@@ -17,7 +17,7 @@ namespace Server.character.clothes
         public void OnResourceStart()
         {
             MaleClothesJson = CreateClothesJson(true).ToString();
-            //FemaleClothesJson = CreateClothesJson(false).ToString();
+            FemaleClothesJson = CreateClothesJson(false).ToString();
         }
 
         public static async Task<PlayerClothes> LoadPlayerClothes(Player player)
@@ -192,6 +192,7 @@ namespace Server.character.clothes
                     return false;
                 }
                 List<int> underList = Dict.Tops[gender][Main.Players1[player].Clothes.Top].Undershirts;
+                if (underList == null) return false;
                 foreach(var under in underList)
                 {
                     if(under == clothes)
@@ -276,7 +277,7 @@ namespace Server.character.clothes
                 while (i < MaleClothesJson.Length)
                 {
                     //player.SendChatMessage($"Передаётся порция {++testi}");
-                    player.TriggerEvent("trigger_bigPortionClothesData", MaleClothesJson.Substring(i, i + chunkSize - 1 < MaleClothesJson.Length ? chunkSize - 1: MaleClothesJson.Length - i));
+                    player.TriggerEvent("trigger_bigPortionClothesData", MaleClothesJson.Substring(i, i + chunkSize < MaleClothesJson.Length ? chunkSize : MaleClothesJson.Length - i));
                     i += chunkSize;
                 }
             }
@@ -285,7 +286,7 @@ namespace Server.character.clothes
                 int i = 0;
                 while (i < FemaleClothesJson.Length)
                 {
-                    player.TriggerEvent("trigger_bigPortionClothesData", FemaleClothesJson.Substring(i, i + chunkSize - 1 < FemaleClothesJson.Length ? chunkSize - 1: FemaleClothesJson.Length - i));
+                    player.TriggerEvent("trigger_bigPortionClothesData", FemaleClothesJson.Substring(i, i + chunkSize < FemaleClothesJson.Length ? chunkSize : FemaleClothesJson.Length - i));
                     i += chunkSize;
                 }
             }

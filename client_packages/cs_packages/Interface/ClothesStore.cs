@@ -19,10 +19,12 @@ namespace cs_packages.Interface
             Events.Add("vui_setCloth", SetCloth);
             Events.Add("vui_discardCloth", DiscardCloth);
             Events.Add("vui_buyCloth", BuyCloth);
+            Events.Add("vui_loadDownTops", LoadDownTops);
             Events.Add("trigger_buyClothesSuccess", BuySucces);
             Events.Add("trigger_buyClothesError", BuyError);
             Events.Add("trigger_bigPortionClothesData", BigPortionClothesData);
         }
+
 
         //todo Убрать жту срань
         private void UnableAFKCam()
@@ -37,6 +39,7 @@ namespace cs_packages.Interface
         private void BigPortionClothesData(object[] args)
         {
             clothesStoreData += args[0].ToString();
+            Chat.Output("ADIN");
         }
 
         private void BuyError(object[] args)
@@ -60,6 +63,12 @@ namespace cs_packages.Interface
             Events.CallRemote("remote_DiscardCloth");
         }
 
+        private async void LoadDownTops(object[] args)
+        {
+            string data = (string)await RAGE.Events.CallRemoteProc("remote_GetDownTops");
+            Vui.VuiModals($"ClothesStore.setDownTops({data})");
+        }
+
         private void SetCloth(object[] args)
         {
             
@@ -78,6 +87,7 @@ namespace cs_packages.Interface
         {
             Vui.VuiModals("openClothesStoreMenu()");
             Vui.VuiModals($"ClothesStore.fillData({ clothesStoreData });");
+            Chat.Output(clothesStoreData.Substring(0, 200));
         }
 
         private void ChangeMenuOpenStatus(object[] args)

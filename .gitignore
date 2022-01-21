@@ -340,3 +340,8 @@ ASALocalRun/
 healthchecksdb
 /client_packages/cs_packages/utils/_DebugUtils.cs
 *.rpf
+
+
+launchSettings.json
+server_exceptions.txt
+server_logs.txt
